@@ -5,8 +5,16 @@
     <link>https://willzhengai.github.io/the-ai-brief/</link>
     <description>A curated weekly digest of the most important developments in artificial intelligence.</description>
     <language>en-us</language>
-    <lastBuildDate>Fri, 07 Mar 2026 12:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 14 Mar 2026 12:00:00 +0000</lastBuildDate>
     <atom:link href="https://willzhengai.github.io/the-ai-brief/feed.xml" rel="self" type="application/rss+xml"/>
+
+    <item>
+      <title>Issue #2: Power, Profit, and Panic — AI's Most Turbulent Week Yet</title>
+      <link>https://willzhengai.github.io/the-ai-brief/issues/2026-03-14.html</link>
+      <guid>https://willzhengai.github.io/the-ai-brief/issues/2026-03-14.html</guid>
+      <pubDate>Fri, 14 Mar 2026 12:00:00 +0000</pubDate>
+      <description>GPT-5.4 brings AI to Excel with Wall Street data feeds, Google's Nano Banana 2 hits 650M users, the Pentagon blacklists Anthropic, and the AI consciousness debate erupts.</description>
+    </item>
 
     <item>
       <title>Issue #1: The Race Heats Up — GPT-5 Benchmarks, EU AI Act Enforcement Begins</title>
