@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>The AI Brief</title>
+    <link>https://willzhengai.github.io/the-ai-brief/</link>
+    <description>A curated weekly digest of the most important developments in artificial intelligence.</description>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 07 Mar 2026 12:00:00 +0000</lastBuildDate>
+    <atom:link href="https://willzhengai.github.io/the-ai-brief/feed.xml" rel="self" type="application/rss+xml"/>
+
+    <item>
+      <title>Issue #1: The Race Heats Up — GPT-5 Benchmarks, EU AI Act Enforcement Begins</title>
+      <link>https://willzhengai.github.io/the-ai-brief/issues/2026-03-07.html</link>
+      <guid>https://willzhengai.github.io/the-ai-brief/issues/2026-03-07.html</guid>
+      <pubDate>Fri, 07 Mar 2026 12:00:00 +0000</pubDate>
+      <description>OpenAI's GPT-5 benchmarks leak early, the EU AI Act enters its enforcement phase, and the open-source community rallies around a surprising new contender.</description>
+    </item>
+
+  </channel>
+</rss>

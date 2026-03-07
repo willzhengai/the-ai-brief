@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Issue #1 — The AI Brief</title>
+  <meta name="description" content="GPT-5 benchmarks leak early, EU AI Act enforcement begins, and the open-source community rallies around a surprising new contender.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="../index.html" class="site-logo">
+        <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="28" height="28" rx="6" fill="#2563eb"/>
+          <path d="M7 8h14M7 14h10M7 20h12" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+        The AI Brief
+      </a>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <path d="M3 6h18M3 12h18M3 18h18"/>
+        </svg>
+      </button>
+      <nav class="site-nav">
+        <a href="../index.html">Issues</a>
+        <a href="../about.html">About</a>
+        <a href="../feed.xml">RSS</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- Issue Header -->
+    <div class="issue-header">
+      <div class="issue-meta">
+        <span class="issue-number">Issue #1</span>
+        <span>March 7, 2026</span>
+      </div>
+      <h1>The Race Heats Up: GPT-5 Benchmarks, EU AI Act Enforcement Begins</h1>
+    </div>
+
+    <!-- Editorial -->
+    <section class="editorial">
+      <h2>Editor's Take</h2>
+      <p>This week marked a turning point in the AI industry. Leaked benchmarks for OpenAI's GPT-5 show significant gains in reasoning and multimodal tasks, but perhaps more interesting is the narrowing gap between proprietary and open-source models. The frontier is no longer the exclusive domain of well-funded labs.</p>
+      <p>Meanwhile, the EU AI Act officially entered its enforcement phase on March 1st. Companies now face real consequences for non-compliance, and the ripple effects are already visible — from updated terms of service to hastily assembled compliance teams. The regulation era of AI is no longer theoretical.</p>
+      <p>On the open-source front, DeepSeek's latest release has turned heads with performance that rivals models ten times its parameter count. Efficient architectures may be the story of 2026, not brute-force scaling. The implications for deployment costs, edge computing, and accessibility are enormous.</p>
+    </section>
+
+    <!-- Curated Links -->
+    <section class="curated-links">
+      <h2>This Week's Top Stories</h2>
+
+      <!-- Research -->
+      <article class="link-item">
+        <div class="link-item-header">
+          <h3><a href="#" target="_blank" rel="noopener">GPT-5 Benchmark Results Leaked: Reasoning Scores Jump 40%</a></h3>
+          <span class="source-badge">ArXiv</span>
+          <span class="category-tag research">Research</span>
+        </div>
+        <p class="link-summary">Preliminary benchmark results attributed to OpenAI's next-generation model show a 40% improvement in multi-step reasoning tasks and near-human performance on graduate-level science exams. The results, posted anonymously to ArXiv, have not been officially confirmed but align with insider expectations.</p>
+      </article>
+
+      <!-- Industry -->
+      <article class="link-item">
+        <div class="link-item-header">
+          <h3><a href="#" target="_blank" rel="noopener">Google DeepMind Unveils Gemini Ultra 2.0 with Real-Time Video Understanding</a></h3>
+          <span class="source-badge">The Verge</span>
+          <span class="category-tag industry">Industry</span>
+        </div>
+        <p class="link-summary">Google DeepMind's latest Gemini release can process and reason about live video streams in real time, opening new possibilities for robotics, surveillance, and accessibility tools. The model is available through a limited API preview starting next week.</p>
+      </article>
+
+      <!-- Policy -->
+      <article class="link-item">
+        <div class="link-item-header">
+          <h3><a href="#" target="_blank" rel="noopener">EU AI Act Enforcement Begins: What Companies Need to Know</a></h3>
+          <span class="source-badge">Reuters</span>
+          <span class="category-tag policy">Policy</span>
+        </div>
+        <p class="link-summary">The European Union's AI Act moved from paper to practice this week as enforcement mechanisms went live. High-risk AI systems must now meet transparency and safety requirements, with fines up to 7% of global revenue for violations. Early guidance documents suggest regulators will focus initially on foundation model providers.</p>
+      </article>
+
+      <!-- Open Source -->
+      <article class="link-item">
+        <div class="link-item-header">
+          <h3><a href="#" target="_blank" rel="noopener">DeepSeek-V3 Punches Above Its Weight with Novel MoE Architecture</a></h3>
+          <span class="source-badge">Hugging Face</span>
+          <span class="category-tag open-source">Open Source</span>
+        </div>
+        <p class="link-summary">DeepSeek's V3 model, using a mixture-of-experts architecture with only 16B active parameters, matches the performance of dense models five times its size on key benchmarks. Fully open-source with permissive licensing, it's already the most-downloaded model on Hugging Face this month.</p>
+      </article>
+
+      <!-- Opinion -->
+      <article class="link-item">
+        <div class="link-item-header">
+          <h3><a href="#" target="_blank" rel="noopener">The Scaling Laws Are Breaking — And That's a Good Thing</a></h3>
+          <span class="source-badge">MIT Technology Review</span>
+          <span class="category-tag opinion">Opinion</span>
+        </div>
+        <p class="link-summary">A thought-provoking essay argues that the end of simple scaling laws forces the field toward more creative, efficient approaches. Rather than a crisis, the plateau in brute-force scaling may accelerate breakthroughs in architecture design, data curation, and training methodology.</p>
+      </article>
+
+      <!-- Tutorial -->
+      <article class="link-item">
+        <div class="link-item-header">
+          <h3><a href="#" target="_blank" rel="noopener">Building a Local RAG Pipeline with DeepSeek-V3 and LangChain</a></h3>
+          <span class="source-badge">Towards Data Science</span>
+          <span class="category-tag tutorial">Tutorial</span>
+        </div>
+        <p class="link-summary">A step-by-step guide to building a retrieval-augmented generation pipeline that runs entirely on local hardware. Uses DeepSeek-V3 as the base model, ChromaDB for vector storage, and LangChain for orchestration. Includes benchmarks showing viable performance on a single RTX 4090.</p>
+      </article>
+
+    </section>
+
+    <!-- Issue Navigation -->
+    <nav class="issue-nav">
+      <span></span>
+      <span></span>
+    </nav>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      &copy; 2026 The AI Brief. All rights reserved.
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The AI Brief — Weekly AI News Digest</title>
+  <meta name="description" content="A curated weekly digest of the most important developments in artificial intelligence.">
+  <link rel="alternate" type="application/rss+xml" title="The AI Brief RSS" href="feed.xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="site-logo">
+        <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="28" height="28" rx="6" fill="#2563eb"/>
+          <path d="M7 8h14M7 14h10M7 20h12" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+        The AI Brief
+      </a>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <path d="M3 6h18M3 12h18M3 18h18"/>
+        </svg>
+      </button>
+      <nav class="site-nav">
+        <a href="index.html">Issues</a>
+        <a href="about.html">About</a>
+        <a href="feed.xml">RSS</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- Hero -->
+    <section class="hero">
+      <h1>The AI Brief</h1>
+      <p class="tagline">Your weekly digest of what matters in artificial intelligence.</p>
+    </section>
+
+    <!-- Search -->
+    <div class="search-bar">
+      <input type="text" id="search-input" class="search-input" placeholder="Search issues…" aria-label="Search issues">
+    </div>
+
+    <!-- Issue List -->
+    <ul class="issue-list" id="issue-list">
+
+      <li>
+        <a href="issues/2026-03-07.html" class="issue-card" data-search="claude gpt-5 eu ai act open source deepseek gemini">
+          <div class="issue-meta">
+            <span class="issue-number">Issue #1</span>
+            <span>March 7, 2026</span>
+          </div>
+          <h2>The Race Heats Up: GPT-5 Benchmarks, EU AI Act Enforcement Begins</h2>
+          <p class="issue-summary">OpenAI's GPT-5 benchmarks leak early, the EU AI Act enters its enforcement phase, and the open-source community rallies around a surprising new contender.</p>
+        </a>
+      </li>
+
+    </ul>
+
+    <p class="no-results" id="no-results">No issues found matching your search.</p>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      &copy; 2026 The AI Brief. All rights reserved.
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
