@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Issue #001 — The AI Brief</title>
+  <meta name="description" content="Why luxury brands choose black and gold while fast food chains reach for red and yellow — the science of color psychology in branding, and how companies use color tiers to signal good, better, best.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .demo-section { margin: 2rem 0; }
+    .demo-section h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 1rem; }
+    .demo-section h4 { font-size: 0.95rem; font-weight: 600; margin: 1.5rem 0 0.75rem; }
+    .demo-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--color-text-muted); }
+    .palette-row { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1rem; }
+    .swatch { width: 56px; height: 56px; border-radius: 8px; border: 1px solid rgba(0,0,0,0.08); display: flex; align-items: flex-end; justify-content: center; padding-bottom: 4px; }
+    .swatch-label { font-size: 0.55rem; font-weight: 700; text-align: center; line-height: 1.2; opacity: 0.9; }
+    .brand-compare { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1rem 0 2rem; }
+    @media (max-width: 640px) { .brand-compare { grid-template-columns: 1fr; } }
+    .brand-card { border: 1px solid var(--color-border); border-radius: 10px; overflow: hidden; }
+    .brand-card-banner { height: 48px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1rem; letter-spacing: 0.02em; }
+    .brand-card-body { padding: 1rem; }
+    .brand-card-body .brand-name { font-size: 0.95rem; font-weight: 700; }
+    .brand-card-body .brand-position { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.5rem; }
+    .brand-card-body .brand-signal { font-size: 0.85rem; color: var(--color-text-muted); line-height: 1.5; }
+    .brand-card-body .brand-colors-row { display: flex; gap: 0.35rem; margin-top: 0.5rem; }
+    .brand-card-body .mini-swatch { width: 20px; height: 20px; border-radius: 4px; border: 1px solid rgba(0,0,0,0.1); }
+    .tier-ladder { display: flex; flex-direction: column; gap: 0; margin: 1rem 0 2rem; border-radius: 12px; overflow: hidden; border: 1px solid var(--color-border); }
+    .tier-rung { display: flex; align-items: center; gap: 1rem; padding: 1rem 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .tier-rung:last-child { border-bottom: none; }
+    .tier-color-block { width: 48px; height: 48px; border-radius: 8px; flex-shrink: 0; border: 1px solid rgba(0,0,0,0.08); }
+    .tier-info { flex: 1; }
+    .tier-name { font-weight: 700; font-size: 0.95rem; }
+    .tier-detail { font-size: 0.8rem; opacity: 0.85; }
+    .tier-fee { font-size: 0.85rem; font-weight: 700; text-align: right; white-space: nowrap; }
+    .shade-gradient { display: flex; border-radius: 12px; overflow: hidden; margin: 1rem 0 2rem; border: 1px solid var(--color-border); }
+    .shade-step { flex: 1; padding: 1.25rem 1rem; text-align: center; min-height: 100px; display: flex; flex-direction: column; justify-content: center; }
+    .shade-step-label { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; }
+    .shade-step-detail { font-size: 0.7rem; opacity: 0.8; }
+    .iphone-compare { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1rem 0 2rem; }
+    @media (max-width: 640px) { .iphone-compare { grid-template-columns: 1fr; } }
+    .iphone-group { border: 1px solid var(--color-border); border-radius: 10px; padding: 1.25rem; }
+    .iphone-group-title { font-size: 0.85rem; font-weight: 700; }
+    .iphone-group-sub { font-size: 0.75rem; color: var(--color-text-muted); margin-bottom: 0.75rem; }
+    .iphone-swatches { display: flex; gap: 0.5rem; }
+    .iphone-swatch { display: flex; flex-direction: column; align-items: center; gap: 0.3rem; }
+    .iphone-swatch-circle { width: 36px; height: 36px; border-radius: 50%; border: 1px solid rgba(0,0,0,0.1); }
+    .iphone-swatch-name { font-size: 0.6rem; color: var(--color-text-muted); text-align: center; max-width: 50px; line-height: 1.2; }
+    .demo-divider { border: none; border-top: 1px solid var(--color-border); margin: 2rem 0; }
+    .insight-box { background: #f0f4ff; border-left: 3px solid var(--color-accent); border-radius: 0 8px 8px 0; padding: 1rem 1.25rem; margin: 1.5rem 0; font-size: 0.9rem; line-height: 1.6; }
+    .insight-box strong { color: var(--color-accent); }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="../index.html" class="site-logo">
+        <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="28" height="28" rx="6" fill="#2563eb"/>
+          <path d="M7 8h14M7 14h10M7 20h12" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+        The AI Brief
+      </a>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <path d="M3 6h18M3 12h18M3 18h18"/>
+        </svg>
+      </button>
+      <nav class="site-nav">
+        <a href="../index.html">Issues</a>
+        <a href="../about.html">About</a>
+        <a href="../feed.xml">RSS</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- Issue Header -->
+    <div class="issue-header">
+      <div class="issue-meta">
+        <span class="issue-number">Special Issue #001</span>
+        <span>March 11, 2026</span>
+      </div>
+      <h1>The Color of Money: How Brands Use Color to Signal Cheap, Premium, and Everything Between</h1>
+    </div>
+
+    <!-- Editorial -->
+    <section class="editorial">
+      <h2>Editor's Take</h2>
+      <p>Walk into a McDonald's and you're bathed in red and yellow. Step into a Louis Vuitton boutique and you're surrounded by brown, gold, and black. This isn't an accident — it's decades of color psychology at work. The colors a brand chooses are among the most powerful, yet invisible, signals it sends about price, quality, and who it's for.</p>
+      <p>The pattern is remarkably consistent across industries. Budget brands gravitate toward warm, high-energy colors — reds, yellows, and oranges — that stimulate appetite, create urgency, and say "come on in, everyone's welcome." Luxury brands do the opposite: they retreat into blacks, golds, navys, and whites — colors that whisper exclusivity, restraint, and timelessness. Dunkin' is orange and pink. Starbucks Reserve is black and gold. Taco Bell is purple and pink. Prada is black and white. The palette tells you the price point before you see a single number.</p>
+      <p>But perhaps the most fascinating pattern emerges when a single brand uses color to create a ladder. American Express doesn't just sell credit cards — it sells Green, Gold, Platinum, and Black, each color a rung on a status ladder that customers are invited to climb. Chase uses the same blue across its Sapphire cards but deepens the shade for the premium tier. Apple reserves vivid, playful colors for the standard iPhone and gives the Pro muted titanium tones. Same brand, same product category — but color creates the hierarchy.</p>
+      <p>This issue is a visual exploration of how color works as a language of value. We'll look at the science, the brand examples, and the surprisingly universal grammar that connects a Dunkin' Donuts drive-through to a Ritz-Carlton lobby.</p>
+    </section>
+
+    <!-- ==================== PART 1: LUXURY vs. BUDGET ==================== -->
+    <section class="curated-links">
+      <h2>Part 1: The Two Palettes — Luxury vs. Budget</h2>
+
+      <!-- DEMO: Color Palettes -->
+      <div class="demo-section">
+        <h3>The Luxury Palette</h3>
+        <p class="demo-label">Colors associated with wealth, exclusivity, and premium quality</p>
+        <div class="palette-row">
+          <div class="swatch" style="background:#1a1a1a;">
+            <span class="swatch-label" style="color:#999;">Black</span>
+          </div>
+          <div class="swatch" style="background:#C5A54E;">
+            <span class="swatch-label" style="color:#fff;">Gold</span>
+          </div>
+          <div class="swatch" style="background:#1B2A4A;">
+            <span class="swatch-label" style="color:#8ba3c9;">Navy</span>
+          </div>
+          <div class="swatch" style="background:#4A0E4E;">
+            <span class="swatch-label" style="color:#c89ecb;">Purple</span>
+          </div>
+          <div class="swatch" style="background:#f5f5f0;">
+            <span class="swatch-label" style="color:#888;">White</span>
+          </div>
+          <div class="swatch" style="background:linear-gradient(135deg, #C0C0C0, #E8E8E8);">
+            <span class="swatch-label" style="color:#666;">Silver</span>
+          </div>
+        </div>
+        <p style="font-size:0.85rem; color:var(--color-text-muted); line-height:1.6; margin-bottom:1.5rem;">Black conveys power and sophistication. Gold signals wealth and heritage. Navy communicates trust and authority. Purple — historically the most expensive dye, once reserved for royalty — implies rarity. White and silver suggest modern minimalism and refinement.</p>
+
+        <h3>The Budget Palette</h3>
+        <p class="demo-label">Colors associated with value, accessibility, and everyday appeal</p>
+        <div class="palette-row">
+          <div class="swatch" style="background:#DA291C;">
+            <span class="swatch-label" style="color:#fff;">Red</span>
+          </div>
+          <div class="swatch" style="background:#FFC72C;">
+            <span class="swatch-label" style="color:#7a5600;">Yellow</span>
+          </div>
+          <div class="swatch" style="background:#FF6900;">
+            <span class="swatch-label" style="color:#fff;">Orange</span>
+          </div>
+          <div class="swatch" style="background:#FF69B4;">
+            <span class="swatch-label" style="color:#fff;">Pink</span>
+          </div>
+          <div class="swatch" style="background:#00A651;">
+            <span class="swatch-label" style="color:#fff;">Bright Green</span>
+          </div>
+        </div>
+        <p style="font-size:0.85rem; color:var(--color-text-muted); line-height:1.6;">Red stimulates appetite and urgency. Yellow evokes happiness and friendliness. Orange encourages impulse buying. Bright pink says playful and accessible. These high-energy, warm colors are designed to draw you in quickly — the opposite of luxury's "you come to us" restraint.</p>
+      </div>
+
+      <hr class="demo-divider">
+
+      <!-- DEMO: Brand Comparison Cards -->
+      <div class="demo-section">
+        <h3>Brand Matchups: Same Industry, Opposite Palettes</h3>
+
+        <h4>&#9749; Coffee</h4>
+        <div class="brand-compare">
+          <!-- Dunkin -->
+          <div class="brand-card">
+            <div class="brand-card-banner" style="background: linear-gradient(135deg, #FF6900, #E6399B); color: #fff;">DUNKIN'</div>
+            <div class="brand-card-body">
+              <div class="brand-name">Dunkin'</div>
+              <div class="brand-position" style="color:#FF6900;">Everyday Value</div>
+              <div class="brand-colors-row">
+                <div class="mini-swatch" style="background:#FF6900;"></div>
+                <div class="mini-swatch" style="background:#E6399B;"></div>
+                <div class="mini-swatch" style="background:#fff;"></div>
+              </div>
+              <p class="brand-signal">Orange and hot pink say "quick, fun, affordable." The palette triggers impulse and energy — grab a coffee on the go, no pretension needed.</p>
+            </div>
+          </div>
+          <!-- Starbucks Reserve -->
+          <div class="brand-card">
+            <div class="brand-card-banner" style="background: linear-gradient(135deg, #1E3932, #00704A); color: #fff;">STARBUCKS RESERVE</div>
+            <div class="brand-card-body">
+              <div class="brand-name">Starbucks Reserve</div>
+              <div class="brand-position" style="color:#1E3932;">Premium Experience</div>
+              <div class="brand-colors-row">
+                <div class="mini-swatch" style="background:#1E3932;"></div>
+                <div class="mini-swatch" style="background:#00704A;"></div>
+                <div class="mini-swatch" style="background:#C5A572;"></div>
+              </div>
+              <p class="brand-signal">Deep green and gold convey craft, nature, and quiet sophistication. The Reserve Roastery line uses muted tones to separate itself from the everyday green siren.</p>
+            </div>
+          </div>
+        </div>
+
+        <h4>&#127828; Fast Food vs. Fast Food</h4>
+        <div class="brand-compare">
+          <!-- Taco Bell -->
+          <div class="brand-card">
+            <div class="brand-card-banner" style="background: linear-gradient(135deg, #702082, #E6399B); color: #fff;">TACO BELL</div>
+            <div class="brand-card-body">
+              <div class="brand-name">Taco Bell</div>
+              <div class="brand-position" style="color:#702082;">Affordable &amp; Playful</div>
+              <div class="brand-colors-row">
+                <div class="mini-swatch" style="background:#702082;"></div>
+                <div class="mini-swatch" style="background:#E6399B;"></div>
+                <div class="mini-swatch" style="background:#fff;"></div>
+              </div>
+              <p class="brand-signal">Purple and pink say "creative, young, indulgent." Approachable and unconventional — "Live M&aacute;s" on a budget.</p>
+            </div>
+          </div>
+          <!-- McDonald's -->
+          <div class="brand-card">
+            <div class="brand-card-banner" style="background: linear-gradient(135deg, #DA291C, #FFC72C); color: #fff;">McDONALD'S</div>
+            <div class="brand-card-body">
+              <div class="brand-name">McDonald's</div>
+              <div class="brand-position" style="color:#DA291C;">Mass-Market Value</div>
+              <div class="brand-colors-row">
+                <div class="mini-swatch" style="background:#DA291C;"></div>
+                <div class="mini-swatch" style="background:#FFC72C;"></div>
+                <div class="mini-swatch" style="background:#fff;"></div>
+              </div>
+              <p class="brand-signal">Red and yellow — the classic fast food formula. Red stimulates appetite and urgency; yellow triggers happiness and comfort. Together they say: eat now, feel good, spend little.</p>
+            </div>
+          </div>
+        </div>
+
+        <h4>&#128092; Luxury Fashion</h4>
+        <div class="brand-compare">
+          <!-- Louis Vuitton -->
+          <div class="brand-card">
+            <div class="brand-card-banner" style="background: linear-gradient(135deg, #2c1a05, #6B4226); color: #C5A54E;">LOUIS VUITTON</div>
+            <div class="brand-card-body">
+              <div class="brand-name">Louis Vuitton</div>
+              <div class="brand-position" style="color:#6B4226;">Ultra-Luxury Heritage</div>
+              <div class="brand-colors-row">
+                <div class="mini-swatch" style="background:#6B4226;"></div>
+                <div class="mini-swatch" style="background:#C5A54E;"></div>
+                <div class="mini-swatch" style="background:#1a1a1a;"></div>
+              </div>
+              <p class="brand-signal">Deep brown and gold evoke heritage, craft, and old-world wealth. The monogram brown is instantly recognizable — a century-old signal of luxury that needs no explanation.</p>
+            </div>
+          </div>
+          <!-- Prada -->
+          <div class="brand-card">
+            <div class="brand-card-banner" style="background: linear-gradient(135deg, #0a0a0a, #1a1a1a); color: #fff;">PRADA</div>
+            <div class="brand-card-body">
+              <div class="brand-name">Prada</div>
+              <div class="brand-position" style="color:#1a1a1a;">Avant-Garde Luxury</div>
+              <div class="brand-colors-row">
+                <div class="mini-swatch" style="background:#0a0a0a;"></div>
+                <div class="mini-swatch" style="background:#ffffff; border:1px solid #ddd;"></div>
+              </div>
+              <p class="brand-signal">Black and white in their most minimal form. No warmth, no embellishment — just stark, intellectual elegance. The restraint itself is the statement.</p>
+            </div>
+          </div>
+        </div>
+
+        <h4>&#127976; Hospitality</h4>
+        <div class="brand-compare">
+          <!-- Holiday Inn -->
+          <div class="brand-card">
+            <div class="brand-card-banner" style="background: linear-gradient(135deg, #006341, #4EAE53); color: #fff;">HOLIDAY INN</div>
+            <div class="brand-card-body">
+              <div class="brand-name">Holiday Inn</div>
+              <div class="brand-position" style="color:#006341;">Reliable Mid-Range</div>
+              <div class="brand-colors-row">
+                <div class="mini-swatch" style="background:#006341;"></div>
+                <div class="mini-swatch" style="background:#4EAE53;"></div>
+                <div class="mini-swatch" style="background:#fff;"></div>
+              </div>
+              <p class="brand-signal">Bright, friendly green says "clean, trustworthy, welcoming." Approachable and practical — a hotel for everyone, not a select few.</p>
+            </div>
+          </div>
+          <!-- Ritz-Carlton -->
+          <div class="brand-card">
+            <div class="brand-card-banner" style="background: linear-gradient(135deg, #0C2340, #1B365D); color: #B4975A;">THE RITZ-CARLTON</div>
+            <div class="brand-card-body">
+              <div class="brand-name">The Ritz-Carlton</div>
+              <div class="brand-position" style="color:#0C2340;">Ultra-Luxury Hospitality</div>
+              <div class="brand-colors-row">
+                <div class="mini-swatch" style="background:#0C2340;"></div>
+                <div class="mini-swatch" style="background:#B4975A;"></div>
+                <div class="mini-swatch" style="background:#8C1515;"></div>
+              </div>
+              <p class="brand-signal">Deep navy, gold, and a touch of lion-crest red. The palette channels European aristocracy — trust, wealth, and old-money refinement.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="insight-box">
+        <strong>Key Insight:</strong> Luxury brands use achromatic or muted colors (black, white, navy, gold) because restraint signals confidence — they don't need to shout. Budget brands use warm, saturated colors (red, yellow, orange) because visibility and emotional stimulation drive volume and impulse purchases.
+      </div>
+
+    </section>
+
+    <hr class="demo-divider">
+
+    <!-- ==================== PART 2: WITHIN-BRAND TIERS ==================== -->
+    <section class="curated-links">
+      <h2>Part 2: The Color Ladder — Good, Better, Best Within One Brand</h2>
+
+      <p style="font-size:0.95rem; line-height:1.7; margin-bottom:1.5rem; color:var(--color-text-muted);">Some brands don't just pick one color — they use a spectrum of colors to create a product hierarchy. The color itself becomes the tier system, signaling to customers where they sit on the ladder, and where they might aspire to climb.</p>
+
+      <!-- DEMO: AmEx Tier Ladder -->
+      <div class="demo-section">
+        <h3>American Express — The Color Ladder</h3>
+        <p style="font-size:0.85rem; color:var(--color-text-muted); line-height:1.6; margin-bottom:0.75rem;">AmEx's card hierarchy is the textbook example of color-as-status. Each card level has its own color, creating a visual ladder from entry to ultra-premium.</p>
+
+        <div class="tier-ladder">
+          <!-- Centurion (Black) -->
+          <div class="tier-rung" style="background:#0a0a0a; color:#fff;">
+            <div class="tier-color-block" style="background:linear-gradient(135deg, #1a1a1a, #333); box-shadow:0 2px 8px rgba(0,0,0,0.5);"></div>
+            <div class="tier-info">
+              <div class="tier-name">Centurion (Black Card)</div>
+              <div class="tier-detail">Invite-only &middot; Ultimate power &amp; discretion</div>
+            </div>
+            <div class="tier-fee">~$5,000/yr<br><span style="font-size:0.7rem;opacity:0.7;">+$10K initiation</span></div>
+          </div>
+          <!-- Platinum -->
+          <div class="tier-rung" style="background:#3D3D4E; color:#fff;">
+            <div class="tier-color-block" style="background:linear-gradient(135deg, #A8A9AD, #D1D2D6);"></div>
+            <div class="tier-info">
+              <div class="tier-name">Platinum Card</div>
+              <div class="tier-detail">Ultra-premium &middot; Cool exclusivity &amp; refinement</div>
+            </div>
+            <div class="tier-fee">$695/yr</div>
+          </div>
+          <!-- Gold -->
+          <div class="tier-rung" style="background:#5C4A1E; color:#fff;">
+            <div class="tier-color-block" style="background:linear-gradient(135deg, #C5A54E, #E8D48B);"></div>
+            <div class="tier-info">
+              <div class="tier-name">Gold Card</div>
+              <div class="tier-detail">Premium &middot; Warmth, value, "you've arrived"</div>
+            </div>
+            <div class="tier-fee">$325/yr</div>
+          </div>
+          <!-- Green -->
+          <div class="tier-rung" style="background:#1B4332; color:#fff;">
+            <div class="tier-color-block" style="background:linear-gradient(135deg, #2D8B4E, #5AB87A);"></div>
+            <div class="tier-info">
+              <div class="tier-name">Green Card</div>
+              <div class="tier-detail">Entry premium &middot; Growth, stability, "getting started"</div>
+            </div>
+            <div class="tier-fee">$150/yr</div>
+          </div>
+        </div>
+
+        <div class="insight-box">
+          <strong>The Psychology:</strong> The progression from green &rarr; gold &rarr; platinum &rarr; black mirrors nature &rarr; warmth &rarr; cold refinement &rarr; void/power. Each step removes color warmth, adding gravitas. The most exclusive card is the most colorless — black absorbs everything and reveals nothing.
+        </div>
+      </div>
+
+      <hr class="demo-divider">
+
+      <!-- DEMO: Chase Sapphire Shade Gradient -->
+      <div class="demo-section">
+        <h3>Chase Sapphire — Same Color, Deeper Shade</h3>
+        <p style="font-size:0.85rem; color:var(--color-text-muted); line-height:1.6; margin-bottom:0.75rem;">Unlike AmEx's full color changes, Chase uses a more subtle approach: different shades of the same blue. The deeper the blue, the higher the tier. Same brand DNA, but the depth of color does the talking.</p>
+
+        <div class="shade-gradient">
+          <div class="shade-step" style="background:#1A5276; color:#fff;">
+            <div class="shade-step-label">Preferred</div>
+            <div class="shade-step-detail">$95/yr</div>
+            <div class="shade-step-detail" style="margin-top:0.25rem;">Accessible<br>Aspiration</div>
+          </div>
+          <div class="shade-step" style="background:#0B2545; color:#B8C9E0;">
+            <div class="shade-step-label">Reserve</div>
+            <div class="shade-step-detail">$795/yr</div>
+            <div class="shade-step-detail" style="margin-top:0.25rem;">Deeper Authority<br>Premium Trust</div>
+          </div>
+        </div>
+
+        <div class="insight-box">
+          <strong>The Psychology:</strong> Deeper shades of the same color signal greater depth of value. It's a technique borrowed from fashion — a navy suit reads more authoritative than a light blue one. Chase lets the shade do the selling without changing the brand identity.
+        </div>
+      </div>
+
+      <hr class="demo-divider">
+
+      <!-- DEMO: Apple iPhone Colors -->
+      <div class="demo-section">
+        <h3>Apple iPhone — Vivid vs. Muted</h3>
+        <p style="font-size:0.85rem; color:var(--color-text-muted); line-height:1.6; margin-bottom:0.75rem;">Apple uses a fundamentally different approach: standard iPhones get vibrant, expressive colors while Pro models get subdued, material-forward tones. The message is clear — the Pro is a serious tool, not a fashion accessory.</p>
+
+        <div class="iphone-compare">
+          <!-- Standard -->
+          <div class="iphone-group">
+            <div class="iphone-group-title">iPhone 16</div>
+            <div class="iphone-group-sub">Standard &middot; Fun, expressive, for everyone</div>
+            <div class="iphone-swatches">
+              <div class="iphone-swatch">
+                <div class="iphone-swatch-circle" style="background:#3C58B3;"></div>
+                <span class="iphone-swatch-name">Ultramarine</span>
+              </div>
+              <div class="iphone-swatch">
+                <div class="iphone-swatch-circle" style="background:#4FA5A7;"></div>
+                <span class="iphone-swatch-name">Teal</span>
+              </div>
+              <div class="iphone-swatch">
+                <div class="iphone-swatch-circle" style="background:#E8B4C8;"></div>
+                <span class="iphone-swatch-name">Pink</span>
+              </div>
+              <div class="iphone-swatch">
+                <div class="iphone-swatch-circle" style="background:#F5F5F0;"></div>
+                <span class="iphone-swatch-name">White</span>
+              </div>
+              <div class="iphone-swatch">
+                <div class="iphone-swatch-circle" style="background:#2C2C2E;"></div>
+                <span class="iphone-swatch-name">Black</span>
+              </div>
+            </div>
+          </div>
+          <!-- Pro -->
+          <div class="iphone-group">
+            <div class="iphone-group-title">iPhone 16 Pro</div>
+            <div class="iphone-group-sub">Pro &middot; Muted, serious, professional</div>
+            <div class="iphone-swatches">
+              <div class="iphone-swatch">
+                <div class="iphone-swatch-circle" style="background:#C2A77D;"></div>
+                <span class="iphone-swatch-name">Desert Titanium</span>
+              </div>
+              <div class="iphone-swatch">
+                <div class="iphone-swatch-circle" style="background:#4E5052;"></div>
+                <span class="iphone-swatch-name">Black Titanium</span>
+              </div>
+              <div class="iphone-swatch">
+                <div class="iphone-swatch-circle" style="background:#F0EDE5;"></div>
+                <span class="iphone-swatch-name">White Titanium</span>
+              </div>
+              <div class="iphone-swatch">
+                <div class="iphone-swatch-circle" style="background:#B0ADA5;"></div>
+                <span class="iphone-swatch-name">Natural Titanium</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="insight-box">
+          <strong>The Psychology:</strong> The standard iPhone says "express yourself." The Pro says "I'm a professional tool." By naming Pro colors after the material itself — titanium — Apple shifts the value signal from aesthetic to substance. You're not choosing a color; you're choosing an alloy.
+        </div>
+      </div>
+
+    </section>
+
+    <hr class="demo-divider">
+
+    <!-- ==================== PART 3: CURATED SOURCES ==================== -->
+    <section class="curated-links">
+      <h2>Sources &amp; Further Reading</h2>
+
+      <article class="link-item">
+        <div class="link-item-header">
+          <h3><a href="https://www.pathfind.com/insights/credit-card-designs-color-theory/" target="_blank" rel="noopener">How Color Theory Shapes Credit Card Designs and Marketing Strategies</a></h3>
+          <span class="source-badge">Pathfind</span>
+          <span class="category-tag research">Research</span>
+        </div>
+        <p class="link-summary">A detailed analysis of how financial institutions use color psychology in credit card design to communicate status, trust, and aspiration — from plain plastic to premium metal cards.</p>
+      </article>
+
+      <article class="link-item">
+        <div class="link-item-header">
+          <h3><a href="https://www.techgeekbuzz.com/blog/history-of-credit-card/" target="_blank" rel="noopener">Gold, Platinum, Black: The History and Reasoning Behind Credit Card Colors</a></h3>
+          <span class="source-badge">TechGeekBuzz</span>
+          <span class="category-tag research">Research</span>
+        </div>
+        <p class="link-summary">Traces the history of credit card color tiers from the 1960s gold card revolution to today's invite-only black cards and the socioeconomic signals behind each color.</p>
+      </article>
+
+      <article class="link-item">
+        <div class="link-item-header">
+          <h3><a href="https://www.hunterlab.com/blog/how-fast-food-utlizes-color/" target="_blank" rel="noopener">How Fast-Food Chains Utilize Color</a></h3>
+          <span class="source-badge">HunterLab</span>
+          <span class="category-tag research">Research</span>
+        </div>
+        <p class="link-summary">A color-science company explains why red and yellow dominate fast food branding — covering appetite stimulation, urgency signaling, and the biological mechanisms behind warm colors.</p>
+      </article>
+
+      <article class="link-item">
+        <div class="link-item-header">
+          <h3><a href="https://www.cnbc.com/select/chase-sapphire-reserve-2025-overhaul/" target="_blank" rel="noopener">Updated Chase Sapphire Reserve: Best-Ever Bonus, $795 Annual Fee</a></h3>
+          <span class="source-badge">CNBC Select</span>
+          <span class="category-tag industry">Industry</span>
+        </div>
+        <p class="link-summary">CNBC's coverage of the Chase Sapphire Reserve's 2025 overhaul — its increased annual fee from $550 to $795 and the card's deep blue metal design as a physical status symbol.</p>
+      </article>
+
+      <article class="link-item">
+        <div class="link-item-header">
+          <h3><a href="https://upgradedpoints.com/credit-cards/american-express-card-levels/" target="_blank" rel="noopener">American Express Card Levels: A Complete Guide to Every Tier</a></h3>
+          <span class="source-badge">Upgraded Points</span>
+          <span class="category-tag industry">Industry</span>
+        </div>
+        <p class="link-summary">A comprehensive breakdown of American Express's card hierarchy from the entry-level Green Card through Gold and Platinum to the invite-only Centurion Black Card.</p>
+      </article>
+
+      <article class="link-item">
+        <div class="link-item-header">
+          <h3><a href="https://appleinsider.com/articles/24/09/20/iphone-16-pro-hands-on-all-the-new-titanium-colors" target="_blank" rel="noopener">iPhone 16 Pro: Hands On with All the New Titanium Colors</a></h3>
+          <span class="source-badge">AppleInsider</span>
+          <span class="category-tag industry">Industry</span>
+        </div>
+        <p class="link-summary">Hands-on coverage of Apple's iPhone 16 Pro titanium colors and Apple's design strategy of muted tones for Pro models vs. vibrant colors for the standard line.</p>
+      </article>
+
+      <article class="link-item">
+        <div class="link-item-header">
+          <h3><a href="https://greenseedgroup.com/colour-psychology-in-food-marketing-the-colours-that-make-people-buy-and-why/" target="_blank" rel="noopener">Colour Psychology in Food Marketing: The Colours That Make People Buy</a></h3>
+          <span class="source-badge">Green Seed Group</span>
+          <span class="category-tag research">Research</span>
+        </div>
+        <p class="link-summary">A marketing analysis of how food brands leverage color psychology — why red triggers hunger, yellow creates comfort, and how budget food chains choose warm, high-saturation palettes.</p>
+      </article>
+
+    </section>
+
+    <!-- Issue Navigation -->
+    <nav class="issue-nav">
+      <span></span>
+      <a href="2026-03-07.html">Next Issue &rarr;</a>
+    </nav>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      &copy; 2026 The AI Brief. All rights reserved.
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>
