@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>The AI Brief</title>
+    <title>AI &amp; Org, Curated</title>
     <link>https://willzhengai.github.io/the-ai-brief/</link>
-    <description>A curated weekly digest of the most important developments in artificial intelligence.</description>
+    <description>A curated weekly digest on AI and organizational design — where invention meets innovation meets real impact.</description>
     <language>en-us</language>
     <lastBuildDate>Mon, 23 Mar 2026 12:00:00 +0000</lastBuildDate>
     <atom:link href="https://willzhengai.github.io/the-ai-brief/feed.xml" rel="self" type="application/rss+xml"/>
@@ -13,7 +13,7 @@
       <link>https://willzhengai.github.io/the-ai-brief/issues/2026-03-23.html</link>
       <guid>https://willzhengai.github.io/the-ai-brief/issues/2026-03-23.html</guid>
       <pubDate>Mon, 23 Mar 2026 12:00:00 +0000</pubDate>
-      <description>Jensen Huang declares AI agents the new OS, Karpathy's viral job map sparks backlash, and the hard evidence on GenAI productivity tells a complicated story.</description>
+      <description>Jensen Huang declares AI agents the new OS, Karpathy's viral job map sparks backlash, the hard evidence on GenAI productivity tells a complicated story — and why your people are too loyal to you.</description>
     </item>
 
     <item>
