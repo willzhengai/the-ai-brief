@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Issue #3 — The AI Brief</title>
+  <meta name="description" content="Jensen Huang declares AI agents the new OS, Karpathy's viral job map sparks backlash, and the hard evidence on GenAI productivity tells a complicated story.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="../index.html" class="site-logo">
+        <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="28" height="28" rx="6" fill="#2563eb"/>
+          <path d="M7 8h14M7 14h10M7 20h12" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+        The AI Brief
+      </a>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <path d="M3 6h18M3 12h18M3 18h18"/>
+        </svg>
+      </button>
+      <nav class="site-nav">
+        <a href="../index.html">Issues</a>
+        <a href="../about.html">About</a>
+        <a href="../feed.xml">RSS</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- Issue Header -->
+    <div class="issue-header">
+      <div class="issue-meta">
+        <span class="issue-number">Issue #3</span>
+        <span>March 23, 2026</span>
+      </div>
+      <h1>Agents, Jobs, and the Productivity Puzzle</h1>
+    </div>
+
+    <!-- Editorial -->
+    <section class="editorial">
+      <h2>Editor's Take</h2>
+      <p>This week crystallized a tension that will define the rest of 2026: the AI industry is shipping autonomous agents at breakneck speed, while the evidence on whether any of it actually makes us more productive remains stubbornly mixed. At GTC 2026, Jensen Huang declared OpenClaw — the open-source agent framework that went from zero to 250,000 GitHub stars in two months — "the operating system of intelligent computers," drawing explicit parallels to Windows and Linux. Anthropic's Claude Code now authors 4% of all public GitHub commits. Perplexity shipped a $200/month Mac mini that runs as your 24/7 digital proxy. Meta-backed Manus launched a desktop app that lets agents control your local files and applications. The message from Silicon Valley is unanimous: the age of the AI agent has arrived, and the operating system is being rewritten in real time.</p>
+      <p>Then Andrej Karpathy, OpenAI co-founder and the man who coined "vibe coding," published an interactive treemap scoring 342 U.S. occupations for AI exposure. It went viral instantly — 42% of jobs scored 7 or higher, covering 59.9 million workers and $3.7 trillion in wages. Elon Musk amplified it, declaring "all jobs will be optional." Within hours, Karpathy deleted the GitHub repository and clarified it was "a Saturday morning two-hour vibe-coded project." But the damage — or rather, the discourse — was done. The fundamental problem wasn't the visualization; it was the methodology. An LLM scored how replaceable jobs are by LLMs. That's not labor economics — it's a mirror looking at itself. The analysis omitted regulatory barriers, organizational inertia, demand elasticity, union resistance, and the simple human preference for dealing with other humans. Tasks are not jobs. Automating 60% of a role's tasks doesn't eliminate 60% of the role — it changes what the role looks like.</p>
+      <p>Which brings us to the hardest question: does GenAI actually boost productivity? The answer depends entirely on where you look. In the lab, BCG consultants using GPT-4 completed 12.2% more tasks, 25.1% faster, with 40% higher quality — but were 19% less likely to get correct answers when the task fell outside AI's capability frontier. In the real world, the picture dims. A Danish study of 25,000 workers across 7,000 workplaces found "no significant impact on earnings or recorded hours in any occupation." The Federal Reserve Bank of St. Louis estimates GenAI has saved just 1.6% of all U.S. work hours — meaningful in aggregate, modest per worker. And in Kenya, a randomized trial giving 640 entrepreneurs a GPT-4 business mentor found no average treatment effect at all: high performers gained roughly 15%, but low performers did 8% worse. The pattern is consistent: GenAI is a skill amplifier, not a skill equalizer. It widens the gap between those who already know what to ask for and those who don't. That's worth remembering the next time someone shows you a treemap that scores your job for obsolescence.</p>
+    </section>
+
+    <!-- Curated Links -->
+    <section class="curated-links">
+      <h2>This Week's Top Stories</h2>
+
+      <!-- 1. Jensen Huang GTC -->
+      <article class="link-item">
+        <div class="link-item-header">
+          <h3><a href="https://www.techrepublic.com/article/news-nvidia-gtc-2026-recap/" target="_blank" rel="noopener">Jensen Huang Declares AI Agents the New Operating System at GTC 2026</a></h3>
+          <span class="source-badge">TechRepublic / NVIDIA</span>
+          <span class="category-tag industry">Industry</span>
+        </div>
+        <p class="link-summary">At GTC 2026, Jensen Huang positioned OpenClaw as "the operating system of intelligent computers," comparing it to how Windows ushered in the PC era. NVIDIA launched NemoClaw — an enterprise-grade, open-source agentic AI stack built on top of OpenClaw — with one-command install, privacy guardrails, and an OpenShell sandbox that turns every RTX PC, DGX system, or cloud instance into an agent host. OpenClaw surpassed React to become the most-starred software project on GitHub at 250K+ stars. Huang's thesis: we're moving from an era of apps to an era of agents, and the platform layer is being decided right now.</p>
+      </article>
+
+      <!-- 2. OpenClaw, Claude Code, Manus, Perplexity -->
+      <article class="link-item">
+        <div class="link-item-header">
+          <h3><a href="https://www.cnbc.com/2026/03/18/metas-manus-launches-desktop-app-to-bring-its-ai-agent-onto-personal-devices.html" target="_blank" rel="noopener">The Agent Wars: OpenClaw vs. Claude Code vs. Perplexity Computer vs. Manus</a></h3>
+          <span class="source-badge">CNBC / 9to5Mac / Anthropic</span>
+          <span class="category-tag industry">Industry</span>
+        </div>
+        <p class="link-summary">Four competing visions of the AI agent era shipped within weeks of each other. OpenClaw (open-source, any OS, 100+ skills) is the grassroots favorite. Claude Code and Cowork (Anthropic) now author 4% of GitHub public commits, with Cowork bringing agent capabilities to non-developers — the Washington Post demoed it building a full website in minutes. Perplexity's Personal Computer is a dedicated Mac mini ($200/mo) running 24/7 as your digital proxy with audit trails and a kill switch. Meta-backed Manus launched "My Computer," a desktop app that lets agents interact with local files, apps, and workflows. The pattern: agents are moving from cloud chatbots to persistent, always-on OS-level presences.</p>
+      </article>
+
+      <!-- 3. Karpathy -->
+      <article class="link-item">
+        <div class="link-item-header">
+          <h3><a href="https://futurism.com/artificial-intelligence/openai-cofounder-analysis-jobs-ai" target="_blank" rel="noopener">Karpathy's AI Job Exposure Map Goes Viral, Then Gets Deleted</a></h3>
+          <span class="source-badge">Futurism / Fortune</span>
+          <span class="category-tag opinion">Opinion</span>
+        </div>
+        <p class="link-summary">On March 15, Andrej Karpathy published an interactive treemap scoring 342 BLS occupations on a 0–10 AI exposure scale using LLM-generated ratings. The result: 42% of jobs scored 7+, representing 59.9 million workers and $3.7 trillion in wages. It went viral — Elon Musk declared "all jobs will be optional" — before Karpathy deleted the repo and called it "a Saturday morning two-hour vibe-coded project." Critics flagged the core flaw: using an LLM to score LLM-replaceability is inherently circular. The analysis omitted demand elasticity, regulatory barriers, organizational resistance, and the distinction between automating tasks and eliminating jobs. CSEP's evaluation called the methodology "not peer-reviewed labor economics."</p>
+      </article>
+
+      <!-- 4. BCG -->
+      <article class="link-item">
+        <div class="link-item-header">
+          <h3><a href="https://www.hbs.edu/ris/Publication%20Files/24-013_d9b45b68-9e74-42d6-a1c6-c72fb70c7282.pdf" target="_blank" rel="noopener">BCG × Harvard: GenAI Boosts Consultants 12–25% — But Only Inside the "Jagged Frontier"</a></h3>
+          <span class="source-badge">Harvard Business School</span>
+          <span class="category-tag research">Research</span>
+        </div>
+        <p class="link-summary">The landmark "Navigating the Jagged Technological Frontier" study (Dell'Acqua et al., HBS Working Paper 24-013) tested 758 BCG consultants with GPT-4 access. Results: +12.2% more tasks completed, 25.1% faster, 40% higher quality — on tasks within AI's capability frontier. But on tasks outside that frontier, AI users were 19% less likely to produce correct solutions. A follow-up study found consultants using GenAI for data-science tasks scored 49 percentage points higher on coding benchmarks. The concept of the "jagged frontier" — where AI capabilities drop off unpredictably — remains the most useful framework for understanding when AI helps and when it hurts.</p>
+      </article>
+
+      <!-- 5. Denmark -->
+      <article class="link-item">
+        <div class="link-item-header">
+          <h3><a href="https://www.nber.org/papers/w33777" target="_blank" rel="noopener">Danish Study of 25,000 Workers: AI Chatbots Show Zero Impact on Earnings or Hours</a></h3>
+          <span class="source-badge">NBER / Fortune</span>
+          <span class="category-tag research">Research</span>
+        </div>
+        <p class="link-summary">Economists Anders Humlum and Emilie Vestergaard linked large-scale adoption surveys to administrative labor records across 25,000 Danish workers in 7,000 workplaces and 11 occupations. Their finding: "AI chatbots have had no significant impact on earnings or recorded hours in any occupation," ruling out effects larger than 2% two years after ChatGPT's launch. Users reported ~3% time savings on average, but only 3–7% of those gains translated to paychecks. The study challenges lab-based productivity findings by showing that real-world, economy-wide adoption has not yet moved the needle on measurable economic outcomes.</p>
+      </article>
+
+      <!-- 6. Fed St. Louis -->
+      <article class="link-item">
+        <div class="link-item-header">
+          <h3><a href="https://www.stlouisfed.org/on-the-economy/2025/feb/impact-generative-ai-work-productivity" target="_blank" rel="noopener">Fed Study: GenAI Saves 1.6% of U.S. Work Hours — Real but Modest</a></h3>
+          <span class="source-badge">Federal Reserve Bank of St. Louis</span>
+          <span class="category-tag research">Research</span>
+        </div>
+        <p class="link-summary">Alexander Bick (St. Louis Fed), Adam Blandin (Vanderbilt), and David Deming (Harvard) tracked GenAI adoption via the Real-Time Population Survey (Working Paper 2024-027, published in Management Science). They found GenAI saves 1.6% of all U.S. work hours, translating to roughly a 1.3% labor-productivity bump since ChatGPT's debut. Individual users report saving 5.4% of their time (~2.2 hours/week), but adoption remains partial — 32% of workers use GenAI, with sharp variation by sector: information services (14% of hours) vs. personal services (1.3%). The aggregate story: genuine savings, but far from transformative at the macro level.</p>
+      </article>
+
+      <!-- 7. Kenya -->
+      <article class="link-item">
+        <div class="link-item-header">
+          <h3><a href="https://newsroom.haas.berkeley.edu/research/gen-ai-experiment-shows-mixed-results-in-helping-small-businesses-grow/" target="_blank" rel="noopener">Kenya RCT: GenAI Helps Top Entrepreneurs 15%, Hurts Low Performers 8%</a></h3>
+          <span class="source-badge">UC Berkeley Haas / HBS</span>
+          <span class="category-tag research">Research</span>
+        </div>
+        <p class="link-summary">A five-month randomized controlled trial (Otis, Clarke, Delecourt, Holtz & Koning, HBS Working Paper 24-042) gave 640 Kenyan entrepreneurs access to a GPT-4 business mentor via WhatsApp. The headline: no average treatment effect on revenues or profits. But the heterogeneity was stark — high-performing entrepreneurs gained roughly 15% in revenue, while low performers declined approximately 8%. The gap was about 0.25 standard deviations. The mechanism: high performers asked for help on straightforward tasks where AI excels, while struggling entrepreneurs sought advice on complex, ambiguous problems where AI falters. GenAI amplified existing skill differences rather than leveling the playing field.</p>
+      </article>
+
+    </section>
+
+    <!-- Issue Navigation -->
+    <nav class="issue-nav">
+      <a href="2026-03-14.html">&larr; Previous Issue</a>
+      <span></span>
+    </nav>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      &copy; 2026 The AI Brief. All rights reserved.
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>
