@@ -5,8 +5,16 @@
     <link>https://willzhengai.github.io/the-ai-brief/</link>
     <description>A curated weekly digest on AI and organizational design — where invention meets innovation meets real impact.</description>
     <language>en-us</language>
-    <lastBuildDate>Mon, 06 Apr 2026 12:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 13 Apr 2026 12:00:00 +0000</lastBuildDate>
     <atom:link href="https://willzhengai.github.io/the-ai-brief/feed.xml" rel="self" type="application/rss+xml"/>
+
+    <item>
+      <title>Issue #6: AI in Your Wallet, 12 Agents Nobody Talks To, and the 2,000-Year Org Chart Problem</title>
+      <link>https://willzhengai.github.io/the-ai-brief/issues/2026-04-13.html</link>
+      <guid>https://willzhengai.github.io/the-ai-brief/issues/2026-04-13.html</guid>
+      <pubDate>Mon, 13 Apr 2026 12:00:00 +0000</pubDate>
+      <description>Perplexity moves into financial advisory, 12 agents per enterprise but 50% siloed — and the history of hierarchy from Rome to railroads, what Dorsey gets right about AI dismantling it, and what he's overstating.</description>
+    </item>
 
     <item>
       <title>Issue #5: The Next Models Are Coming, Agents Are Scaling — and None of It Matters Until You Rebuild the Process</title>
