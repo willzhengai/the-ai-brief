@@ -5,8 +5,16 @@
     <link>https://willzhengai.github.io/the-ai-brief/</link>
     <description>A curated weekly digest on AI and organizational design — where invention meets innovation meets real impact.</description>
     <language>en-us</language>
-    <lastBuildDate>Mon, 13 Apr 2026 12:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 20 Apr 2026 12:00:00 +0000</lastBuildDate>
     <atom:link href="https://willzhengai.github.io/the-ai-brief/feed.xml" rel="self" type="application/rss+xml"/>
+
+    <item>
+      <title>Issue #7: AI's Report Card Is In, Opus 4.7 Has Mixed Reviews, and What the First Emperor Can Teach You About Standardization</title>
+      <link>https://willzhengai.github.io/the-ai-brief/issues/2026-04-20.html</link>
+      <guid>https://willzhengai.github.io/the-ai-brief/issues/2026-04-20.html</guid>
+      <pubDate>Mon, 20 Apr 2026 12:00:00 +0000</pubDate>
+      <description>Stanford AI Index drops (50-84% of K-12 students use AI for schoolwork), JP Morgan's AI economics deck, Opus 4.7 ships with hallucination concerns, human scientists trounce AI agents, a lawyer gets suspended — and why Qin Shi Huang's 2,200-year-old lesson on centralization still holds.</description>
+    </item>
 
     <item>
       <title>Issue #6: AI in Your Wallet, 12 Agents Nobody Talks To, and the 2,000-Year Org Chart Problem</title>
