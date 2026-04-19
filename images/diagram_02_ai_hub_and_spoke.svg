@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 700" font-family="Helvetica, Arial, sans-serif">
+  <defs>
+    <style>
+      .title { font-size: 22px; font-weight: 700; fill: #1a1a1a; }
+      .subtitle { font-size: 14px; fill: #555; }
+      .hub-label { font-size: 16px; font-weight: 700; fill: white; text-anchor: middle; }
+      .hub-sub { font-size: 11px; fill: #dbeafe; text-anchor: middle; }
+      .spoke-label { font-size: 14px; font-weight: 700; fill: #1a1a1a; text-anchor: middle; }
+      .spoke-sub { font-size: 10px; fill: #4b5563; text-anchor: middle; }
+      .section-header { font-size: 13px; font-weight: 700; fill: #1e3a8a; text-anchor: middle; }
+      .section-body { font-size: 11px; fill: #374151; text-anchor: middle; }
+    </style>
+    <radialGradient id="hubGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#1e3a8a"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Header -->
+  <text x="500" y="35" text-anchor="middle" class="title">AI Hub-and-Spoke Operating Model</text>
+  <text x="500" y="57" text-anchor="middle" class="subtitle">Centralize infrastructure · Decentralize use cases · "Freedom within a frame" (BCG)</text>
+
+  <!-- Spokes (lines) -->
+  <line x1="500" y1="340" x2="240" y2="180" stroke="#94a3b8" stroke-width="2.5" stroke-dasharray="4,3"/>
+  <line x1="500" y1="340" x2="760" y2="180" stroke="#94a3b8" stroke-width="2.5" stroke-dasharray="4,3"/>
+  <line x1="500" y1="340" x2="160" y2="340" stroke="#94a3b8" stroke-width="2.5" stroke-dasharray="4,3"/>
+  <line x1="500" y1="340" x2="840" y2="340" stroke="#94a3b8" stroke-width="2.5" stroke-dasharray="4,3"/>
+  <line x1="500" y1="340" x2="240" y2="500" stroke="#94a3b8" stroke-width="2.5" stroke-dasharray="4,3"/>
+  <line x1="500" y1="340" x2="760" y2="500" stroke="#94a3b8" stroke-width="2.5" stroke-dasharray="4,3"/>
+
+  <!-- Central Hub -->
+  <circle cx="500" cy="340" r="115" fill="url(#hubGrad)" stroke="#1e3a8a" stroke-width="3"/>
+  <text x="500" y="305" class="hub-label">CENTRAL HUB</text>
+  <text x="500" y="325" class="hub-sub">— The Infrastructure —</text>
+  <text x="500" y="348" class="hub-sub">Platform &amp; Models</text>
+  <text x="500" y="363" class="hub-sub">Data &amp; Governance</text>
+  <text x="500" y="378" class="hub-sub">Security &amp; Guardrails</text>
+  <text x="500" y="393" class="hub-sub">Upskilling &amp; Strategy</text>
+
+  <!-- Spoke 1: Marketing (top-left) -->
+  <circle cx="200" cy="160" r="60" fill="#fef3c7" stroke="#f59e0b" stroke-width="2.5"/>
+  <text x="200" y="150" class="spoke-label">Marketing</text>
+  <text x="200" y="167" class="spoke-sub">100+ AI tools</text>
+  <text x="200" y="181" class="spoke-sub">early adopters</text>
+  <text x="200" y="195" class="spoke-sub">evaluate locally</text>
+
+  <!-- Spoke 2: Sales (top-right) -->
+  <circle cx="800" cy="160" r="60" fill="#fef3c7" stroke="#f59e0b" stroke-width="2.5"/>
+  <text x="800" y="150" class="spoke-label">Sales</text>
+  <text x="800" y="167" class="spoke-sub">region-specific</text>
+  <text x="800" y="181" class="spoke-sub">segment-specific</text>
+  <text x="800" y="195" class="spoke-sub">workflows</text>
+
+  <!-- Spoke 3: Legal (mid-left) -->
+  <circle cx="115" cy="340" r="60" fill="#fef3c7" stroke="#f59e0b" stroke-width="2.5"/>
+  <text x="115" y="330" class="spoke-label">Legal</text>
+  <text x="115" y="347" class="spoke-sub">contract mgmt</text>
+  <text x="115" y="361" class="spoke-sub">clause libraries</text>
+  <text x="115" y="375" class="spoke-sub">specialist tooling</text>
+
+  <!-- Spoke 4: Customer Service (mid-right) -->
+  <circle cx="885" cy="340" r="60" fill="#fef3c7" stroke="#f59e0b" stroke-width="2.5"/>
+  <text x="885" y="330" class="spoke-label">Service</text>
+  <text x="885" y="347" class="spoke-sub">customer-facing</text>
+  <text x="885" y="361" class="spoke-sub">nimbleness</text>
+  <text x="885" y="375" class="spoke-sub">local response</text>
+
+  <!-- Spoke 5: Operations (bottom-left) -->
+  <circle cx="200" cy="520" r="60" fill="#fef3c7" stroke="#f59e0b" stroke-width="2.5"/>
+  <text x="200" y="510" class="spoke-label">Operations</text>
+  <text x="200" y="527" class="spoke-sub">process-specific</text>
+  <text x="200" y="541" class="spoke-sub">experiments</text>
+
+  <!-- Spoke 6: R&D / Innovation (bottom-right) -->
+  <circle cx="800" cy="520" r="60" fill="#fef3c7" stroke="#f59e0b" stroke-width="2.5"/>
+  <text x="800" y="510" class="spoke-label">R&amp;D</text>
+  <text x="800" y="527" class="spoke-sub">3M model:</text>
+  <text x="800" y="541" class="spoke-sub">R&amp;D in divisions</text>
+
+  <!-- Bottom Evidence Box -->
+  <rect x="150" y="610" width="700" height="70" fill="#f9fafb" stroke="#e5e7eb" stroke-width="1" rx="6"/>
+  <text x="500" y="632" class="section-header">Evidence the split works</text>
+  <text x="500" y="650" class="section-body">McKinsey (2024): 70% of banks with centralized AI operating models reach production — vs. 30% for fully decentralized</text>
+  <text x="500" y="667" class="section-body">Dataiku: Companies that have scaled AI are 3× more likely to use a hub-and-spoke structure · Mastercard: publicly uses this model</text>
+</svg>

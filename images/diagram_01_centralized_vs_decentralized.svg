@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 550" font-family="Helvetica, Arial, sans-serif">
+  <defs>
+    <style>
+      .title { font-size: 22px; font-weight: 700; fill: #1a1a1a; }
+      .subtitle { font-size: 14px; fill: #555; }
+      .node-label { font-size: 13px; font-weight: 600; fill: #1a1a1a; text-anchor: middle; }
+      .node-sub { font-size: 11px; fill: #666; text-anchor: middle; }
+      .caption { font-size: 12px; fill: #444; font-style: italic; }
+    </style>
+  </defs>
+
+  <!-- Header -->
+  <text x="500" y="35" text-anchor="middle" class="title">Centralized vs. Decentralized Organization</text>
+
+  <!-- LEFT PANEL: Centralized -->
+  <text x="250" y="75" text-anchor="middle" class="title" style="font-size:16px;">Fully Centralized</text>
+  <text x="250" y="95" text-anchor="middle" class="subtitle">All decisions at HQ · slow · consistent</text>
+
+  <!-- Lines from HQ to units (centralized) -->
+  <line x1="250" y1="150" x2="120" y2="280" stroke="#9ca3af" stroke-width="2"/>
+  <line x1="250" y1="150" x2="190" y2="280" stroke="#9ca3af" stroke-width="2"/>
+  <line x1="250" y1="150" x2="260" y2="280" stroke="#9ca3af" stroke-width="2"/>
+  <line x1="250" y1="150" x2="330" y2="280" stroke="#9ca3af" stroke-width="2"/>
+  <line x1="250" y1="150" x2="400" y2="280" stroke="#9ca3af" stroke-width="2"/>
+
+  <!-- HQ node -->
+  <circle cx="250" cy="150" r="40" fill="#1e3a8a" stroke="#1e3a8a" stroke-width="2"/>
+  <text x="250" y="148" class="node-label" fill="white">HQ</text>
+  <text x="250" y="163" class="node-sub" fill="#cbd5e1">All decisions</text>
+
+  <!-- Business units (small, dependent) -->
+  <circle cx="120" cy="300" r="22" fill="#e5e7eb" stroke="#9ca3af" stroke-width="1.5"/>
+  <text x="120" y="305" class="node-sub">BU</text>
+  <circle cx="190" cy="300" r="22" fill="#e5e7eb" stroke="#9ca3af" stroke-width="1.5"/>
+  <text x="190" y="305" class="node-sub">BU</text>
+  <circle cx="260" cy="300" r="22" fill="#e5e7eb" stroke="#9ca3af" stroke-width="1.5"/>
+  <text x="260" y="305" class="node-sub">BU</text>
+  <circle cx="330" cy="300" r="22" fill="#e5e7eb" stroke="#9ca3af" stroke-width="1.5"/>
+  <text x="330" y="305" class="node-sub">BU</text>
+  <circle cx="400" cy="300" r="22" fill="#e5e7eb" stroke="#9ca3af" stroke-width="1.5"/>
+  <text x="400" y="305" class="node-sub">BU</text>
+
+  <!-- Caption left -->
+  <text x="250" y="380" text-anchor="middle" class="caption">Strong governance · bottleneck at top</text>
+  <text x="250" y="400" text-anchor="middle" class="caption">Misses local nuance · "pilot purgatory" avoided</text>
+  <text x="250" y="420" text-anchor="middle" class="caption">but innovation stalls</text>
+
+  <!-- Divider -->
+  <line x1="500" y1="80" x2="500" y2="440" stroke="#d1d5db" stroke-width="1" stroke-dasharray="4,4"/>
+
+  <!-- RIGHT PANEL: Decentralized -->
+  <text x="750" y="75" text-anchor="middle" class="title" style="font-size:16px;">Fully Decentralized</text>
+  <text x="750" y="95" text-anchor="middle" class="subtitle">Each BU autonomous · fast · fragmented</text>
+
+  <!-- Independent BUs (larger, no connections) -->
+  <circle cx="620" cy="180" r="35" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+  <text x="620" y="178" class="node-label">BU</text>
+  <text x="620" y="193" class="node-sub">own tools</text>
+
+  <circle cx="750" cy="160" r="35" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+  <text x="750" y="158" class="node-label">BU</text>
+  <text x="750" y="173" class="node-sub">own data</text>
+
+  <circle cx="880" cy="180" r="35" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+  <text x="880" y="178" class="node-label">BU</text>
+  <text x="880" y="193" class="node-sub">own rules</text>
+
+  <circle cx="650" cy="290" r="35" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+  <text x="650" y="288" class="node-label">BU</text>
+  <text x="650" y="303" class="node-sub">own vendors</text>
+
+  <circle cx="820" cy="290" r="35" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+  <text x="820" y="288" class="node-label">BU</text>
+  <text x="820" y="303" class="node-sub">own systems</text>
+
+  <!-- Caption right -->
+  <text x="750" y="380" text-anchor="middle" class="caption">Local nuance captured · fast iteration</text>
+  <text x="750" y="400" text-anchor="middle" class="caption">No shared leverage · incompatible scripts</text>
+  <text x="750" y="420" text-anchor="middle" class="caption">(the Warring States problem)</text>
+
+  <!-- Bottom caption -->
+  <text x="500" y="495" text-anchor="middle" class="title" style="font-size:14px; font-style:italic; fill:#6b7280;">Neither extreme wins. The answer is hub-and-spoke →</text>
+</svg>
