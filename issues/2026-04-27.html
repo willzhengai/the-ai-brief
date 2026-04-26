@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Issue #8 — AI & Org, Curated</title>
+  <meta name="description" content="Capital flows hit historic levels, presentations finally get an AI moment, ChatGPT Images 2.0 changes what 'real' photo means, and ChatGPT moves into workflows in ways that compress the agent-framework stack.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .source-list {
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+      margin-top: 0.75rem;
+      padding-top: 0.75rem;
+      border-top: 1px dashed var(--color-border);
+    }
+    .source-list strong {
+      color: var(--color-text);
+    }
+    .source-list a {
+      margin-right: 0.5rem;
+    }
+    .video-embed {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      max-width: 100%;
+      margin: 1.5rem 0;
+      border-radius: 8px;
+      border: 1px solid var(--color-border);
+    }
+    .video-embed iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+    .video-placeholder {
+      background: var(--color-bg-alt);
+      border: 1px dashed var(--color-border);
+      border-radius: 8px;
+      padding: 2rem 1rem;
+      text-align: center;
+      color: var(--color-text-muted);
+      font-size: 0.9rem;
+      margin: 1.5rem 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="../index.html" class="site-logo">
+        <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="28" height="28" rx="6" fill="#2563eb"/>
+          <rect x="14" width="14" height="28" rx="0 6 6 0" fill="#0d9488"/>
+          <path d="M7 8h14M7 14h10M7 20h12" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+        AI &amp; Org, Curated
+      </a>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <path d="M3 6h18M3 12h18M3 18h18"/>
+        </svg>
+      </button>
+      <nav class="site-nav">
+        <a href="../index.html">Issues</a>
+        <a href="../about.html">About</a>
+        <a href="../feed.xml">RSS</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- Issue Header -->
+    <div class="issue-header">
+      <div class="issue-meta">
+        <span class="issue-number">Issue #8</span>
+        <span>April 27, 2026</span>
+      </div>
+      <h1>Capital Flows Get Bigger, Slides Get Smarter, and ChatGPT Quietly Moves Into the Workflow Layer</h1>
+    </div>
+
+    <!-- ==================== -->
+    <!-- AI BRIEF, CURATED    -->
+    <!-- ==================== -->
+
+    <div class="section-divider">
+      <span class="section-label ai">AI Brief, Curated</span>
+    </div>
+
+    <!-- Editorial -->
+    <section class="editorial">
+      <h2>Editor's Take</h2>
+      <p>Four themes worth your attention this week. The capital moves got bigger again — Google's $40B Anthropic deal, Cursor's $2B raise, Cognition at $25B, Bezos's $10B AI lab — and the picture is becoming clearer that this is no longer about whether AI can scale, but about who can afford the energy bill. The number that mattered most to me wasn't a headline; it came from a conversation with Cigna's CTO, who told me their tech team has 1,000 people, with 100 focused specifically on AI transformation, and the engineering team has migrated to Cursor with over 80% of code now generated through it. That's the real product-market fit signal. Capital is following actual usage, not just promise.</p>
+      <p>Three other shifts deserve attention. Slides have finally had their AI moment — Claude Design and Writer are doing for presentations what nobody quite managed to do before. ChatGPT Images 2.0 is the first image model that makes me genuinely question how much real photography a marketing team still needs. And ChatGPT for Clinicians plus Workspace Agents are part of a quieter but more consequential shift: the workflow layer is being built directly into the chat interface, which raises a real question about how much room is left for the LangChain / LangGraph / n8n stack at the upper end of the market. Let's go through each.</p>
+    </section>
+
+    <!-- Curated Links -->
+    <section class="curated-links">
+      <h2>This Week's Top Stories</h2>
+
+      <!-- 1. Massive Capital Moves -->
+      <article class="link-item">
+        <div class="link-item-header">
+          <h3>Massive Capital Moves: Google's $40B Anthropic Deal, Cursor at $50B, and What Cigna's CTO Told Me</h3>
+          <span class="source-badge">Bloomberg / TechCrunch / CNBC</span>
+          <span class="category-tag industry">Industry</span>
+        </div>
+        <p class="link-summary">The capital concentration in AI hit a new threshold this week. Google announced an investment of up to <strong>$40 billion in Anthropic</strong> — $10B upfront in cash at a $350B valuation, $30B more contingent on performance targets — coming just days after Amazon's $25B Anthropic pledge. Google Cloud is also committing five gigawatts of compute to Anthropic over five years. Anthropic's annualized revenue has surged from $9B at the end of 2025 to over $30B today. Separately, <strong>Cursor</strong> is raising $2B+ at a $50B valuation as enterprise growth surges; <strong>Cognition AI</strong> is in talks at $25B; and <strong>Jeff Bezos's stealth AI lab</strong> is closing a $10B round to build models that understand the physical world.</p>
+
+        <p class="link-summary">When the numbers get this big, it's tempting to read them as froth. The data point I kept coming back to this week tells a different story. In a recent conversation with Cigna's CTO, he mentioned their tech organization has roughly <strong>1,000 people, with 100 dedicated specifically to AI transformation</strong>. Their engineering team has standardized on Cursor, and <strong>over 80% of code now flows through it</strong>. That's not a pilot. That's not a slide deck. That's a Fortune 50 healthcare insurer running production engineering on AI-generated code at scale. Multiply that pattern across the Fortune 500, and the $50B Cursor valuation suddenly looks less like a bubble and more like the market pricing in a product that has crossed into infrastructure category. The capital flows are big because the usage is real — and the usage data validates that this round of capital is finding actual product-market fit, not just narrative.</p>
+
+        <div class="source-list">
+          <strong>Sources:</strong>
+          <a href="https://www.bloomberg.com/news/articles/2026-04-24/google-plans-to-invest-up-to-40-billion-in-anthropic" target="_blank" rel="noopener">Bloomberg: Google's $40B Anthropic Investment</a> ·
+          <a href="https://techcrunch.com/2026/04/24/google-to-invest-up-to-40b-in-anthropic-in-cash-and-compute/" target="_blank" rel="noopener">TechCrunch</a> ·
+          <a href="https://www.cnbc.com/2026/04/24/google-to-invest-up-to-40-billion-in-anthropic-as-search-giant-spreads-its-ai-bets.html" target="_blank" rel="noopener">CNBC</a> ·
+          <a href="https://techcrunch.com/2026/04/17/sources-cursor-in-talks-to-raise-2b-at-50b-valuation-as-enterprise-growth-surges/" target="_blank" rel="noopener">TechCrunch: Cursor at $50B</a> ·
+          <a href="https://www.bloomberg.com/news/articles/2026-04-23/ai-coding-firm-cognition-in-funding-talks-at-25-billion-value" target="_blank" rel="noopener">Bloomberg: Cognition at $25B</a> ·
+          <a href="https://www.bloomberg.com/news/articles/2026-04-21/jeff-bezos-nears-10-billion-funding-round-for-ai-lab-ft-says" target="_blank" rel="noopener">Bloomberg: Bezos $10B AI Lab</a> ·
+          <a href="https://www.adwaitx.com/box-cursor-ai-partnership-enterprise-coding/" target="_blank" rel="noopener">Box: 85% Cursor adoption across 800+ developers</a>
+        </div>
+      </article>
+
+      <!-- 2. Presentations Finally Get an AI Moment -->
+      <article class="link-item">
+        <div class="link-item-header">
+          <h3>Slides Finally Get Their AI Moment: Claude Design and Writer Enterprise Show Real Promise</h3>
+          <span class="source-badge">Anthropic / TechCrunch / Writer</span>
+          <span class="category-tag industry">Industry</span>
+        </div>
+        <p class="link-summary">If you've ever sat at a blank PowerPoint at 11pm trying to turn rough notes into something presentable, you know why this category has been the white whale of productivity AI. Everyone wants it. Nobody has quite delivered. The early generation of "AI slide makers" produced slides that looked like AI slide makers had made them — generic templates, bad layouts, the visual equivalent of a form letter. This week feels like a real inflection.</p>
+
+        <p class="link-summary"><strong>Anthropic launched Claude Design</strong> on April 17 — a dedicated visual workspace inside Claude that lets you describe a slide deck, UI prototype, or marketing one-pager in plain language and get back something that looks like professional design work. Importantly, Claude Design is <strong>system design, not asset design</strong>: it's not competing with Canva or Figma for individual graphic creation. It's competing for the structured, multi-page, professional-document creation that has historically required real design skill. Editing tools include Comment, Edit, Draw, and a Tweaks button to adjust colors, layouts, or components conversationally. Powered by Claude Opus 4.7, it claims to take a coherent five-slide deck from rough prompt to presentation-ready in 10–20 minutes — versus 2–3 hours from a blank PowerPoint. Available on Pro, Max, Team, and Enterprise plans.</p>
+
+        <p class="link-summary"><strong>Writer's enterprise app</strong> is the other one to watch — and based on what I've seen in our enterprise version, it's showing genuine promise. Writer Agent generates on-brand presentations by extracting visual identity (colors, fonts, layouts) from uploaded PowerPoint templates and applying them automatically. Users can reference individual slides in chat to make targeted edits. The enterprise differentiator is governance: brand compliance, granular observability, and audit trails — the things that matter when slides represent the company externally and consistency matters more than creativity. Together, Claude Design and Writer represent the first credible attempt to solve the slide problem at the system level, not just by stitching templates together.</p>
+
+        <div class="video-placeholder">
+          [Live video demo to be inserted — Writer enterprise presentation generation in action]
+        </div>
+
+        <div class="source-list">
+          <strong>Sources:</strong>
+          <a href="https://techcrunch.com/2026/04/17/anthropic-launches-claude-design-a-new-product-for-creating-quick-visuals/" target="_blank" rel="noopener">TechCrunch: Claude Design Launch</a> ·
+          <a href="https://claude.com/resources/tutorials/using-claude-design-for-presentations-and-slide-decks" target="_blank" rel="noopener">Anthropic: Using Claude Design for Slides</a> ·
+          <a href="https://almcorp.com/blog/claude-design-anthropic-labs/" target="_blank" rel="noopener">ALM Corp: Claude Design vs. Figma and Canva</a> ·
+          <a href="https://writer.com/blog/new-roundup-march-2026/" target="_blank" rel="noopener">Writer: Scale Your Team's Expertise (Mar 2026 release notes)</a> ·
+          <a href="https://www.auxi.ai/blog/ai-powerpoint-tools-the-enterprise-guide-for-2026" target="_blank" rel="noopener">Auxi: AI PowerPoint Tools — Enterprise Guide 2026</a>
+        </div>
+      </article>
+
+      <!-- 3. ChatGPT Images 2.0 -->
+      <article class="link-item">
+        <div class="link-item-header">
+          <h3>ChatGPT Images 2.0: The First Image Model That Makes You Question How Much Real Photography You Need</h3>
+          <span class="source-badge">OpenAI / TechCrunch / Creative Bloq</span>
+          <span class="category-tag industry">Industry</span>
+        </div>
+        <p class="link-summary">OpenAI released <strong>gpt-image-2</strong> on April 21, and within 12 hours it had claimed the #1 spot on the Image Arena leaderboard by a +242 point margin — the largest lead ever recorded on that leaderboard. The headline feature is text rendering: the model now generates print-ready menus with accurate pricing, multilingual labels (Japanese, Korean, Chinese, Hindi, Bengali) without warped letters, and embedded working QR codes. It's also the first image model with native reasoning ("Thinking" mode) that lets it plan layouts before rendering, and outputs are 4K-resolution.</p>
+
+        <p class="link-summary">What makes this release different is the marketing-grade photorealism with deliberate imperfections — exactly the kind of output you'd send a creative team for review and not flag as AI. Real demos circulating this week include: a six-slide marketing deck for a fictional energy drink generated as a single prompt, restaurant menus that hold up under dense layouts, e-commerce product shots, branded campaign assets, and editorial-quality lifestyle imagery. A UCO Bank check generated by Images 2.0 went viral — and triggered fraud concerns severe enough to prompt fact-checks across Indian financial outlets. The Twitter chorus is back with the line "Graphic designers are cooked," which is an exaggeration, but the shift this time feels meaningful in a way prior generations didn't. For marketing teams making collateral at scale — campaign visuals, social assets, product photos — the question is no longer "can AI replace this?" but "how much real photography do we genuinely still need?"</p>
+
+        <div class="source-list">
+          <strong>Sources:</strong>
+          <a href="https://openai.com/index/introducing-chatgpt-images-2-0/" target="_blank" rel="noopener">OpenAI: Introducing ChatGPT Images 2.0</a> ·
+          <a href="https://techcrunch.com/2026/04/21/chatgpts-new-images-2-0-model-is-surprisingly-good-at-generating-text/" target="_blank" rel="noopener">TechCrunch: Surprisingly Good at Generating Text</a> ·
+          <a href="https://www.creativebloq.com/design/graphic-design/chatgpt-images-2-0-has-people-declaring-the-death-of-graphic-design-again" target="_blank" rel="noopener">Creative Bloq: Death of Graphic Design (Again)</a> ·
+          <a href="https://thenewstack.io/chatgpt-images-20-openai/" target="_blank" rel="noopener">The New Stack: OpenAI Now "Thinks" Before It Draws</a> ·
+          <a href="https://morphic.com/resources/how-to/chatgpt-images-2-use-cases-ecommerce-marketing-branding" target="_blank" rel="noopener">Morphic: E-commerce, Marketing, Branding Use Cases</a> ·
+          <a href="https://letsdatascience.com/news/chatgpt-images-20-sparks-viral-uco-bank-cheque-83bb460e" target="_blank" rel="noopener">Let's Data Science: Viral UCO Bank Check</a>
+        </div>
+      </article>
+
+      <!-- 4. Workflow Agents -->
+      <article class="link-item">
+        <div class="link-item-header">
+          <h3>ChatGPT for Clinicians + Workspace Agents: How Much Room Is Left for LangChain, LangGraph, and n8n?</h3>
+          <span class="source-badge">OpenAI / MobiHealthNews / ZenML</span>
+          <span class="category-tag industry">Industry</span>
+        </div>
+        <p class="link-summary">OpenAI shipped two product expansions this week that collectively signal a shift in where the workflow layer lives. <strong>ChatGPT for Clinicians</strong> launched April 22 — free for verified U.S. physicians, NPs, PAs, and pharmacists. It includes documentation drafting (referral letters, prior authorizations, patient instructions), clinical search with cited answers from journals, reusable workflow skills, CME support, and optional HIPAA compliance via Business Associate Agreement. Conversations are not used for training. Separately, <strong>ChatGPT Enterprise/EDU rolled out Workspace Agents</strong> that automate repeatable tasks across connected apps — Slack, Gmail, Google Drive, Salesforce — out of the box, no custom integration required.</p>
+
+        <p class="link-summary">Both releases raise an honest question for anyone running an AI roadmap: how much of the LangChain / LangGraph / n8n stack do we still need? The honest answer, based on what the evidence actually shows, is "less than you did six months ago, but not zero." For straightforward task automation — connecting a few SaaS apps, reading documents, drafting emails, monitoring a feed — the workspace agents now do natively what previously required a stitched-together LangChain script or an n8n workflow. The ROI of a custom agent framework for those use cases is rapidly compressing. But for production-grade multi-agent systems with explicit state management, observable graphs, durable execution across failures, and full programmatic control — what LangGraph 1.0 ships and what n8n's hybrid no-code/code platform supports — the workspace agent layer is not a substitute. ZenML's framework comparison is clear that LangGraph remains code-first and graph-explicit, while no-code platforms like n8n target business-critical systems where reliability and integration depth matter more than flexibility. The market is bifurcating: simple-and-many goes to the workspace agents, complex-and-controlled stays in the framework layer. The middle — the "we built our own LangChain wrapper for moderate workflow automation" tier — is the segment getting squeezed.</p>
+
+        <div class="source-list">
+          <strong>Sources:</strong>
+          <a href="https://openai.com/index/openai-for-healthcare/" target="_blank" rel="noopener">OpenAI: Introducing OpenAI for Healthcare</a> ·
+          <a href="https://www.mobihealthnews.com/news/openai-launches-chatgpt-clinicians" target="_blank" rel="noopener">MobiHealthNews: ChatGPT for Clinicians Launch</a> ·
+          <a href="https://www.pymnts.com/artificial-intelligence-2/2026/openai-treats-healthcare-with-new-chatgpt-for-clinicians/" target="_blank" rel="noopener">PYMNTS: OpenAI Treats Healthcare</a> ·
+          <a href="https://www.zenml.io/blog/langgraph-vs-n8n" target="_blank" rel="noopener">ZenML: LangGraph vs n8n</a> ·
+          <a href="https://hostadvice.com/blog/ai/automation/n8n-vs-langgraph/" target="_blank" rel="noopener">HostAdvice: n8n vs LangGraph</a> ·
+          <a href="https://github.com/langchain-ai/langgraph" target="_blank" rel="noopener">LangGraph 1.0 (Oct 2025)</a>
+        </div>
+      </article>
+
+    </section>
+
+    <!-- ================================ -->
+    <!-- ORG DESIGN & CHANGES, CURATED    -->
+    <!-- ================================ -->
+
+    <div class="section-divider">
+      <span class="section-label org">Org Design &amp; Changes, Curated</span>
+    </div>
+
+    <section class="org-editorial">
+      <h2>This Week's Essay</h2>
+      <p style="font-style: italic; color: var(--color-text-muted);">Coming next: AI as a behavioral coach and companion — and what it means for financial advisors, whose work as behavioral coaches is one of the most important parts of client financial success. Drafts and outlines being prepared by the editor; the essay will be added to this issue once finalized.</p>
+    </section>
+
+    <!-- Issue Navigation -->
+    <nav class="issue-nav">
+      <a href="2026-04-20.html">&larr; Previous Issue</a>
+      <span></span>
+    </nav>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      &copy; 2026 AI &amp; Org, Curated. All rights reserved.
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

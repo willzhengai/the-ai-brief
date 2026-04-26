@@ -5,8 +5,16 @@
     <link>https://willzhengai.github.io/the-ai-brief/</link>
     <description>A curated weekly digest on AI and organizational design — where invention meets innovation meets real impact.</description>
     <language>en-us</language>
-    <lastBuildDate>Mon, 20 Apr 2026 12:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 27 Apr 2026 12:00:00 +0000</lastBuildDate>
     <atom:link href="https://willzhengai.github.io/the-ai-brief/feed.xml" rel="self" type="application/rss+xml"/>
+
+    <item>
+      <title>Issue #8: Capital Flows Get Bigger, Slides Get Smarter, and ChatGPT Quietly Moves Into the Workflow Layer</title>
+      <link>https://willzhengai.github.io/the-ai-brief/issues/2026-04-27.html</link>
+      <guid>https://willzhengai.github.io/the-ai-brief/issues/2026-04-27.html</guid>
+      <pubDate>Mon, 27 Apr 2026 12:00:00 +0000</pubDate>
+      <description>Google's $40B Anthropic deal and what Cigna's CTO told me about Cursor adoption, slides finally get an AI moment with Claude Design and Writer, ChatGPT Images 2.0 raises the photography question, and ChatGPT workspace agents reshape the LangChain/n8n stack.</description>
+    </item>
 
     <item>
       <title>Issue #7: AI's Report Card Is In, Opus 4.7 Has Mixed Reviews, and What the First Emperor Can Teach You About Standardization</title>
