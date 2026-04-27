@@ -525,6 +525,36 @@ img {
   line-height: 1.7;
 }
 
+/* ===== Article Images (figures) ===== */
+.article-image {
+  margin: 1.5rem 0;
+  text-align: center;
+}
+
+.article-image img {
+  max-width: 100%;
+  border-radius: 8px;
+  border: 1px solid var(--color-border);
+  margin: 0 auto;
+}
+
+.article-image figcaption {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  margin-top: 0.5rem;
+  font-style: italic;
+  text-align: center;
+  line-height: 1.5;
+}
+
+/* ===== Long-form Essay Emphasis ===== */
+/* Inline bold inside the org-article (the long essay body) is rendered
+   in the accent color so emphasized passages don't read as headings. */
+.org-article p strong,
+.org-article li strong {
+  color: #047857; /* emerald-700 — distinct from accent blue and from black headings */
+}
+
 /* ===== Video Embeds ===== */
 .video-embed {
   position: relative;
