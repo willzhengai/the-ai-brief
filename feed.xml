@@ -5,8 +5,16 @@
     <link>https://willzhengai.github.io/the-ai-brief/</link>
     <description>A curated weekly digest on AI and organizational design — where invention meets innovation meets real impact.</description>
     <language>en-us</language>
-    <lastBuildDate>Mon, 27 Apr 2026 12:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 04 May 2026 12:00:00 +0000</lastBuildDate>
     <atom:link href="https://willzhengai.github.io/the-ai-brief/feed.xml" rel="self" type="application/rss+xml"/>
+
+    <item>
+      <title>Issue #9: Single-Vendor Risk, Microsoft's Latest Brand Reshuffle, the Founder Exodus — and Why You Should Stop Asking AI to Make Better Slides</title>
+      <link>https://willzhengai.github.io/the-ai-brief/issues/2026-05-04.html</link>
+      <guid>https://willzhengai.github.io/the-ai-brief/issues/2026-05-04.html</guid>
+      <pubDate>Mon, 04 May 2026 12:00:00 +0000</pubDate>
+      <description>Opus 4.7 hallucinations expose single-vendor supply-chain risk, Microsoft launches Agent 365 (with another rebranding tax), the Big Tech founder exodus reshapes how AI companies get started — plus an essay on why most AI adoption is still stuck on the wrong question.</description>
+    </item>
 
     <item>
       <title>Issue #8: Capital Flows, Workflow Agents — and Why Behavioral Coaching Is Still the Advisor's Moat</title>
