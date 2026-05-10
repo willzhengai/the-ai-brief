@@ -5,8 +5,16 @@
     <link>https://willzhengai.github.io/the-ai-brief/</link>
     <description>A curated weekly digest on AI and organizational design — where invention meets innovation meets real impact.</description>
     <language>en-us</language>
-    <lastBuildDate>Mon, 04 May 2026 12:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 11 May 2026 12:00:00 +0000</lastBuildDate>
     <atom:link href="https://willzhengai.github.io/the-ai-brief/feed.xml" rel="self" type="application/rss+xml"/>
+
+    <item>
+      <title>Issue #10: The Frontier Labs Become Consultancies, Anthropic Open-Sources the Wall Street Analyst, and the Race to the Bottom in End-to-End AI Vendors</title>
+      <link>https://willzhengai.github.io/the-ai-brief/issues/2026-05-11.html</link>
+      <guid>https://willzhengai.github.io/the-ai-brief/issues/2026-05-11.html</guid>
+      <pubDate>Mon, 11 May 2026 12:00:00 +0000</pubDate>
+      <description>Anthropic and OpenAI both close PE-backed JVs in the same week, Anthropic open-sources the financial-services analyst stack on GitHub, Adobe's productivity agent enters a race-to-the-bottom category — plus an essay on Finding Nemo: the throughput-literate translator AI transformation needs.</description>
+    </item>
 
     <item>
       <title>Issue #9: Single-Vendor Risk, Microsoft's Latest Brand Reshuffle, the Founder Exodus — and Why You Should Stop Asking AI to Make Better Slides</title>

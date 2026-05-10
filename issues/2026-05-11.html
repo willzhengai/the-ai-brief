@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Issue #10 — AI & Org, Curated</title>
+  <meta name="description" content="Anthropic and OpenAI both close PE-backed joint ventures in the same week, Anthropic open-sources the financial-services analyst stack on GitHub, and Adobe ships a productivity agent that turns PDFs into decks and podcasts — three signals that the AI industry's go-to-market is collapsing into a small set of repeatable patterns.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .source-list {
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+      margin-top: 0.75rem;
+      padding-top: 0.75rem;
+      border-top: 1px dashed var(--color-border);
+    }
+    .source-list strong {
+      color: var(--color-text);
+    }
+    .source-list a {
+      margin-right: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="../index.html" class="site-logo">
+        <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="28" height="28" rx="6" fill="#2563eb"/>
+          <rect x="14" width="14" height="28" rx="0 6 6 0" fill="#0d9488"/>
+          <path d="M7 8h14M7 14h10M7 20h12" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+        AI &amp; Org, Curated
+      </a>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <path d="M3 6h18M3 12h18M3 18h18"/>
+        </svg>
+      </button>
+      <nav class="site-nav">
+        <a href="../index.html">Issues</a>
+        <a href="../about.html">About</a>
+        <a href="../feed.xml">RSS</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- Issue Header -->
+    <div class="issue-header">
+      <div class="issue-meta">
+        <span class="issue-number">Issue #10</span>
+        <span>May 11, 2026</span>
+      </div>
+      <h1>The Frontier Labs Become Consultancies, Anthropic Open-Sources the Wall Street Analyst, and the Race to the Bottom in End-to-End AI Vendors</h1>
+    </div>
+
+    <!-- ==================== -->
+    <!-- AI BRIEF, CURATED    -->
+    <!-- ==================== -->
+
+    <div class="section-divider">
+      <span class="section-label ai">AI Brief, Curated</span>
+    </div>
+
+    <!-- Editorial -->
+    <section class="editorial">
+      <h2>Editor's Take</h2>
+      <p>Three threads this week, and they are more connected than they look.</p>
+      <p><strong>First:</strong> Anthropic and OpenAI both closed private-equity-backed joint ventures in the same 24-hour window — Anthropic's $1.5B firm with Blackstone, Hellman &amp; Friedman, and Goldman Sachs; OpenAI's $10B "Deployment Company" with TPG, Bain, Brookfield, Advent, and SoftBank. Both ventures embed engineers from the model lab directly inside customer organizations to redesign workflows around agents. The headlines treat these as distribution deals. They are not. They are an admission, by both labs, that the model alone does not produce the productivity gains the technology actually enables — and that capturing those gains requires the same kind of forward-deployed engineering work that Palantir has been doing for twenty years and that McKinsey, Accenture, and Deloitte have been doing for forty. The frontier labs have become consultancies. Whether that is a strategic pivot or a defensive one depends on what you think happens to model margins over the next three years.</p>
+      <p><strong>Second:</strong> while everyone was reading the JV headlines, Anthropic quietly published <a href="https://github.com/anthropics/financial-services" target="_blank" rel="noopener"><code>anthropics/financial-services</code></a> — ten end-to-end agents covering investment banking, equity research, private equity, wealth management, and fund administration, with eleven licensed MCP data connectors (FactSet, S&amp;P, Morningstar, Moody's, PitchBook, LSEG, et al.) wired in. 16,500 stars in five days. The repo does not contain the data — those connectors require licensed seats. What it contains is the workflow: the prompts, the conventions, the modeling templates, the audit checklists, the deck-QC routines, the IC memo structures. For twenty years, this was the closed shop that justified $25,000 Bloomberg terminals and three years of unpaid weekends learning bulge-bracket conventions. Anthropic just made it Apache 2.0. The product story matters; the sociological story matters more.</p>
+      <p><strong>Third:</strong> Adobe shipped a productivity agent that turns any PDF into a presentation, a podcast, a blog post, or a set of social media posts — through one button, inside Acrobat, with the document intelligence stack Adobe has spent twenty years building underneath. It is good. It is also exactly the same end-to-end content-generation surface that Google ships in NotebookLM, that Microsoft ships in Copilot, that ChatGPT ships through its export tools, and that fifty start-ups now ship as their entire product. The barrier to building this category has collapsed to roughly zero. Which means the category is racing to the bottom — fast — and the question for any vendor in it is no longer "what do we ship next" but "what is left when the feature is everywhere."</p>
+      <p>The three stories form one shape. The model layer is commoditizing toward zero margin, the workflow layer is being open-sourced, and the surface layer is racing to the bottom. The interesting strategic question is which layer captures the durable economics — and whether any of the current frontier labs are actually positioned for it.</p>
+    </section>
+
+    <!-- Curated Links -->
+    <section class="curated-links">
+      <h2>This Week's Top Stories</h2>
+
+      <!-- 1. Frontier Labs Become Consultancies -->
+      <article class="link-item">
+        <div class="link-item-header">
+          <h3>The Frontier Labs Become Consultancies: Anthropic and OpenAI Both Close PE-Backed JVs in the Same Week</h3>
+          <span class="source-badge">Anthropic / OpenAI / WSJ / Bloomberg / Fortune</span>
+          <span class="category-tag industry">Industry</span>
+        </div>
+        <p class="link-summary">In a 24-hour window on May 4, both Anthropic and OpenAI closed private-equity-backed joint ventures designed to embed their engineers directly inside enterprise customer organizations. Anthropic announced a $1.5 billion firm with Blackstone, Hellman &amp; Friedman, and Goldman Sachs as anchor partners ($300M each from the first three; $150M from Goldman), with Apollo, General Atlantic, Leonard Green, GIC, and Sequoia rounding out the consortium. OpenAI finalized "The Deployment Company" — internally DeployCo — at a $10 billion pre-money valuation, with TPG anchoring and Brookfield, Advent, Bain Capital, Goanna, SoftBank, and Dragoneer among nineteen investors contributing roughly $4 billion. OpenAI itself committed an initial $500 million with an option to add $1 billion more, retains super-voting shares, and — most unusually — guaranteed its PE backers a 17.5% annual return over five years.</p>
+
+        <p class="link-summary">Both ventures share the same operating model. Embed engineers inside customer organizations. Redesign workflows around agents. Capture revenue through services and product co-ownership rather than licenses alone. Both Anthropic CFO Krishna Rao and OpenAI's leadership describe the model in nearly identical language — "enterprise demand is significantly outpacing any single delivery model" was Rao's framing — and both are pulling from the same playbook Palantir has run for two decades: forward-deployed engineers who do not just sell software but live inside the customer's operations long enough to change them.</p>
+
+        <p class="link-summary">It is worth being precise about what these structures actually are. The headline framing treats them as distribution deals — a way to reach the portfolio companies that Blackstone or TPG already control. That is not wrong, but it understates the structural shift. PE firms own roughly 12,000 companies in the US and Europe combined, generating somewhere north of $4 trillion in aggregate revenue. Inserting the frontier labs directly into the operating layer of those portfolios is, by some distance, the largest single distribution channel for enterprise AI ever assembled. The labs get a captive market. The PE firms get an agent-driven productivity wedge they can apply across every portfolio company simultaneously. The math, if it works, is enormous.</p>
+
+        <p class="link-summary">But the more interesting read is what the structure admits. For the past three years, the dominant narrative in AI has been that the model is the product — that frontier capability translates more or less directly into commercial value. If that were true, neither Anthropic nor OpenAI would need to put $1.5B and $1.5B respectively of their own capital into vehicles whose entire purpose is to do the consulting work of redesigning workflows around what the model can do. They could ship the API and watch the gains accrue. They are not doing that. They are admitting, structurally, that the model is necessary but not sufficient — that the gap between "Claude is capable" and "Claude is producing measurable productivity" is wide enough to require its own dedicated capital, its own dedicated engineers, and its own dedicated five-year operating window. This is the lesson <a href="https://www.aeaweb.org/articles?id=10.1257/mac.20180386" target="_blank" rel="noopener">Brynjolfsson, Rock, and Syverson</a> documented for general-purpose technologies broadly: the gains require complementary investment in workflow, process, and organization. The frontier labs have now priced that lesson into their balance sheets.</p>
+
+        <p class="link-summary">The OpenAI structure is the more aggressive of the two and worth pulling apart separately. The 17.5% guaranteed annual return for PE backers over five years converts what would normally be venture optionality into something closer to a fixed-yield credit instrument. OpenAI is, in effect, writing structurally subordinated paper backed by its own enterprise growth trajectory — and the PE syndicate is underwriting it the way they would underwrite a credit fund rather than an equity stake. This is unusual on multiple dimensions. Operating companies do not typically guarantee returns to financial sponsors. Frontier labs do not typically take on balance-sheet risk to secure distribution. And accounting-wise, a structure that looks like quasi-debt with above-market yields backed by a fast-growing technology operator will eventually attract regulatory attention. The strategic question is what OpenAI gives up by capping the upside of this channel. The answer appears to be: it accepts capped upside in exchange for guaranteed scale, and is betting that compute and distribution moats matter more than maximizing the economics of any single channel.</p>
+
+        <p class="link-summary">What both ventures share, finally, is what they do <em>not</em> do. Neither is a pure software bet. Neither is "ship the model and let the market figure it out." Neither is a research story. Both are, in form and function, consultancies — capital-intensive professional-services organizations whose job is to redesign work around AI in customer organizations one engagement at a time. The frontier labs are now in the McKinsey business, the Accenture business, the Palantir business — all at the same time, with a model attached. The interesting historical analogy here is not a software company. It is IBM in the 1960s, when the value of the mainframe was inseparable from the army of IBM systems engineers who installed it and the multi-year service contracts that paid for them. AI may follow the same arc. If it does, the durable economics live in the services layer at least as much as in the model layer — and the labs that figured this out first will have a structural advantage.</p>
+
+        <p class="link-summary">The risk on both sides is execution. PE firms are very good at financial restructuring and not historically good at operational technology integration. The track record of large-scale enterprise software rollouts inside PE portfolios is, charitably, mixed. The thesis behind both DeployCo and the Anthropic JV is that AI agents are different — that the unit economics of redesigning a workflow with an agent are sufficiently better than redesigning it with humans that the rollout will actually scale. That is a real bet, and it is too early to call. But the structure tells you what both labs now believe about where AI value actually accrues. It does not accrue at the model layer alone.</p>
+
+        <div class="source-list">
+          <strong>Sources:</strong>
+          <a href="https://www.anthropic.com/news/enterprise-ai-services-company" target="_blank" rel="noopener">Anthropic: enterprise AI services company announcement</a> ·
+          <a href="https://www.blackstone.com/news/press/anthropic-partners-with-blackstone-hellman-friedman-and-goldman-sachs-to-launch-enterprise-ai-services-firm/" target="_blank" rel="noopener">Blackstone press release</a> ·
+          <a href="https://www.cnbc.com/2026/05/04/anthropic-goldman-blackstone-ai-venture.html" target="_blank" rel="noopener">CNBC: Anthropic-Goldman-Blackstone JV</a> ·
+          <a href="https://fortune.com/2026/05/04/anthropic-claude-consulting-industry-joint-venture-blackstone-goldman-sachs/" target="_blank" rel="noopener">Fortune: "Anthropic takes shot at consulting industry"</a> ·
+          <a href="https://www.bloomberg.com/news/articles/2026-05-04/openai-finalizes-10-billion-joint-venture-with-pe-firms-to-deploy-ai" target="_blank" rel="noopener">Bloomberg: OpenAI finalizes $10B JV with TPG, Bain, SoftBank</a> ·
+          <a href="https://thenextweb.com/news/openai-deployco-finalized-10-billion-joint-venture" target="_blank" rel="noopener">TheNextWeb: DeployCo structural analysis (17.5% guaranteed return)</a> ·
+          <a href="https://www.aeaweb.org/articles?id=10.1257/mac.20180386" target="_blank" rel="noopener">Brynjolfsson, Rock &amp; Syverson, "The Productivity J-Curve"</a>
+        </div>
+      </article>
+
+      <!-- 2. Anthropic Open-Sources Wall Street Analyst -->
+      <article class="link-item">
+        <div class="link-item-header">
+          <h3>Anthropic Open-Sources the Wall Street Analyst: Ten Agents, Eleven Connectors, 16.5k Stars</h3>
+          <span class="source-badge">Anthropic / GitHub / Fortune / FIS</span>
+          <span class="category-tag industry">Industry</span>
+        </div>
+        <p class="link-summary">The headline number is real and worth sitting with: <a href="https://github.com/anthropics/financial-services" target="_blank" rel="noopener"><code>anthropics/financial-services</code></a> hit 16,500 stars and 2,100 forks five days after the May 5 launch, with 51 commits, 42 open issues, and 61 open PRs as of this writing. For context, that is roughly the pace of a top-tier developer-tooling launch, in a vertical that has historically been the slowest in technology to embrace open source.</p>
+
+        <p class="link-summary">The repo ships ten end-to-end agents — Pitch Agent (comps, precedents, LBO → branded pitch deck), Meeting Prep Agent, Market Researcher, Earnings Reviewer, Model Builder (DCF, LBO, three-statement, comps live in Excel), Valuation Reviewer, GL Reconciler, Month-End Closer, Statement Auditor, and KYC Screener. Each ships two ways from one source: as a Claude Cowork plugin a junior analyst can install on their desktop today, or as a Claude Managed Agent template a platform team can deploy headlessly via <code>/v1/agents</code>. Underneath sits a layer of seven vertical plugin bundles (financial-analysis core, investment-banking, equity-research, private-equity, wealth-management, fund-admin, operations), eleven licensed MCP data connectors (FactSet, S&amp;P Global, Morningstar, Moody's, PitchBook, LSEG, Daloopa, Aiera, Chronograph, MT Newswires, Egnyte), and partner-built plugins from LSEG and S&amp;P Global that ship pre-configured for those data terminals.</p>
+
+        <p class="link-summary">What is genuinely surprising is the depth. This is not a marketing repo. The repository contains the actual prompts, the actual skill files, the actual deck-QC routines, the actual Excel-audit conventions, the actual buyer-list construction logic, the actual IC-memo structure. The slash commands read like an analyst's daily checklist — <code>/comps</code>, <code>/dcf</code>, <code>/lbo</code>, <code>/cim</code>, <code>/teaser</code>, <code>/buyer-list</code>, <code>/merger-model</code>, <code>/earnings</code>, <code>/initiate</code>, <code>/morning-note</code>, <code>/sector</code>, <code>/screen</code>, <code>/dd-checklist</code>, <code>/ic-memo</code>, <code>/portfolio</code>, <code>/value-creation</code>, <code>/client-review</code>, <code>/financial-plan</code>, <code>/rebalance</code>, <code>/tlh</code>. For twenty years, this was the closed shop. Excel templates owned by bulge brackets. Bloomberg terminals at $25k a seat. Three years of unpaid weekends learning what the conventions were. Anthropic just published the entire skill ladder under Apache 2.0. The data still requires licensed seats. The workflow does not.</p>
+
+        <p class="link-summary">The community response has tracked the repo's depth rather than the announcement's surface. <a href="https://www.youtube.com/watch?v=E4GNZxJQqfM" target="_blank" rel="noopener">The most-watched YouTube breakdown so far</a> (from the Indie Hacker News channel, May 8) frames it bluntly: "If you build vertical AI in finance, sell SaaS into financial services, work in middle office, or build agentic frameworks — you should be reading this repo like a textbook." On dev.to, <a href="https://dev.to/wonderlab/one-open-source-project-a-day-no-59-claude-for-financial-services-anthropics-official-ai-3k86" target="_blank" rel="noopener">a much-shared breakdown</a> calls it "Anthropic's engineered roadmap for making it happen, open-sourced for everyone to study and build on" — emphasis on <em>engineered roadmap</em>, not reference implementation. A solo-CPA practitioner <a href="https://findskill.ai/blog/anthropic-finance-plugins-solo-cpas-month-end-close/" target="_blank" rel="noopener">walking through the install</a> reports it took thirty minutes to get the GL Reconciler running against QuickBooks (via a community-built MCP server, not Anthropic's bundled connectors) — which is roughly the speed at which an entry-level analyst tool used to take six months to procure.</p>
+
+        <p class="link-summary">A few specific design choices in the repo are worth flagging because they signal where Anthropic thinks the regulated-industry market is going.</p>
+
+        <p class="link-summary"><strong>"AI drafts, humans sign off" is structural, not a disclaimer.</strong> Every agent is explicitly scoped to draft analyst work product staged for review by a qualified professional. None executes transactions, posts to a ledger, binds risk, or approves onboarding. The README is unusually direct about this — "Nothing in this repository constitutes investment, legal, tax, or accounting advice. […] every output is staged for human sign-off." This is the right design for any AI product entering a regulated vertical, and it is also the design that makes adoption legally tractable. The reference architecture is not "agent does the analyst's job." It is "agent prepares the work product; analyst signs the work product." That distinction is what makes deployment in compliance-heavy environments possible at all.</p>
+
+        <p class="link-summary"><strong>Two surfaces, one source.</strong> Every agent ships as both a Cowork plugin (interactive, runs on the analyst's desktop, uses the analyst's credentials) and a Managed Agent template (headless, runs on the Claude Platform, uses managed credential vaults with full audit logs in the Claude Console). Same system prompt, same skill files, same connectors — just different execution wrappers. This is a non-trivial engineering pattern, and it matters because it lets a firm prototype with the plugin and graduate to managed-agent deployment without rewriting anything. Anthropic's <a href="https://fortune.com/2026/05/05/anthropic-wall-street-financial-services-agents-jamie-dimon/" target="_blank" rel="noopener">Chief Commercial Officer Paul Smith called this the "staircase of autonomy"</a> at the May 5 briefing — capability evolving from research assistance to autonomous senior-analyst-level work, on the same workflow surface.</p>
+
+        <p class="link-summary"><strong>Eleven licensed connectors is the moat.</strong> The repo by itself is workflow. The repo plus FactSet, S&amp;P Global, Morningstar, Moody's, PitchBook, LSEG, Daloopa, Aiera, Chronograph, MT Newswires, and Egnyte is workflow plus the data financial professionals actually use. Anthropic has spent the last six months negotiating MCP integrations with each of these providers, and the <a href="https://www.anthropic.com/news/finance-agents" target="_blank" rel="noopener">companion announcement on May 5</a> added Dun &amp; Bradstreet, Fiscal AI, Financial Modeling Prep, Guidepoint, IBISWorld, SS&amp;C IntraLinks, Third Bridge, and Verisk to the list, plus a full Moody's MCP app covering 600M+ public and private companies. The model is open. The data plumbing is governed and per-firm-licensed. That is exactly the configuration that gets past a bank's risk committee.</p>
+
+        <p class="link-summary"><strong>The benchmark Anthropic chose to lead with.</strong> The launch claims Claude Opus 4.7 leads Vals AI's Finance Agent benchmark at 64.37%. Note the framing — not MMLU, not HumanEval, not the model-capability benchmarks the lab community argues about. A finance-specific agent benchmark. This is the second indicator (after the JV announcement above) that Anthropic now sells outcomes at the workflow layer, not capability at the model layer.</p>
+
+        <p class="link-summary">The strategic question is what the competitive response looks like. The obvious answer is that OpenAI ships an equivalent repo for finance — and probably for healthcare, legal, and at least one other regulated vertical — within two quarters. The open-source pattern is durable enough that whichever lab is first to publish a high-quality reference implementation in a vertical creates the gravitational pull for that vertical's developer community. The less-obvious answer is what happens to the existing professional-services ecosystem. Investment-banking analyst training programs, the second-year-associate workflow at every Big Four firm, the entire market for Excel-template courses — all of these were premised on the conventions that Anthropic just published. They do not become valueless overnight. But the moat shrinks. And the firms that invested most heavily in proprietary workflow IP — bulge-bracket banks, top-tier consultancies — now face a genuine question about whether that IP is still differentiated, or whether it has been quietly commoditized by a public GitHub repo.</p>
+
+        <p class="link-summary">One more signal worth flagging. On the same day as the agent launch, <a href="https://financefeeds.com/fis-and-anthropic-develop-ai-agents-for-banking-starting-with-financial-crime-investigations/" target="_blank" rel="noopener">FIS — which sits inside roughly 12% of the world's banks — announced a partnership with Anthropic</a> to build a Financial Crime AI Agent for AML investigations. Coinbase has cited the agents in efficiency benchmarks. Citadel quoted Anthropic's launch directly: "Our investment professionals live in data and analytical models, and Claude for Excel meets them there." When the open-source repo, the deep partnership pipeline, and the JV with Goldman, Blackstone, and Hellman &amp; Friedman all land in the same week, the read is unambiguous. Anthropic is not selling a model into financial services. It is becoming the operating layer for it.</p>
+
+        <div class="source-list">
+          <strong>Sources:</strong>
+          <a href="https://github.com/anthropics/financial-services" target="_blank" rel="noopener"><code>anthropics/financial-services</code> GitHub repo</a> ·
+          <a href="https://www.anthropic.com/news/finance-agents" target="_blank" rel="noopener">Anthropic: Agents for financial services (May 5)</a> ·
+          <a href="https://www.youtube.com/watch?v=E4GNZxJQqfM" target="_blank" rel="noopener">"Anthropic just open-sourced Wall Street" (Indie Hacker News, YouTube)</a> ·
+          <a href="https://www.youtube.com/watch?v=foxeK2AXfHQ" target="_blank" rel="noopener">Claude official walkthrough (YouTube, May 5)</a> ·
+          <a href="https://fortune.com/2026/05/05/anthropic-wall-street-financial-services-agents-jamie-dimon/" target="_blank" rel="noopener">Fortune: Anthropic deepens Wall Street push (May 5 briefing with Jamie Dimon)</a> ·
+          <a href="https://dev.to/wonderlab/one-open-source-project-a-day-no-59-claude-for-financial-services-anthropics-official-ai-3k86" target="_blank" rel="noopener">dev.to: One Open Source Project a Day, No. 59</a> ·
+          <a href="https://findskill.ai/blog/anthropic-finance-plugins-solo-cpas-month-end-close/" target="_blank" rel="noopener">FindSkill.ai: Solo CPA's 30-minute test</a> ·
+          <a href="https://financefeeds.com/fis-and-anthropic-develop-ai-agents-for-banking-starting-with-financial-crime-investigations/" target="_blank" rel="noopener">FinanceFeeds: FIS / Anthropic Financial Crime Agent partnership</a> ·
+          <a href="https://support.claude.com/en/articles/13851150-install-financial-services-plugins-for-cowork" target="_blank" rel="noopener">Claude Help Center: install financial services plugins for Cowork</a>
+        </div>
+      </article>
+
+      <!-- 3. Adobe & Race to the Bottom -->
+      <article class="link-item">
+        <div class="link-item-header">
+          <h3>Adobe's Productivity Agent and the Race to the Bottom in End-to-End AI Surfaces</h3>
+          <span class="source-badge">Adobe / SiliconANGLE / Adobe Newsroom</span>
+          <span class="category-tag industry">Vendors</span>
+        </div>
+        <p class="link-summary">Adobe announced on May 6 a productivity agent inside Acrobat that turns any PDF into a presentation, a podcast, a blog post, or a set of social posts, with conversational PDF editing and a new sharing layer called PDF Spaces that converts static documents into interactive, AI-mediated experiences. The product is good — it is built on twenty years of Acrobat document intelligence and ships in Acrobat Express and Acrobat Studio at launch, with named brand customers (VICE News, Kid Cudi's podcast, Mindy Weiss) already shipping content through it. The capability is real.</p>
+
+        <p class="link-summary">The interesting story is not that Adobe shipped this. The interesting story is that this exact capability — document → presentation, document → podcast, document → social posts — is now table stakes. Google ships it through NotebookLM (which itself launched the Audio Overview feature in late 2024 and now generates podcasts from any source material). Microsoft ships it through Copilot's content-generation flows. ChatGPT ships it through document export and DALL-E presentation generation. Notion ships it. Claude Cowork ships it. At least fifty venture-backed start-ups ship some variant of it as their entire product. The barrier to building the surface has collapsed to roughly zero, because the underlying capability — multi-modal generation from a source document — is a thin wrapper on top of a frontier model API that any vendor can rent.</p>
+
+        <p class="link-summary">When the barrier to entry collapses, the category races to the bottom. Pricing compresses fast. Differentiation moves out of the feature itself and into adjacent moats — distribution, data, integration depth, brand trust, regulatory positioning, switching costs. Adobe has all of these for documents (400 billion PDFs opened annually, 200 million sent through Acrobat — those are Adobe's own figures from the launch). NotebookLM has Google's distribution. Copilot has Microsoft's enterprise install base. The frontier labs have the model. The fifty start-ups in the middle have, in most cases, none of these — and they will spend the next eighteen months discovering whether they have a business or a feature.</p>
+
+        <p class="link-summary">The historical analogy is the consumer-app boom of 2010–2013. For a brief window, "make a mobile app" was a viable thesis. Then iOS and Android both shipped first-party versions of every category-defining app, every platform owner monetized distribution at a rate that crushed independent margin, and the ten-thousand-app gold rush collapsed into a small set of winners with structural moats. The end-to-end AI productivity surface is in the equivalent moment now. The vendors who survive will be the ones with something underneath the feature — the document corpus that took two decades to accumulate, the enterprise contract that took ten years to land, the regulatory clearance that took five years to win. Everyone else is selling a wrapper, and the wrapper is being commoditized in real time.</p>
+
+        <p class="link-summary">What this means for buyers is straightforward: do not pay for the feature. The feature will be free, or nearly free, inside whatever productivity suite you already own, within four to six quarters. Pay for the underlying corpus, the integration depth, or the workflow specificity. Pay for what is hard to replicate. The end-to-end content surface is not it.</p>
+
+        <div class="source-list">
+          <strong>Sources:</strong>
+          <a href="https://news.adobe.com/news/2026/05/adobes-new-productivity-agent" target="_blank" rel="noopener">Adobe's productivity agent announcement (May 6)</a> ·
+          <a href="https://siliconangle.com/2026/05/06/adobe-introduces-productivity-agent-transform-pdf-creation-sharing/" target="_blank" rel="noopener">SiliconANGLE: Adobe productivity agent coverage</a> ·
+          <a href="https://ppc.land/adobes-productivity-agent-turns-pdfs-into-interactive-experiences-with-ai/" target="_blank" rel="noopener">PPC Land: PDF Spaces and Acrobat Express analysis</a>
+        </div>
+      </article>
+
+    </section>
+
+    <!-- ================================ -->
+    <!-- ORG DESIGN & CHANGES, CURATED    -->
+    <!-- ================================ -->
+
+    <div class="section-divider">
+      <span class="section-label org">Org Design &amp; Changes, Curated</span>
+    </div>
+
+    <section class="org-editorial">
+      <h2>This Week's Essay</h2>
+      <h3 style="font-family: var(--font-sans); font-size: 1.15rem; font-weight: 700; color: var(--color-accent-org); margin-bottom: 0.6rem;">Finding Nemo: The Quiet Constraint on AI Transformation in Financial Services</h3>
+      <p style="font-style: italic; color: var(--color-text-muted); margin-bottom: 1rem;">The technology is not the bottleneck. The translator is.</p>
+
+      <div class="reading-rec" style="background: var(--color-bg-alt); border: 1px solid var(--color-border); border-radius: 8px; padding: 0.85rem 1.1rem; margin: 1.25rem 0; font-size: 0.85rem; color: var(--color-text-muted);">
+        <strong style="color: var(--color-text);">Heads-up:</strong> ~2,400 words, roughly a 10-minute read. Builds on the throughput / process-rebuild thread we have been pulling on since Issue #5.
+      </div>
+
+      <div class="reading-rec" style="background: #fef3c7; border: 1px solid #fcd34d; color: #78350f; border-radius: 8px; padding: 0.85rem 1.1rem; margin: 1.25rem 0; font-size: 0.85rem; font-style: italic;">
+        <strong style="font-style: normal;">Disclaimer:</strong> All opinions in this essay are my own. They do not represent the company's position. This is meant as an academic discussion of organizational change in financial services.
+      </div>
+    </section>
+
+    <section class="org-article">
+
+      <p>A few weeks ago, more than twenty colleagues from across our firm spent an afternoon at the <a href="https://www.linkedin.com/company/greater-chicago-food-depository/" target="_blank" rel="noopener">Greater Chicago Food Depository</a>, sorting and packaging close to 7,000 pounds of potatoes for families facing food insecurity. The depository runs a clean, well-instrumented line: six stations along a stainless-steel table — Transport, Sorting, Packing, Boxing, Weighing and Labeling, Final Staging — feeding a roller conveyor at the end. Every volunteer was assigned a station. Done well, the line moves like a small factory.</p>
+
+      <p>For a while, ours did not. Within ten minutes a mountain of unsorted potatoes had piled up at Sorting. Two volunteers at Boxing stood with empty hands. The Weighing station was idle. Up and down the table, individuals worked hard at the task in front of them, and the line as a whole moved slowly. Most people stayed at their assigned station and waited for work to arrive.</p>
+
+      <p>Except Katie.</p>
+
+      <p>Katie is not the most senior person at our firm. She runs a small team a few layers below top executives. But within a few minutes of the line going slow, she had quietly broken station, walked upstream to Sorting, and started clearing the backlog. She combined Packing and Tying into a single job, because the bag's fill level needs feedback the tier can only give if she's the one filling it. Then she moved upstream and downstream as needed — absorbing variation, never letting any station run hot or cold for long.</p>
+
+      <p>The line found its rhythm. We finished the afternoon well.</p>
+
+      <p>What I want to write about is not Katie's competence. It is that out of more than twenty smart, capable, motivated professionals — including some of our most senior leaders — only one person had the reflex to look at the line as a system and act on it. The rest of us worked hard at our station. That is a much more interesting observation than it first appears, because it is also the central, mostly unspoken constraint on AI transformation in financial services.</p>
+
+      <h3>1. Effort is not throughput</h3>
+
+      <p>Here is the part that should make every executive uneasy: working harder at your station does not produce more boxes of potatoes per hour. It produces a tired person at a station. The line's output is set by the bottleneck and the hand-offs, not by individual effort.</p>
+
+      <p>This is exactly what most AI initiatives in financial services run into. The 2024 McKinsey <em>State of AI</em> survey found that more than three-quarters of financial-services firms now use generative AI in at least one function. The MIT NANDA initiative's 2025 <em>State of AI in Business</em> report found that roughly 95% of enterprise generative-AI pilots produce no measurable P&amp;L impact. Two facts that rhyme uncomfortably: nearly everyone is using it; almost no one is getting paid for it.</p>
+
+      <p>The reason is the same one we saw at the potato line. An advisor with a generative-AI drafting tool can produce a client email in thirty seconds instead of three minutes — a real, measurable, individual gain. But the firm's quarterly revenue does not move, because the email was never the bottleneck. The bottleneck was somewhere else: in the onboarding hand-off, in the planning cycle, in the data re-entry between three systems, in the approval that exists because of a 2014 exception nobody has revisited. AI sped up a station. The line did not change.</p>
+
+      <p>The only way out of this is to redesign the line — and that requires someone with what I have come to call <em>throughput literacy</em>: the reflex to see the system rather than the steps, to ask where work stalls, where information is re-entered, which exceptions are genuinely unique versus normalized, what could be eliminated entirely. It is closer to a habit of mind than a technical skill. And in financial services, it is structurally rarer than it should be.</p>
+
+      <h3>2. Why the industry is short on Katies</h3>
+
+      <p>I want to be careful not to overstate this. There are plenty of process-driven people in financial services, and some firms have built deep operational benches. But for most firms, the supply of throughput-literate operators is thinner than the work now demands, and the reason is not mysterious.</p>
+
+      <p>The industry's prestige hierarchy was shaped over decades around a different kind of value creation. The highest-status seats belonged to the rainmaker — the advisor with the book, the banker with the relationship, the partner whose name opened doors. Compensation reflected this with rare candor: production-based payouts at the wirehouses, eat-what-you-kill structures at boutique advisory firms, partnership tracks gated on originated revenue. Judgment under uncertainty and the cultivation of trust were the work; everything else was overhead.</p>
+
+      <p>For a long time this was a reasonable selection function. The industry's value proposition genuinely <em>was</em> relationships and judgment, and workflows could be allowed to evolve organically — by acquisition, by exception, by the accumulated preferences of senior producers.</p>
+
+      <p>But every selection function has a shadow. The people who would have asked <em>"how should this system work?"</em> — the Katies — were sorted into roles the prestige hierarchy quietly discounted. They became operations leaders, business analysts, project managers. They rose, but typically capped two rungs below the producers. In most firms, they did not make partner. The work of designing the line was treated as administrative rather than strategic.</p>
+
+      <p>Compare this to industries that built deep operational benches by necessity. Toyota's production system, from its 1950s inception, was premised on the operator-as-systems-thinker (Liker, <em>The Toyota Way</em>, 2004). Semiconductor manufacturing, retail logistics, modern e-commerce — these industries elevated process design to an executive discipline because their economics demanded it. When AI arrived, they had a runway of throughput-literate operators to draw on. Most financial-services firms simply do not have that runway, because the economics of the relationship era did not require building it.</p>
+
+      <p>This is a description, not an indictment. It just means that when a CEO asks her team to "drive AI transformation," the request lands in an organization where the people most temperamentally suited to the work are often two layers below where they need to be — and the leaders best positioned to authorize the redesign are, on most days, more like the volunteers standing at their stations than they are like Katie.</p>
+
+      <h3>3. Hiring the right consulting firm. But they are talking to the wrong people.</h3>
+
+      <p>Many executives have responded to this challenge by bringing in McKinsey, Bain, BCG, or one of the specialist operations firms. I think that is, in many cases, exactly the right move. These firms have the right mentality, the right methodology, and the right experience for workflow redesign at scale. They are good at the craft. The problem is rarely the firm.</p>
+
+      <p>The problem is who they end up talking to.</p>
+
+      <p>The default diagnostic engagement — interview the functional leaders, map the as-is process, identify the inefficiencies, design the to-be state — rests on a single load-bearing assumption: that the functional leaders being interviewed are themselves throughput-literate. In financial services, that assumption holds less often than it appears.</p>
+
+      <p>I learned this the hard way recently. A senior leader I had worked with for some time spoke about his operation with confidence and fluency. He could describe every step of the workflow in detail, name every system, walk through every exception. For a long time I assumed he was deeply process-driven. Eventually I realized I had mistaken twenty years of repetitive manual execution for systems thinking. He could describe the workflow as it currently ran with extraordinary precision. He had no view at all on how it <em>should</em> run. The two are not the same skill, and from the outside they look identical.</p>
+
+      <p>If a consultant had interviewed him as the SME for his function, the resulting workflow map would have been internally coherent, beautifully formatted, and quietly fictional in the most important respect: it would have described the current line as if the current line were the right line. The to-be state designed against it would inherit every assumption embedded in twenty years of habit. The transformation would stall, and everyone involved — the consultants, the leader, the executive sponsor — would correctly diagnose the stall as an "execution issue," because nothing in the process surfaced the possibility that the wrong person had been treated as the source of truth.</p>
+
+      <p>This is not a critique of consultants. It is the executive's job, not theirs, to make sure they are pointed at the right people.</p>
+
+      <h3>4. The good news, and the question</h3>
+
+      <p>The good news is that in most firms, the Katies are already on the payroll. The selection function pushed them sideways, not out. They are visible by their patterns: they ask why a piece of data is being re-entered into three systems; they build unsanctioned trackers because they cannot tolerate watching a process fail twice; they notice that 80% of "exceptions" follow four patterns; they propose subtraction when everyone else is proposing additions. In a firm of two thousand people, there are typically forty to sixty of them, and most of them sit one or two reporting layers below where they should.</p>
+
+      <p>The move that distinguishes the firms that will compound from the firms that will not is for senior leaders, in the age of AI, to take this on personally. Not delegate it. Not outsource it. The work is to identify the Katie in your own function — the person two or three layers down whose process instincts have been quietly carrying the team — and pull them into the redesign as your partner. Sponsor them. Give them air cover. Let them shine in rooms they would not otherwise be in. <strong>The reframing is small but consequential: the executive's role in AI transformation is not to be the redesigner. It is to be the sponsor who finds the redesigner and clears the path.</strong></p>
+
+      <p>Finding them is not as easy as finding Nemo, and the title is half a joke. They are quiet by temperament. They do not raise their hand. They have spent years adapting to a hierarchy that did not reward what they do best, so they have learned to do it without making noise. You will have to look. You will have to ask different questions in your skip-levels. You will have to notice which of your direct reports are <em>describing</em> the workflow versus which are <em>thinking about how it should run.</em> The two are not the same skill, and from the outside they look identical.</p>
+
+      <p>But you will find them. And the moment you sponsor one Katie, augment her with the AI tools and the redesign authority, and let her show what the line can do — that is where the flywheel starts. Other Katies in the firm see it and surface. Other executives see it and start looking in their own functions. The prestige hierarchy that took fifty years to build does not break overnight, but it loosens, in the only way these things ever loosen: one credible example at a time.</p>
+
+      <p>Concretely, the sponsorship shows up in a few governance choices. Workflow redesign is named as a leadership discipline, not back-office work. Transformation cells are kept small — five to seven people, not fifteen — because committees cannot redesign workflows. And critically, when outside firms are engaged, the diagnostic interview list is not derived from the org chart alone. The executive sponsor names, in advance and by name, the Katies two and three layers down, and ensures the consultants spend at least as much time with them as with the functional leaders. This sounds like a small contractual detail. <strong>It is the single highest-leverage governance change a CEO can make to a transformation engagement.</strong></p>
+
+      <p>The McKinsey-grade version of this argument ends with a 2x2 and three numbered recommendations. I would rather end with a question, because a sharper question is more durable than a checklist.</p>
+
+      <p>The question I would suggest is not <em>"what AI tools should we deploy?"</em> and not <em>"which firm should we hire to redesign our workflows?"</em> — both are reasonable second-order questions. The first-order question is more personal: <em>"Who is the Katie in my own function, where is she currently sitting, and am I willing to be the executive who pulls her into the room?"</em></p>
+
+      <p>That question is harder to answer than a vendor evaluation. It will surface a few names you have been underweighting, and probably one or two you had not noticed at all. But the firms whose leaders ask it will have a meaningful operating advantage in five years, and the firms whose leaders do not will be running faster note-takers on top of unchanged workflows, wondering why the productivity J-curve has not bent up for them the way Brynjolfsson's research suggested it eventually does.</p>
+
+      <div class="callout">
+        The dynamo did not transform manufacturing because it was installed. It transformed manufacturing because the people who ran the factory floor were finally allowed to redesign the floor around it. Financial services is at the same juncture, with the same constraint. The technology has arrived. The Katies, in most firms, are already on the payroll.
+        <br><br>
+        Find them. Sponsor them. And let them break station.
+      </div>
+
+      <h3 style="margin-top: 2.5rem;">Sources</h3>
+
+      <ul class="essay-sources" style="font-size: 0.85rem; color: var(--color-text-muted); padding-left: 1.5rem; line-height: 1.7;">
+        <li><strong>Goldratt, E.</strong> <em>The Goal: A Process of Ongoing Improvement.</em> North River Press, 1984.</li>
+        <li><strong>Liker, J.</strong> <em>The Toyota Way: 14 Management Principles from the World's Greatest Manufacturer.</em> McGraw-Hill, 2004.</li>
+        <li><strong>McKinsey &amp; Company.</strong> <a href="https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai" target="_blank" rel="noopener"><em>The State of AI in Early 2024: Gen AI Adoption Spikes and Starts to Generate Value.</em></a> May 2024.</li>
+        <li><strong>MIT Media Lab, NANDA Initiative.</strong> <em>The State of AI in Business 2025.</em></li>
+        <li><strong>Brynjolfsson, E., Rock, D., and Syverson, C.</strong> <a href="https://www.aeaweb.org/articles?id=10.1257/mac.20180386" target="_blank" rel="noopener">"The Productivity J-Curve: How Intangibles Complement General Purpose Technologies."</a> <em>American Economic Journal: Macroeconomics</em>, 2021.</li>
+        <li><strong>David, P.</strong> <a href="https://www.jstor.org/stable/2006600" target="_blank" rel="noopener">"The Dynamo and the Computer: An Historical Perspective on the Modern Productivity Paradox."</a> <em>American Economic Review</em>, May 1990.</li>
+      </ul>
+    </section>
+
+    <!-- Issue Navigation -->
+    <nav class="issue-nav">
+      <a href="2026-05-04.html">&larr; Previous Issue</a>
+      <span></span>
+    </nav>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      &copy; 2026 AI &amp; Org, Curated. All rights reserved.
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>
