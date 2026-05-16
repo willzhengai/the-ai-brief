@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enterprise HR AI Dashboard 2026</title>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --text-primary: #0f172a;
+      --text-secondary: #475569;
+      --text-muted: #94a3b8;
+      --bg-page: #f1f5f9;
+      --bg-card: #ffffff;
+      --bg-subtle: #f8fafc;
+      --accent: #4f46e5;
+      --accent-light: #eef2ff;
+      --accent-mid: #818cf8;
+      --success: #059669;
+      --success-light: #d1fae5;
+      --warning: #d97706;
+      --warning-light: #fef3c7;
+      --danger: #dc2626;
+      --danger-light: #fee2e2;
+      --info: #0284c7;
+      --info-light: #e0f2fe;
+      --border: #e2e8f0;
+      --border-strong: #cbd5e1;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+      --shadow-md: 0 4px 12px rgba(0,0,0,0.07), 0 2px 4px rgba(0,0,0,0.04);
+      --shadow-lg: 0 10px 30px rgba(0,0,0,0.08), 0 4px 8px rgba(0,0,0,0.04);
+      --radius: 12px;
+      --radius-sm: 8px;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--text-primary);
+      background: var(--bg-page);
+      min-height: 100vh;
+    }
+
+    /* === Header === */
+    .header {
+      background: linear-gradient(135deg, #312e81 0%, #4f46e5 50%, #6366f1 100%);
+      color: white;
+      padding: 2.5rem 2rem 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .header::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 300px; height: 300px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.05);
+    }
+    .header::after {
+      content: '';
+      position: absolute;
+      bottom: -80px; left: -40px;
+      width: 250px; height: 250px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.04);
+    }
+    .header-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+    .header-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.2);
+      padding: 4px 14px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .header h1 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+    }
+    .header-sub {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.8);
+      max-width: 680px;
+      margin-bottom: 1.5rem;
+    }
+    .header-meta {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .header-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.75);
+    }
+
+    /* === Navigation Tabs === */
+    .nav-wrap {
+      background: white;
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: var(--shadow-sm);
+    }
+    .nav-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      gap: 0;
+      overflow-x: auto;
+    }
+    .nav-tab {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      padding: 1rem 1.2rem;
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      white-space: nowrap;
+      transition: all 0.2s;
+      background: none;
+      border-top: none;
+      border-left: none;
+      border-right: none;
+      text-decoration: none;
+    }
+    .nav-tab:hover { color: var(--accent); }
+    .nav-tab.active {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
+    .nav-tab i { width: 15px; height: 15px; }
+
+    /* === Layout === */
+    .main {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    .section { display: none; }
+    .section.active { display: block; }
+    .section-title {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 0.35rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .section-title i { color: var(--accent); width: 22px; height: 22px; }
+    .section-desc {
+      font-size: 14px;
+      color: var(--text-secondary);
+      margin-bottom: 1.75rem;
+      max-width: 780px;
+    }
+
+    /* === KPI Cards === */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.25rem;
+      margin-bottom: 2rem;
+    }
+    .kpi-card {
+      background: var(--bg-card);
+      border-radius: var(--radius);
+      padding: 1.4rem 1.5rem;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .kpi-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+    .kpi-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      border-radius: var(--radius) var(--radius) 0 0;
+    }
+    .kpi-card.accent::before { background: var(--accent); }
+    .kpi-card.success::before { background: var(--success); }
+    .kpi-card.warning::before { background: var(--warning); }
+    .kpi-card.danger::before { background: var(--danger); }
+    .kpi-card.info::before { background: var(--info); }
+    .kpi-label {
+      font-size: 11.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: var(--text-muted);
+      margin-bottom: 0.6rem;
+    }
+    .kpi-value {
+      font-size: 2.2rem;
+      font-weight: 800;
+      line-height: 1;
+      margin-bottom: 0.4rem;
+      letter-spacing: -0.02em;
+    }
+    .kpi-card.accent .kpi-value { color: var(--accent); }
+    .kpi-card.success .kpi-value { color: var(--success); }
+    .kpi-card.warning .kpi-value { color: var(--warning); }
+    .kpi-card.danger .kpi-value { color: var(--danger); }
+    .kpi-card.info .kpi-value { color: var(--info); }
+    .kpi-note {
+      font-size: 12.5px;
+      color: var(--text-secondary);
+      line-height: 1.45;
+    }
+    .kpi-icon {
+      position: absolute;
+      bottom: 1rem; right: 1.25rem;
+      opacity: 0.08;
+      width: 48px; height: 48px;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    @media (max-width: 900px) { .two-col { grid-template-columns: 1fr; } }
+    .three-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+    @media (max-width: 900px) { .three-col { grid-template-columns: 1fr; } }
+
+    .card {
+      background: var(--bg-card);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border);
+    }
+    .card-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .card-title i { color: var(--accent); width: 16px; height: 16px; }
+
+    .bar-list { display: flex; flex-direction: column; gap: 0.75rem; }
+    .bar-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 5px;
+    }
+    .bar-label { font-size: 13px; color: var(--text-primary); font-weight: 500; }
+    .bar-pct { font-size: 13px; font-weight: 700; color: var(--text-secondary); }
+    .bar-track {
+      height: 8px;
+      background: var(--bg-subtle);
+      border-radius: 999px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+    .bar-fill {
+      height: 100%;
+      border-radius: 999px;
+      background: var(--accent);
+      transition: width 1s ease;
+    }
+    .bar-fill.success { background: var(--success); }
+    .bar-fill.warning { background: var(--warning); }
+    .bar-fill.info { background: var(--info); }
+
+    .table-wrap {
+      overflow-x: auto;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border);
+      background: white;
+      margin-bottom: 1.5rem;
+    }
+    table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+    thead th {
+      background: var(--bg-subtle);
+      padding: 0.85rem 1.1rem;
+      text-align: left;
+      font-size: 11.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-secondary);
+      border-bottom: 1px solid var(--border-strong);
+      white-space: nowrap;
+    }
+    tbody td {
+      padding: 0.9rem 1.1rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      line-height: 1.5;
+    }
+    tbody tr:last-child td { border-bottom: none; }
+    tbody tr:hover { background: var(--bg-subtle); }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 3px 10px;
+      border-radius: 999px;
+      font-size: 11.5px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .badge-accent { background: var(--accent-light); color: var(--accent); }
+    .badge-success { background: var(--success-light); color: var(--success); }
+    .badge-warning { background: var(--warning-light); color: var(--warning); }
+    .badge-danger { background: var(--danger-light); color: var(--danger); }
+    .badge-info { background: var(--info-light); color: var(--info); }
+    .badge-gray { background: #f1f5f9; color: #64748b; }
+
+    .case-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+    .case-card {
+      background: white;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .case-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+    .case-header {
+      padding: 1rem 1.25rem 0.75rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .case-logo {
+      width: 40px; height: 40px;
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      font-weight: 800;
+      color: white;
+      flex-shrink: 0;
+    }
+    .case-company { font-size: 14px; font-weight: 700; }
+    .case-domain { font-size: 12px; color: var(--text-secondary); }
+    .case-body { padding: 1.1rem 1.25rem; }
+    .case-metric {
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+      margin-bottom: 0.5rem;
+    }
+    .case-metric-val {
+      font-size: 1.6rem;
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -0.02em;
+    }
+    .case-metric-label { font-size: 13px; color: var(--text-secondary); }
+    .case-desc {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.55;
+      margin-top: 0.5rem;
+    }
+    .case-source {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 0.75rem;
+      padding-top: 0.6rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .rec-list { display: flex; flex-direction: column; gap: 1.1rem; }
+    .rec-item {
+      background: white;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      gap: 1.1rem;
+      align-items: flex-start;
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow 0.2s;
+    }
+    .rec-item:hover { box-shadow: var(--shadow-md); }
+    .rec-step {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 800;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .rec-title { font-size: 14.5px; font-weight: 700; margin-bottom: 0.35rem; }
+    .rec-horizon {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 2px 9px;
+      border-radius: 999px;
+      margin-bottom: 0.5rem;
+    }
+    .horizon-now { background: var(--danger-light); color: var(--danger); }
+    .horizon-soon { background: var(--warning-light); color: var(--warning); }
+    .horizon-mid { background: var(--info-light); color: var(--info); }
+    .horizon-long { background: var(--success-light); color: var(--success); }
+    .rec-body { font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
+    .rec-threshold {
+      margin-top: 0.65rem;
+      padding: 0.6rem 0.9rem;
+      background: var(--bg-subtle);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      font-size: 12.5px;
+      color: var(--text-secondary);
+    }
+    .rec-threshold strong { color: var(--text-primary); }
+
+    .gov-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+    .gov-card {
+      background: white;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      padding: 1.25rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .gov-card-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 0.9rem;
+    }
+    .gov-icon {
+      width: 38px; height: 38px;
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .gov-icon i { width: 18px; height: 18px; }
+    .gov-icon.danger-bg { background: var(--danger-light); color: var(--danger); }
+    .gov-icon.warning-bg { background: var(--warning-light); color: var(--warning); }
+    .gov-icon.info-bg { background: var(--info-light); color: var(--info); }
+    .gov-icon.accent-bg { background: var(--accent-light); color: var(--accent); }
+    .gov-title { font-size: 14px; font-weight: 700; }
+    .gov-subtitle { font-size: 11.5px; color: var(--text-secondary); }
+    .gov-body { font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
+    .gov-bullet-list { list-style: none; margin-top: 0.75rem; display: flex; flex-direction: column; gap: 5px; }
+    .gov-bullet-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-size: 12.5px;
+      color: var(--text-secondary);
+    }
+    .gov-bullet-list li::before {
+      content: '';
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+      margin-top: 6px;
+    }
+
+    .trust-stat {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.6rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 13px;
+    }
+    .trust-stat:last-child { border-bottom: none; }
+    .trust-stat-label { color: var(--text-secondary); }
+    .trust-stat-val { font-weight: 700; color: var(--text-primary); }
+
+    .alert {
+      padding: 1rem 1.25rem;
+      border-radius: var(--radius-sm);
+      font-size: 13.5px;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      margin-bottom: 1.25rem;
+      line-height: 1.55;
+    }
+    .alert i { flex-shrink: 0; margin-top: 1px; width: 16px; height: 16px; }
+    .alert-warning { background: var(--warning-light); color: #92400e; border: 1px solid #fde68a; }
+    .alert-danger { background: var(--danger-light); color: #991b1b; border: 1px solid #fca5a5; }
+    .alert-info { background: var(--info-light); color: #075985; border: 1px solid #7dd3fc; }
+    .alert-success { background: var(--success-light); color: #065f46; border: 1px solid #6ee7b7; }
+
+    .footer {
+      max-width: 1280px;
+      margin: 2rem auto 0;
+      padding: 1.5rem 2rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .org-model {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    @media (max-width: 700px) { .org-model { grid-template-columns: 1fr; } }
+    .org-pillar {
+      background: white;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      padding: 1.25rem;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+    }
+    .org-pillar-icon {
+      width: 52px; height: 52px;
+      border-radius: 50%;
+      margin: 0 auto 0.85rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .org-pillar-icon i { width: 24px; height: 24px; }
+    .org-pillar-title { font-size: 14px; font-weight: 700; margin-bottom: 0.5rem; }
+    .org-pillar-body { font-size: 12.5px; color: var(--text-secondary); line-height: 1.55; }
+
+    @media print {
+      .nav-wrap { display: none; }
+      .section { display: block !important; page-break-before: always; }
+      .section:first-child { page-break-before: auto; }
+      body { background: white; }
+    }
+
+    .mt-1 { margin-top: 0.5rem; }
+    .mt-2 { margin-top: 1rem; }
+    .mb-1 { margin-bottom: 0.5rem; }
+    .mb-2 { margin-bottom: 1rem; }
+    .text-sm { font-size: 13px; }
+    .text-muted { color: var(--text-secondary); }
+    .font-bold { font-weight: 700; }
+    .full-width { grid-column: 1 / -1; }
+  </style>
+</head>
+<body>
+
+<header class="header">
+  <div class="header-inner">
+    <div class="header-badge">
+      <i data-lucide="brain-circuit" style="width:13px;height:13px;"></i>
+      2024–2026 Research Synthesis
+    </div>
+    <h1>Enterprise HR Is Using AI<br>to Redesign Itself — and the Enterprise</h1>
+    <p class="header-sub">A data-driven dashboard synthesizing findings from SHRM, Gartner, Mercer, Deloitte, WEF, Bain, and 20+ named enterprise case studies on AI adoption, operating model transformation, and governance.</p>
+    <div class="header-meta">
+      <span class="header-meta-item"><i data-lucide="calendar" style="width:13px;height:13px;"></i> As of May 2026</span>
+      <span class="header-meta-item"><i data-lucide="building-2" style="width:13px;height:13px;"></i> Enterprise Focus</span>
+      <span class="header-meta-item"><i data-lucide="shield-check" style="width:13px;height:13px;"></i> Governance-Ready</span>
+      <span class="header-meta-item"><i data-lucide="users" style="width:13px;height:13px;"></i> CHRO-Oriented</span>
+    </div>
+  </div>
+</header>
+
+<nav class="nav-wrap">
+  <div class="nav-inner">
+    <button class="nav-tab active" onclick="showSection('overview', event)"><i data-lucide="layout-dashboard"></i> Overview</button>
+    <button class="nav-tab" onclick="showSection('adoption', event)"><i data-lucide="trending-up"></i> Adoption</button>
+    <button class="nav-tab" onclick="showSection('workflows', event)"><i data-lucide="git-branch"></i> Workflows</button>
+    <button class="nav-tab" onclick="showSection('cases', event)"><i data-lucide="briefcase"></i> Case Studies</button>
+    <button class="nav-tab" onclick="showSection('opmodel', event)"><i data-lucide="network"></i> Operating Model</button>
+    <button class="nav-tab" onclick="showSection('skills', event)"><i data-lucide="graduation-cap"></i> Skills</button>
+    <button class="nav-tab" onclick="showSection('governance', event)"><i data-lucide="shield"></i> Governance</button>
+    <button class="nav-tab" onclick="showSection('recommendations', event)"><i data-lucide="map"></i> Roadmap</button>
+  </div>
+</nav>
+
+<main class="main">
+
+  <section id="overview" class="section active">
+    <div class="section-title"><i data-lucide="layout-dashboard"></i> Executive Overview</div>
+    <p class="section-desc">Key metrics and the central question every CHRO faces: not whether to adopt AI, but how to redesign work, operating model, and organization around it — simultaneously.</p>
+
+    <div class="alert alert-warning">
+      <i data-lucide="alert-triangle"></i>
+      <span><strong>The central finding:</strong> 88% of HR leaders concede they have not yet realized significant business value from AI tools (Gartner, October 2025). Technology is not the constraint — redirecting freed capacity is.</span>
+    </div>
+
+    <div class="kpi-grid">
+      <div class="kpi-card accent">
+        <div class="kpi-label">HR Functions with AI Deployed</div>
+        <div class="kpi-value">39%</div>
+        <div class="kpi-note">Rising to 60% in extra-large enterprises; 33–35% small/mid-size (SHRM 2026)</div>
+      </div>
+      <div class="kpi-card success">
+        <div class="kpi-label">HR Leaders in Advanced GenAI</div>
+        <div class="kpi-value">61%</div>
+        <div class="kpi-note">Up from 19% in 2023; 82% planning agentic AI within 12 months (Gartner 2025)</div>
+      </div>
+      <div class="kpi-card danger">
+        <div class="kpi-label">Not Realizing Business Value</div>
+        <div class="kpi-value">88%</div>
+        <div class="kpi-note">Of HR leaders say AI has not delivered significant business value (Gartner, Oct 2025)</div>
+      </div>
+      <div class="kpi-card warning">
+        <div class="kpi-label">Guidance on "Time Saved"</div>
+        <div class="kpi-value">7%</div>
+        <div class="kpi-note">Only 7% of organizations provide employees guidance on how to use AI-freed time (Gartner)</div>
+      </div>
+      <div class="kpi-card info">
+        <div class="kpi-label">Workforce to Reskill by 2030</div>
+        <div class="kpi-value">59%</div>
+        <div class="kpi-note">If world workforce = 100 people, 59 need training by 2030 (WEF Future of Jobs 2025)</div>
+      </div>
+      <div class="kpi-card accent">
+        <div class="kpi-label">Agentic AI in 12 Months</div>
+        <div class="kpi-value">82%</div>
+        <div class="kpi-note">Of HR leaders planning agentic AI deployment within 12 months (Gartner Jan 2025)</div>
+      </div>
+    </div>
+
+    <div class="two-col">
+      <div class="card">
+        <div class="card-title"><i data-lucide="layers"></i> Three Simultaneous Redesigns Required</div>
+        <div class="rec-list" style="gap:0.75rem;">
+          <div style="display:flex;gap:12px;align-items:flex-start;padding:0.85rem;background:var(--accent-light);border-radius:var(--radius-sm);">
+            <div style="width:32px;height:32px;border-radius:50%;background:var(--accent);color:white;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;flex-shrink:0;">1</div>
+            <div>
+              <div style="font-weight:700;font-size:13.5px;margin-bottom:3px;">HR Workflows</div>
+              <div class="text-muted text-sm">Automate Tier-0/1 tasks, augment recruiting/coaching, reinvent talent marketplaces and workforce planning</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:12px;align-items:flex-start;padding:0.85rem;background:var(--success-light);border-radius:var(--radius-sm);">
+            <div style="width:32px;height:32px;border-radius:50%;background:var(--success);color:white;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;flex-shrink:0;">2</div>
+            <div>
+              <div style="font-weight:700;font-size:13.5px;margin-bottom:3px;">HR Operating Model</div>
+              <div class="text-muted text-sm">Ulrich three-pillar → AI-agent layer + HR product teams + HRBP as AI-era business advisors</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:12px;align-items:flex-start;padding:0.85rem;background:var(--warning-light);border-radius:var(--radius-sm);">
+            <div style="width:32px;height:32px;border-radius:50%;background:var(--warning);color:white;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;flex-shrink:0;">3</div>
+            <div>
+              <div style="font-weight:700;font-size:13.5px;margin-bottom:3px;">Enterprise Organization</div>
+              <div class="text-muted text-sm">Diamond or hourglass structure with "Frontier Firm" human+agent teams and shifting work charts</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title"><i data-lucide="bar-chart-2"></i> Adoption by Org Type</div>
+        <div class="bar-list">
+          <div><div class="bar-header"><span class="bar-label">Extra-Large Enterprises</span><span class="bar-pct">60%</span></div><div class="bar-track"><div class="bar-fill" style="width:60%"></div></div></div>
+          <div><div class="bar-header"><span class="bar-label">Publicly Traded For-Profits</span><span class="bar-pct">58%</span></div><div class="bar-track"><div class="bar-fill" style="width:58%"></div></div></div>
+          <div><div class="bar-header"><span class="bar-label">Overall HR Functions</span><span class="bar-pct">39%</span></div><div class="bar-track"><div class="bar-fill info" style="width:39%"></div></div></div>
+          <div><div class="bar-header"><span class="bar-label">Small Organizations</span><span class="bar-pct">33%</span></div><div class="bar-track"><div class="bar-fill warning" style="width:33%"></div></div></div>
+          <div><div class="bar-header"><span class="bar-label">Mid-Size Organizations</span><span class="bar-pct">35%</span></div><div class="bar-track"><div class="bar-fill warning" style="width:35%"></div></div></div>
+          <div><div class="bar-header"><span class="bar-label">Federal Government</span><span class="bar-pct">19%</span></div><div class="bar-track"><div class="bar-fill success" style="width:19%"></div></div></div>
+        </div>
+        <p class="text-sm text-muted mt-2">Source: SHRM State of AI in HR 2026</p>
+      </div>
+    </div>
+
+    <div class="alert alert-info">
+      <i data-lucide="info"></i>
+      <span><strong>The decisive variable is governance and change management, not technology.</strong> Organizations that followed change-management best practices were <strong>2.6× more likely</strong> to report highly successful AI implementation (SHRM). Only 17% of HR professionals describe their current AI implementation as "highly successful."</span>
+    </div>
+  </section>
+
+  <section id="adoption" class="section">
+    <div class="section-title"><i data-lucide="trending-up"></i> Adoption Landscape</div>
+    <p class="section-desc">AI adoption in HR has moved from experimentation to operating-model redesign. Recruiting, service delivery, and learning lead; performance and succession remain nascent.</p>
+
+    <div class="kpi-grid">
+      <div class="kpi-card accent"><div class="kpi-label">AI in HR (2024 → 2025)</div><div class="kpi-value">26%→43%</div><div class="kpi-note">SHRM Talent Trends: organizations using AI in HR rose dramatically year-over-year</div></div>
+      <div class="kpi-card success"><div class="kpi-label">Recruiting AI Time-Savings</div><div class="kpi-value">89%</div><div class="kpi-note">Of HR pros using AI in recruiting say it saves time (SHRM 2025)</div></div>
+      <div class="kpi-card warning"><div class="kpi-label">Execs Planning Org Redesign</div><div class="kpi-value">98%</div><div class="kpi-note">Plan org-design changes within 2 years due to AI (Mercer Global Talent Trends 2026, n≈12,000)</div></div>
+      <div class="kpi-card info"><div class="kpi-label">Workforce Reskill/Redeploy</div><div class="kpi-value">65%</div><div class="kpi-note">Of executives expect 11–30% of workforce to be reskilled or redeployed due to AI (Mercer 2026)</div></div>
+    </div>
+
+    <div class="two-col">
+      <div class="card">
+        <div class="card-title"><i data-lucide="check-circle"></i> Top Adopted HR AI Use Cases</div>
+        <div class="bar-list">
+          <div><div class="bar-header"><span class="bar-label">Generate Job Descriptions</span><span class="bar-pct">66%</span></div><div class="bar-track"><div class="bar-fill" style="width:66%"></div></div></div>
+          <div><div class="bar-header"><span class="bar-label">Screen Resumes</span><span class="bar-pct">44%</span></div><div class="bar-track"><div class="bar-fill" style="width:44%"></div></div></div>
+          <div><div class="bar-header"><span class="bar-label">L&D — More Effective Programs</span><span class="bar-pct">41%</span></div><div class="bar-track"><div class="bar-fill success" style="width:41%"></div></div></div>
+          <div><div class="bar-header"><span class="bar-label">L&D — Lower Costs</span><span class="bar-pct">39%</span></div><div class="bar-track"><div class="bar-fill success" style="width:39%"></div></div></div>
+        </div>
+        <p class="text-sm text-muted mt-2">Source: SHRM 2025 Talent Trends</p>
+      </div>
+
+      <div class="card">
+        <div class="card-title"><i data-lucide="x-circle"></i> Least Adopted (Highest-Risk) Areas</div>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 10px;background:var(--danger-light);border-radius:var(--radius-sm);"><span class="text-sm font-bold">C-Suite / Board Relations</span><span class="badge badge-danger">Lowest adoption</span></div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 10px;background:var(--warning-light);border-radius:var(--radius-sm);"><span class="text-sm">DEI & Ethics</span><span class="badge badge-warning">Bias risk</span></div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 10px;background:var(--warning-light);border-radius:var(--radius-sm);"><span class="text-sm">ESG / Future of Work</span><span class="badge badge-warning">Explainability risk</span></div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 10px;background:var(--warning-light);border-radius:var(--radius-sm);"><span class="text-sm">Labor Relations</span><span class="badge badge-warning">Works council</span></div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 10px;background:var(--bg-subtle);border-radius:var(--radius-sm);"><span class="text-sm">Succession Planning</span><span class="badge badge-gray">Emerging</span></div>
+        </div>
+        <p class="text-sm text-muted mt-2">Precisely the domains where AI's judgement and bias risks are highest (SHRM 2026)</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><i data-lucide="activity"></i> The Pilot-to-Production Gap — The Dominant Failure Mode</div>
+      <div class="three-col" style="margin-bottom:0;">
+        <div style="text-align:center;padding:1.25rem;background:var(--danger-light);border-radius:var(--radius-sm);"><div style="font-size:2.5rem;font-weight:800;color:var(--danger);line-height:1;">88%</div><div class="text-sm text-muted mt-1">Have NOT realized significant business value from AI tools</div></div>
+        <div style="text-align:center;padding:1.25rem;background:var(--warning-light);border-radius:var(--radius-sm);"><div style="font-size:2.5rem;font-weight:800;color:var(--warning);line-height:1;">17%</div><div class="text-sm text-muted mt-1">HR pros describe their AI implementation as "highly successful"</div></div>
+        <div style="text-align:center;padding:1.25rem;background:var(--success-light);border-radius:var(--radius-sm);"><div style="font-size:2.5rem;font-weight:800;color:var(--success);line-height:1;">2.6×</div><div class="text-sm text-muted mt-1">More likely to succeed with change-management best practices</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="workflows" class="section">
+    <div class="section-title"><i data-lucide="git-branch"></i> Workflow Redesign Framework</div>
+    <p class="section-desc">HR workflows map across three distinct patterns: Automation (industrializing Tier-0/1 tasks), Augmentation (productivity multiplier for knowledge work), and Reinvention (competitive advantage via talent marketplaces, dynamic planning, ambient listening).</p>
+
+    <div class="alert alert-success">
+      <i data-lucide="zap"></i>
+      <span><strong>Productivity range:</strong> Bain estimates AI could save <strong>15–20% of average HR labor time</strong>, with HR operations teams saving up to <strong>35%</strong>. IBM AskHR demonstrates a <strong>75% reduction in HR support tickets</strong> since 2016 with 94% containment.</span>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>HR Workflow</th><th>Pattern</th><th>Key Vendors / Deployments</th><th>Human Control Point</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Job Description & Skills Inference</strong></td><td><span class="badge badge-info">Augmentation</span></td><td>ServiceNow, Workday, Eightfold</td><td>Hiring manager review before requisition</td></tr>
+          <tr><td><strong>Recruiting & Screening</strong></td><td><span class="badge badge-info">Augmentation</span></td><td>Paradox, HireVue, Eightfold, HiredScore</td><td>Recruiter validation; bias audit required (LL144, EU AI Act)</td></tr>
+          <tr><td><strong>Interview Scheduling</strong></td><td><span class="badge badge-success">Automation</span></td><td>ServiceNow Schedule Interview, Paradox Olivia</td><td>Recruiter approves slots; reviews invite content</td></tr>
+          <tr><td><strong>Onboarding</strong></td><td><span class="badge badge-accent">Reinvention</span></td><td>ServiceNow Plan Generator + Reviewer agents</td><td>Manager reviews and customizes plan</td></tr>
+          <tr><td><strong>HR Case Management</strong></td><td><span class="badge badge-accent">Reinvention</span></td><td>IBM AskHR (94% containment), ServiceNow HRSD</td><td>Critical cases routed to humans; planner agent drafts for approval</td></tr>
+          <tr><td><strong>Knowledge Management</strong></td><td><span class="badge badge-info">Augmentation</span></td><td>RAG over policy + compliance corpora</td><td>Author validation; versioning</td></tr>
+          <tr><td><strong>Personalized Learning</strong></td><td><span class="badge badge-accent">Reinvention</span></td><td>Workera (Siemens Energy), PwC Learning Collective, Skillsoft Percipio</td><td>Manager curates pathway; certification gates</td></tr>
+          <tr><td><strong>Workforce Planning & Scenario Modeling</strong></td><td><span class="badge badge-accent">Reinvention</span></td><td>Continuous agentic "digital twins" of the org</td><td>Strategy/HRBP set assumptions; finance validates</td></tr>
+          <tr><td><strong>Internal Mobility / Talent Marketplace</strong></td><td><span class="badge badge-accent">Reinvention</span></td><td>Gloat (Mastercard, Unilever, Schneider, HSBC), Eightfold, Workday</td><td>Skills self-assessment + manager endorsement</td></tr>
+          <tr><td><strong>Performance & Manager Coaching</strong></td><td><span class="badge badge-info">Augmentation</span></td><td>Mastercard "Cai" role-play coach; review-draft assistants</td><td>Manager finalizes; calibration meetings</td></tr>
+          <tr><td><strong>Succession Planning</strong></td><td><span class="badge badge-info">Augmentation</span></td><td>Skills-graph successor recommendations; bias checks</td><td>Talent committee retains decision rights</td></tr>
+          <tr><td><strong>Employee Listening</strong></td><td><span class="badge badge-accent">Reinvention</span></td><td>Continuous sentiment from chats, emails (consent-gated)</td><td>Privacy by design; consent governance</td></tr>
+          <tr><td><strong>Policy Interpretation</strong></td><td><span class="badge badge-success">Automation</span></td><td>Bosch ROB, HSBC HR assistant, NHS chatbot</td><td>Escalation for ambiguous cases</td></tr>
+          <tr><td><strong>HR Analytics & Exec Decision Support</strong></td><td><span class="badge badge-info">Augmentation</span></td><td>Bosch: 3× faster, 70% efficiency gain</td><td>Data-governance and metric-definition review</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><i data-lucide="shield-check"></i> 5 Critical Control Points Across All Workflows</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;">
+        <div style="padding:0.9rem;background:var(--accent-light);border-radius:var(--radius-sm);border-left:3px solid var(--accent);"><div class="font-bold text-sm mb-1">1. AI vs Human Tagging</div><div class="text-sm text-muted">Explicit "AI-only / human+AI / human-only" classification on each role and task</div></div>
+        <div style="padding:0.9rem;background:var(--info-light);border-radius:var(--radius-sm);border-left:3px solid var(--info);"><div class="font-bold text-sm mb-1">2. Explainability & Audit Trails</div><div class="text-sm text-muted">ServiceNow AI Control Tower, Workday Illuminate for governance</div></div>
+        <div style="padding:0.9rem;background:var(--danger-light);border-radius:var(--radius-sm);border-left:3px solid var(--danger);"><div class="font-bold text-sm mb-1">3. Bias Auditing</div><div class="text-sm text-muted">Mandatory for decisions affecting protected categories (LL144, EU AI Act)</div></div>
+        <div style="padding:0.9rem;background:var(--warning-light);border-radius:var(--radius-sm);border-left:3px solid var(--warning);"><div class="font-bold text-sm mb-1">4. Human Override Pathway</div><div class="text-sm text-muted">Override and accommodation pathways required by NYC Local Law 144</div></div>
+        <div style="padding:0.9rem;background:var(--success-light);border-radius:var(--radius-sm);border-left:3px solid var(--success);"><div class="font-bold text-sm mb-1">5. "What to Do With Time Saved"</div><div class="text-sm text-muted">Only 7% of orgs provide this guidance — the most-cited gap (Gartner July 2025)</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="cases" class="section">
+    <div class="section-title"><i data-lucide="briefcase"></i> Enterprise Case Studies</div>
+    <p class="section-desc">Named, quantified outcomes from 20+ enterprise deployments across financial services, technology, manufacturing, retail, telecom, healthcare, and public sector.</p>
+
+    <div class="alert alert-warning">
+      <i data-lucide="alert-triangle"></i>
+      <span><strong>Selection bias note:</strong> These organizations publish results because they are succeeding. Median enterprise outcomes are closer to Gartner's 88% "no significant value" figure. These figures are directionally correct but represent indicative ceilings, not guaranteed outcomes.</span>
+    </div>
+
+    <div class="case-grid">
+      <div class="case-card"><div class="case-header"><div class="case-logo" style="background:#1f4e79;">IBM</div><div><div class="case-company">IBM — AskHR</div><div class="case-domain">HR Service Delivery</div></div></div><div class="case-body"><div class="case-metric"><span class="case-metric-val" style="color:var(--accent);">40%</span><span class="case-metric-label">HR operating budget reduction over 4 years</span></div><div class="case-desc">94% containment rate; 11.5M interactions in 2024; 75% ticket reduction since 2016; contributed to $3.5B enterprise-wide productivity savings in 2024. 80+ automated tasks; 50,000 hours reclaimed annually.</div><div class="case-source">Sources: IBM Case Study; CIO; Bloomberg</div></div></div>
+      <div class="case-card"><div class="case-header"><div class="case-logo" style="background:#eb001b;">MC</div><div><div class="case-company">Mastercard — "Unlocked"</div><div class="case-domain">Talent Marketplace (Gloat)</div></div></div><div class="case-body"><div class="case-metric"><span class="case-metric-val" style="color:var(--success);">$21M</span><span class="case-metric-label">productivity in year one</span></div><div class="case-desc">500,000+ project hours unlocked; 90% workforce coverage (~35,000 employees); 9-point gain in career-development pulse score. Built by CHRO Michael Fraccaro.</div><div class="case-source">Sources: Gloat case study; Mastercard Perspectives</div></div></div>
+      <div class="case-card"><div class="case-header"><div class="case-logo" style="background:#006272;">SC</div><div><div class="case-company">Standard Chartered</div><div class="case-domain">Reskilling / Redeployment</div></div></div><div class="case-body"><div class="case-metric"><span class="case-metric-val" style="color:var(--warning);">$49K</span><span class="case-metric-label">saved per redeployed role</span></div><div class="case-desc">38,000 colleagues (40% of workforce) engaged in future-skills learning in 2024. CHRO Tanuj Kapilashrami promoted to Chief Strategy & Talent Officer, adding Corporate Strategy, Transformation, Brand, Real Estate, and Supply Chain.</div><div class="case-source">Source: IMD case study</div></div></div>
+      <div class="case-card"><div class="case-header"><div class="case-logo" style="background:#e31837;">BoA</div><div><div class="case-company">Bank of America</div><div class="case-domain">Erica for Employees</div></div></div><div class="case-body"><div class="case-metric"><span class="case-metric-val" style="color:var(--danger);">95%</span><span class="case-metric-label">of 213,000 employees using Erica</span></div><div class="case-desc">50% reduction in IT service-desk calls; ~614 workflows built; >20% developer productivity gains from coding assistants. Bulk of ~213,000-person workforce covered.</div><div class="case-source">Sources: BofA press release Aug 2025; American Banker</div></div></div>
+      <div class="case-card"><div class="case-header"><div class="case-logo" style="background:#e2001a;">BSH</div><div><div class="case-company">Bosch — "ROB" HR Agent</div><div class="case-domain">HR AI Agent / Analytics</div></div></div><div class="case-body"><div class="case-metric"><span class="case-metric-val" style="color:var(--accent);">70%</span><span class="case-metric-label">HR analytics efficiency gain</span></div><div class="case-desc">Deployed in 25 countries to ~429,000 associates; 3× faster access to workforce trends. Complementary HR conversational-analytics agent delivered significant efficiency gains.</div><div class="case-source">Sources: Cognigy; GoML; HR Grapevine</div></div></div>
+      <div class="case-card"><div class="case-header"><div class="case-logo" style="background:#1f6fb2;">UNI</div><div><div class="case-company">Unilever — FLEX Experiences</div><div class="case-domain">Talent Marketplace (Gloat)</div></div></div><div class="case-body"><div class="case-metric"><span class="case-metric-val" style="color:var(--info);">300K+</span><span class="case-metric-label">hours unlocked in 2 months</span></div><div class="case-desc">90,000+ employees across 90+ countries; 75% recruitment-time reduction; £1M+ cost savings via AI campus hiring.</div><div class="case-source">Sources: Gloat; Unilever; Case Centre</div></div></div>
+      <div class="case-card"><div class="case-header"><div class="case-logo" style="background:#3dcd58;">SE</div><div><div class="case-company">Schneider Electric</div><div class="case-domain">Open Talent Market (Gloat)</div></div></div><div class="case-body"><div class="case-metric"><span class="case-metric-val" style="color:var(--success);">$15M</span><span class="case-metric-label">savings + 200,000+ hours unlocked</span></div><div class="case-desc">140,000+ employees. Directly addresses the 47% of leavers who cite lack of internal mobility opportunity as reason for departure.</div><div class="case-source">Source: Gloat case study</div></div></div>
+      <div class="case-card"><div class="case-header"><div class="case-logo" style="background:#009999;">SIE</div><div><div class="case-company">Siemens Energy</div><div class="case-domain">Personalized Learning (Workera)</div></div></div><div class="case-body"><div class="case-metric"><span class="case-metric-val" style="color:var(--accent);">62%</span><span class="case-metric-label">GenAI skill improvement in 2 weeks</span></div><div class="case-desc">~100,000 employees upskilled via personalized learning paths.</div><div class="case-source">Source: Workera case study</div></div></div>
+      <div class="case-card"><div class="case-header"><div class="case-logo" style="background:#003b6f;">CTI</div><div><div class="case-company">Citi</div><div class="case-domain">Workforce AI Enablement</div></div></div><div class="case-body"><div class="case-metric"><span class="case-metric-val" style="color:var(--info);">175K</span><span class="case-metric-label">employees mandated AI training</span></div><div class="case-desc">Training mandated across 80 countries within 60 days (October 2025). Employees entered 6.5M+ prompts year-to-date. Citi Stylus Workspaces (agentic) launched September 2025.</div><div class="case-source">Sources: Fortune Oct 2025; Citi</div></div></div>
+      <div class="case-card"><div class="case-header"><div class="case-logo" style="background:#0071ce;">WMT</div><div><div class="case-company">Walmart</div><div class="case-domain">Frontline App & L&D</div></div></div><div class="case-body"><div class="case-metric"><span class="case-metric-val" style="color:var(--accent);">740K+</span><span class="case-metric-label">associates on Me@Walmart</span></div><div class="case-desc">Voice assistant "Ask Sam" in Me@Walmart app; 17M nano-learnings delivered by mid-2024; 125,000+ associates enrolled in Live Better U program.</div><div class="case-source">Source: Walmart 2024 ESG Report</div></div></div>
+      <div class="case-card"><div class="case-header"><div class="case-logo" style="background:#e60000;">VOD</div><div><div class="case-company">Vodafone — SuperTOBI</div><div class="case-domain">Employee & Customer AI</div></div></div><div class="case-body"><div class="case-metric"><span class="case-metric-val" style="color:var(--danger);">15%→60%</span><span class="case-metric-label">first-time resolution rate</span></div><div class="case-desc">Online NPS +14 points to 64; 68,000 employees received Microsoft 365 Copilot. SuperAgent supports human care agents in parallel.</div><div class="case-source">Sources: Vodafone; Total Telecom</div></div></div>
+      <div class="case-card"><div class="case-header"><div class="case-logo" style="background:#4a90d9;">RAL</div><div><div class="case-company">City of Raleigh, NC</div><div class="case-domain">Public Sector HR / IT</div></div></div><div class="case-body"><div class="case-metric"><span class="case-metric-val" style="color:var(--success);">98%</span><span class="case-metric-label">deflection rate on HR/IT requests</span></div><div class="case-desc">Employee HR and IT requests deflected via ServiceNow agents. Leading public-sector example of AI-first employee service delivery.</div><div class="case-source">Source: Fortune May 2026</div></div></div>
+    </div>
+  </section>
+
+  <section id="opmodel" class="section">
+    <div class="section-title"><i data-lucide="network"></i> HR Operating Model Redesign</div>
+    <p class="section-desc">The traditional Ulrich three-pillar model (HRBPs, COEs, Shared Services) is being restructured along three new axes. Adapting the operating model itself has the highest predicted impact on AI productivity gains (29%) — outpacing AI skills, knowledge sharing, or acceptance.</p>
+
+    <div class="alert alert-info">
+      <i data-lucide="info"></i>
+      <span><strong>Gartner key finding:</strong> Adapting the operating model has the highest predicted impact on AI productivity gains (29%). The AI gains accrue to firms that change <em>how HR is structured</em>, not those that simply plug in better tools.</span>
+    </div>
+
+    <div class="org-model">
+      <div class="org-pillar"><div class="org-pillar-icon" style="background:var(--accent-light);"><i data-lucide="bot" style="color:var(--accent);"></i></div><div class="org-pillar-title">AI-Agent Layer</div><div class="org-pillar-body">Absorbs bulk of Tier-0/Tier-1 shared-services volume. IBM AskHR (80+ tasks, 94% containment), BoA Erica, Bosch ROB, HSBC HR assistant, ServiceNow HRSD agentic flows are the dominant patterns.</div></div>
+      <div class="org-pillar"><div class="org-pillar-icon" style="background:var(--success-light);"><i data-lucide="package" style="color:var(--success);"></i></div><div class="org-pillar-title">HR Product Teams</div><div class="org-pillar-body">Replace siloed COEs. Product owners pair with engineering, data, and design. Develop hyperpersonalized solutions along horizontal value streams: talent acquisition, growth & development, employee service, total rewards.</div></div>
+      <div class="org-pillar"><div class="org-pillar-icon" style="background:var(--warning-light);"><i data-lucide="users" style="color:var(--warning);"></i></div><div class="org-pillar-title">HRBPs as AI-Era Advisors</div><div class="org-pillar-body">Coach managers on human-AI team design, ratio-setting, and change leadership. Improving people-manager skills is the #1 HR priority for the first time (Mercer 2025, 16 industries, 17 geographies).</div></div>
+    </div>
+
+    <div class="two-col">
+      <div class="card">
+        <div class="card-title"><i data-lucide="git-fork"></i> Two Emerging Enterprise Org Archetypes</div>
+        <div style="display:flex;flex-direction:column;gap:1rem;">
+          <div style="padding:1rem;background:var(--accent-light);border-radius:var(--radius-sm);border-left:4px solid var(--accent);"><div class="font-bold" style="margin-bottom:0.4rem;">◆ Diamond Structure</div><div class="text-sm text-muted">Strong leadership + AI-manager middle + narrow base as AI absorbs entry-level tasks. JPMorgan (stable headcount with internal shifts), Amazon (signaled corporate reductions) fit this archetype.</div></div>
+          <div style="padding:1rem;background:var(--success-light);border-radius:var(--radius-sm);border-left:4px solid var(--success);"><div class="font-bold" style="margin-bottom:0.4rem;">⧗ Hourglass Structure (PwC's model)</div><div class="text-sm text-muted">Expanded AI-literate generalist entry level + expanded specialist tier + thinner middle management. Preserves apprenticeship and avoids starving future leadership pipeline.</div></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title"><i data-lucide="zap"></i> The "Frontier Firm" (Microsoft WTI 2025)</div>
+        <div class="text-sm text-muted" style="margin-bottom:1rem;">Hybrid human+AI-agent teams operating with shifting "work charts" rather than rigid org charts.</div>
+        <div style="display:flex;flex-direction:column;gap:0.65rem;">
+          <div class="trust-stat"><span class="trust-stat-label">Leaders expecting digital labor to expand workforce capacity</span><span class="trust-stat-val">82%</span></div>
+          <div class="trust-stat"><span class="trust-stat-label">Executives with comprehensive AI strategy</span><span class="trust-stat-val">27%</span></div>
+          <div class="trust-stat"><span class="trust-stat-label">Believe workforce is AI-ready</span><span class="trust-stat-val">20%</span></div>
+          <div class="trust-stat"><span class="trust-stat-label">Managers experimenting with AI (vs. 26% employees)</span><span class="trust-stat-val">46%</span></div>
+          <div class="trust-stat"><span class="trust-stat-label">HR redesigned career paths based on AI patterns</span><span class="trust-stat-val">33%</span></div>
+        </div>
+        <p class="text-sm text-muted mt-2">Rising role: the <strong>"agent boss"</strong> — an individual who builds, delegates to, and manages multiple AI agents.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills" class="section">
+    <div class="section-title"><i data-lucide="graduation-cap"></i> Skills Transformation</div>
+    <p class="section-desc">The skills-based-organization (SBO) movement is now the operating substrate for AI deployment. HR owns the largest enterprise AI work-stream: workforce reskilling at scale.</p>
+
+    <div class="kpi-grid">
+      <div class="kpi-card accent"><div class="kpi-label">Core Skills Changing by 2030</div><div class="kpi-value">39%</div><div class="kpi-note">Down from 44% in 2023, suggesting upskilling investments are working (WEF Future of Jobs 2025)</div></div>
+      <div class="kpi-card success"><div class="kpi-label">Employers Planning Upskilling</div><div class="kpi-value">85%</div><div class="kpi-note">Plan internal upskilling programs; 77% plan to reskill workers to work alongside AI (WEF 2025)</div></div>
+      <div class="kpi-card warning"><div class="kpi-label">Would Trade Pay Raise for AI Upskilling</div><div class="kpi-value">63%</div><div class="kpi-note">Employees would trade a 10% pay raise for AI/digital upskilling opportunities (Mercer 2026)</div></div>
+      <div class="kpi-card info"><div class="kpi-label">Investors More Likely to Back AI Education</div><div class="kpi-value">77%</div><div class="kpi-note">More likely to invest in companies committed to AI education (Mercer 2026)</div></div>
+    </div>
+
+    <div class="two-col">
+      <div class="card">
+        <div class="card-title"><i data-lucide="map-pin"></i> Talent Marketplace ROI — Named Examples</div>
+        <div class="table-wrap" style="margin-bottom:0;border-radius:var(--radius-sm);">
+          <table>
+            <thead><tr><th>Company</th><th>Platform</th><th>Outcome</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Mastercard</strong></td><td>Gloat</td><td><span class="badge badge-success">$21M yr 1 · 90% coverage</span></td></tr>
+              <tr><td><strong>Schneider Electric</strong></td><td>Gloat</td><td><span class="badge badge-success">$15M + 200K hrs</span></td></tr>
+              <tr><td><strong>Unilever</strong></td><td>Gloat</td><td><span class="badge badge-info">300K hrs in 2 mo</span></td></tr>
+              <tr><td><strong>Seagate</strong></td><td>Gloat</td><td><span class="badge badge-success">$1.4M in 4 months</span></td></tr>
+              <tr><td><strong>Std. Chartered</strong></td><td>Internal</td><td><span class="badge badge-accent">$49K/redeployed role</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="text-sm text-muted mt-2">Talent marketplace adoption is approaching 35% of large enterprises</p>
+      </div>
+
+      <div class="card">
+        <div class="card-title"><i data-lucide="dollar-sign"></i> Enterprise Reskilling Commitments</div>
+        <div style="display:flex;flex-direction:column;gap:0.75rem;">
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:0.75rem;background:var(--bg-subtle);border-radius:var(--radius-sm);"><div><div class="font-bold text-sm">PwC</div><div class="text-sm text-muted">$1B / 3-year commitment from 2023 + 2026 Learning Collective</div></div><span class="badge badge-accent">$1B</span></div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:0.75rem;background:var(--bg-subtle);border-radius:var(--radius-sm);"><div><div class="font-bold text-sm">AT&T</div><div class="text-sm text-muted">Continuing $1B Workforce 2020 program</div></div><span class="badge badge-info">$1B</span></div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:0.75rem;background:var(--bg-subtle);border-radius:var(--radius-sm);"><div><div class="font-bold text-sm">Microsoft + Partners</div><div class="text-sm text-muted">23M people trained and certified in digital skills in 2024</div></div><span class="badge badge-success">23M trained</span></div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:0.75rem;background:var(--bg-subtle);border-radius:var(--radius-sm);"><div><div class="font-bold text-sm">Siemens Energy</div><div class="text-sm text-muted">62% GenAI skill gain in 2 weeks (Workera, ~100K employees)</div></div><span class="badge badge-warning">62% gain</span></div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:0.75rem;background:var(--bg-subtle);border-radius:var(--radius-sm);"><div><div class="font-bold text-sm">Citi</div><div class="text-sm text-muted">Mandatory training for 175K employees in 80 countries in 60 days</div></div><span class="badge badge-danger">175K in 60d</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><i data-lucide="globe"></i> WEF Future of Jobs 2025 — Key Numbers</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1rem;">
+        <div style="text-align:center;padding:1.1rem;background:var(--accent-light);border-radius:var(--radius-sm);"><div style="font-size:1.8rem;font-weight:800;color:var(--accent);">86%</div><div class="text-sm text-muted mt-1">Expect AI to transform their business by 2030</div></div>
+        <div style="text-align:center;padding:1.1rem;background:var(--success-light);border-radius:var(--radius-sm);"><div style="font-size:1.8rem;font-weight:800;color:var(--success);">170M</div><div class="text-sm text-muted mt-1">New jobs created globally by AI by 2030</div></div>
+        <div style="text-align:center;padding:1.1rem;background:var(--danger-light);border-radius:var(--radius-sm);"><div style="font-size:1.8rem;font-weight:800;color:var(--danger);">92M</div><div class="text-sm text-muted mt-1">Jobs displaced by AI by 2030</div></div>
+        <div style="text-align:center;padding:1.1rem;background:var(--info-light);border-radius:var(--radius-sm);"><div style="font-size:1.8rem;font-weight:800;color:var(--info);">+78M</div><div class="text-sm text-muted mt-1">Net new jobs (created minus displaced)</div></div>
+        <div style="text-align:center;padding:1.1rem;background:var(--warning-light);border-radius:var(--radius-sm);"><div style="font-size:1.8rem;font-weight:800;color:var(--warning);">41%</div><div class="text-sm text-muted mt-1">Employers plan to reduce staff with obsolete skills</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="governance" class="section">
+    <div class="section-title"><i data-lucide="shield"></i> Governance & Risk</div>
+    <p class="section-desc">The compliance perimeter for HR AI is widening fast. Governance is no longer optional — it is the decisive variable separating AI leaders from laggards.</p>
+
+    <div class="alert alert-danger">
+      <i data-lucide="alert-octagon"></i>
+      <span><strong>Halt threshold:</strong> Any high-risk HR AI without a current bias audit, no human override, or no impact-assessment documentation should be halted pending remediation. EU AI Act high-risk obligations apply from <strong>August 2, 2026</strong>.</span>
+    </div>
+
+    <div class="gov-grid">
+      <div class="gov-card">
+        <div class="gov-card-header"><div class="gov-icon danger-bg"><i data-lucide="globe-2"></i></div><div><div class="gov-title">EU AI Act</div><div class="gov-subtitle">Effective August 2, 2026</div></div></div>
+        <div class="gov-body">AI systems used in employment decisions are "high-risk" under Annex III, Category 4.</div>
+        <ul class="gov-bullet-list">
+          <li>Risk management system (Art. 9)</li>
+          <li>Data governance — training data "as free of errors as possible" (Art. 10)</li>
+          <li>Technical documentation (Art. 11)</li>
+          <li>Record-keeping (Art. 12)</li>
+          <li>Transparency to affected persons (Art. 13)</li>
+          <li>Human oversight mechanisms (Art. 14)</li>
+          <li>Fundamental-rights impact assessment</li>
+          <li>Post-market monitoring</li>
+        </ul>
+        <div style="margin-top:0.85rem;padding:0.65rem 0.9rem;background:var(--danger-light);border-radius:var(--radius-sm);"><div class="text-sm" style="color:#991b1b;font-weight:600;">Penalties: €15M or 3% global turnover (high-risk); €35M / 7% (prohibited practices)</div></div>
+      </div>
+
+      <div class="gov-card">
+        <div class="gov-card-header"><div class="gov-icon warning-bg"><i data-lucide="map-pin"></i></div><div><div class="gov-title">NYC Local Law 144</div><div class="gov-subtitle">In force July 5, 2023</div></div></div>
+        <div class="gov-body">Applies to automated employment decision tools (AEDTs) used in NYC hiring and promotion.</div>
+        <ul class="gov-bullet-list">
+          <li>Annual independent bias audit required</li>
+          <li>Results must be publicly posted</li>
+          <li>Candidate notification required</li>
+          <li>Alternative selection process on request</li>
+        </ul>
+        <div style="margin-top:0.85rem;padding:0.65rem 0.9rem;background:var(--warning-light);border-radius:var(--radius-sm);"><div class="text-sm" style="color:#92400e;font-weight:600;">December 2025 NY State Comptroller audit criticized DCWP's enforcement as ineffective — regulatory pressure will intensify</div></div>
+      </div>
+
+      <div class="gov-card">
+        <div class="gov-card-header"><div class="gov-icon info-bg"><i data-lucide="scale"></i></div><div><div class="gov-title">US State & Federal</div><div class="gov-subtitle">Active and Emerging</div></div></div>
+        <div class="gov-body">Patchwork of state-level requirements and federal guidance.</div>
+        <ul class="gov-bullet-list">
+          <li>Colorado AI Act</li>
+          <li>Illinois AI Video Interview Act</li>
+          <li>California AB-2930</li>
+          <li>EEOC guidance on AI-driven adverse impact (four-fifths rule)</li>
+          <li>UK Data (Use & Access) Act 2024 — automated decision rules</li>
+        </ul>
+      </div>
+
+      <div class="gov-card">
+        <div class="gov-card-header"><div class="gov-icon accent-bg"><i data-lucide="users-2"></i></div><div><div class="gov-title">Works Council Co-Determination</div><div class="gov-subtitle">Europe — Mandatory</div></div></div>
+        <div class="gov-body">Works councils must be involved early in AI deployment decisions. Affects Germany, France, Spain, Italy, Austria, and the Netherlands.</div>
+        <ul class="gov-bullet-list">
+          <li>HR cannot simply "deploy" AI in Europe without negotiated rollouts</li>
+          <li>Practically means HR leads must engage works councils before technology procurement</li>
+          <li>Consultation obligations vary by country</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="two-col">
+      <div class="card">
+        <div class="card-title"><i data-lucide="heart-crack"></i> Employee Trust Statistics (SHL, Nov 2025, n=1,009)</div>
+        <div style="display:flex;flex-direction:column;gap:0;">
+          <div class="trust-stat"><span class="trust-stat-label">Say AI interview would change perception of company</span><span class="trust-stat-val" style="color:var(--warning);">74%</span></div>
+          <div class="trust-stat"><span class="trust-stat-label">Fully trust employers to use AI responsibly</span><span class="trust-stat-val" style="color:var(--danger);">27%</span></div>
+          <div class="trust-stat"><span class="trust-stat-label">Believe AI is making bias worse, not better</span><span class="trust-stat-val" style="color:var(--danger);">59%</span></div>
+          <div class="trust-stat"><span class="trust-stat-label">HR leaders believe GenAI has increased risk exposure</span><span class="trust-stat-val" style="color:var(--warning);">27%</span></div>
+        </div>
+        <div class="alert alert-warning mt-2" style="margin-bottom:0;"><i data-lucide="alert-triangle"></i><span><strong>Trust is the binding constraint.</strong> Only 27% of employees fully trust employers to use AI responsibly.</span></div>
+      </div>
+
+      <div class="card">
+        <div class="card-title"><i data-lucide="clipboard-list"></i> Governance Checklist for CHROs</div>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <div style="display:flex;gap:10px;align-items:flex-start;padding:8px 10px;background:var(--bg-subtle);border-radius:var(--radius-sm);"><i data-lucide="square" style="width:16px;height:16px;color:var(--text-muted);flex-shrink:0;margin-top:2px;"></i><span class="text-sm">Map every HR AI system against EU AI Act Annex III high-risk criteria</span></div>
+          <div style="display:flex;gap:10px;align-items:flex-start;padding:8px 10px;background:var(--bg-subtle);border-radius:var(--radius-sm);"><i data-lucide="square" style="width:16px;height:16px;color:var(--text-muted);flex-shrink:0;margin-top:2px;"></i><span class="text-sm">Commission independent bias audit (NYC LL144 + EU AI Act both require this)</span></div>
+          <div style="display:flex;gap:10px;align-items:flex-start;padding:8px 10px;background:var(--bg-subtle);border-radius:var(--radius-sm);"><i data-lucide="square" style="width:16px;height:16px;color:var(--text-muted);flex-shrink:0;margin-top:2px;"></i><span class="text-sm">Establish "human-in-the-loop" register naming who owns override decision per workflow</span></div>
+          <div style="display:flex;gap:10px;align-items:flex-start;padding:8px 10px;background:var(--bg-subtle);border-radius:var(--radius-sm);"><i data-lucide="square" style="width:16px;height:16px;color:var(--text-muted);flex-shrink:0;margin-top:2px;"></i><span class="text-sm">Publish candidate-facing AI notice and alternative selection process</span></div>
+          <div style="display:flex;gap:10px;align-items:flex-start;padding:8px 10px;background:var(--bg-subtle);border-radius:var(--radius-sm);"><i data-lucide="square" style="width:16px;height:16px;color:var(--text-muted);flex-shrink:0;margin-top:2px;"></i><span class="text-sm">Negotiate works-council agreements ahead of European rollouts</span></div>
+          <div style="display:flex;gap:10px;align-items:flex-start;padding:8px 10px;background:var(--bg-subtle);border-radius:var(--radius-sm);"><i data-lucide="square" style="width:16px;height:16px;color:var(--text-muted);flex-shrink:0;margin-top:2px;"></i><span class="text-sm">Demand seat on enterprise AI governance committee (alongside CIO, CFO, CRO)</span></div>
+          <div style="display:flex;gap:10px;align-items:flex-start;padding:8px 10px;background:var(--bg-subtle);border-radius:var(--radius-sm);"><i data-lucide="square" style="width:16px;height:16px;color:var(--text-muted);flex-shrink:0;margin-top:2px;"></i><span class="text-sm">Build fundamental-rights impact assessments into deployment approval gates</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="recommendations" class="section">
+    <div class="section-title"><i data-lucide="map"></i> CHRO Roadmap — 7 Staged Actions</div>
+    <p class="section-desc">Priority-ordered actions for CHROs and CHRO-aspirant executives, from immediate governance positioning through long-term measurement transformation.</p>
+
+    <div class="alert alert-info">
+      <i data-lucide="info"></i>
+      <span><strong>Starting point:</strong> 73% of HR leaders are not in the AI strategy conversation (Gartner). If your organization is in this 73%, treat it as a board-level governance failure requiring immediate escalation.</span>
+    </div>
+
+    <div class="rec-list">
+      <div class="rec-item"><div class="rec-step">1</div><div><div class="rec-title">Establish CHRO-Led Enterprise AI Position</div><div class="rec-horizon horizon-now"><i data-lucide="zap" style="width:10px;height:10px;"></i> Next 90 Days</div><div class="rec-body">Demand a seat on the enterprise AI governance committee alongside the CIO, CFO and Chief Risk Officer. Build a small, well-funded HR innovation team reporting directly to the CHRO. Position HR's value proposition explicitly: AI is a workforce issue, and HR mitigates adoption, ethics, retention and engagement risk.</div><div class="rec-threshold"><strong>Threshold to escalate:</strong> If your organization is in the 73% of HR leaders Gartner identifies as not in the AI strategy conversation, treat this as a board-level governance failure.</div></div></div>
+      <div class="rec-item"><div class="rec-step">2</div><div><div class="rec-title">Redesign HR Work Before Redesigning HR Roles</div><div class="rec-horizon horizon-soon"><i data-lucide="clock" style="width:10px;height:10px;"></i> Next 6 Months</div><div class="rec-body">Inventory every HR workflow against the automation / augmentation / reinvention framework. For each, classify tasks AI-only / human+AI / human-only, then rewrite role purposes and skills. Pick 2–3 high-volume, low-risk workflows (case management, scheduling, job-description generation) for first agentic deployment.</div><div class="rec-threshold"><strong>Benchmark:</strong> Aim for 15–20% average HR labor-time savings (Bain) and up to 35% on HR operations teams, plus 75% ticket reduction (IBM AskHR benchmark).</div></div></div>
+      <div class="rec-item"><div class="rec-step">3</div><div><div class="rec-title">Productize the HR Operating Model</div><div class="rec-horizon horizon-mid"><i data-lucide="calendar" style="width:10px;height:10px;"></i> 6–18 Months</div><div class="rec-body">Restructure COEs as product teams owning value streams (talent acquisition, growth & development, employee service, total rewards) with product managers, data scientists, designers, and HRBPs as advisors. Re-skill the existing HR workforce — 67% of HR pros say their organization is not proactively upskilling employees to work with AI (SHRM 2025).</div><div class="rec-threshold"><strong>Threshold to collapse shared services:</strong> When AI absorbs >50% of Tier-1 service volume.</div></div></div>
+      <div class="rec-item"><div class="rec-step">4</div><div><div class="rec-title">Lead the Enterprise Skills Transformation</div><div class="rec-horizon horizon-mid"><i data-lucide="calendar" style="width:10px;height:10px;"></i> 6–24 Months</div><div class="rec-body">Stand up or scale an internal talent marketplace (Mastercard/Schneider/Unilever pattern); target 25–35% reduction in voluntary turnover from proactive mobility. Pair with explicit redeployment economics (Standard Chartered's $49K/role) so finance sees AI-era reskilling as a P&L play. Mandate AI fluency training for managers first: 46% of managers experiment with AI vs. only 26% of employees (Gartner).</div><div class="rec-threshold"><strong>Economics to present to CFO:</strong> Standard Chartered's $49K per redeployed role makes reskilling a P&L investment, not an HR cost center.</div></div></div>
+      <div class="rec-item"><div class="rec-step">5</div><div><div class="rec-title">Build the Governance and Trust Layer</div><div class="rec-horizon horizon-now"><i data-lucide="zap" style="width:10px;height:10px;"></i> Continuous (Start Now)</div><div class="rec-body">Map every HR AI system against EU AI Act Annex III high-risk criteria; commission an independent bias audit. Establish a "human-in-the-loop" register naming who owns the override decision for each workflow. Publish a candidate-facing AI notice and alternative selection process. Negotiate works-council agreements ahead of European rollouts.</div><div class="rec-threshold"><strong>Halt threshold:</strong> Any high-risk HR AI without a current bias audit, no human override, or no impact-assessment documentation must be halted pending remediation.</div></div></div>
+      <div class="rec-item"><div class="rec-step">6</div><div><div class="rec-title">Own the "What to Do With Time Saved" Narrative</div><div class="rec-horizon horizon-soon"><i data-lucide="clock" style="width:10px;height:10px;"></i> Next 6 Months</div><div class="rec-body">Only 7% of organizations provide guidelines on time freed by AI (Gartner July 2025). This is the single most actionable, lowest-cost intervention. Define, by role family, the value-creating activities that should absorb freed capacity: growth-driving projects, skill development, customer/colleague time.</div><div class="rec-threshold"><strong>The fastest win available:</strong> Providing this guidance costs nothing and addresses the #1 cited failure mode in the Gartner July 2025 survey of 114 HR leaders.</div></div></div>
+      <div class="rec-item"><div class="rec-step">7</div><div><div class="rec-title">Measure Differently — Replace Vanity Metrics</div><div class="rec-horizon horizon-long"><i data-lucide="bar-chart" style="width:10px;height:10px;"></i> 12–24 Months</div><div class="rec-body">Replace "AI adoption rate" and "hours saved" as headline metrics with a True ROI Index: depth and diversity of AI use, time reallocated to value-creating activity, employee AI confidence, voluntary attrition of critical talent, and bias-audit pass rates.</div><div class="rec-threshold"><strong>Commitment:</strong> 88% of HR leaders not realizing value (Gartner) is the baseline. Your organization should commit to measurable productivity, retention, or revenue outcomes from HR AI within 12 months of deployment.</div></div></div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div>Sources: SHRM 2025–2026 · Gartner 2025–2026 · Mercer GTT 2026 · WEF Future of Jobs 2025 · Bain Nov 2024 · Deloitte 2026 · Microsoft WTI 2025 · SHL Nov 2025 · TI People · 20+ named enterprise case studies</div>
+  <div>Dashboard compiled May 2026 · AI &amp; Org, Curated</div>
+</footer>
+
+<script>
+  function showSection(id, ev) {
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    if (ev) ev.currentTarget.classList.add('active');
+  }
+  lucide.createIcons();
+  window.addEventListener('load', () => {
+    document.querySelectorAll('.bar-fill').forEach(bar => {
+      const w = bar.style.width;
+      bar.style.width = '0';
+      setTimeout(() => { bar.style.width = w; }, 100);
+    });
+  });
+</script>
+</body>
+</html>

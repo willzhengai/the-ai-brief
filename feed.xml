@@ -5,8 +5,16 @@
     <link>https://willzhengai.github.io/the-ai-brief/</link>
     <description>A curated weekly digest on AI and organizational design — where invention meets innovation meets real impact.</description>
     <language>en-us</language>
-    <lastBuildDate>Mon, 11 May 2026 12:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 16 May 2026 12:00:00 +0000</lastBuildDate>
     <atom:link href="https://willzhengai.github.io/the-ai-brief/feed.xml" rel="self" type="application/rss+xml"/>
+
+    <item>
+      <title>Issue #11: Claude Starts Dreaming, Anthropic Opens the Legal Stack — and How Enterprise HR Is Quietly Redesigning the Enterprise</title>
+      <link>https://willzhengai.github.io/the-ai-brief/issues/2026-05-16.html</link>
+      <guid>https://willzhengai.github.io/the-ai-brief/issues/2026-05-16.html</guid>
+      <pubDate>Sat, 16 May 2026 12:00:00 +0000</pubDate>
+      <description>Claude Managed Agents get a between-session memory-curation feature, Anthropic open-sources the legal vertical (12 plugins, 80+ agents) two weeks after finance — plus a deep-dive essay with an interactive dashboard on how enterprise HR is redesigning HR, the operating model, and the enterprise around AI.</description>
+    </item>
 
     <item>
       <title>Issue #10 (Special Issue): Anthropic Open-Sources the Wall Street Analyst — and Why You Need to Find Your Katie</title>
