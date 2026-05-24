@@ -234,6 +234,132 @@
   }
   .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
   .reveal.in { opacity: 1; transform: translateY(0); }
+
+  /* ===== Reference Tables ===== */
+  .tables-master-section {
+    padding: 72px 0;
+    border-bottom: 1px solid var(--rule);
+    background: linear-gradient(180deg, var(--paper) 0%, rgba(97, 171, 191, 0.025) 100%);
+  }
+  .tables-master-header { margin-bottom: 28px; text-align: center; }
+  .tables-master-eyebrow {
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.22em;
+    text-transform: uppercase; color: var(--topaz-dark);
+    margin-bottom: 16px; font-weight: 600;
+  }
+  .tables-master-title {
+    font-family: var(--serif); font-weight: 600; font-size: 36px; line-height: 1.15;
+    letter-spacing: -0.022em; color: var(--onyx); margin-bottom: 14px;
+  }
+  .tables-master-title em { font-style: italic; color: var(--topaz-darker); font-weight: 500; }
+  .tables-master-lede {
+    font-family: var(--sans); font-size: 16px; line-height: 1.55;
+    color: var(--muted); max-width: 620px; margin: 0 auto;
+  }
+  .tables-actions {
+    display: flex; justify-content: center; gap: 12px; margin: 28px 0 44px; flex-wrap: wrap;
+  }
+  .tables-action-btn {
+    font-family: var(--sans); font-size: 12.5px; font-weight: 600;
+    padding: 9px 16px; background: var(--onyx); color: var(--diamond);
+    border: none; cursor: pointer; letter-spacing: 0.02em; transition: all 0.2s;
+  }
+  .tables-action-btn:hover { background: var(--topaz-dark); transform: translateY(-1px); }
+  .tables-action-btn.secondary {
+    background: var(--paper); color: var(--onyx); border: 1px solid var(--rule);
+  }
+  .tables-action-btn.secondary:hover {
+    background: var(--aqua); border-color: var(--topaz-dark); color: var(--topaz-darker);
+  }
+  .expandable {
+    margin-bottom: 12px; background: var(--paper); border: 1px solid var(--rule);
+    transition: border-color 0.2s, box-shadow 0.2s; overflow: hidden;
+  }
+  .expandable:hover { border-color: var(--topaz-dark); }
+  .expandable.open { border-color: var(--topaz-dark); box-shadow: 0 4px 24px rgba(45, 45, 45, 0.08); }
+  .expandable.featured {
+    border-color: var(--topaz-dark); border-width: 2px;
+    background: linear-gradient(180deg, rgba(193, 231, 232, 0.12) 0%, var(--paper) 60%);
+  }
+  .exp-trigger {
+    width: 100%; padding: 20px 24px; background: transparent; border: none;
+    cursor: pointer; display: flex; align-items: center; justify-content: space-between;
+    gap: 20px; text-align: left; font-family: inherit; transition: background 0.2s; position: relative;
+  }
+  .exp-trigger::before {
+    content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px;
+    background: var(--topaz-dark); transform: scaleY(0); transform-origin: center;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .expandable.open .exp-trigger::before { transform: scaleY(1); }
+  .exp-trigger:hover { background: rgba(97, 171, 191, 0.05); }
+  .exp-left { display: flex; align-items: center; gap: 20px; flex: 1; min-width: 0; }
+  .exp-num {
+    font-family: var(--serif); font-weight: 500; font-style: italic; font-size: 28px;
+    color: var(--topaz-dark); line-height: 1; letter-spacing: -0.02em;
+    flex-shrink: 0; width: 44px;
+  }
+  .exp-meta { flex: 1; min-width: 0; }
+  .exp-kicker {
+    font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--muted-2); margin-bottom: 4px; font-weight: 600;
+  }
+  .exp-title {
+    font-family: var(--serif); font-weight: 600; font-size: 18px; line-height: 1.3;
+    color: var(--onyx); letter-spacing: -0.01em; margin-bottom: 4px;
+  }
+  .exp-sub { font-family: var(--mono); font-size: 11px; color: var(--muted); letter-spacing: 0.04em; }
+  .exp-right { display: flex; align-items: center; gap: 14px; flex-shrink: 0; }
+  .exp-pill {
+    font-family: var(--mono); font-size: 10px; font-weight: 600;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    padding: 4px 9px; background: var(--paper-2); color: var(--muted);
+    border: 1px solid var(--rule); transition: all 0.2s;
+  }
+  .expandable.open .exp-pill {
+    background: var(--topaz-dark); color: var(--diamond); border-color: var(--topaz-dark);
+  }
+  .exp-chevron { color: var(--muted); transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s; }
+  .expandable.open .exp-chevron { transform: rotate(180deg); color: var(--topaz-dark); }
+  .exp-body {
+    max-height: 0; overflow: hidden;
+    transition: max-height 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .expandable.open .exp-body { max-height: 4000px; }
+  .exp-lede {
+    font-family: var(--sans); font-size: 14px; line-height: 1.6;
+    color: var(--muted); padding: 0 24px 20px; border-bottom: 1px solid var(--rule); margin: 0;
+  }
+  .exp-table-wrap { overflow-x: auto; max-width: 100%; }
+  .exp-table-wrap::-webkit-scrollbar { height: 8px; }
+  .exp-table-wrap::-webkit-scrollbar-track { background: var(--paper-2); }
+  .exp-table-wrap::-webkit-scrollbar-thumb { background: var(--rule-dim); }
+  .exp-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .exp-table thead { background: var(--onyx); color: var(--diamond); position: sticky; top: 0; }
+  .exp-table th {
+    font-family: var(--serif); font-weight: 600; font-size: 11px;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    padding: 14px 16px; text-align: left;
+    border-right: 1px solid #404040; white-space: nowrap; vertical-align: bottom;
+  }
+  .exp-table th:last-child { border-right: none; }
+  .exp-table td {
+    padding: 14px 16px; border-bottom: 1px solid var(--rule);
+    border-right: 1px solid var(--rule); vertical-align: top;
+    line-height: 1.5; color: var(--onyx); min-width: 140px;
+  }
+  .exp-table td:last-child { border-right: none; }
+  .exp-table td:first-child {
+    font-weight: 600; color: var(--onyx);
+    background: rgba(193, 231, 232, 0.15); min-width: 160px;
+  }
+  .exp-table tbody tr:hover td { background: rgba(97, 171, 191, 0.05); }
+  .exp-table tbody tr:hover td:first-child { background: rgba(193, 231, 232, 0.3); }
+  @media (max-width: 680px) {
+    .tables-master-title { font-size: 28px; }
+    .exp-trigger { padding: 16px; }
+    .exp-pill { display: none; }
+  }
 </style>
 </head>
 <body>
@@ -643,6 +769,296 @@
           </div>
         </div>
       </section>
+
+      <!-- ============== REFERENCE TABLES ============== -->
+      <section class="tables-master-section" id="reference-tables">
+        <div class="tables-master-header">
+          <div class="tables-master-eyebrow">10 Reference Tables · Expandable</div>
+          <h2 class="tables-master-title">The <em>full evidence</em>, on demand.</h2>
+          <p class="tables-master-lede">
+            Every analytical table from the underlying research, available as a click-to-expand data view. The <strong>Roles &amp; skills</strong> table is open by default — it's the most relevant evidence for individual contributors on how AI augments specific marketing roles. All others, including the Regulatory/Legal table, are closed by default.
+          </p>
+        </div>
+
+        <div class="tables-actions">
+          <button class="tables-action-btn" id="expand-all">Expand all tables</button>
+          <button class="tables-action-btn secondary" id="collapse-all">Collapse all</button>
+        </div>
+
+        <div class="expandable" id="tbl-usecases">
+          <button class="exp-trigger" aria-expanded="false" aria-controls="tbl-usecases-body" data-target="tbl-usecases-body">
+            <div class="exp-left">
+              <div class="exp-num">01</div>
+              <div class="exp-meta">
+                <div class="exp-kicker">Reference Table · Value Chain</div>
+                <div class="exp-title">AI use cases across the marketing value chain</div>
+                <div class="exp-sub">18 rows · 8 columns · Click to expand</div>
+              </div>
+            </div>
+            <div class="exp-right"><span class="exp-pill">Closed</span><svg class="exp-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 8 10 12 14 8"/></svg></div>
+          </button>
+          <div class="exp-body" id="tbl-usecases-body" role="region" aria-hidden="true">
+            <p class="exp-lede">Eighteen use cases mapped by AI type, workflow impact, maturity, value, risk, and example deployment. Most mature: creative production and predictive analytics. Most consequential shifts: brand-governed creative reinvention, agentic operations, and AI answer-engine discovery.</p>
+            <div class="exp-table-wrap">
+              <table class="exp-table">
+                <thead><tr><th>Marketing domain</th><th>Use case</th><th>AI type</th><th>Workflow impact</th><th>Maturity</th><th>Business value</th><th>Risk</th><th>Example/source</th></tr></thead>
+                <tbody>
+                  <tr><td>Customer insight</td><td>Synthetic audience/persona generation</td><td>Generative (LLM)</td><td>Augmentation</td><td>Experimental</td><td>Hypothesis generation, niche audiences</td><td>Pseudo-evidence; reproduces biases</td><td>Argyle et al. <em>Political Analysis</em> 2023; Bisbee et al. 2024 critique</td></tr>
+                  <tr><td>Customer insight</td><td>Sentiment and VOC analysis at scale</td><td>Predictive + LLM</td><td>Augmentation→reinvention</td><td>Scaled</td><td>Faster issue detection, NPS lift</td><td>Sentiment-model bias by dialect</td><td>E.ON Next/Chattermill</td></tr>
+                  <tr><td>Segmentation/targeting</td><td>Lookalike and propensity modeling</td><td>Predictive ML</td><td>Reinvention</td><td>Scaled</td><td>Conversion lift, CAC reduction</td><td>Proxy discrimination; protected class</td><td>U.S. v. Meta Platforms (2022 settlement)</td></tr>
+                  <tr><td>Creative briefing</td><td>AI-assisted briefs from objectives</td><td>Generative</td><td>Augmentation</td><td>Scaling</td><td>Cycle time, brief quality</td><td>Strategic shortcutting</td><td>Unilever Smart Briefing</td></tr>
+                  <tr><td>Creative production</td><td>Text-to-image, video, modular assets</td><td>Generative</td><td>Reinvention</td><td>Scaling</td><td>Cost, speed, variant testing</td><td>Copyright/IP; brand drift; stereotypes</td><td>Unilever Beauty AI Studio; Klarna</td></tr>
+                  <tr><td>Creative production</td><td>Digital product twins</td><td>3D + generative</td><td>Reinvention</td><td>Scaling</td><td>Cost, speed</td><td>Brand consistency</td><td>Unilever × Nvidia Omniverse</td></tr>
+                  <tr><td>Copywriting</td><td>Persuasive copy at scale</td><td>Generative + reinforcement</td><td>Reinvention</td><td>Scaled</td><td>CTR/conversion lift</td><td>False/unsubstantiated claims (FTC)</td><td>JPMorgan × Persado</td></tr>
+                  <tr><td>Paid media</td><td>Bid optimization, audience expansion</td><td>Predictive + reinforcement</td><td>Reinvention</td><td>Scaled</td><td>ROAS</td><td>Discriminatory delivery; brand safety</td><td>Google Performance Max; Meta Advantage+</td></tr>
+                  <tr><td>SEO/AEO/GEO</td><td>Optimization for AI answer engines</td><td>Generative + retrieval</td><td>Reinvention</td><td>Emerging</td><td>Share-of-voice in AI answers</td><td>Hallucination, brand misrepresentation</td><td>Ahrefs Apr 2025: AI Overviews correlated with 34.5% lower CTR</td></tr>
+                  <tr><td>Website/journey</td><td>Personalization, journey orchestration</td><td>Predictive + agentic</td><td>Reinvention</td><td>Scaling</td><td>LTV, retention</td><td>Manipulation; vulnerable-consumer risk</td><td>Adobe Real-Time CDP / Journey Optimizer</td></tr>
+                  <tr><td>Email/CRM</td><td>Send-time optimization, generative subject lines</td><td>Predictive + generative</td><td>Augmentation→reinvention</td><td>Scaled</td><td>Open/click, revenue per send</td><td>Spam law; dark patterns</td><td>Klarna Copy Assistant — ~80% of copy</td></tr>
+                  <tr><td>Lead scoring / ABM</td><td>Intent and propensity scoring</td><td>Predictive</td><td>Augmentation</td><td>Scaled</td><td>Sales acceptance, win rate</td><td>Fairness in B2B contact data</td><td>6sense, Demandbase</td></tr>
+                  <tr><td>Sales enablement</td><td>Account-research agents, content recs</td><td>Agentic</td><td>Augmentation</td><td>Emerging</td><td>Pipeline, productivity</td><td>Hallucinated competitive claims</td><td>Salesforce Agentforce; Microsoft Copilot</td></tr>
+                  <tr><td>Service→marketing loop</td><td>Service signal → marketing trigger</td><td>Agentic</td><td>Reinvention</td><td>Emerging</td><td>Retention, cross-sell</td><td>Privacy, consent</td><td>Coca-Cola; Klarna OpenAI assistant</td></tr>
+                  <tr><td>Marketing ops</td><td>Campaign QA, MarTech orchestration</td><td>Agentic</td><td>Reinvention</td><td>Emerging</td><td>Cycle time, error reduction</td><td>Autonomous action without HITL</td><td>BCG agentic projections</td></tr>
+                  <tr><td>Brand management</td><td>Brand-voice guardrails embedded in tools</td><td>Generative + retrieval</td><td>Reinvention</td><td>Scaling</td><td>Consistency at scale</td><td>Brand drift; legal exposure</td><td>Unilever Brand DNAi; Coca-Cola Digital Council</td></tr>
+                  <tr><td>Analytics &amp; MMM</td><td>AI-augmented marketing mix modeling</td><td>Predictive</td><td>Reinvention</td><td>Scaling</td><td>Allocation accuracy</td><td>Causal overclaims</td><td>Meta Robyn, Google Meridian</td></tr>
+                  <tr><td>Compliance</td><td>Pre-publication AI claims review</td><td>LLM + rules</td><td>Augmentation</td><td>Emerging</td><td>Cycle time; audit trail</td><td>False sense of automated compliance</td><td>Luthor, Saifr (financial services)</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="expandable" id="tbl-workflow">
+          <button class="exp-trigger" aria-expanded="false" aria-controls="tbl-workflow-body" data-target="tbl-workflow-body">
+            <div class="exp-left">
+              <div class="exp-num">02</div>
+              <div class="exp-meta">
+                <div class="exp-kicker">Reference Table · Workflow Redesign</div>
+                <div class="exp-title">Workflow redesign matrix</div>
+                <div class="exp-sub">16 rows · 7 columns · Click to expand</div>
+              </div>
+            </div>
+            <div class="exp-right"><span class="exp-pill">Closed</span><svg class="exp-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 8 10 12 14 8"/></svg></div>
+          </button>
+          <div class="exp-body" id="tbl-workflow-body" role="region" aria-hidden="true">
+            <p class="exp-lede">Sixteen high-impact marketing workflows mapped from current-state pain through AI-enabled redesign, with human/AI roles, new controls, and outcome metrics.</p>
+            <div class="exp-table-wrap">
+              <table class="exp-table">
+                <thead><tr><th>Workflow</th><th>Current-state pain</th><th>AI-enabled redesign</th><th>Human role</th><th>AI role</th><th>New controls</th><th>Metrics</th></tr></thead>
+                <tbody>
+                  <tr><td>Customer insight</td><td>Months-long studies, small samples</td><td>Continuous LLM analysis; synthetic personas for hypothesis only</td><td>Researcher validates with real customers</td><td>Pattern detection, summarization</td><td>"Do not decide on synthetic alone" rule</td><td>Insight cycle time; % decisions traceable to real customer data</td></tr>
+                  <tr><td>Audience segmentation</td><td>Static; cookie loss</td><td>Continuous propensity modeling in CDP/clean room</td><td>Strategist defines outcomes and guardrails</td><td>Real-time scoring</td><td>Bias audit on protected proxies; fair-delivery checks</td><td>Segment performance; disparate-impact metric</td></tr>
+                  <tr><td>Creative briefing</td><td>Slow, inconsistent</td><td>AI-assisted briefs from objectives + brand DNA</td><td>Brand owner approves</td><td>Drafts, summarizes data</td><td>Brand-voice guardrails (Brand DNAi)</td><td>Unilever Smart Briefing: +14% quality, up to 58% time savings</td></tr>
+                  <tr><td>Creative production</td><td>Linear shoots; weeks/months</td><td>Modular "super shoots" + AI remix; digital twins; localized variants</td><td>Creative director, brand QA</td><td>Generation, variation, localization</td><td>DAM + rights mgmt; AI-content disclosure flag</td><td>Unilever B&amp;W digital twins: 55% savings, 65% faster</td></tr>
+                  <tr><td>Copywriting</td><td>Slow, subjective</td><td>LLM + brand model; controlled A/B at message-element level</td><td>Writer/editor; legal review for regulated claims</td><td>Generation; performance prediction</td><td>Claims-substantiation log; prohibited-claims library</td><td>Persado/Chase: up to 450% CTR lift</td></tr>
+                  <tr><td>Localization</td><td>Costly agency translation</td><td>LLM translation + cultural QA</td><td>In-market reviewer</td><td>Translate, adapt</td><td>Cultural-sensitivity prompts; market sign-off</td><td>Markets per campaign; Klarna eliminated external translation</td></tr>
+                  <tr><td>Paid media planning</td><td>Channel-siloed</td><td>Cross-channel optimization with platform agents</td><td>Strategist sets KPIs and brand-safety rules</td><td>Bid/budget/audience optimization</td><td>Brand safety, fair delivery, MFA exclusion</td><td>ROAS, MFA share</td></tr>
+                  <tr><td>SEO/AEO/GEO</td><td>Optimized for Google</td><td>Optimize for AI Overviews, ChatGPT, Perplexity</td><td>SEO lead, content strategist</td><td>Drafts, schema</td><td>Hallucination monitoring; brand-mention audit</td><td>Citation share in AI answers; AI-referral traffic</td></tr>
+                  <tr><td>Journey orchestration</td><td>Rules-based</td><td>Predictive + agentic next-best-action</td><td>CX lead, brand owner</td><td>Predict, trigger, generate</td><td>EU AI Act Art. 5 manipulation/vulnerability guardrails</td><td>Engagement, retention, CSAT</td></tr>
+                  <tr><td>Lead scoring / ABM</td><td>Static</td><td>Continuous scoring with intent + content signals</td><td>RevOps, sales</td><td>Score, recommend, draft</td><td>Fairness review in B2B contact data</td><td>Sales-acceptance, win rate</td></tr>
+                  <tr><td>Sales enablement</td><td>Static decks</td><td>Account-research agents + dynamic decks</td><td>AE, marketing</td><td>Research, generate</td><td>Approved-claims library</td><td>Time per opp, win rate</td></tr>
+                  <tr><td>Event marketing</td><td>Heavy manual ops</td><td>AI agenda, personalized invitations, post-event content</td><td>Event lead, brand</td><td>Generate, segment, summarize</td><td>Disclosure of AI-generated content</td><td>Pipeline per event</td></tr>
+                  <tr><td>Brand management</td><td>Reactive policing</td><td>Brand-voice models embedded in every creative tool</td><td>Brand owner curates data and exceptions</td><td>Generate-within-brand; flag drift</td><td>Brand DNA repository; drift monitoring</td><td>Brand consistency score; brand trust</td></tr>
+                  <tr><td>Marketing analytics</td><td>Quarterly MMM</td><td>Continuous AI-augmented MMM + incrementality</td><td>Analyst, data scientist</td><td>Forecast, attribute, simulate</td><td>Causal validity check</td><td>Forecast accuracy, allocation efficiency</td></tr>
+                  <tr><td>Compliance review</td><td>Manual, slow</td><td>Pre-publication AI claims review</td><td>Compliance, legal</td><td>Surface high-risk claims</td><td>Audit log; SEC Rule 204-2 recordkeeping</td><td>Review cycle time; incident rate</td></tr>
+                  <tr><td>Budget allocation</td><td>Annual, gut-driven</td><td>Continuous scenario modeling</td><td>CMO, CFO</td><td>Simulate, recommend</td><td>Sensitivity, fairness scenarios</td><td>Marketing ROI; growth vs. plan</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="expandable open featured" id="tbl-roles">
+          <button class="exp-trigger" aria-expanded="true" aria-controls="tbl-roles-body" data-target="tbl-roles-body">
+            <div class="exp-left">
+              <div class="exp-num">03</div>
+              <div class="exp-meta">
+                <div class="exp-kicker">Reference Table · Roles · <span style="color: var(--topaz-darker); font-weight: 700;">Featured — open by default</span></div>
+                <div class="exp-title">Job &amp; skills architecture redesign</div>
+                <div class="exp-sub">11 rows · How AI augments each marketing role</div>
+              </div>
+            </div>
+            <div class="exp-right"><span class="exp-pill">Open</span><svg class="exp-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 8 10 12 14 8"/></svg></div>
+          </button>
+          <div class="exp-body" id="tbl-roles-body" role="region" aria-hidden="false">
+            <p class="exp-lede">Eleven marketing role families with the specific tasks likely to be automated, the new tasks created, and the human capabilities becoming more valuable. Accenture: 44% of US working hours are in scope for automation or augmentation; 95% of executives agree gen AI reshapes rather than eliminates jobs.</p>
+            <div class="exp-table-wrap">
+              <table class="exp-table">
+                <thead><tr><th>Role family</th><th>Likely automated</th><th>Likely augmented</th><th>New tasks created</th><th>Human capabilities rising</th><th>Reskilling implications</th></tr></thead>
+                <tbody>
+                  <tr><td>Brand management</td><td>Style-guide policing, asset tagging</td><td>Brand-voice model curation; campaign approval</td><td>Train and govern brand-AI; manage brand DNA</td><td>Taste, judgment, narrative coherence, cultural intuition</td><td>Brand-as-code training</td></tr>
+                  <tr><td>Performance marketing</td><td>Bid/budget micro-decisions</td><td>Experiment design, strategy</td><td>Agent supervision; cross-platform orchestration</td><td>Causal thinking, financial fluency</td><td>Causal inference, platform mgmt</td></tr>
+                  <tr><td>Creative direction</td><td>First-draft generation, simple variants</td><td>Concept development, brand expression</td><td>AI-creative direction; prompt strategy</td><td>Originality, cultural insight</td><td>Creative + AI fluency</td></tr>
+                  <tr><td>Content production</td><td>Localization, repurposing, basic design</td><td>Concepting, production specialization</td><td>Content-supply-chain operations</td><td>High-craft production</td><td>Modular content thinking</td></tr>
+                  <tr><td>Copywriting</td><td>First-draft generation; A/B variants</td><td>Tone, narrative, persuasion design</td><td>Prompt strategist; claims-substantiation owner</td><td>Strategy and ethics</td><td>Legal/regulatory literacy</td></tr>
+                  <tr><td>Marketing analytics</td><td>Reporting, dashboards</td><td>Hypothesis testing, MMM</td><td>Synthetic-experiment design; data product mgmt</td><td>Causal inference</td><td>Statistics + causal + ML</td></tr>
+                  <tr><td>Marketing operations</td><td>Workflow execution</td><td>Process design</td><td>AI-workflow architecture; agent governance</td><td>Process design at scale</td><td>Systems thinking</td></tr>
+                  <tr><td>CRM/lifecycle</td><td>Send-time, content optimization</td><td>Journey design</td><td>Customer journey orchestration lead</td><td>CX design</td><td>Behavioral science</td></tr>
+                  <tr><td>Customer insight</td><td>Survey ops, manual coding</td><td>Synthesis, interpretation</td><td>Synthetic-audience research analyst (limited)</td><td>Empathic listening</td><td>Mixed-methods rigor</td></tr>
+                  <tr><td>Compliance/legal</td><td>First-pass review</td><td>Substantive review</td><td>Marketing AI governance; claims library</td><td>Regulatory judgment</td><td>AI-systems literacy</td></tr>
+                  <tr><td>Marketing IT/data</td><td>Integration plumbing</td><td>Architecture</td><td>Marketing AI platform engineering</td><td>Platform thinking</td><td>MLOps</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="expandable" id="tbl-bias">
+          <button class="exp-trigger" aria-expanded="false" aria-controls="tbl-bias-body" data-target="tbl-bias-body">
+            <div class="exp-left">
+              <div class="exp-num">04</div>
+              <div class="exp-meta">
+                <div class="exp-kicker">Reference Table · Bias &amp; Fairness</div>
+                <div class="exp-title">AI bias &amp; fairness risk matrix</div>
+                <div class="exp-sub">9 rows · 7 columns · Click to expand</div>
+              </div>
+            </div>
+            <div class="exp-right"><span class="exp-pill">Closed</span><svg class="exp-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 8 10 12 14 8"/></svg></div>
+          </button>
+          <div class="exp-body" id="tbl-bias-body" role="region" aria-hidden="true">
+            <p class="exp-lede">Nine marketing use cases where AI introduces or amplifies bias, with affected groups, applicable legal exposure, detection methods, and the metric to monitor.</p>
+            <div class="exp-table-wrap">
+              <table class="exp-table">
+                <thead><tr><th>Use case</th><th>Bias risk</th><th>Affected groups</th><th>Legal/brand risk</th><th>Detection</th><th>Mitigation</th><th>Monitoring metric</th></tr></thead>
+                <tbody>
+                  <tr><td>Lookalike audience modeling</td><td>Proxy discrimination via correlated features</td><td>Race, gender, age, disability</td><td>Fair Housing Act, ECOA, EU AI Act, GDPR Art. 22</td><td>Audit of feature → protected-attribute correlation</td><td>Suppress proxies; fair-delivery constraints; Meta-style VRS</td><td>Disparate-impact ratio</td></tr>
+                  <tr><td>Ad delivery (paid social/search)</td><td>Skewed delivery</td><td>Race, gender, age</td><td>FHA, ECOA, EEOC, EU AI Act</td><td>Platform fair-delivery tools; external audits</td><td>Restricted-targeting; demand platform audit reports</td><td>Delivery mix vs. eligible audience</td></tr>
+                  <tr><td>Dynamic pricing/offer optimization</td><td>Geographic/demographic price discrimination</td><td>Low-income, minority neighborhoods, elderly</td><td>UDAP/UDAAP, ECOA, EU AI Act</td><td>Test price disparities by zip/demographic proxy</td><td>Bounded price variance; protected-class blocks</td><td>Price-variance audits</td></tr>
+                  <tr><td>Synthetic personas</td><td>Reproduce training-data biases</td><td>Underrepresented groups</td><td>Bad strategy decisions</td><td>Validate against real customers</td><td>Never decide on synthetic alone</td><td>% of decisions traceable to real data</td></tr>
+                  <tr><td>Creative imagery</td><td>Stereotype amplification (Bianchi FAccT 2023)</td><td>Race, gender, age, disability</td><td>Reputational; brand trust</td><td>Stereotype audits; diverse prompt testing</td><td>Brand DNAi-style guardrails; human review</td><td>Stereotype-incident rate</td></tr>
+                  <tr><td>Sentiment analysis</td><td>Dialect/language bias</td><td>Non-mainstream-English speakers</td><td>CX inequity</td><td>Test across dialects</td><td>Multilingual models; human review</td><td>Accuracy by dialect</td></tr>
+                  <tr><td>Lead scoring/CLV</td><td>Historical exclusion amplification</td><td>Low-income, minority customers</td><td>UDAAP, ECOA in credit/insurance marketing</td><td>Disparate-impact audit</td><td>Fairness constraints</td><td>Approval-rate parity</td></tr>
+                  <tr><td>Churn/retention</td><td>Differential retention investment</td><td>Vulnerable customers</td><td>UDAP; CFPB; FCA scrutiny</td><td>Fairness across protected groups</td><td>Cap differential offers</td><td>Offer-disparity index</td></tr>
+                  <tr><td>Service→marketing loop</td><td>Sentiment-bias propagation</td><td>Non-mainstream speakers</td><td>CX inequity</td><td>Cross-demographic audits</td><td>Human escalation</td><td>Same</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="expandable" id="tbl-legal">
+          <button class="exp-trigger" aria-expanded="false" aria-controls="tbl-legal-body" data-target="tbl-legal-body">
+            <div class="exp-left">
+              <div class="exp-num">05</div>
+              <div class="exp-meta">
+                <div class="exp-kicker">Reference Table · Legal / Regulatory · <span style="color: var(--muted); font-weight: 600;">Closed by default</span></div>
+                <div class="exp-title">Legal, privacy, IP &amp; compliance implications</div>
+                <div class="exp-sub">20 rows · 6 columns · Click to expand</div>
+              </div>
+            </div>
+            <div class="exp-right"><span class="exp-pill">Closed</span><svg class="exp-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 8 10 12 14 8"/></svg></div>
+          </button>
+          <div class="exp-body" id="tbl-legal-body" role="region" aria-hidden="true">
+            <p class="exp-lede">Twenty regulatory regimes touching marketing AI, with implication, high-risk use cases, required controls, owner, and source citation. The FTC, EU AI Act, and SEC are the most active enforcement bodies in 2024–2026.</p>
+            <div class="exp-table-wrap">
+              <table class="exp-table">
+                <thead><tr><th>Area</th><th>Marketing implication</th><th>High-risk use cases</th><th>Required controls</th><th>Owner</th><th>Evidence source</th></tr></thead>
+                <tbody>
+                  <tr><td>FTC Act §5 (UDAP)</td><td>No "AI exemption"</td><td>AI-washing; deceptive AI claims; fake reviews</td><td>Substantiation; net-impression review</td><td>CMO + GC</td><td>FTC Operation AI Comply, 2024–2026</td></tr>
+                  <tr><td>FTC Fake Reviews Rule (16 CFR 465, Oct 2024)</td><td>Prohibits AI-generated fake reviews and synthetic testimonials</td><td>Synthetic testimonials; bot followers</td><td>Review-origin policy; insider-disclosure; audit</td><td>CMO, Legal</td><td>FTC Final Rule</td></tr>
+                  <tr><td>FTC Endorsement Guides (2023)</td><td>Influencer/celebrity disclosure</td><td>Synthetic influencers; AI celebrity endorsements</td><td>Disclosure standards; written agreements</td><td>CMO, Legal</td><td>FTC</td></tr>
+                  <tr><td>GDPR</td><td>Lawful basis for AI personalization; Art. 22 ADM</td><td>Profiling, automated decisions, AI training on customer data</td><td>DPIA; transparency; opt-out; lawful basis</td><td>DPO, CMO</td><td>EDPB Guidelines; Opinion 28/2024</td></tr>
+                  <tr><td>ePrivacy / PECR</td><td>Direct marketing consent</td><td>AI-personalized email/SMS</td><td>Consent management; honoring objections</td><td>DPO, CMO</td><td>EDPB</td></tr>
+                  <tr><td>CCPA/CPRA + US state laws</td><td>Sensitive data; ADM disclosure</td><td>Inferred sensitive attributes</td><td>Notice; opt-out of profiling</td><td>Privacy, CMO</td><td>CPPA regs</td></tr>
+                  <tr><td>EU AI Act Art. 5 (Feb 2, 2025)</td><td>Manipulation/vulnerability prohibition</td><td>Manipulative personalization; vulnerable-consumer targeting; emotion recognition</td><td>Red-line policy; pre-deployment review</td><td>GC, CMO, AI council</td><td>Regulation (EU) 2024/1689</td></tr>
+                  <tr><td>EU AI Act high-risk (Aug 2, 2026)</td><td>Risk management, logging, transparency</td><td>Limited for general marketing; high for HR/credit/insurance</td><td>High-risk system controls if applicable</td><td>GC</td><td>EU AI Act</td></tr>
+                  <tr><td>Fair Housing Act (US)</td><td>Algorithmic discrimination</td><td>Housing ads, lookalike audiences</td><td>Fair-delivery; restricted targeting</td><td>Legal, CMO</td><td>U.S. v. Meta Platforms 2022</td></tr>
+                  <tr><td>ECOA / Reg B</td><td>Credit marketing discrimination</td><td>Credit offers, lookalike</td><td>Adverse-action analysis</td><td>Legal, Compliance</td><td>CFPB</td></tr>
+                  <tr><td>EEOC</td><td>Employment-ad discrimination</td><td>Job ads via paid social</td><td>Restricted-targeting categories</td><td>HR, Legal</td><td>EEOC</td></tr>
+                  <tr><td>SEC Marketing Rule (206(4)-1)</td><td>Investment-adviser advertising</td><td>AI testimonials/endorsements; hypothetical performance; AI-washing</td><td>Records (Rule 204-2); disclosures; substantiation</td><td>Compliance, CMO</td><td>SEC; Dec 16, 2025 Risk Alert</td></tr>
+                  <tr><td>FINRA Rule 2210</td><td>Broker-dealer communications</td><td>AI-generated retail comms</td><td>Pre-approval; recordkeeping</td><td>Compliance</td><td>FINRA</td></tr>
+                  <tr><td>FDA promotion (21 CFR 202)</td><td>Pharma marketing</td><td>AI-generated clinical claims; HCP personalization</td><td>Med-Legal-Regulatory review; fair balance</td><td>Regulatory, CMO</td><td>FDA OPDP</td></tr>
+                  <tr><td>HIPAA</td><td>Use of PHI in marketing</td><td>Personalized health communications</td><td>Authorization; minimum necessary</td><td>Privacy, CMO</td><td>HHS OCR</td></tr>
+                  <tr><td>COPPA</td><td>Children under 13</td><td>AI-personalized marketing to children</td><td>Verifiable parental consent; data minimization</td><td>Legal, CMO</td><td>FTC (NGL Labs 2024)</td></tr>
+                  <tr><td>Copyright</td><td>AI training and outputs</td><td>Use of competitor or copyrighted assets in prompts; AI-generated visuals</td><td>Training-data provenance; vendor indemnities; rights workflows</td><td>Legal, CMO</td><td>Getty v. Stability AI (UK High Court Nov 4, 2025)</td></tr>
+                  <tr><td>Rights of publicity / likeness</td><td>Deepfake risk</td><td>AI executives, customers, celebrities</td><td>Written consent; talent contracts</td><td>Legal</td><td>State law + Tennessee ELVIS Act</td></tr>
+                  <tr><td>Trade secrets / confidentiality</td><td>Customer/competitor data in prompts</td><td>Sensitive RFP/CRM data in public LLMs</td><td>Enterprise-only tools; DLP</td><td>InfoSec, Legal</td><td>NIST AI RMF</td></tr>
+                  <tr><td>Political advertising</td><td>Election integrity</td><td>AI-generated political content</td><td>Disclosure (state and platform rules)</td><td>Legal, CMO</td><td>State law + FCC/FEC</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="expandable" id="tbl-redlines">
+          <button class="exp-trigger" aria-expanded="false" aria-controls="tbl-redlines-body" data-target="tbl-redlines-body">
+            <div class="exp-left">
+              <div class="exp-num">06</div>
+              <div class="exp-meta">
+                <div class="exp-kicker">Reference Table · Red Lines</div>
+                <div class="exp-title">Marketing AI red lines — prohibited use</div>
+                <div class="exp-sub">13 rows · 6 columns · Click to expand</div>
+              </div>
+            </div>
+            <div class="exp-right"><span class="exp-pill">Closed</span><svg class="exp-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 8 10 12 14 8"/></svg></div>
+          </button>
+          <div class="exp-body" id="tbl-redlines-body" role="region" aria-hidden="true">
+            <p class="exp-lede">Thirteen categories where AI use in marketing is now prohibited as a matter of policy.</p>
+            <div class="exp-table-wrap">
+              <table class="exp-table">
+                <thead><tr><th>Use case</th><th>Risk type</th><th>Why prohibit</th><th>Applicable law/principle</th><th>Policy language</th><th>Exception process</th></tr></thead>
+                <tbody>
+                  <tr><td>AI-generated fake reviews, testimonials, expert endorsements</td><td>Deceptive</td><td>Strict liability under FTC Fake Reviews Rule</td><td>FTC 16 CFR 465</td><td>"No AI-generated reviews/testimonials may be created, procured, or disseminated"</td><td>None</td></tr>
+                  <tr><td>Deepfake executives, customers, celebrities, influencers without consent</td><td>Deceptive / IP</td><td>Right of publicity, deception</td><td>State law; FTC</td><td>"No AI-generated likeness of real persons without signed consent and disclosure"</td><td>Documented written consent + disclosure</td></tr>
+                  <tr><td>AI bots for fake followers/engagement/social proof</td><td>Deceptive</td><td>FTC Rule §465.8</td><td>FTC</td><td>"No purchase or creation of synthetic engagement"</td><td>None</td></tr>
+                  <tr><td>Fabricated performance, investment, clinical claims</td><td>Deceptive</td><td>FTC, SEC, FDA, FINRA</td><td>Multiple</td><td>"All claims substantiated and traceable"</td><td>Substantiated, documented exception</td></tr>
+                  <tr><td>Manipulative personalization exploiting vulnerable states</td><td>Manipulation</td><td>EU AI Act Art. 5(1)(a) and (b)</td><td>EU AI Act</td><td>"No AI personalization that exploits vulnerable states"</td><td>None</td></tr>
+                  <tr><td>Inferring sensitive attributes (race, religion, health, etc.) for personalization</td><td>Sensitive-data + discrimination</td><td>GDPR Art. 9; EU AI Act</td><td>EU/UK GDPR</td><td>"No marketing inference or use of GDPR Art. 9 categories"</td><td>Narrow with explicit consent</td></tr>
+                  <tr><td>Biometric or emotion-recognition AI for marketing persuasion</td><td>Manipulation + biometrics</td><td>EU AI Act Art. 5(1)(c)/(f)</td><td>EU AI Act</td><td>"No biometric or emotion-recognition AI in marketing"</td><td>None</td></tr>
+                  <tr><td>Review suppression and selective publishing</td><td>Deceptive</td><td>FTC §465.7</td><td>FTC</td><td>"No suppression of authentic negative reviews"</td><td>None</td></tr>
+                  <tr><td>Scraping in violation of terms/privacy/copyright</td><td>IP / privacy</td><td>Multiple</td><td>—</td><td>"No prompts containing confidential, competitor, or scraped content"</td><td>InfoSec-approved</td></tr>
+                  <tr><td>Publishing AI-generated content without human review in regulated categories</td><td>Compliance</td><td>SEC, FDA, FINRA, FCA</td><td>—</td><td>"Mandatory human review for regulated content"</td><td>None</td></tr>
+                  <tr><td>Autonomous AI agents launching campaigns without HITL</td><td>Operational / legal</td><td>EU AI Act; FTC</td><td>—</td><td>"No autonomous external action without human-in-the-loop"</td><td>High-risk approval</td></tr>
+                  <tr><td>AI-generated legal/tax/medical/financial advice without expert review</td><td>Deceptive / professional</td><td>FTC; bar; state regulation</td><td>—</td><td>"Licensed-expert review required"</td><td>None</td></tr>
+                  <tr><td>Dark-pattern optimization</td><td>Deceptive / manipulation</td><td>FTC; EU UCPD; Luguri &amp; Strahilevitz 2021</td><td>—</td><td>"No dark-pattern optimization in any channel"</td><td>None</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="expandable" id="tbl-governance">
+          <button class="exp-trigger" aria-expanded="false" aria-controls="tbl-governance-body" data-target="tbl-governance-body">
+            <div class="exp-left">
+              <div class="exp-num">07</div>
+              <div class="exp-meta">
+                <div class="exp-kicker">Reference Table · Governance</div>
+                <div class="exp-title">Marketing AI governance checklist</div>
+                <div class="exp-sub">18 rows · 6 columns · Click to expand</div>
+              </div>
+            </div>
+            <div class="exp-right"><span class="exp-pill">Closed</span><svg class="exp-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 8 10 12 14 8"/></svg></div>
+          </button>
+          <div class="exp-body" id="tbl-governance-body" role="region" aria-hidden="true">
+            <p class="exp-lede">Eighteen control areas for an enterprise marketing AI governance model, with owner, regulatory anchor, and monitoring metric. McKinsey 2025: only 8% of marketing organizations report a comprehensive GenAI governance model.</p>
+            <div class="exp-table-wrap">
+              <table class="exp-table">
+                <thead><tr><th>Risk area</th><th>Why it matters</th><th>Required control</th><th>Owner</th><th>Evidence/regulation</th><th>Monitoring metric</th></tr></thead>
+                <tbody>
+                  <tr><td>AI acceptable-use policy</td><td>Sets the floor</td><td>Documented, signed</td><td>CMO + GC</td><td>FTC; EU AI Act; NIST AI RMF</td><td>Acknowledgment rate</td></tr>
+                  <tr><td>Approved tools list</td><td>Prevents shadow AI</td><td>Whitelist; enterprise SSO</td><td>CIO + CMO</td><td>InfoSec policy</td><td>% AI use via approved tools</td></tr>
+                  <tr><td>Data classification</td><td>Prevents data leakage</td><td>Tiering + DLP</td><td>CISO</td><td>NIST CSF; GDPR</td><td>DLP incidents</td></tr>
+                  <tr><td>Customer data usage rules</td><td>Trust, GDPR/CCPA</td><td>Purpose limitation; consent</td><td>DPO</td><td>GDPR Arts. 5–6</td><td>Consent/opt-out rates</td></tr>
+                  <tr><td>Model &amp; vendor approval</td><td>Provenance, IP, indemnities</td><td>Vendor due diligence</td><td>Procurement, Legal</td><td>NIST AI RMF</td><td>Time-to-approval</td></tr>
+                  <tr><td>Prompt library governance</td><td>Prevents leakage and drift</td><td>Shared library; review</td><td>Marketing ops</td><td>Internal</td><td>Reuse, review compliance</td></tr>
+                  <tr><td>Brand voice guardrails</td><td>Brand consistency, drift</td><td>Brand DNAi-style repository</td><td>Brand owner</td><td>Internal</td><td>Brand-consistency score</td></tr>
+                  <tr><td>Human-in-the-loop thresholds</td><td>Safety net</td><td>Defined; logged</td><td>Channel owners</td><td>EU AI Act recital 27</td><td>HITL coverage</td></tr>
+                  <tr><td>Rights &amp; permissions</td><td>IP</td><td>Required metadata</td><td>Legal, MarOps</td><td>Copyright law</td><td>Rights-clear rate</td></tr>
+                  <tr><td>Disclosure standards</td><td>Consumer trust</td><td>AI-content disclosure where required</td><td>CMO + Legal</td><td>FTC; EU AI Act Art. 50</td><td>Disclosure-audit pass</td></tr>
+                  <tr><td>Bias &amp; fairness testing</td><td>Discrimination</td><td>Pre-deployment + ongoing</td><td>Data/analytics</td><td>DOJ-Meta consent; EU AI Act</td><td>Disparate-impact metric</td></tr>
+                  <tr><td>Output QA / claims substantiation</td><td>Deceptive practices</td><td>Approved-claims library</td><td>Compliance</td><td>FTC</td><td>Claims-correction rate</td></tr>
+                  <tr><td>Recordkeeping &amp; audit logs</td><td>Regulatory defense</td><td>Logs of prompts, outputs, approvals</td><td>InfoSec + Legal</td><td>SEC Rule 204-2; EU AI Act</td><td>Audit pass rate</td></tr>
+                  <tr><td>Incident escalation</td><td>Risk response</td><td>Defined runbook</td><td>CISO + Legal + CMO</td><td>NIST AI RMF</td><td>MTTR; incident count</td></tr>
+                  <tr><td>Autonomous-agent thresholds</td><td>Operational risk</td><td>Tiered approvals</td><td>Cross-functional council</td><td>EU AI Act</td><td>% autonomous actions; reversals</td></tr>
+                  <tr><td>Agency/vendor governance</td><td>Extended risk</td><td>Contractual flow-down; indemnities</td><td>Procurement, Legal</td><td>Internal</td><td>Vendor compliance audits</td></tr>
+                  <tr><td>Marketing AI risk register</td><td>Visibility</td><td>Living document</td><td>Marketing AI council</td><td>NIST AI RMF</td><td>Register completeness</td></tr>
+                  <tr><td>Cross-functional AI council</td><td>Coordination</td><td>CMO + GC + CISO + DPO + CRO + CDO + CIO; monthly</td><td>CEO sponsorship</td><td>Internal</td><td>Decisions logged</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+      </section>
     </div>
 
     <section class="final" id="sowhat">
@@ -676,6 +1092,31 @@
     });
   }, { threshold: 0.3 });
   document.querySelectorAll('.chart-block').forEach(el => funnelObserver.observe(el));
+
+  function toggleExpandable(trigger) {
+    const target = document.getElementById(trigger.dataset.target);
+    const container = trigger.closest('.expandable');
+    const isOpen = container.classList.toggle('open');
+    trigger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    target.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+    const pill = trigger.querySelector('.exp-pill');
+    if (pill) pill.textContent = isOpen ? 'Open' : 'Closed';
+  }
+  document.querySelectorAll('.exp-trigger').forEach(btn => {
+    btn.addEventListener('click', () => toggleExpandable(btn));
+  });
+  const expandAllBtn = document.getElementById('expand-all');
+  const collapseAllBtn = document.getElementById('collapse-all');
+  if (expandAllBtn) expandAllBtn.addEventListener('click', () => {
+    document.querySelectorAll('.expandable').forEach(e => {
+      if (!e.classList.contains('open')) e.querySelector('.exp-trigger').click();
+    });
+  });
+  if (collapseAllBtn) collapseAllBtn.addEventListener('click', () => {
+    document.querySelectorAll('.expandable').forEach(e => {
+      if (e.classList.contains('open')) e.querySelector('.exp-trigger').click();
+    });
+  });
 </script>
 </body>
 </html>
