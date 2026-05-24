@@ -5,8 +5,16 @@
     <link>https://willzhengai.github.io/the-ai-brief/</link>
     <description>A curated weekly digest on AI and organizational design — where invention meets innovation meets real impact.</description>
     <language>en-us</language>
-    <lastBuildDate>Sun, 17 May 2026 12:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 24 May 2026 12:00:00 +0000</lastBuildDate>
     <atom:link href="https://willzhengai.github.io/the-ai-brief/feed.xml" rel="self" type="application/rss+xml"/>
+
+    <item>
+      <title>Issue #12: Small Business, Financial Services, the End of Flat-Rate AI — and the CMO's AI Decision</title>
+      <link>https://willzhengai.github.io/the-ai-brief/issues/2026-05-24.html</link>
+      <guid>https://willzhengai.github.io/the-ai-brief/issues/2026-05-24.html</guid>
+      <pubDate>Sun, 24 May 2026 12:00:00 +0000</pubDate>
+      <description>Trying a more concise format this week: Anthropic's Claude for Small Business plugin (with step-by-step video), a walkthrough of Claude for Financial Services, the end of all-you-can-eat AI subscriptions and why PowerPoint generation is the place you'll notice token costs first — plus an interactive executive briefing dashboard on the CMO's AI decision.</description>
+    </item>
 
     <item>
       <title>Special Issue #003: The Talent Paradox in Hyper-Growth — Why You Need Outsiders to Build the System and Insiders to Keep the Soul</title>
