@@ -398,6 +398,16 @@
       <li><a href="#roadmap"><span class="nav-num">08</span><span>12–24 month plan</span></a></li>
       <li><a href="#sowhat"><span class="nav-num">09</span><span>So what</span></a></li>
     </ul>
+    <div class="nav-label" style="color: var(--topaz); opacity: 0.95;">10 Reference Tables</div>
+    <ul class="nav-list">
+      <li><a href="#tbl-usecases"><span class="nav-num">01</span><span>Value Chain</span></a></li>
+      <li><a href="#tbl-workflow"><span class="nav-num">02</span><span>Workflow Redesign</span></a></li>
+      <li><a href="#tbl-roles"><span class="nav-num">03</span><span>Roles &amp; Skills</span></a></li>
+      <li><a href="#tbl-bias"><span class="nav-num">04</span><span>Bias &amp; Fairness</span></a></li>
+      <li><a href="#tbl-legal"><span class="nav-num">05</span><span>Legal / Regulatory</span></a></li>
+      <li><a href="#tbl-redlines"><span class="nav-num">06</span><span>Red Lines</span></a></li>
+      <li><a href="#tbl-governance"><span class="nav-num">07</span><span>Governance</span></a></li>
+    </ul>
     <div class="sidebar-footer">
       Companion to Issue #12<br>
       AI &amp; Org, Curated · May 2026<br>
@@ -776,7 +786,7 @@
           <div class="tables-master-eyebrow">10 Reference Tables · Expandable</div>
           <h2 class="tables-master-title">The <em>full evidence</em>, on demand.</h2>
           <p class="tables-master-lede">
-            Every analytical table from the underlying research, available as a click-to-expand data view. The <strong>Roles &amp; skills</strong> table is open by default — it's the most relevant evidence for individual contributors on how AI augments specific marketing roles. All others, including the Regulatory/Legal table, are closed by default.
+            Every analytical table from the underlying research, available as a click-to-expand data view. The <strong>AI use cases across the marketing value chain</strong> table is open by default — the full 18-use-case map at a glance. All others, including the Regulatory/Legal table, are closed by default.
           </p>
         </div>
 
@@ -785,19 +795,19 @@
           <button class="tables-action-btn secondary" id="collapse-all">Collapse all</button>
         </div>
 
-        <div class="expandable" id="tbl-usecases">
-          <button class="exp-trigger" aria-expanded="false" aria-controls="tbl-usecases-body" data-target="tbl-usecases-body">
+        <div class="expandable open featured" id="tbl-usecases">
+          <button class="exp-trigger" aria-expanded="true" aria-controls="tbl-usecases-body" data-target="tbl-usecases-body">
             <div class="exp-left">
               <div class="exp-num">01</div>
               <div class="exp-meta">
-                <div class="exp-kicker">Reference Table · Value Chain</div>
+                <div class="exp-kicker">Reference Table · Value Chain · <span style="color: var(--topaz-darker); font-weight: 700;">Featured — open by default</span></div>
                 <div class="exp-title">AI use cases across the marketing value chain</div>
-                <div class="exp-sub">18 rows · 8 columns · Click to expand</div>
+                <div class="exp-sub">18 rows · 8 columns · The full value-chain map</div>
               </div>
             </div>
-            <div class="exp-right"><span class="exp-pill">Closed</span><svg class="exp-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 8 10 12 14 8"/></svg></div>
+            <div class="exp-right"><span class="exp-pill">Open</span><svg class="exp-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 8 10 12 14 8"/></svg></div>
           </button>
-          <div class="exp-body" id="tbl-usecases-body" role="region" aria-hidden="true">
+          <div class="exp-body" id="tbl-usecases-body" role="region" aria-hidden="false">
             <p class="exp-lede">Eighteen use cases mapped by AI type, workflow impact, maturity, value, risk, and example deployment. Most mature: creative production and predictive analytics. Most consequential shifts: brand-governed creative reinvention, agentic operations, and AI answer-engine discovery.</p>
             <div class="exp-table-wrap">
               <table class="exp-table">
@@ -867,19 +877,19 @@
           </div>
         </div>
 
-        <div class="expandable open featured" id="tbl-roles">
-          <button class="exp-trigger" aria-expanded="true" aria-controls="tbl-roles-body" data-target="tbl-roles-body">
+        <div class="expandable" id="tbl-roles">
+          <button class="exp-trigger" aria-expanded="false" aria-controls="tbl-roles-body" data-target="tbl-roles-body">
             <div class="exp-left">
               <div class="exp-num">03</div>
               <div class="exp-meta">
-                <div class="exp-kicker">Reference Table · Roles · <span style="color: var(--topaz-darker); font-weight: 700;">Featured — open by default</span></div>
+                <div class="exp-kicker">Reference Table · Roles</div>
                 <div class="exp-title">Job &amp; skills architecture redesign</div>
                 <div class="exp-sub">11 rows · How AI augments each marketing role</div>
               </div>
             </div>
-            <div class="exp-right"><span class="exp-pill">Open</span><svg class="exp-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 8 10 12 14 8"/></svg></div>
+            <div class="exp-right"><span class="exp-pill">Closed</span><svg class="exp-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 8 10 12 14 8"/></svg></div>
           </button>
-          <div class="exp-body" id="tbl-roles-body" role="region" aria-hidden="false">
+          <div class="exp-body" id="tbl-roles-body" role="region" aria-hidden="true">
             <p class="exp-lede">Eleven marketing role families with the specific tasks likely to be automated, the new tasks created, and the human capabilities becoming more valuable. Accenture: 44% of US working hours are in scope for automation or augmentation; 95% of executives agree gen AI reshapes rather than eliminates jobs.</p>
             <div class="exp-table-wrap">
               <table class="exp-table">
@@ -1115,6 +1125,16 @@
   if (collapseAllBtn) collapseAllBtn.addEventListener('click', () => {
     document.querySelectorAll('.expandable').forEach(e => {
       if (e.classList.contains('open')) e.querySelector('.exp-trigger').click();
+    });
+  });
+
+  // Clicking a sidebar link to a table auto-opens that table
+  document.querySelectorAll('a[href^="#tbl-"]').forEach(a => {
+    a.addEventListener('click', () => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target && !target.classList.contains('open')) {
+        setTimeout(() => target.querySelector('.exp-trigger').click(), 80);
+      }
     });
   });
 </script>
