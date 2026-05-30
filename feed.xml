@@ -5,8 +5,16 @@
     <link>https://willzhengai.github.io/the-ai-brief/</link>
     <description>A curated weekly digest on AI and organizational design — where invention meets innovation meets real impact.</description>
     <language>en-us</language>
-    <lastBuildDate>Sun, 24 May 2026 12:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 30 May 2026 12:00:00 +0000</lastBuildDate>
     <atom:link href="https://willzhengai.github.io/the-ai-brief/feed.xml" rel="self" type="application/rss+xml"/>
+
+    <item>
+      <title>Issue #13: Agents Leave the Chatbox — Claude Orchestrates Workflows, Codex Lands on Windows, Copilot Embeds in Microsoft 365</title>
+      <link>https://willzhengai.github.io/the-ai-brief/issues/2026-05-30.html</link>
+      <guid>https://willzhengai.github.io/the-ai-brief/issues/2026-05-30.html</guid>
+      <pubDate>Sat, 30 May 2026 12:00:00 +0000</pubDate>
+      <description>Agents move out of the chat window and into real work environments: Claude Opus 4.8 Dynamic Workflows and subagents, OpenAI's Codex inside local Windows, and the Microsoft 365 Copilot redesign — each with a demo. Plus an Org briefing from a closed-door "AI in the Workplace" conference of frontier researchers: five takeaways and an interactive dashboard on why the bottleneck is organizational, not technical.</description>
+    </item>
 
     <item>
       <title>Issue #12: Small Business, Financial Services, the End of Flat-Rate AI — and the CMO's AI Decision</title>

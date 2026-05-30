@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Issue #13 — AI &amp; Org, Curated</title>
+  <meta name="description" content="Agents leave the chatbox: Claude Opus 4.8 Dynamic Workflows and subagents, OpenAI Codex inside local Windows, and the Microsoft 365 Copilot redesign — plus a closed-door 'AI in the Workplace' conference briefing with an interactive dashboard.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .source-list {
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+      margin-top: 0.75rem;
+      padding-top: 0.75rem;
+      border-top: 1px dashed var(--color-border);
+    }
+    .source-list strong { color: var(--color-text); }
+    .source-list a { margin-right: 0.5rem; }
+
+    .dashboard-embed {
+      position: relative;
+      width: 100%;
+      height: 900px;
+      margin: 2rem 0;
+      border-radius: 12px;
+      border: 1px solid var(--color-border);
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+    .dashboard-embed iframe { width: 100%; height: 100%; border: 0; }
+    .dashboard-link {
+      display: flex; justify-content: space-between; align-items: center;
+      gap: 0.75rem; flex-wrap: wrap;
+      font-size: 0.85rem; color: var(--color-text-muted);
+      margin-top: 0.5rem; margin-bottom: 1.5rem;
+    }
+    .dashboard-link a { font-weight: 600; color: var(--color-accent); }
+    @media (max-width: 700px) { .dashboard-embed { height: 1200px; } }
+
+    .tldr-block {
+      background: var(--color-bg-alt);
+      border-left: 4px solid var(--color-accent-org);
+      border-radius: 8px;
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
+    }
+    .tldr-block p { font-size: 0.95rem; margin-bottom: 0.75rem; }
+    .tldr-block p:last-child { margin-bottom: 0; }
+
+    .takeaway-list {
+      list-style: none;
+      padding-left: 0;
+      margin: 1.5rem 0;
+      counter-reset: takeaway;
+    }
+    .takeaway-list li {
+      position: relative;
+      padding: 1rem 1.25rem 1rem 3.25rem;
+      margin-bottom: 1rem;
+      background: var(--color-bg-alt);
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+    .takeaway-list li::before {
+      counter-increment: takeaway;
+      content: counter(takeaway);
+      position: absolute;
+      left: 1rem; top: 1rem;
+      width: 1.6rem; height: 1.6rem;
+      display: flex; align-items: center; justify-content: center;
+      background: var(--color-accent-org);
+      color: #fff; font-weight: 700; font-size: 0.85rem;
+      border-radius: 50%;
+    }
+    .takeaway-list li strong { color: var(--color-accent-org); }
+
+    .institution-row {
+      display: flex; flex-wrap: wrap; gap: 0.5rem;
+      margin: 1rem 0 0.5rem;
+    }
+    .institution-row span {
+      font-size: 0.8rem; font-weight: 600;
+      padding: 0.3rem 0.7rem;
+      border-radius: 999px;
+      background: var(--color-bg-alt);
+      border: 1px solid var(--color-border);
+      color: var(--color-text);
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="../index.html" class="site-logo">
+        <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="28" height="28" rx="6" fill="#2563eb"/>
+          <rect x="14" width="14" height="28" rx="0 6 6 0" fill="#0d9488"/>
+          <path d="M7 8h14M7 14h10M7 20h12" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+        AI &amp; Org, Curated
+      </a>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <path d="M3 6h18M3 12h18M3 18h18"/>
+        </svg>
+      </button>
+      <nav class="site-nav">
+        <a href="../index.html">Issues</a>
+        <a href="../about.html">About</a>
+        <a href="../feed.xml">RSS</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <div class="issue-header">
+      <div class="issue-meta">
+        <span class="issue-number">Issue #13</span>
+        <span>May 30, 2026</span>
+      </div>
+      <h1>Agents Leave the Chatbox: Claude Orchestrates Workflows, Codex Lands on Windows, Copilot Embeds in Microsoft 365 — and Why the Bottleneck Is Organizational</h1>
+    </div>
+
+    <section class="editorial">
+      <h2>Editor's Take</h2>
+      <p><strong>One theme this week, three vendors, one direction of travel.</strong> AI agents are moving out of the chat window and into the actual environments where work happens — codebases, local developer machines, and the office suite people already live in. Claude is orchestrating larger engineering workflows through Dynamic Workflows and subagents; OpenAI's Codex is now operating inside local Windows developer setups; and Microsoft 365 Copilot's redesign embeds the same shift across documents, spreadsheets, slides, and email.</p>
+
+      <p>Same tighter format as last week: three news items, each readable in a minute, with the demo a click away. Then the Org section goes deep — but this week it isn't a consulting synthesis. It's a briefing from a closed-door (recorded) gathering of the economists and lab researchers actually building the frontier evidence on AI and work, with the five takeaways and an interactive dashboard underneath.</p>
+
+      <p>The through-line connecting the news and the briefing: the capability is arriving faster than the organization can absorb it. The model is ready before the org is. That gap — not what the agents can technically do — is where the next two years of advantage gets won or lost.</p>
+    </section>
+
+    <section class="curated-links">
+      <h2>This Week's Stories</h2>
+
+      <!-- 1. Claude Opus 4.8 Dynamic Workflows -->
+      <article class="link-item">
+        <div class="link-item-header">
+          <h3><a href="https://www.anthropic.com/news/claude-opus-4-8" target="_blank" rel="noopener">Claude Opus 4.8 and Dynamic Workflows: Claude Code Plans, Coordinates Subagents, and Verifies Its Own Output</a></h3>
+          <span class="source-badge">Anthropic / YouTube</span>
+          <span class="category-tag industry">Industry</span>
+        </div>
+        <p class="link-summary">The clearest sign that agents are leaving the chatbox is what Claude Code now does on a single instruction. With <strong>Dynamic Workflows</strong> on Opus 4.8, Claude doesn't just answer — it plans a complex task, decomposes it, coordinates <em>parallel subagents</em> across the pieces, and then verifies the combined output before handing it back. The orchestration layer that engineers used to assemble by hand — fan-out, isolation, adversarial checking, synthesis — is moving inside the model's own control loop.</p>
+
+        <p class="link-summary">Strategic read: this is the difference between an assistant and an operator. A chatbot returns text; a workflow engine takes ownership of a multi-step outcome and is accountable for the result. For engineering leaders, the unit of delegation shifts from "the prompt" to "the task" — which changes how you scope work, how you review it, and where the human checkpoint actually belongs. The two demos below show Claude planning, splitting work across subagents, and reconciling the results end-to-end.</p>
+
+        <div class="video-embed">
+          <iframe src="https://www.youtube.com/embed/q5lg3npxjAc"
+                  title="Claude Opus 4.8 Dynamic Workflows — demo 1"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen></iframe>
+        </div>
+        <p class="video-caption">Demo 1: Claude Code planning a complex task and coordinating parallel subagents.</p>
+
+        <div class="video-embed">
+          <iframe src="https://www.youtube.com/embed/NbhNlpRsofY"
+                  title="Claude Opus 4.8 Dynamic Workflows — demo 2"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen></iframe>
+        </div>
+        <p class="video-caption">Demo 2: subagent fan-out and output verification in a larger engineering workflow.</p>
+
+        <div class="source-list">
+          <strong>Sources:</strong>
+          <a href="https://www.anthropic.com/news/claude-opus-4-8" target="_blank" rel="noopener">Anthropic: Opus 4.8</a> ·
+          <a href="https://www.youtube.com/watch?v=q5lg3npxjAc" target="_blank" rel="noopener">Dynamic Workflows demo 1</a> ·
+          <a href="https://www.youtube.com/watch?v=NbhNlpRsofY" target="_blank" rel="noopener">Dynamic Workflows demo 2</a>
+        </div>
+      </article>
+
+      <!-- 2. Codex on Windows -->
+      <article class="link-item">
+        <div class="link-item-header">
+          <h3><a href="https://openai.com/blog/codex" target="_blank" rel="noopener">OpenAI's Codex Comes to Windows: Agentic Coding Inside the Developer's Actual Machine</a></h3>
+          <span class="source-badge">OpenAI / YouTube</span>
+          <span class="category-tag industry">Industry</span>
+        </div>
+        <p class="link-summary">If Claude's move is "orchestrate more," OpenAI's is "come closer to where the work lives." Codex now runs inside <strong>local Windows developer environments</strong> — with support for local projects, PowerShell, Git, live previews, plugins, skills, and <em>parallel agent threads</em>. The agent isn't reaching into a sandboxed remote workspace; it's operating on the developer's real filesystem, real shell, and real toolchain.</p>
+
+        <p class="link-summary">Strategic read: the cloud-IDE-versus-local-machine question was the last real moat between "AI helps me code" and "AI does the coding on my box." Putting Codex natively on Windows — the dominant enterprise developer OS — removes the friction for the largest population of corporate developers, and the parallel-thread support mirrors the same fan-out pattern Claude is shipping. The convergence is the story: both leading labs independently concluded the next unlock is multiple agents working in parallel inside the real environment. The demo below walks through Codex on Windows against a local project, PowerShell, and Git.</p>
+
+        <div class="video-embed">
+          <iframe src="https://www.youtube.com/embed/8hNcRChDrNk"
+                  title="OpenAI Codex on Windows — demo"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen></iframe>
+        </div>
+        <p class="video-caption">Demo: Codex operating inside a local Windows environment — projects, PowerShell, Git, previews, and parallel agent threads.</p>
+
+        <div class="source-list">
+          <strong>Sources:</strong>
+          <a href="https://openai.com/blog/codex" target="_blank" rel="noopener">OpenAI: Codex</a> ·
+          <a href="https://www.youtube.com/watch?v=8hNcRChDrNk" target="_blank" rel="noopener">Codex on Windows demo</a>
+        </div>
+      </article>
+
+      <!-- 3. Microsoft 365 Copilot redesign -->
+      <article class="link-item">
+        <div class="link-item-header">
+          <h3><a href="https://www.microsoft.com/en-us/microsoft-365/blog/" target="_blank" rel="noopener">The Microsoft 365 Copilot Redesign: The Enterprise Version of the Same Trend</a></h3>
+          <span class="source-badge">Microsoft / YouTube</span>
+          <span class="category-tag industry">Industry</span>
+        </div>
+        <p class="link-summary">Microsoft 365 Copilot's redesign is what this shift looks like once it hits a billion seats. Copilot is becoming a <strong>faster, task-aware workspace</strong> embedded directly in documents, spreadsheets, slides, email, mobile, and the broader Microsoft work surface — not a side panel you summon, but the layer the work runs through. Where Claude and Codex bring agents into the codebase, Microsoft brings them into the place knowledge workers already spend their day.</p>
+
+        <p class="link-summary">Strategic read: distribution is Microsoft's weapon, and "task-aware and embedded" is the productization of agentic work for non-developers. The same three-part pattern shows up in all three stories — plan the task, do it where the work lives, keep a human in the verification loop. For a CAIO, the Copilot redesign is the one most of your workforce will actually touch first; the governance, attribution, and change-management questions you've been deferring arrive with it. The demo below tours the redesigned, task-aware Copilot across the Microsoft 365 apps.</p>
+
+        <div class="video-embed">
+          <iframe src="https://www.youtube.com/embed/ACiJFw5Rr6k"
+                  title="Microsoft 365 Copilot redesign — demo"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen></iframe>
+        </div>
+        <p class="video-caption">Demo: the redesigned Microsoft 365 Copilot embedded across documents, spreadsheets, slides, email, and mobile.</p>
+
+        <div class="source-list">
+          <strong>Sources:</strong>
+          <a href="https://www.microsoft.com/en-us/microsoft-365/blog/" target="_blank" rel="noopener">Microsoft 365 blog</a> ·
+          <a href="https://www.youtube.com/watch?v=ACiJFw5Rr6k" target="_blank" rel="noopener">Microsoft 365 Copilot redesign demo</a>
+        </div>
+      </article>
+
+    </section>
+
+    <!-- ================================ -->
+    <!-- ORG DESIGN & CHANGES, CURATED    -->
+    <!-- ================================ -->
+
+    <div class="section-divider">
+      <span class="section-label org">Org Design &amp; Changes, Curated</span>
+    </div>
+
+    <section class="org-editorial">
+      <h2>This Week's Briefing</h2>
+      <h3 style="font-family: var(--font-sans); font-size: 1.15rem; font-weight: 700; color: var(--color-accent-org); margin-bottom: 0.6rem;">AI in the Workplace: Five Takeaways From a Closed-Door Conference of the People Building the Evidence</h3>
+      <p style="font-style: italic; color: var(--color-text-muted); margin-bottom: 1rem;">Notes from a recorded, closed-door gathering of frontier researchers on AI and work — summarized for executives.</p>
+
+      <div class="reading-rec" style="background: var(--color-bg-alt); border: 1px solid var(--color-border); border-radius: 8px; padding: 0.85rem 1.1rem; margin: 1.25rem 0; font-size: 0.85rem; color: var(--color-text-muted);">
+        <strong style="color: var(--color-text);">Heads-up:</strong> A short TL;DR and the five takeaways, then an interactive briefing dashboard — <em>AI and the Org: Lessons From the Conference Circuit</em> — embedded below. The dashboard is the main deliverable this week.
+      </div>
+
+      <div class="reading-rec" style="background: #fef3c7; border: 1px solid #fcd34d; color: #78350f; border-radius: 8px; padding: 0.85rem 1.1rem; margin: 1.25rem 0; font-size: 0.85rem; font-style: italic;">
+        <strong style="font-style: normal;">Disclaimer:</strong> All opinions in this briefing are my own. They do not represent the company's position. This is meant as an academic discussion of how AI is reshaping work.
+      </div>
+    </section>
+
+    <section class="org-article">
+
+      <h3>TL;DR</h3>
+
+      <div class="tldr-block">
+        <p><strong>The bottleneck is organizational, not technical.</strong> Capabilities scale fast; economic impact lags on fixed costs, workflow redesign, and regulation — the model is ready before the organization. Early enterprise evidence is still narrow (on the order of <strong>~14% less time on email</strong>, not broad transformation). The battleground is no longer what AI can do, but how fast institutions adapt.</p>
+
+        <p><strong>This was not punditry, and it was not a vendor deck.</strong> It was a closed-door (though recorded) gathering of the people actually building the frontier research on AI and work — presenting the newest empirical evidence, much of it still unpublished, on what AI is doing to jobs and wages. The five takeaways below are theirs, summarized for executives; the dashboard underneath is the full evidence layer.</p>
+      </div>
+
+      <h3>The Five Takeaways</h3>
+
+      <ol class="takeaway-list">
+        <li><strong>The bottleneck is organizational, not technical.</strong> Capabilities scale fast; economic impact lags on fixed costs, workflow redesign, and regulation — the model is ready before the organization. Early enterprise evidence is narrow (~14% less time on email, not broad transformation). The battleground is no longer what AI can do, but how fast institutions adapt.</li>
+
+        <li><strong>Read the impact at the skill-task level.</strong> Don't ask "is my job automated." Ask which tasks face <em>augmentation</em> (you get more productive), <em>automation</em> (the task disappears), or <em>simplification</em> (the skill bar drops) — and for whom. The same role often contains all three at once, which is why job-title-level analysis misleads.</li>
+
+        <li><strong>Transitions are slow; reallocation is the answer.</strong> Automatic elevators existed in the 1920s, yet operator employment peaked in 1950 before collapsing in a couple of years. Structural change is coming, but adoption lags the productivity case — so manage skill-task alignment and reallocation pathways rather than betting on an overnight switch.</li>
+
+        <li><strong>No measurable move in aggregate unemployment — yet.</strong> The pooled post-ChatGPT effect is statistically zero. Some roles have a much higher share of AI-assistable tasks than others (a measure of how much AI touches the work, not a layoff forecast), but the action so far is in <em>how</em> work gets done and in hiring — beneath the surface, which is why aggregate stats mislead.</li>
+
+        <li><strong>AI breaks the signals labor markets rely on.</strong> Cheapening writing makes hiring less meritocratic, and when AI use is visible to an evaluator, people underuse good tools to protect their image. Reset norms so "using AI well is a skill," reduce individual-level visibility, and make AI the workflow default.</li>
+      </ol>
+
+      <h3>Why You Can Trust the Findings</h3>
+
+      <p>The speakers were the economists and lab researchers who study this for a living: academics from Princeton, Stanford, Harvard, Northwestern Kellogg, and the University of Chicago, sitting alongside researchers from Google Gemini, Microsoft Research, and Anthropic — including a former OpenAI researcher — plus the New York Fed. The work in the dashboard below is theirs, summarized for executives.</p>
+
+      <div class="institution-row">
+        <span>Princeton</span>
+        <span>Stanford</span>
+        <span>Harvard</span>
+        <span>Northwestern Kellogg</span>
+        <span>U Chicago</span>
+        <span>Google Gemini</span>
+        <span>Microsoft Research</span>
+        <span>Anthropic</span>
+        <span>New York Fed</span>
+      </div>
+
+      <h3>Interactive Briefing</h3>
+
+      <p>The dashboard below — <em>AI and the Org: Lessons From the Conference Circuit</em> — is the full evidence layer behind the five takeaways. Open it in a new tab if it loads slowly.</p>
+
+      <div class="dashboard-embed">
+        <iframe src="../dashboards/ai_and_the_org.html"
+                title="AI and the Org: Lessons From the Conference Circuit"
+                loading="lazy"></iframe>
+      </div>
+      <div class="dashboard-link">
+        <span>Dashboard loading slowly?</span>
+        <a href="../dashboards/ai_and_the_org.html" target="_blank" rel="noopener">Open the dashboard in a new tab &rarr;</a>
+      </div>
+
+      <div class="callout">
+        Notice the symmetry between this week's news and this week's evidence. The three product stories show capability racing ahead — agents orchestrating workflows, landing on local machines, embedding across the office. The conference shows the lagging variable: institutions, workflows, norms, and regulation. By 2027 every organization will have access to the same frontier agents. The difference will be in how fast each one redesigns the work around them, manages skill-task reallocation, and resets the norm so that using AI well is treated as a skill rather than something to hide.
+      </div>
+
+      <h3 style="margin-top: 2.5rem;">Sources</h3>
+
+      <ul class="essay-sources" style="font-size: 0.85rem; color: var(--color-text-muted); padding-left: 1.5rem; line-height: 1.7;">
+        <li><strong>Convening.</strong> Closed-door (recorded) "AI in the Workplace" conference — academic economists alongside frontier-lab and central-bank researchers, presenting new and largely unpublished empirical work on AI, jobs, and wages.</li>
+        <li><strong>Academic institutions represented.</strong> Princeton; Stanford; Harvard; Northwestern (Kellogg); University of Chicago.</li>
+        <li><strong>Lab and institutional researchers.</strong> Google Gemini; Microsoft Research; Anthropic (including a former OpenAI researcher); Federal Reserve Bank of New York.</li>
+        <li><strong>Illustrative datapoints cited.</strong> ~14% reduction in time spent on email among early enterprise adopters; statistically-zero pooled post-ChatGPT effect on aggregate unemployment; the automatic-elevator adoption lag (technology available 1920s, operator employment peaked 1950 before a rapid collapse).</li>
+        <li><strong>Companion dashboard.</strong> <em>AI and the Org: Lessons From the Conference Circuit</em> (<a href="../dashboards/ai_and_the_org.html" target="_blank" rel="noopener">dashboards/ai_and_the_org.html</a>).</li>
+      </ul>
+    </section>
+
+    <!-- Issue Navigation -->
+    <nav class="issue-nav">
+      <a href="2026-05-24.html">&larr; Previous Issue</a>
+      <span></span>
+    </nav>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      &copy; 2026 AI &amp; Org, Curated. All rights reserved.
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>
