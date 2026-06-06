@@ -5,8 +5,16 @@
     <link>https://willzhengai.github.io/the-ai-brief/</link>
     <description>A curated weekly digest on AI and organizational design — where invention meets innovation meets real impact.</description>
     <language>en-us</language>
-    <lastBuildDate>Sat, 30 May 2026 12:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 06 Jun 2026 12:00:00 +0000</lastBuildDate>
     <atom:link href="https://willzhengai.github.io/the-ai-brief/feed.xml" rel="self" type="application/rss+xml"/>
+
+    <item>
+      <title>Issue #14: The Token-Price Reckoning — and the Enterprise Investment Management AI Transformation</title>
+      <link>https://willzhengai.github.io/the-ai-brief/issues/2026-06-06.html</link>
+      <guid>https://willzhengai.github.io/the-ai-brief/issues/2026-06-06.html</guid>
+      <pubDate>Sat, 06 Jun 2026 12:00:00 +0000</pubDate>
+      <description>One story this week, because it reprices everything else: why the cheap-AI era is ending, why physics (the power grid, five-year transformer lead times) is the reason, and what to do in the window that's still open. Plus an interactive executive briefing on Enterprise Investment Management AI Transformation: the CIO's AI decision, with ten reference tables.</description>
+    </item>
 
     <item>
       <title>Issue #13: Agents Leave the Chatbox — Claude Orchestrates Workflows, Codex Lands on Windows, Copilot Embeds in Microsoft 365</title>

@@ -1,0 +1,2691 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The CIO's AI Decision — Executive Briefing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Open+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    /* Brand palette (Topaz / Sapphire / Slate / Onyx / Diamond + accents) */
+    --topaz: #61ABBF;
+    --topaz-dark: #4A8B9F;       /* 25% darker for text */
+    --topaz-darker: #3A6B7B;
+    --aqua: #C1E7E8;
+    --sapphire: #5F8189;
+    --sapphire-dark: #475F65;
+    --slate: #485961;
+    --onyx: #2D2D2D;             /* never pure black */
+    --diamond: #F5F5F7;          /* never pure white */
+    --stone: #E0E0E0;
+    --peridot: #A8D0AA;
+    --peridot-dark: #7CA67F;
+    --citrine: #FCEBA2;
+    --citrine-dark: #C9B560;
+    --amethyst: #5C5C87;
+    --amethyst-dark: #44446A;
+
+    /* Semantic */
+    --ink: var(--onyx);
+    --paper: var(--diamond);
+    --paper-2: #ECEDEF;
+    --paper-3: #DFE1E4;
+    --rule: #D4D6DA;
+    --rule-dim: #C5C8CD;
+    --muted: var(--slate);
+    --muted-2: #6E7A82;
+    --accent: var(--topaz-dark);
+    --accent-soft: var(--aqua);
+
+    --serif: 'Poppins', -apple-system, sans-serif;  /* display */
+    --sans: 'Open Sans', -apple-system, sans-serif;  /* body */
+    --mono: 'JetBrains Mono', 'Courier New', monospace;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.55;
+    font-size: 15px;
+    -webkit-font-smoothing: antialiased;
+    background-image:
+      radial-gradient(circle at 15% 0%, rgba(97, 171, 191, 0.07) 0%, transparent 45%),
+      radial-gradient(circle at 85% 90%, rgba(72, 89, 97, 0.04) 0%, transparent 50%);
+    min-height: 100vh;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+    opacity: 0.025;
+    pointer-events: none;
+    z-index: 1;
+    mix-blend-mode: multiply;
+  }
+
+  .layout {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    min-height: 100vh;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* ============ SIDEBAR ============ */
+  .sidebar {
+    background: var(--onyx);
+    color: var(--diamond);
+    padding: 36px 28px;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+    border-right: 1px solid #404040;
+    background-image:
+      radial-gradient(circle at 50% 0%, rgba(97, 171, 191, 0.10) 0%, transparent 60%);
+  }
+  .sidebar::-webkit-scrollbar { width: 4px; }
+  .sidebar::-webkit-scrollbar-track { background: transparent; }
+  .sidebar::-webkit-scrollbar-thumb { background: rgba(245, 245, 247, 0.15); }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-bottom: 22px;
+    border-bottom: 1px solid rgba(245, 245, 247, 0.08);
+  }
+  /* Geometric mark — three squares in a row, brand-color tinted, no firm name */
+  .brand-mark {
+    display: flex;
+    gap: 3px;
+    align-items: center;
+  }
+  .brand-mark span {
+    display: block;
+    width: 7px;
+    height: 14px;
+  }
+  .brand-mark span:nth-child(1) { background: var(--topaz); }
+  .brand-mark span:nth-child(2) { background: var(--peridot); height: 22px; }
+  .brand-mark span:nth-child(3) { background: var(--amethyst); height: 18px; }
+
+  .brand-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .brand-name {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0.02em;
+    color: var(--diamond);
+    line-height: 1;
+    text-transform: uppercase;
+  }
+  .brand-tag {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--aqua);
+    opacity: 0.7;
+  }
+
+  .briefing-meta { margin: 26px 0 30px; }
+
+  .briefing-title-label {
+    font-family: var(--mono);
+    font-size: 9.5px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--aqua);
+    opacity: 0.75;
+    margin-bottom: 10px;
+  }
+  .briefing-title {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 1.18;
+    color: var(--diamond);
+    letter-spacing: -0.01em;
+  }
+  .briefing-title em {
+    font-style: italic;
+    color: var(--topaz);
+    font-weight: 500;
+  }
+
+  .nav-label {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #B0B2B5;
+    opacity: 0.55;
+    margin: 24px 0 10px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(245, 245, 247, 0.08);
+    font-weight: 600;
+  }
+  .nav-label.tables-label {
+    color: var(--topaz);
+    opacity: 0.95;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .nav-label.tables-label::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    background: var(--topaz);
+    border-radius: 1px;
+    display: inline-block;
+  }
+
+  .nav-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+  }
+  .nav-list a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 6.5px 0;
+    color: #DDDDE0;
+    text-decoration: none;
+    font-size: 13.5px;
+    line-height: 1.3;
+    transition: color 0.2s, transform 0.2s;
+    opacity: 0.78;
+  }
+  .nav-list a:hover {
+    color: var(--aqua);
+    opacity: 1;
+    transform: translateX(3px);
+  }
+  .nav-num {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: #888;
+    min-width: 18px;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+  }
+  /* Tables nav — distinguish */
+  .nav-list.tables-nav a { padding: 6px 0; }
+  .nav-list.tables-nav .nav-num {
+    color: var(--topaz);
+    opacity: 0.9;
+  }
+
+  .sidebar-footer {
+    margin-top: 36px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(245, 245, 247, 0.08);
+    font-family: var(--mono);
+    font-size: 9.5px;
+    color: #999;
+    opacity: 0.6;
+    line-height: 1.7;
+    letter-spacing: 0.06em;
+  }
+
+  /* ============ MAIN ============ */
+  .main { padding: 0; max-width: 100%; overflow-x: hidden; }
+  .container {
+    max-width: 1100px;
+    padding: 0 56px;
+    margin: 0 auto;
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    padding: 88px 0 56px;
+    border-bottom: 1px solid var(--rule);
+    position: relative;
+  }
+  .hero-watermark {
+    position: absolute;
+    top: 80px;
+    right: -20px;
+    width: 280px;
+    height: 280px;
+    opacity: 0.10;
+    pointer-events: none;
+  }
+  .hero-watermark svg { width: 100%; height: 100%; }
+
+  .hero-meta {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 32px;
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    position: relative;
+    font-weight: 500;
+  }
+  .hero-meta .pill {
+    background: var(--onyx);
+    color: var(--diamond);
+    padding: 5px 11px;
+    letter-spacing: 0.14em;
+    font-weight: 600;
+  }
+  .hero-meta .pill.accent { background: var(--topaz-dark); color: var(--diamond); }
+
+  .hero-title {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(40px, 5.0vw, 64px);
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+    margin-bottom: 28px;
+    color: var(--onyx);
+    position: relative;
+  }
+  .hero-title em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--topaz-darker);
+  }
+
+  .hero-deck {
+    font-family: var(--sans);
+    font-weight: 400;
+    font-size: 19px;
+    line-height: 1.55;
+    color: var(--slate);
+    max-width: 740px;
+    margin-bottom: 48px;
+    position: relative;
+  }
+  .hero-deck em {
+    font-style: italic;
+    color: var(--sapphire-dark);
+    font-weight: 500;
+  }
+
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    margin-top: 48px;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    position: relative;
+  }
+  .hero-stat {
+    padding: 28px 24px 28px 0;
+    border-right: 1px solid var(--rule);
+    position: relative;
+  }
+  .hero-stat:last-child { border-right: none; padding-right: 0; }
+  .hero-stat:not(:first-child) { padding-left: 24px; }
+  .hero-stat::before {
+    content: '';
+    position: absolute;
+    top: 28px;
+    left: 0;
+    width: 3px;
+    height: 18px;
+  }
+  .hero-stat:nth-child(1)::before { background: var(--topaz); left: 0; }
+  .hero-stat:nth-child(2)::before { background: var(--sapphire); left: 24px; }
+  .hero-stat:nth-child(3)::before { background: var(--peridot-dark); left: 24px; }
+  .hero-stat:nth-child(4)::before { background: var(--amethyst); left: 24px; }
+
+  .hero-stat-num {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 52px;
+    line-height: 1;
+    letter-spacing: -0.028em;
+    color: var(--onyx);
+    margin-bottom: 8px;
+    margin-left: 14px;
+  }
+  .hero-stat-num .unit {
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--topaz-dark);
+    margin-left: 2px;
+  }
+  .hero-stat-label {
+    font-family: var(--sans);
+    font-size: 12px;
+    line-height: 1.45;
+    color: var(--muted);
+    font-weight: 500;
+    margin-left: 14px;
+  }
+
+  /* ===== EXPANDABLE TABLE CALLOUT (TOP) ===== */
+  .table-callout {
+    margin: 56px 0 16px;
+    padding: 22px 26px;
+    background: linear-gradient(135deg, rgba(97, 171, 191, 0.08) 0%, rgba(168, 208, 170, 0.06) 100%);
+    border: 1px solid var(--rule);
+    border-left: 4px solid var(--topaz-dark);
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    flex-wrap: wrap;
+  }
+  .table-callout-icon {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--onyx);
+    color: var(--aqua);
+    flex-shrink: 0;
+  }
+  .table-callout-icon svg { width: 22px; height: 22px; }
+  .table-callout-text { flex: 1; min-width: 240px; }
+  .table-callout-title {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--onyx);
+    margin-bottom: 4px;
+    letter-spacing: -0.005em;
+  }
+  .table-callout-desc {
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--muted);
+  }
+  .table-callout-desc strong { color: var(--topaz-darker); font-weight: 600; }
+
+  /* ===== PILL NAV (TABLES) ===== */
+  .pill-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 24px 0 0;
+  }
+  .pill-nav-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 12px 7px 8px;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: 999px;
+    text-decoration: none;
+    color: var(--onyx);
+    font-family: var(--sans);
+    font-size: 12.5px;
+    font-weight: 500;
+    transition: all 0.2s;
+  }
+  .pill-nav-item:hover {
+    border-color: var(--topaz-dark);
+    background: var(--aqua);
+    color: var(--topaz-darker);
+    transform: translateY(-1px);
+  }
+  .pill-num {
+    background: var(--onyx);
+    color: var(--diamond);
+    font-family: var(--mono);
+    font-size: 10px;
+    padding: 3px 6px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+  }
+  .pill-nav-item:hover .pill-num {
+    background: var(--topaz-dark);
+  }
+  .pill-text { letter-spacing: -0.005em; }
+
+  /* ===== SECTION ===== */
+  .section {
+    padding: 72px 0;
+    border-bottom: 1px solid var(--rule);
+    position: relative;
+  }
+  .section-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 20px;
+  }
+  .section-num {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    color: var(--topaz-dark);
+    font-weight: 600;
+  }
+  .section-divider {
+    width: 28px;
+    height: 1px;
+    background: var(--topaz-dark);
+  }
+  .section-kicker {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 600;
+  }
+  .section-title {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 1.15;
+    letter-spacing: -0.022em;
+    margin-bottom: 18px;
+    max-width: 800px;
+    color: var(--onyx);
+  }
+  .section-title em {
+    font-style: italic;
+    font-weight: 500;
+    color: var(--topaz-darker);
+  }
+  .section-lede {
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.55;
+    color: var(--muted);
+    max-width: 720px;
+    margin-bottom: 44px;
+    font-weight: 400;
+  }
+
+  /* ===== TAKEAWAYS ===== */
+  .takeaways {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+  }
+  .takeaway {
+    background: var(--paper);
+    padding: 32px 28px;
+    position: relative;
+  }
+  .takeaway::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+  }
+  .takeaway:nth-child(1)::before { background: var(--topaz); }
+  .takeaway:nth-child(2)::before { background: var(--sapphire); }
+  .takeaway:nth-child(3)::before { background: var(--peridot-dark); }
+  .takeaway:nth-child(4)::before { background: var(--amethyst); }
+
+  .takeaway-num {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 48px;
+    line-height: 0.85;
+    color: var(--topaz-dark);
+    margin-bottom: 18px;
+    letter-spacing: -0.04em;
+    font-style: italic;
+  }
+  .takeaway h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 1.3;
+    margin-bottom: 12px;
+    letter-spacing: -0.008em;
+    color: var(--onyx);
+  }
+  .takeaway p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--muted);
+  }
+
+  /* ===== CHART ===== */
+  .chart-block { margin: 32px 0; }
+  .chart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 28px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .chart-title {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 20px;
+    letter-spacing: -0.01em;
+    color: var(--onyx);
+  }
+  .chart-source {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    color: var(--muted-2);
+    letter-spacing: 0.08em;
+  }
+  .funnel {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .funnel-row {
+    display: grid;
+    grid-template-columns: 240px 1fr 100px;
+    gap: 24px;
+    align-items: center;
+  }
+  .funnel-label {
+    font-family: var(--sans);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--onyx);
+  }
+  .funnel-label small {
+    display: block;
+    font-weight: 400;
+    color: var(--muted);
+    font-size: 12px;
+    margin-top: 3px;
+  }
+  .funnel-bar-wrap {
+    height: 40px;
+    background: var(--paper-2);
+    border: 1px solid var(--rule);
+    position: relative;
+    overflow: hidden;
+  }
+  .funnel-bar {
+    height: 100%;
+    background: var(--slate);
+    transform-origin: left;
+    transition: width 1s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .funnel-bar.accent { background: var(--topaz-dark); }
+  .funnel-bar.dim { background: var(--muted-2); opacity: 0.5; }
+  .funnel-value {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 28px;
+    color: var(--onyx);
+    text-align: right;
+    letter-spacing: -0.022em;
+  }
+  .funnel-value .pct { color: var(--topaz-dark); font-size: 18px; margin-left: 2px; }
+
+  /* ===== SPLIT NUMBERS ===== */
+  .split-numbers {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    margin: 44px 0;
+    background: var(--onyx);
+    color: var(--diamond);
+    position: relative;
+  }
+  .split-numbers::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg,
+      var(--topaz) 0%, var(--topaz) 20%,
+      var(--sapphire) 20%, var(--sapphire) 40%,
+      var(--peridot) 40%, var(--peridot) 60%,
+      var(--citrine) 60%, var(--citrine) 80%,
+      var(--amethyst) 80%, var(--amethyst) 100%);
+  }
+  .split-num {
+    padding: 52px 36px;
+    position: relative;
+  }
+  .split-num:first-child { border-right: 1px solid #404040; }
+  .split-num-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--aqua);
+    opacity: 0.8;
+    margin-bottom: 18px;
+    font-weight: 600;
+  }
+  .split-num-value {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 88px;
+    line-height: 0.9;
+    letter-spacing: -0.04em;
+    margin-bottom: 16px;
+    color: var(--diamond);
+  }
+  .split-num-value .pct { color: var(--aqua); font-size: 56px; }
+  .split-num-desc {
+    font-family: var(--sans);
+    font-size: 15.5px;
+    line-height: 1.55;
+    color: #DDDDE0;
+    font-weight: 400;
+    max-width: 380px;
+  }
+
+  /* ===== MATURITY ===== */
+  .maturity { margin: 32px 0; }
+  .maturity-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0;
+    border: 1px solid var(--rule);
+  }
+  .maturity-step {
+    padding: 28px 22px;
+    border-right: 1px solid var(--rule);
+    position: relative;
+    background: var(--paper);
+    min-height: 256px;
+    display: flex;
+    flex-direction: column;
+  }
+  .maturity-step:last-child { border-right: none; }
+  .maturity-step::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--rule-dim);
+  }
+  .maturity-step:nth-child(1)::before { background: var(--amethyst); }
+  .maturity-step:nth-child(2)::before { background: var(--sapphire); }
+  .maturity-step:nth-child(3)::before { background: var(--topaz-dark); height: 3px; }
+  .maturity-step:nth-child(4)::before { background: var(--peridot-dark); }
+  .maturity-step:nth-child(5)::before { background: var(--citrine-dark); }
+
+  .maturity-step .level {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+  .maturity-step .level-num {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 48px;
+    line-height: 0.9;
+    color: var(--onyx);
+    margin-bottom: 16px;
+    letter-spacing: -0.04em;
+    font-style: italic;
+  }
+  .maturity-step.current .level-num { color: var(--topaz-dark); }
+  .maturity-step .level-title {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 1.3;
+    margin-bottom: 10px;
+    color: var(--onyx);
+  }
+  .maturity-step .level-desc {
+    font-size: 12.5px;
+    line-height: 1.55;
+    color: var(--muted);
+    flex-grow: 1;
+  }
+  .maturity-caption {
+    margin-top: 24px;
+    padding: 20px 24px;
+    background: var(--paper-2);
+    border-left: 3px solid var(--topaz-dark);
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: var(--onyx);
+  }
+  .maturity-caption strong { color: var(--onyx); font-weight: 700; }
+
+  /* ===== CASES ===== */
+  .cases {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    margin: 32px 0;
+  }
+  .case {
+    background: var(--paper);
+    padding: 32px 28px;
+    transition: background 0.2s;
+    position: relative;
+  }
+  .case::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 32px;
+    height: 2px;
+  }
+  .case:nth-child(1)::before { background: var(--sapphire); }
+  .case:nth-child(2)::before { background: var(--amethyst); }
+  .case:nth-child(3)::before { background: var(--topaz-dark); }
+  .case:nth-child(4)::before { background: var(--peridot-dark); }
+  .case:hover { background: var(--paper-2); }
+
+  .case-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding-bottom: 16px;
+    border-bottom: 1px dashed var(--rule);
+    margin-bottom: 22px;
+  }
+  .case-name {
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: 24px;
+    letter-spacing: -0.018em;
+    color: var(--onyx);
+  }
+  .case-industry {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    background: var(--paper-2);
+    padding: 4px 9px;
+    border: 1px solid var(--rule);
+    font-weight: 600;
+  }
+  .case-app {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 22px;
+    line-height: 1.55;
+  }
+  .case-metrics {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  .case-metric {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    padding: 9px 0;
+    border-bottom: 1px dotted var(--rule);
+  }
+  .case-metric:last-child { border-bottom: none; }
+  .case-metric-val {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 22px;
+    color: var(--topaz-dark);
+    letter-spacing: -0.022em;
+    min-width: 95px;
+    flex-shrink: 0;
+  }
+  .case-metric-desc {
+    font-size: 12.5px;
+    line-height: 1.5;
+    color: var(--onyx);
+  }
+  .case-caveat {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.06em;
+    color: var(--muted-2);
+    line-height: 1.6;
+    padding-top: 14px;
+    border-top: 1px solid var(--rule);
+  }
+
+  /* ===== RED LINES ===== */
+  .redlines {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    margin: 32px 0;
+  }
+  .redline {
+    background: var(--paper);
+    padding: 26px 22px;
+    min-height: 160px;
+    display: flex;
+    flex-direction: column;
+  }
+  .redline.prohibited { background: var(--onyx); color: var(--diamond); }
+  .redline.legal { background: var(--paper-3); }
+  .redline.enhanced { background: var(--paper-2); }
+
+  .redline-tier {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid currentColor;
+    opacity: 0.7;
+    font-weight: 600;
+  }
+  .redline.prohibited .redline-tier {
+    color: var(--aqua);
+    opacity: 1;
+    border-color: var(--topaz);
+  }
+  .redline-tier .tier-num {
+    color: var(--topaz-dark);
+    margin-right: 6px;
+    font-weight: 700;
+  }
+  .redline.prohibited .tier-num { color: var(--aqua); }
+
+  .redline h4 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 1.3;
+    margin-bottom: 12px;
+    color: var(--onyx);
+  }
+  .redline.prohibited h4 { color: var(--diamond); }
+
+  .redline ul {
+    list-style: none;
+    font-size: 12.5px;
+    line-height: 1.6;
+    color: var(--muted);
+    flex-grow: 1;
+  }
+  .redline.prohibited ul { color: #DDDDE0; }
+  .redline li {
+    padding: 3px 0;
+    padding-left: 14px;
+    position: relative;
+  }
+  .redline li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--topaz-dark);
+    font-weight: 600;
+  }
+  .redline.prohibited li::before { color: var(--aqua); }
+
+  /* ===== REG TIMELINE ===== */
+  .reg-timeline { margin: 32px 0; position: relative; }
+  .reg-item {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 40px;
+    padding: 22px 0;
+    position: relative;
+  }
+  .reg-date {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    text-align: right;
+    padding-top: 4px;
+    font-weight: 500;
+  }
+  .reg-date strong {
+    display: block;
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 18px;
+    color: var(--onyx);
+    letter-spacing: -0.01em;
+    margin-bottom: 4px;
+  }
+  .reg-content {
+    position: relative;
+    padding-left: 28px;
+    border-left: 1px solid var(--rule);
+  }
+  .reg-content::before {
+    content: '';
+    position: absolute;
+    left: -5px;
+    top: 6px;
+    width: 9px;
+    height: 9px;
+    background: var(--topaz-dark);
+    border-radius: 50%;
+    border: 2px solid var(--paper);
+  }
+  .reg-authority {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--topaz-darker);
+    margin-bottom: 8px;
+    font-weight: 700;
+  }
+  .reg-title {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 17px;
+    line-height: 1.3;
+    margin-bottom: 8px;
+    color: var(--onyx);
+  }
+  .reg-desc {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.55;
+  }
+
+  /* ===== ROADMAP ===== */
+  .roadmap { margin: 32px 0; }
+  .roadmap-phase {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 48px;
+    padding: 36px 0;
+    border-top: 1px solid var(--rule);
+    position: relative;
+  }
+  .roadmap-phase:last-child { border-bottom: 1px solid var(--rule); }
+  .roadmap-phase::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: 0;
+    width: 60px;
+    height: 2px;
+    background: var(--topaz-dark);
+  }
+  .roadmap-phase:nth-child(2)::before { background: var(--sapphire); }
+  .roadmap-phase:nth-child(3)::before { background: var(--peridot-dark); }
+  .roadmap-phase:nth-child(4)::before { background: var(--amethyst); }
+
+  .phase-meta { position: sticky; top: 24px; }
+  .phase-window {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    color: var(--topaz-dark);
+    margin-bottom: 8px;
+    font-weight: 700;
+  }
+  .phase-name {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-style: italic;
+    font-size: 28px;
+    line-height: 1.05;
+    letter-spacing: -0.018em;
+    color: var(--onyx);
+  }
+
+  .phase-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .action {
+    display: grid;
+    grid-template-columns: 36px 1fr;
+    gap: 16px;
+    align-items: start;
+  }
+  .action-num {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 18px;
+    color: var(--topaz-dark);
+    line-height: 1.3;
+    padding-top: 1px;
+    font-style: italic;
+  }
+  .action-text strong {
+    display: block;
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: 15.5px;
+    color: var(--onyx);
+    margin-bottom: 4px;
+    letter-spacing: -0.005em;
+  }
+  .action-text {
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: var(--muted);
+  }
+
+  /* ===== EXPANDABLE TABLE COMPONENT ===== */
+  .tables-master-section {
+    padding: 72px 0;
+    border-bottom: 1px solid var(--rule);
+    background: linear-gradient(180deg,
+      var(--paper) 0%,
+      rgba(97, 171, 191, 0.025) 100%);
+  }
+  .tables-master-header {
+    margin-bottom: 36px;
+    text-align: center;
+  }
+  .tables-master-eyebrow {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--topaz-dark);
+    margin-bottom: 16px;
+    font-weight: 600;
+  }
+  .tables-master-title {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 1.15;
+    letter-spacing: -0.022em;
+    color: var(--onyx);
+    margin-bottom: 14px;
+  }
+  .tables-master-title em {
+    font-style: italic;
+    color: var(--topaz-darker);
+    font-weight: 500;
+  }
+  .tables-master-lede {
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.55;
+    color: var(--muted);
+    max-width: 620px;
+    margin: 0 auto;
+  }
+
+  .tables-actions {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin: 28px 0 44px;
+    flex-wrap: wrap;
+  }
+  .tables-action-btn {
+    font-family: var(--sans);
+    font-size: 12.5px;
+    font-weight: 600;
+    padding: 9px 16px;
+    background: var(--onyx);
+    color: var(--diamond);
+    border: none;
+    cursor: pointer;
+    letter-spacing: 0.02em;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .tables-action-btn:hover {
+    background: var(--topaz-dark);
+    transform: translateY(-1px);
+  }
+  .tables-action-btn.secondary {
+    background: var(--paper);
+    color: var(--onyx);
+    border: 1px solid var(--rule);
+  }
+  .tables-action-btn.secondary:hover {
+    background: var(--aqua);
+    border-color: var(--topaz-dark);
+    color: var(--topaz-darker);
+  }
+  .tables-action-btn svg { width: 14px; height: 14px; }
+
+  .expandable {
+    margin-bottom: 12px;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    transition: border-color 0.2s, box-shadow 0.2s;
+    overflow: hidden;
+  }
+  .expandable:hover { border-color: var(--topaz-dark); }
+  .expandable.open {
+    border-color: var(--topaz-dark);
+    box-shadow: 0 4px 24px rgba(45, 45, 45, 0.08);
+  }
+  .expandable.featured {
+    border-color: var(--topaz-dark);
+    border-width: 2px;
+    background: linear-gradient(180deg, rgba(193, 231, 232, 0.12) 0%, var(--paper) 60%);
+  }
+
+  .exp-trigger {
+    width: 100%;
+    padding: 20px 24px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    text-align: left;
+    font-family: inherit;
+    transition: background 0.2s;
+    position: relative;
+  }
+  .exp-trigger::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: var(--topaz-dark);
+    transform: scaleY(0);
+    transform-origin: center;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .expandable.open .exp-trigger::before { transform: scaleY(1); }
+  .exp-trigger:hover {
+    background: rgba(97, 171, 191, 0.05);
+  }
+  .exp-left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex: 1;
+    min-width: 0;
+  }
+  .exp-num {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-style: italic;
+    font-size: 28px;
+    color: var(--topaz-dark);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    flex-shrink: 0;
+    width: 44px;
+  }
+  .exp-meta { flex: 1; min-width: 0; }
+  .exp-kicker {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted-2);
+    margin-bottom: 4px;
+    font-weight: 600;
+  }
+  .exp-title {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 1.3;
+    color: var(--onyx);
+    letter-spacing: -0.01em;
+    margin-bottom: 4px;
+  }
+  .exp-sub {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.04em;
+  }
+  .exp-right {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-shrink: 0;
+  }
+  .exp-pill {
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 4px 9px;
+    background: var(--paper-2);
+    color: var(--muted);
+    border: 1px solid var(--rule);
+    transition: all 0.2s;
+  }
+  .expandable.open .exp-pill {
+    background: var(--topaz-dark);
+    color: var(--diamond);
+    border-color: var(--topaz-dark);
+  }
+  .expandable.open .exp-pill::before { content: 'Open'; }
+  .expandable.open .exp-pill { font-size: 0; }
+  .expandable.open .exp-pill::before { font-size: 10px; }
+  .exp-chevron {
+    color: var(--muted);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s;
+  }
+  .expandable.open .exp-chevron {
+    transform: rotate(180deg);
+    color: var(--topaz-dark);
+  }
+
+  .exp-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .expandable.open .exp-body {
+    max-height: 4000px;
+  }
+  .exp-lede {
+    font-family: var(--sans);
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--muted);
+    padding: 0 24px 20px;
+    border-bottom: 1px solid var(--rule);
+    margin: 0;
+  }
+
+  .exp-table-wrap {
+    overflow-x: auto;
+    max-width: 100%;
+  }
+  .exp-table-wrap::-webkit-scrollbar { height: 8px; }
+  .exp-table-wrap::-webkit-scrollbar-track { background: var(--paper-2); }
+  .exp-table-wrap::-webkit-scrollbar-thumb { background: var(--rule-dim); }
+
+  .exp-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+  .exp-table thead {
+    background: var(--onyx);
+    color: var(--diamond);
+    position: sticky;
+    top: 0;
+  }
+  .exp-table th {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 14px 16px;
+    text-align: left;
+    border-right: 1px solid #404040;
+    white-space: nowrap;
+    vertical-align: bottom;
+  }
+  .exp-table th:last-child { border-right: none; }
+  .exp-table td {
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--rule);
+    border-right: 1px solid var(--rule);
+    vertical-align: top;
+    line-height: 1.5;
+    color: var(--onyx);
+    min-width: 140px;
+  }
+  .exp-table td:last-child { border-right: none; }
+  .exp-table td:first-child {
+    font-weight: 600;
+    color: var(--onyx);
+    background: rgba(193, 231, 232, 0.15);
+    min-width: 160px;
+  }
+  .exp-table tbody tr:hover td {
+    background: rgba(97, 171, 191, 0.05);
+  }
+  .exp-table tbody tr:hover td:first-child {
+    background: rgba(193, 231, 232, 0.3);
+  }
+
+  /* ===== FINAL ===== */
+  .final {
+    padding: 88px 0 96px;
+    background: var(--onyx);
+    color: var(--diamond);
+    margin: 0 -56px;
+    padding-left: 56px;
+    padding-right: 56px;
+    position: relative;
+    overflow: hidden;
+  }
+  .final::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(circle at 75% 30%, rgba(97, 171, 191, 0.18) 0%, transparent 50%),
+      radial-gradient(circle at 20% 70%, rgba(168, 208, 170, 0.10) 0%, transparent 50%);
+    pointer-events: none;
+  }
+  .final-gem {
+    position: absolute;
+    top: 80px;
+    right: -60px;
+    width: 280px;
+    height: 280px;
+    opacity: 0.10;
+    pointer-events: none;
+  }
+  .final-gem svg { width: 100%; height: 100%; }
+  .final-inner {
+    max-width: 820px;
+    margin: 0 auto;
+    position: relative;
+  }
+  .final-eyebrow {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--aqua);
+    margin-bottom: 28px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid rgba(245, 245, 247, 0.15);
+    font-weight: 600;
+  }
+  .final-title {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 42px;
+    line-height: 1.12;
+    letter-spacing: -0.022em;
+    margin-bottom: 36px;
+    color: var(--diamond);
+  }
+  .final-title em {
+    font-style: italic;
+    color: var(--aqua);
+    font-weight: 500;
+  }
+  .final p {
+    font-family: var(--sans);
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.65;
+    color: #DDDDE0;
+    margin-bottom: 22px;
+  }
+  .final p strong {
+    color: var(--diamond);
+    font-weight: 700;
+  }
+  .final-sig {
+    margin-top: 52px;
+    padding-top: 28px;
+    border-top: 1px solid rgba(245, 245, 247, 0.15);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  .final-sig-left {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #999;
+    opacity: 0.7;
+    font-weight: 500;
+  }
+  .final-sig-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .final-sig-brand .brand-mark span { background: rgba(193, 231, 232, 0.8); }
+  .final-sig-brand .brand-mark span:nth-child(2) { background: var(--peridot); }
+  .final-sig-brand .brand-mark span:nth-child(3) { background: var(--amethyst); }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 1100px) {
+    .layout { grid-template-columns: 1fr; }
+    .sidebar { position: relative; height: auto; padding: 28px 32px; }
+    .container { padding: 0 36px; }
+    .takeaways, .cases, .redlines, .maturity-grid { grid-template-columns: 1fr 1fr; }
+    .hero-stats { grid-template-columns: 1fr 1fr; }
+    .hero-stat { border-right: none; border-bottom: 1px solid var(--rule); padding: 24px 0; }
+    .hero-stat:nth-child(odd) { padding-right: 20px; border-right: 1px solid var(--rule); padding-left: 0; }
+    .hero-stat:nth-child(odd)::before { left: 0 !important; }
+    .hero-stat:nth-child(even) { padding-left: 20px; }
+    .hero-stat:nth-child(even)::before { left: 20px !important; }
+    .roadmap-phase { grid-template-columns: 1fr; gap: 16px; }
+    .phase-meta { position: relative; }
+    .final { margin: 0 -36px; padding-left: 36px; padding-right: 36px; }
+    .hero-watermark { display: none; }
+    .exp-num { font-size: 22px; width: 36px; }
+    .exp-title { font-size: 16px; }
+  }
+  @media (max-width: 680px) {
+    .container { padding: 0 20px; }
+    .takeaways, .cases, .redlines, .maturity-grid { grid-template-columns: 1fr; }
+    .hero-stats { grid-template-columns: 1fr; }
+    .hero-stat { border-right: none !important; padding: 20px 0 !important; }
+    .hero-stat::before { left: 0 !important; }
+    .hero-stat-num, .hero-stat-label { margin-left: 14px; }
+    .funnel-row { grid-template-columns: 1fr; gap: 8px; }
+    .funnel-value { text-align: left; }
+    .section-title { font-size: 28px; }
+    .final-title { font-size: 28px; }
+    .final { margin: 0 -20px; padding-left: 20px; padding-right: 20px; }
+    .split-num { padding: 36px 24px; }
+    .split-num-value { font-size: 60px; }
+    .exp-trigger { padding: 16px; }
+    .exp-left { gap: 14px; }
+    .exp-right { gap: 8px; }
+    .exp-pill { display: none; }
+    .tables-master-title { font-size: 28px; }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+
+<!-- decorative geometric mark -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="bars-big" viewBox="0 0 320 320">
+      <g>
+        <rect x="30" y="160" width="40" height="100" fill="#61ABBF"/>
+        <rect x="80" y="110" width="40" height="150" fill="#A8D0AA"/>
+        <rect x="130" y="60" width="40" height="200" fill="#5C5C87"/>
+        <rect x="180" y="100" width="40" height="160" fill="#5F8189"/>
+        <rect x="230" y="140" width="40" height="120" fill="#485961"/>
+      </g>
+    </symbol>
+    <symbol id="cube" viewBox="0 0 64 64">
+      <!-- isometric cube outline + filled facet -->
+      <g stroke="#C1E7E8" stroke-width="1.5" fill="none">
+        <polygon points="32,8 56,22 56,46 32,60 8,46 8,22" />
+        <polyline points="32,8 32,34 56,46 " />
+        <polyline points="32,34 8,46" />
+      </g>
+      <polygon points="32,8 56,22 32,34 8,22" fill="#61ABBF" opacity="0.4"/>
+    </symbol>
+  </defs>
+</svg>
+
+<div class="layout">
+
+  <!-- ============ SIDEBAR ============ -->
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-mark">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="brand-text">
+        <div class="brand-name">Insights</div>
+        <div class="brand-tag">Vol. I · 2026</div>
+      </div>
+    </div>
+
+    <div class="briefing-meta">
+      <div class="briefing-title-label">Executive Briefing</div>
+      <div class="briefing-title">The CIO's <em>AI Decision</em></div>
+    </div>
+
+    <div class="nav-label">The Argument</div>
+    <ul class="nav-list">
+      <li><a href="#thesis"><span class="nav-num">01</span><span>The thesis</span></a></li>
+      <li><a href="#paradox"><span class="nav-num">02</span><span>Adoption vs. value</span></a></li>
+      <li><a href="#workflow"><span class="nav-num">03</span><span>Workflow redesign</span></a></li>
+    </ul>
+
+    <div class="nav-label">The Evidence</div>
+    <ul class="nav-list">
+      <li><a href="#cases"><span class="nav-num">04</span><span>Enterprise cases</span></a></li>
+      <li><a href="#maturity"><span class="nav-num">05</span><span>Maturity model</span></a></li>
+    </ul>
+
+    <div class="nav-label">The Risks</div>
+    <ul class="nav-list">
+      <li><a href="#redlines"><span class="nav-num">06</span><span>AI red lines</span></a></li>
+      <li><a href="#regulatory"><span class="nav-num">07</span><span>Regulatory floor</span></a></li>
+    </ul>
+
+    <div class="nav-label">The Decision</div>
+    <ul class="nav-list">
+      <li><a href="#roadmap"><span class="nav-num">08</span><span>12–24 month plan</span></a></li>
+      <li><a href="#sowhat"><span class="nav-num">09</span><span>So what</span></a></li>
+    </ul>
+
+    <div class="nav-label tables-label">Reference Tables</div>
+    <ul class="nav-list tables-nav">
+      <li><a href="#tbl-usecases"><span class="nav-num">01</span><span>Value Chain</span></a></li>
+<li><a href="#tbl-workflow"><span class="nav-num">02</span><span>Research Workflow</span></a></li>
+<li><a href="#tbl-portfolio"><span class="nav-num">03</span><span>Portfolio &amp; Trading</span></a></li>
+<li><a href="#tbl-operating"><span class="nav-num">04</span><span>Operating Model</span></a></li>
+<li><a href="#tbl-roles"><span class="nav-num">05</span><span>Roles</span></a></li>
+<li><a href="#tbl-bias"><span class="nav-num">06</span><span>Model Risk &amp; Bias</span></a></li>
+<li><a href="#tbl-legal"><span class="nav-num">07</span><span>Legal</span></a></li>
+<li><a href="#tbl-redlines"><span class="nav-num">08</span><span>Red Lines</span></a></li>
+<li><a href="#tbl-cases"><span class="nav-num">09</span><span>Cases</span></a></li>
+<li><a href="#tbl-governance"><span class="nav-num">10</span><span>Governance</span></a></li>
+
+    </ul>
+
+    <div class="sidebar-footer">
+      Your future is our focus.™<br>
+      Research report · v1<br>
+      For CIO / IC / CEO / CCO / CRO
+    </div>
+  </aside>
+
+  <!-- ============ MAIN ============ -->
+  <main class="main">
+
+    <!-- HERO -->
+    <div class="container">
+      <section class="hero">
+        <div class="hero-watermark"><svg><use href="#bars-big"/></svg></div>
+
+        <div class="hero-meta">
+          <span class="pill accent">2026 Outlook</span>
+          <span>Enterprise Investment Management AI Transformation</span>
+        </div>
+
+        <h1 class="hero-title">From productivity pilots<br>to <em>fiduciary-grade</em><br>transformation.</h1>
+
+        <p class="hero-deck">
+          Three years after ChatGPT, investment management has reached AI ubiquity in pilots but not AI value in decisions. The differentiator between adopters and winners is <em>workflow and governance redesign</em> — not tool count, and not headcount cuts. Most firms have scaled productivity tools while leaving investment governance untouched.
+        </p>
+
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <div class="hero-stat-num">$147<span class="unit">T</span></div>
+            <div class="hero-stat-label">global AUM at mid-2025<br>(McKinsey, 2025)</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num">47<span class="unit">%</span></div>
+            <div class="hero-stat-label">of top-500 managers report active AI investment<br>(WTW Thinking Ahead Inst., 2025)</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num">78<span class="unit">%</span></div>
+            <div class="hero-stat-label">allocate &lt;10% of tech budget to AI<br>(WTW Thinking Ahead Inst., 2025)</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num">11<span class="unit">%</span></div>
+            <div class="hero-stat-label">of agentic AI workloads in production<br>(Deloitte, 2026 IM Outlook)</div>
+          </div>
+        </div>
+
+        <!-- TABLE CALLOUT -->
+        <div class="table-callout">
+          <div class="table-callout-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="1"/>
+              <line x1="3" y1="9" x2="21" y2="9"/>
+              <line x1="3" y1="15" x2="21" y2="15"/>
+              <line x1="9" y1="3" x2="9" y2="21"/>
+              <line x1="15" y1="3" x2="15" y2="21"/>
+            </svg>
+          </div>
+          <div class="table-callout-text">
+            <div class="table-callout-title">10 reference tables · expandable below</div>
+            <div class="table-callout-desc">
+              Every analytical table from the underlying research report — value chain, research workflow, portfolio &amp; trading, operating model, roles, model risk, legal, red lines, cases, governance — is available below as a <strong>click-to-expand</strong> data view. Closed by default to keep the briefing scannable.
+            </div>
+          </div>
+        </div>
+
+        <div class="pill-nav">
+          <a href="#tbl-usecases" class="pill-nav-item"><span class="pill-num">01</span><span class="pill-text">Value Chain</span></a>
+<a href="#tbl-workflow" class="pill-nav-item"><span class="pill-num">02</span><span class="pill-text">Research Workflow</span></a>
+<a href="#tbl-portfolio" class="pill-nav-item"><span class="pill-num">03</span><span class="pill-text">Portfolio &amp; Trading</span></a>
+<a href="#tbl-operating" class="pill-nav-item"><span class="pill-num">04</span><span class="pill-text">Operating Model</span></a>
+<a href="#tbl-roles" class="pill-nav-item"><span class="pill-num">05</span><span class="pill-text">Roles</span></a>
+<a href="#tbl-bias" class="pill-nav-item"><span class="pill-num">06</span><span class="pill-text">Model Risk &amp; Bias</span></a>
+<a href="#tbl-legal" class="pill-nav-item"><span class="pill-num">07</span><span class="pill-text">Legal</span></a>
+<a href="#tbl-redlines" class="pill-nav-item"><span class="pill-num">08</span><span class="pill-text">Red Lines</span></a>
+<a href="#tbl-cases" class="pill-nav-item"><span class="pill-num">09</span><span class="pill-text">Cases</span></a>
+<a href="#tbl-governance" class="pill-nav-item"><span class="pill-num">10</span><span class="pill-text">Governance</span></a>
+
+        </div>
+      </section>
+
+      <!-- 01 THESIS -->
+      <section class="section" id="thesis">
+        <div class="section-eyebrow">
+          <span class="section-num">01</span>
+          <span class="section-divider"></span>
+          <span class="section-kicker">The Thesis</span>
+        </div>
+        <h2 class="section-title">Three positions this report defends.</h2>
+        <p class="section-lede">
+          Investment firms treating AI as a productivity overlay capture some cost benefit but no durable advantage. The firms pulling ahead are redesigning the investment workflow and embedding fiduciary-grade governance — and the regulatory floor is rising faster than most compliance teams have provisioned for.
+        </p>
+
+        <div class="takeaways reveal">
+          <div class="takeaway">
+            <div class="takeaway-num">i.</div>
+            <h3>Productivity ROI is real but commoditizing.</h3>
+            <p>Morgan Stanley's reported 98% advisor adoption and JPMorgan's cited AI value (roughly $1.5–2.0B annually in its investor-day materials) are credible directionally — but within 24 months these become table stakes on the same vendor stacks. The lasting advantage is what firms <em>build</em> into the investment process, not the cost they remove. Treat all such figures as company commentary, not audited fact.</p>
+          </div>
+          <div class="takeaway">
+            <div class="takeaway-num">ii.</div>
+            <h3>The value pool is in decision-quality, not speed.</h3>
+            <p>Reaching Level 4–5 maturity requires the CIO to spend capital on research-workflow redesign, IC evidence packs, and fiduciary-grade model governance — not on tool selection. Almost every published AI metric is firm-side productivity; client-outcome evidence is nearly absent.</p>
+          </div>
+          <div class="takeaway">
+            <div class="takeaway-num">iii.</div>
+            <h3>AI policies built in 2023 are already out of date.</h3>
+            <p>SEC AI-washing enforcement (Delphia / Global Predictions), FINRA RN 24-09, ESMA's MiFID II statement, and the EU AI Act have redrawn the red lines. The SEC's withdrawal of the predictive-data-analytics proposal is not deregulation — existing fiduciary, conduct, and Marketing-Rule obligations still apply.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 02 PARADOX -->
+      <section class="section" id="paradox">
+        <div class="section-eyebrow">
+          <span class="section-num">02</span>
+          <span class="section-divider"></span>
+          <span class="section-kicker">Adoption vs. Value</span>
+        </div>
+        <h2 class="section-title">Nearly half are <em>investing</em> in AI. Few are <em>winning</em> with it.</h2>
+        <p class="section-lede">
+          The instructive gap is between adoption and value capture. Most firms surveyed sit at functional pilots; very few have redesigned the investment workflow or made any change to investment governance. Workflow and governance redesign is the variable that separates the cohorts.
+        </p>
+
+        <div class="chart-block reveal">
+          <div class="chart-header">
+            <div class="chart-title">The AI adoption gap in investment management</div>
+            <div class="chart-source">McKinsey · Deloitte · WTW Thinking Ahead Inst.</div>
+          </div>
+
+          <div class="funnel">
+            <div class="funnel-row">
+              <div class="funnel-label">Top-500 managers reporting active AI investment<small>WTW Thinking Ahead Institute, 2025</small></div>
+              <div class="funnel-bar-wrap"><div class="funnel-bar dim" style="width:47%"></div></div>
+              <div class="funnel-value">47<span class="pct">%</span></div>
+            </div>
+            <div class="funnel-row">
+              <div class="funnel-label">Firms expecting GenAI ROI within one year<small>Deloitte enterprise AI survey</small></div>
+              <div class="funnel-bar-wrap"><div class="funnel-bar dim" style="width:38%"></div></div>
+              <div class="funnel-value">38<span class="pct">%</span></div>
+            </div>
+            <div class="funnel-row">
+              <div class="funnel-label">Firms seeing significant GenAI ROI today<small>Deloitte, 2025</small></div>
+              <div class="funnel-bar-wrap"><div class="funnel-bar" style="width:15%"></div></div>
+              <div class="funnel-value">15<span class="pct">%</span></div>
+            </div>
+            <div class="funnel-row">
+              <div class="funnel-label">Agentic AI workloads in production<small>Deloitte, 2026 IM Outlook</small></div>
+              <div class="funnel-bar-wrap"><div class="funnel-bar accent" style="width:11%"></div></div>
+              <div class="funnel-value">11<span class="pct">%</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="split-numbers reveal">
+          <div class="split-num">
+            <div class="split-num-label">Tech budget allocated to AI — most managers</div>
+            <div class="split-num-value">&lt;10<span class="pct">%</span></div>
+            <div class="split-num-desc">
+              78% of the top-500 asset managers allocate less than 10% of their technology budget to AI, even as 47% report active AI investment. Adoption intent runs well ahead of committed spend.
+            </div>
+          </div>
+          <div class="split-num">
+            <div class="split-num-label">Productivity lift on high-impact AI use cases</div>
+            <div class="split-num-value">25–40<span class="pct">%</span></div>
+            <div class="split-num-desc">
+              McKinsey's primary 2025 report puts productivity lifts at roughly 25–40% on high-impact use cases (e.g., PM copilots, code copilots), with mid-single-digit gains in investment research specifically. A widely repeated "~8% across the value chain" figure traces to secondary commentary, not McKinsey's report.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 03 WORKFLOW -->
+      <section class="section" id="workflow">
+        <div class="section-eyebrow">
+          <span class="section-num">03</span>
+          <span class="section-divider"></span>
+          <span class="section-kicker">Workflow Redesign</span>
+        </div>
+        <h2 class="section-title">Four levels of AI in investment work.</h2>
+        <p class="section-lede">
+          The four are not interchangeable. Most firms stall at level two — adding AI to existing workflows — and never restructure the investment process itself, the investment committee, or the organization around it.
+        </p>
+
+        <div class="takeaways reveal" style="grid-template-columns: repeat(4, 1fr);">
+          <div class="takeaway">
+            <div class="takeaway-num">I</div>
+            <h3>Task automation</h3>
+            <p>Faster, cheaper, same workflow. AI summarizes earnings calls and filings; analyst still reviews.</p>
+          </div>
+          <div class="takeaway">
+            <div class="takeaway-num">II</div>
+            <h3>Workflow augmentation</h3>
+            <p>Human + AI in the same workflow. Advisor copilot drafts; advisor approves. Morgan Stanley AI@MS Assistant.</p>
+          </div>
+          <div class="takeaway">
+            <div class="takeaway-num">III</div>
+            <h3>Workflow reinvention</h3>
+            <p>The investment process itself changes. AI-assisted thesis generation with a structured devil's-advocate challenge step before the IC.</p>
+          </div>
+          <div class="takeaway">
+            <div class="takeaway-num">IV</div>
+            <h3>Operating-model transformation</h3>
+            <p>The organization changes around the new workflow — new roles (investment AI product owner, knowledge-graph manager, AI model-risk partner), IC evidence packs, and fiduciary-grade governance. Schroders Capital's GAiiA and IC challenger agent are an explicit example in private markets.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 04 CASES -->
+      <section class="section" id="cases">
+        <div class="section-eyebrow">
+          <span class="section-num">04</span>
+          <span class="section-divider"></span>
+          <span class="section-kicker">Enterprise Cases</span>
+        </div>
+        <h2 class="section-title">What leaders have actually <em>deployed</em>.</h2>
+        <p class="section-lede">
+          A balanced read pairs success cases with cautionary ones. Figures below are company- or vendor-reported and are not independently audited. The full 12-case comparison is in reference table 09.
+        </p>
+
+        <div class="cases reveal">
+          <div class="case">
+            <div class="case-header">
+              <div class="case-name">Morgan Stanley</div>
+              <div class="case-industry">Wealth</div>
+            </div>
+            <div class="case-app">AI @ Morgan Stanley Assistant and Debrief, built on OpenAI, giving advisors retrieval over a large internal research corpus.</div>
+            <div class="case-metrics">
+              <div class="case-metric"><div class="case-metric-val">~98%</div><div class="case-metric-desc">reported advisor adoption of the Assistant</div></div>
+              <div class="case-metric"><div class="case-metric-val">20–80%</div><div class="case-metric-desc">reported shift in advisor document access</div></div>
+            </div>
+            <div class="case-caveat">Company-reported; not independently audited. A Level-3 productivity deployment, not a change to investment governance.</div>
+          </div>
+          <div class="case">
+            <div class="case-header">
+              <div class="case-name">JPMorgan</div>
+              <div class="case-industry">Bank / AM</div>
+            </div>
+            <div class="case-app">LLM Suite rolled out enterprise-wide as a general-purpose assistant across research, operations, and support functions.</div>
+            <div class="case-metrics">
+              <div class="case-metric"><div class="case-metric-val">~200K</div><div class="case-metric-desc">LLM Suite users (JPMorgan investor-day materials)</div></div>
+              <div class="case-metric"><div class="case-metric-val">$1.5–2.0B</div><div class="case-metric-desc">annual AI value, per investor-day presentation</div></div>
+            </div>
+            <div class="case-caveat">200K-user figure is well-supported by JPMorgan itself; the value range is company commentary (the narrower "$1.5B" and "30–40% efficiency" figures appear mostly in secondary coverage) and is not independently audited.</div>
+          </div>
+          <div class="case">
+            <div class="case-header">
+              <div class="case-name">Schroders Capital</div>
+              <div class="case-industry">Private markets</div>
+            </div>
+            <div class="case-app">GAiiA GenAI investment advisor plus an explicit IC challenger agent used across 40+ deal evaluations.</div>
+            <div class="case-metrics">
+              <div class="case-metric"><div class="case-metric-val">40+</div><div class="case-metric-desc">deal evaluations supported</div></div>
+              <div class="case-metric"><div class="case-metric-val">L4</div><div class="case-metric-desc">workflow-redesign maturity in private markets</div></div>
+            </div>
+            <div class="case-caveat">CIO Nils Rode on record: every investment decision is still made solely by investment professionals.</div>
+          </div>
+          <div class="case">
+            <div class="case-header">
+              <div class="case-name">Arup (cautionary)</div>
+              <div class="case-industry">Deepfake fraud</div>
+            </div>
+            <div class="case-app">A finance employee was deceived by a real-time AI-impersonated video conference of the CFO and colleagues, authorizing a series of transfers.</div>
+            <div class="case-metrics">
+              <div class="case-metric"><div class="case-metric-val">~$25.6M</div><div class="case-metric-desc">lost (≈HK$200M), January 2024</div></div>
+              <div class="case-metric"><div class="case-metric-val">Live</div><div class="case-metric-desc">real-time deepfake of multiple known colleagues</div></div>
+            </div>
+            <div class="case-caveat">FT / CNN / Fortune reporting; Arup CIO Rob Greig publicly confirmed. Illustrates deepfake risk to executive approval workflows.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 05 MATURITY -->
+      <section class="section" id="maturity">
+        <div class="section-eyebrow">
+          <span class="section-num">05</span>
+          <span class="section-divider"></span>
+          <span class="section-kicker">Maturity Model</span>
+        </div>
+        <h2 class="section-title">Five levels — and where firms actually <em>sit</em>.</h2>
+        <p class="section-lede">
+          Progression is not linear and is not guaranteed by spending. Many firms have moved to Level 3 in productivity tools while leaving investment governance at Level 1–2. Genuine transformation requires advancement on capability, governance, data, and accountability together.
+        </p>
+
+        <div class="maturity reveal">
+          <div class="maturity-grid">
+            <div class="maturity-step">
+              <div class="level">Level 01</div>
+              <div class="level-num">i</div>
+              <div class="level-title">Ad hoc experimentation</div>
+              <div class="level-desc">Individuals use public or sanctioned tools opportunistically. No inventory, no approval workflow, no measurement. Risk from MNPI in prompts, hallucination, and shadow IT.</div>
+            </div>
+            <div class="maturity-step">
+              <div class="level">Level 02</div>
+              <div class="level-num">ii</div>
+              <div class="level-title">Functional pilots</div>
+              <div class="level-desc">Named pilots with sponsors and metrics in research, reporting, or surveillance. Siloed; productivity claims anecdotal. Most surveyed firms sit here in 2025–26.</div>
+            </div>
+            <div class="maturity-step current">
+              <div class="level">Level 03</div>
+              <div class="level-num">iii</div>
+              <div class="level-title">Scaled use cases</div>
+              <div class="level-desc">Selected use cases deployed at scale with approved tools, citation requirements, and supervisory review. ROI reported as productivity, not decision quality. Morgan Stanley, JPMorgan.</div>
+            </div>
+            <div class="maturity-step">
+              <div class="level">Level 04</div>
+              <div class="level-num">iv</div>
+              <div class="level-title">Workflow redesign</div>
+              <div class="level-desc">AI embedded in the investment workflow. Research redesigned around AI-assisted theses with a challenge step; IC evidence packs; manager-DD knowledge graph. Schroders Capital.</div>
+            </div>
+            <div class="maturity-step">
+              <div class="level">Level 05</div>
+              <div class="level-num">v</div>
+              <div class="level-title">Decision-intelligent platform</div>
+              <div class="level-desc">Every material recommendation has a traceable evidence pack, documented challenge, recorded decision, and feedback loop. Fiduciary review is auditable. No firm publicly demonstrates this end-to-end.</div>
+            </div>
+          </div>
+          <div class="maturity-caption">
+            <strong>Where most firms sit:</strong> Level 3 on productivity, Level 1–2 on investment governance. The hard, valuable work — Levels 4 and 5 — requires redesigning the research process, the investment committee, the data layer, and accountability at once. Spending alone does not move a firm up the model.
+          </div>
+        </div>
+      </section>
+
+      <!-- 06 RED LINES -->
+      <section class="section" id="redlines">
+        <div class="section-eyebrow">
+          <span class="section-num">06</span>
+          <span class="section-divider"></span>
+          <span class="section-kicker">AI Red Lines</span>
+        </div>
+        <h2 class="section-title">Where AI should be <em>prohibited</em> or tightly restricted.</h2>
+        <p class="section-lede">
+          Four tiers, from outright prohibition to enhanced-control. These are the workflows where regulators have penalized firms and where reputational and fiduciary damage concentrates. The full 21-item table is reference table 08.
+        </p>
+
+        <div class="redlines reveal">
+          <div class="redline prohibited">
+            <div class="redline-tier"><span class="tier-num">01</span>Prohibited</div>
+            <h4>Autonomous decisions</h4>
+            <ul>
+              <li>Autonomous portfolio recommendation engines with no human sign-off</li>
+              <li>Autonomous trading agents acting without an algorithm inventory and kill-switch</li>
+              <li>MNPI or client PII pasted into unmanaged public LLMs</li>
+            </ul>
+          </div>
+          <div class="redline legal">
+            <div class="redline-tier"><span class="tier-num">02</span>High restriction</div>
+            <h4>Client-facing AI</h4>
+            <ul>
+              <li>AI-generated client communications bypassing Marketing-Rule review</li>
+              <li>AI risk-profile classification without explicit client input</li>
+              <li>Fabricated/synthetic testimonials or hypothetical performance (genuine testimonials allowed only under the Marketing Rule's disclosure &amp; oversight conditions)</li>
+            </ul>
+          </div>
+          <div class="redline enhanced">
+            <div class="redline-tier"><span class="tier-num">03</span>Enhanced control</div>
+            <h4>Research &amp; advice</h4>
+            <ul>
+              <li>Publishing AI-generated research without analyst certification</li>
+              <li>Next-best-action engines optimizing for firm over client</li>
+              <li>AI-drafted RFP/DDQ responses without substantiation</li>
+            </ul>
+          </div>
+          <div class="redline">
+            <div class="redline-tier"><span class="tier-num">04</span>Monitor</div>
+            <h4>Operational</h4>
+            <ul>
+              <li>AI exception triage that auto-corrects client-impacting items</li>
+              <li>Vendor/model concentration without contingency</li>
+              <li>Unlogged AI use in supervised communications</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- 07 REGULATORY -->
+      <section class="section" id="regulatory">
+        <div class="section-eyebrow">
+          <span class="section-num">07</span>
+          <span class="section-divider"></span>
+          <span class="section-kicker">Regulatory Floor</span>
+        </div>
+        <h2 class="section-title">The regulatory floor is <em>rising</em>.</h2>
+        <p class="section-lede">
+          The posture across jurisdictions is technology-neutral: existing fiduciary, conduct, and marketing rules already apply to AI. The full legal matrix is reference table 07.
+        </p>
+
+        <div class="reg-timeline reveal">
+          <div class="reg-item">
+            <div class="reg-date"><strong>2023</strong>Jul</div>
+            <div class="reg-content">
+              <div class="reg-authority">SEC</div>
+              <div class="reg-title">Predictive Data Analytics proposal</div>
+              <div class="reg-desc">Proposed eliminating or neutralizing conflicts in investor-interaction technology — next-best-action, gamification, behavioral nudges. (Rel. 34-97990.)</div>
+            </div>
+          </div>
+          <div class="reg-item">
+            <div class="reg-date"><strong>2024</strong>Mar</div>
+            <div class="reg-content">
+              <div class="reg-authority">SEC Enforcement</div>
+              <div class="reg-title">Delphia &amp; Global Predictions — AI-washing</div>
+              <div class="reg-desc">$225K and $175K penalties for false/misleading AI claims, under Advisers Act §206, Marketing Rule 206(4)-1, and Compliance Rule 206(4)-7. (Press release 2024-36.)</div>
+            </div>
+          </div>
+          <div class="reg-item">
+            <div class="reg-date"><strong>2024</strong>May</div>
+            <div class="reg-content">
+              <div class="reg-authority">ESMA</div>
+              <div class="reg-title">Statement on AI in retail investment services</div>
+              <div class="reg-desc">MiFID II conduct, suitability, organisational, and best-interest obligations apply to AI use with retail clients.</div>
+            </div>
+          </div>
+          <div class="reg-item">
+            <div class="reg-date"><strong>2024</strong>Jun</div>
+            <div class="reg-content">
+              <div class="reg-authority">FINRA</div>
+              <div class="reg-title">Regulatory Notice 24-09</div>
+              <div class="reg-desc">Technology-neutral: all FINRA rules — supervision, communications, books and records, cyber — apply to AI and GenAI/LLMs.</div>
+            </div>
+          </div>
+          <div class="reg-item">
+            <div class="reg-date"><strong>2024</strong>Nov</div>
+            <div class="reg-content">
+              <div class="reg-authority">FSB</div>
+              <div class="reg-title">Financial Stability Implications of AI</div>
+              <div class="reg-desc">Four vulnerabilities: third-party concentration, market correlation, cyber, and model/data risk.</div>
+            </div>
+          </div>
+          <div class="reg-item">
+            <div class="reg-date"><strong>2025</strong>Jun</div>
+            <div class="reg-content">
+              <div class="reg-authority">SEC</div>
+              <div class="reg-title">PDA proposal withdrawn (33-11377)</div>
+              <div class="reg-desc">Not deregulation. Underlying concerns endure under existing fiduciary, conduct, and Marketing-Rule obligations.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 08 ROADMAP -->
+      <section class="section" id="roadmap">
+        <div class="section-eyebrow">
+          <span class="section-num">08</span>
+          <span class="section-divider"></span>
+          <span class="section-kicker">12–24 Month Plan</span>
+        </div>
+        <h2 class="section-title">A sequenced CIO action agenda.</h2>
+        <p class="section-lede">
+          Controls before scaling; investment-decision use cases after productivity use cases. Smaller firms can compress the phases but should not invert them.
+        </p>
+
+        <div class="roadmap reveal">
+          <div class="roadmap-phase">
+            <div class="phase-meta">
+              <div class="phase-window">Months 0–3</div>
+              <div class="phase-name">Foundations</div>
+            </div>
+            <div class="phase-actions">
+              <div class="action"><div class="action-num">1</div><div class="action-text"><strong>Investment-specific AUP</strong>Publish an AI acceptable-use policy distinct from enterprise IT, covering MNPI, holdings, client data, and models.</div></div>
+              <div class="action"><div class="action-num">2</div><div class="action-text"><strong>Governance committee + inventory</strong>Stand up a CIO-chaired AI governance committee; inventory and risk-tier every use case.</div></div>
+              <div class="action"><div class="action-num">3</div><div class="action-text"><strong>Approved tools + baseline</strong>Define an approved-tools list, block unmanaged LLMs, and measure a productivity baseline so ROI is falsifiable.</div></div>
+            </div>
+          </div>
+          <div class="roadmap-phase">
+            <div class="phase-meta">
+              <div class="phase-window">Months 3–9</div>
+              <div class="phase-name">Scaled productivity</div>
+            </div>
+            <div class="phase-actions">
+              <div class="action"><div class="action-num">4</div><div class="action-text"><strong>Copilot with controls</strong>Deploy an advisor/PM copilot on a vetted RAG corpus with citation requirements, a compliance queue, and supervision logging.</div></div>
+              <div class="action"><div class="action-num">5</div><div class="action-text"><strong>Summarization + RFP/DDQ</strong>Roll out earnings-call and filing summarization with mandatory analyst review; an RFP/DDQ assistant with Marketing-Rule pre-clearance.</div></div>
+              <div class="action"><div class="action-num">6</div><div class="action-text"><strong>Model inventory + testing</strong>Build a model inventory; run hallucination, bias, and drift testing with thresholds and remediation triggers.</div></div>
+            </div>
+          </div>
+          <div class="roadmap-phase">
+            <div class="phase-meta">
+              <div class="phase-window">Months 9–18</div>
+              <div class="phase-name">Workflow redesign</div>
+            </div>
+            <div class="phase-actions">
+              <div class="action"><div class="action-num">7</div><div class="action-text"><strong>Research + IC redesign</strong>AI handles sourcing and synthesis; analysts handle judgment. Require a structured devil's-advocate challenge on every thesis; redesign the IC evidence pack.</div></div>
+              <div class="action"><div class="action-num">8</div><div class="action-text"><strong>Manager-DD knowledge graph</strong>Link funds, sponsors, deals, and flags; AI retrieves and synthesizes, humans conclude.</div></div>
+              <div class="action"><div class="action-num">9</div><div class="action-text"><strong>Reskill, don't just enable</strong>Train analysts and PMs on prompting, source verification, and structured challenge.</div></div>
+            </div>
+          </div>
+          <div class="roadmap-phase">
+            <div class="phase-meta">
+              <div class="phase-window">Months 18–24</div>
+              <div class="phase-name">Operating model</div>
+            </div>
+            <div class="phase-actions">
+              <div class="action"><div class="action-num">10</div><div class="action-text"><strong>Reshape roles</strong>Fewer junior task workers; new roles — investment AI product owner, data product manager, knowledge-graph manager, AI model-risk partner.</div></div>
+              <div class="action"><div class="action-num">11</div><div class="action-text"><strong>Decision-intelligence layer</strong>Record thesis, evidence, challenge, decision, decider, and outcome for every material decision; build the feedback loop.</div></div>
+              <div class="action"><div class="action-num">12</div><div class="action-text"><strong>Recertify + board review</strong>Recertify production use cases annually; brief the board on maturity, controls, disclosures, and vendor concentration.</div></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ REFERENCE TABLES ============ -->
+      <section class="tables-master-section" id="reference-tables">
+        <div class="tables-master-header">
+          <div class="tables-master-eyebrow">10 Reference Tables &middot; Expandable</div>
+          <h2 class="tables-master-title">The <em>full evidence</em>, on demand.</h2>
+          <p class="tables-master-lede">
+            Every analytical table from the underlying research is below as a click-to-expand data view. The <strong>Roles &amp; skills</strong> table is open by default &mdash; it&apos;s the most relevant evidence for individual contributors on how AI augments specific investment roles. The other nine are closed to keep the briefing scannable; open one, several, or all at once.
+          </p>
+        </div>
+
+        <div class="tables-actions">
+          <button class="tables-action-btn" id="expand-all">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+            Expand all tables
+          </button>
+          <button class="tables-action-btn secondary" id="collapse-all">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="18 15 12 9 6 15"/>
+            </svg>
+            Collapse all
+          </button>
+        </div>
+
+        <!-- TABLE 01 — VALUE CHAIN -->
+<div class="expandable" id="tbl-usecases">
+  <button class="exp-trigger" aria-expanded="false" aria-controls="tbl-usecases-body" data-target="tbl-usecases-body">
+    <div class="exp-left">
+      <div class="exp-num">01</div>
+      <div class="exp-meta">
+        <div class="exp-kicker">Reference Table · Value Chain</div>
+        <div class="exp-title">AI use cases across the investment management value chain</div>
+        <div class="exp-sub">24 rows · 7 columns · Click to expand</div>
+      </div>
+    </div>
+    <div class="exp-right">
+      <span class="exp-pill">Closed</span>
+      <svg class="exp-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="6 8 10 12 14 8"/>
+      </svg>
+    </div>
+  </button>
+  <div class="exp-body" id="tbl-usecases-body" role="region" aria-hidden="true">
+    <p class="exp-lede">Twenty-four use cases mapped by function, AI type, maturity, value, and risk. The most mature are document summarization and predictive analytics; the most consequential shifts are in research-thesis challenge, IC decision support, and manager due diligence.</p>
+    <div class="exp-table-wrap">
+      <table class="exp-table">
+        <thead><tr><th>Function</th><th>Use case</th><th>AI type</th><th>Maturity</th><th>Business value</th><th>Key risk</th><th>Example / source</th></tr></thead>
+        <tbody>
+<tr><td>Investment research</td><td>Earnings-call &amp; filing summarization</td><td>Generative (LLM)</td><td>Scaled</td><td>Analyst time saved; coverage breadth</td><td>Hallucinated facts; missed nuance</td><td>Morgan Stanley Debrief; broad adoption</td></tr>
+<tr><td>Investment research</td><td>Thematic screening &amp; idea generation</td><td>Generative + retrieval</td><td>Scaling</td><td>Wider opportunity set</td><td>Crowding; spurious patterns</td><td>Multiple managers</td></tr>
+<tr><td>Investment research</td><td>Devil's-advocate thesis challenge</td><td>Generative (agentic)</td><td>Emerging</td><td>Decision quality; bias reduction</td><td>Over-reliance on AI challenge</td><td>Schroders Capital IC challenger</td></tr>
+<tr><td>Quant research</td><td>ML factor &amp; signal discovery</td><td>Predictive ML</td><td>Scaled</td><td>Risk-premia prediction</td><td>Backtest overfitting; regime shift</td><td>Gu, Kelly &amp; Xiu (RFS 2020); Two Sigma</td></tr>
+<tr><td>Portfolio construction</td><td>Optimization &amp; scenario analysis</td><td>Predictive + optimization</td><td>Scaling</td><td>Allocation efficiency</td><td>Causal overclaims; opacity</td><td>BlackRock Aladdin</td></tr>
+<tr><td>Portfolio construction</td><td>Tax-aware / direct indexing</td><td>Optimization</td><td>Scaling</td><td>After-tax alpha (simulated)</td><td>Wash-sale, suitability, tracking error</td><td>Vanguard, Schwab Personalized Indexing</td></tr>
+<tr><td>Trading</td><td>Execution analytics &amp; TCA</td><td>Predictive + reinforcement</td><td>Scaled</td><td>Lower implementation shortfall</td><td>Model-driven correlation in stress</td><td>Goldman Sachs; State Street</td></tr>
+<tr><td>Trading</td><td>Algo selection &amp; smart routing</td><td>Reinforcement</td><td>Scaling</td><td>Execution quality</td><td>Autonomous action without controls</td><td>Buy-side desks</td></tr>
+<tr><td>Operations</td><td>Reconciliation &amp; exception triage</td><td>Predictive + LLM</td><td>Scaling</td><td>Cycle time; fewer breaks</td><td>Auto-correction of client-impacting items</td><td>State Street Alpha (vendor-stated)</td></tr>
+<tr><td>Operations</td><td>Corporate-actions processing</td><td>LLM + rules</td><td>Emerging</td><td>STP rates</td><td>Misclassification</td><td>Custodian platforms</td></tr>
+<tr><td>Risk management</td><td>Anomaly &amp; outlier detection</td><td>Predictive</td><td>Scaling</td><td>Faster detection</td><td>False positives; opacity</td><td>State Street (~25x, vendor-stated)</td></tr>
+<tr><td>Risk management</td><td>Scenario &amp; stress narrative generation</td><td>Generative</td><td>Emerging</td><td>Faster risk reporting</td><td>Hallucinated assumptions</td><td>Multiple managers</td></tr>
+<tr><td>Advisor support</td><td>Advisor copilot / knowledge retrieval</td><td>Generative + retrieval</td><td>Scaled</td><td>Meeting prep; doc access</td><td>Best-interest / Reg BI exposure</td><td>Morgan Stanley AI@MS Assistant</td></tr>
+<tr><td>Advisor support</td><td>Meeting notes &amp; follow-up drafting</td><td>Generative</td><td>Scaled</td><td>Advisor time saved</td><td>Recordkeeping; supervision</td><td>UBS Red; M365 Copilot</td></tr>
+<tr><td>Client reporting</td><td>Commentary &amp; performance narratives</td><td>Generative</td><td>Scaling</td><td>Reporting cycle time</td><td>Marketing Rule; GIPS</td><td>Multiple managers</td></tr>
+<tr><td>Distribution</td><td>RFP / DDQ response drafting</td><td>Generative + retrieval</td><td>Scaling</td><td>RFP cycle time</td><td>Unsubstantiated claims</td><td>Buy-side sales desks</td></tr>
+<tr><td>Manager selection</td><td>Manager DD knowledge graph</td><td>Retrieval + graph</td><td>Emerging</td><td>DD breadth &amp; recall</td><td>Stale or wrong linkage</td><td>Allocators, fund-of-funds</td></tr>
+<tr><td>Private markets</td><td>Deal screening &amp; memo drafting</td><td>Generative (agentic)</td><td>Emerging</td><td>Deal throughput</td><td>Overclaim; thin diligence</td><td>Schroders Capital GAiiA</td></tr>
+<tr><td>ESG / stewardship</td><td>Disclosure extraction &amp; scoring</td><td>LLM + predictive</td><td>Scaling</td><td>Coverage; consistency</td><td>Greenwashing; data quality</td><td>Multiple managers</td></tr>
+<tr><td>Compliance</td><td>Communications surveillance</td><td>Predictive + LLM</td><td>Scaled</td><td>Detection; coverage</td><td>Model bias; missed intent</td><td>Surveillance vendors</td></tr>
+<tr><td>Compliance</td><td>Pre-publication marketing review</td><td>LLM + rules</td><td>Emerging</td><td>Review cycle time</td><td>False sense of automated compliance</td><td>Saifr and peers</td></tr>
+<tr><td>Client service</td><td>Service triage &amp; FAQ assistants</td><td>Generative</td><td>Scaling</td><td>Response time</td><td>Wrong account-specific answers</td><td>Wealth platforms</td></tr>
+<tr><td>Product</td><td>Personalization &amp; next-best-action</td><td>Predictive + agentic</td><td>Emerging</td><td>Engagement; retention</td><td>Firm-vs-client conflict (PDA concerns)</td><td>Wealth platforms</td></tr>
+<tr><td>Enterprise</td><td>Foundation-model copilots (M365 etc.)</td><td>Generative</td><td>Scaled</td><td>Cross-function productivity</td><td>Vendor / model concentration</td><td>UBS (~50K Copilot seats by Q1 2025)</td></tr>
+</tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- TABLE 02 — RESEARCH WORKFLOW -->
+<div class="expandable" id="tbl-workflow">
+  <button class="exp-trigger" aria-expanded="false" aria-controls="tbl-workflow-body" data-target="tbl-workflow-body">
+    <div class="exp-left">
+      <div class="exp-num">02</div>
+      <div class="exp-meta">
+        <div class="exp-kicker">Reference Table · Research Workflow</div>
+        <div class="exp-title">Investment research workflow redesign matrix</div>
+        <div class="exp-sub">11 rows · 7 columns · Click to expand</div>
+      </div>
+    </div>
+    <div class="exp-right">
+      <span class="exp-pill">Closed</span>
+      <svg class="exp-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="6 8 10 12 14 8"/>
+      </svg>
+    </div>
+  </button>
+  <div class="exp-body" id="tbl-workflow-body" role="region" aria-hidden="true">
+    <p class="exp-lede">Eleven research and decision workflows mapped from current-state pain through AI-enabled redesign, with human/AI roles, new controls, and outcome metrics. The discipline is that AI handles sourcing and synthesis while analysts retain judgment and conclusions.</p>
+    <div class="exp-table-wrap">
+      <table class="exp-table">
+        <thead><tr><th>Workflow</th><th>Current-state pain</th><th>AI-enabled redesign</th><th>Human role</th><th>AI role</th><th>New controls</th><th>Metrics</th></tr></thead>
+        <tbody>
+<tr><td>Idea sourcing</td><td>Limited coverage; analyst bandwidth</td><td>Continuous screening of filings, transcripts, news, alt-data</td><td>Analyst sets thesis &amp; judgment</td><td>Surface candidates, summarize</td><td>Source-citation requirement; provenance log</td><td>Coverage breadth; ideas per analyst</td></tr>
+<tr><td>Document analysis</td><td>Hours per filing / transcript</td><td>LLM extraction &amp; summarization with links to source</td><td>Analyst verifies &amp; interprets</td><td>Extract, summarize, tag</td><td>Mandatory analyst review; no unsourced claims</td><td>Time per document; error rate</td></tr>
+<tr><td>Thesis construction</td><td>Confirmation bias; uneven rigor</td><td>AI-assisted thesis with explicit assumptions</td><td>Analyst owns the thesis</td><td>Structure, surface counter-evidence</td><td>Assumptions logged &amp; testable</td><td>Thesis completeness; revision rate</td></tr>
+<tr><td>Devil's-advocate challenge</td><td>Weak or absent challenge step</td><td>Challenger agent generates the bear/bull counter-case</td><td>Analyst responds on record</td><td>Generate structured challenge</td><td>Challenge attached to every recommendation</td><td>% theses revised post-challenge</td></tr>
+<tr><td>Financial modeling</td><td>Manual, error-prone</td><td>AI-assisted model scaffolding &amp; checks</td><td>Analyst owns assumptions</td><td>Draft, sanity-check, flag</td><td>Model-review sign-off</td><td>Model build time; check exceptions</td></tr>
+<tr><td>Quant signal research</td><td>Overfitting risk</td><td>ML signal discovery with OOS discipline</td><td>Researcher designs &amp; validates</td><td>Search, test, rank</td><td>Out-of-sample &amp; regime testing</td><td>OOS performance; decay rate</td></tr>
+<tr><td>IC evidence pack</td><td>Inconsistent, narrative-driven</td><td>Standardized AI-prepared pack with citations + challenger note</td><td>PM / IC decide</td><td>Assemble evidence &amp; challenge</td><td>Traceability of every claim</td><td>IC cycle time; evidence traceability</td></tr>
+<tr><td>Manager due diligence</td><td>Siloed documents; weak recall</td><td>Knowledge graph across funds, sponsors, deals, flags</td><td>DD team concludes</td><td>Retrieve, link, synthesize</td><td>Linkage validation; stale-data alerts</td><td>DD cycle time; flag recall</td></tr>
+<tr><td>ESG / stewardship</td><td>Manual disclosure review</td><td>Extraction &amp; scoring with human override</td><td>Stewardship lead judges</td><td>Extract, score, flag</td><td>Greenwashing check; data lineage</td><td>Coverage; override rate</td></tr>
+<tr><td>Macro / strategy</td><td>Fragmented inputs</td><td>AI synthesis of macro data &amp; scenarios</td><td>Strategist owns the call</td><td>Synthesize, simulate</td><td>Assumption transparency</td><td>Forecast tracking; scenario coverage</td></tr>
+<tr><td>Research publication</td><td>Slow editing; compliance lag</td><td>AI drafting with analyst certification</td><td>Analyst certifies content</td><td>Draft, format, check</td><td>Analyst certification; Marketing-Rule review</td><td>Time to publish; compliance incidents</td></tr>
+</tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- TABLE 03 — PORTFOLIO & TRADING -->
+<div class="expandable" id="tbl-portfolio">
+  <button class="exp-trigger" aria-expanded="false" aria-controls="tbl-portfolio-body" data-target="tbl-portfolio-body">
+    <div class="exp-left">
+      <div class="exp-num">03</div>
+      <div class="exp-meta">
+        <div class="exp-kicker">Reference Table · Portfolio &amp; Trading</div>
+        <div class="exp-title">Portfolio construction, trading &amp; operations redesign</div>
+        <div class="exp-sub">11 rows · 6 columns · Click to expand</div>
+      </div>
+    </div>
+    <div class="exp-right">
+      <span class="exp-pill">Closed</span>
+      <svg class="exp-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="6 8 10 12 14 8"/>
+      </svg>
+    </div>
+  </button>
+  <div class="exp-body" id="tbl-portfolio-body" role="region" aria-hidden="true">
+    <p class="exp-lede">Eleven portfolio-construction, trading, and operations workflows. The recurring control is a human-approval gate on any client-impacting action and an algorithm inventory for anything that touches execution.</p>
+    <div class="exp-table-wrap">
+      <table class="exp-table">
+        <thead><tr><th>Workflow</th><th>AI-enabled redesign</th><th>Human role</th><th>AI role</th><th>New controls</th><th>Metrics</th></tr></thead>
+        <tbody>
+<tr><td>Asset allocation</td><td>AI scenario modeling &amp; optimization</td><td>CIO / IC owns allocation</td><td>Simulate, optimize, stress</td><td>Assumption transparency; override log</td><td>Allocation efficiency; tracking error</td></tr>
+<tr><td>Security selection</td><td>ML-ranked candidate lists</td><td>PM decides</td><td>Rank, explain, flag</td><td>Explainability; human sign-off</td><td>Hit rate; turnover</td></tr>
+<tr><td>Tax-aware rebalancing</td><td>Direct indexing with tax-lot logic</td><td>Advisor / PM approves first trade</td><td>Optimize lots, harvest losses</td><td>Wash-sale, IPS, suitability guardrails</td><td>After-tax alpha (simulated); tracking error</td></tr>
+<tr><td>Risk budgeting</td><td>AI-assisted factor &amp; risk decomposition</td><td>Risk officer judges</td><td>Decompose, attribute</td><td>Model validation; limits</td><td>Risk-limit breaches; attribution accuracy</td></tr>
+<tr><td>Execution</td><td>Predictive TCA &amp; smart routing</td><td>Trader oversees</td><td>Predict cost, route</td><td>Algorithm inventory; kill-switch</td><td>Implementation shortfall</td></tr>
+<tr><td>Algo selection</td><td>Reinforcement-learned routing</td><td>Desk head approves strategies</td><td>Select, adapt</td><td>Pre-trade limits; monitoring</td><td>Execution quality vs benchmark</td></tr>
+<tr><td>Rebalancing ops</td><td>Automated drift detection &amp; proposals</td><td>PM approves trades</td><td>Detect drift, propose</td><td>Approval gate; audit trail</td><td>Drift; rebalancing latency</td></tr>
+<tr><td>Reconciliation</td><td>AI exception triage</td><td>Ops approves corrections</td><td>Match, flag, propose</td><td>No auto-correct on client items</td><td>Break rate; resolution time</td></tr>
+<tr><td>Corporate actions</td><td>LLM extraction + rules</td><td>Ops validates</td><td>Classify, populate</td><td>Dual control on high-value events</td><td>STP rate; error rate</td></tr>
+<tr><td>Collateral / liquidity</td><td>Predictive forecasting</td><td>Treasury decides</td><td>Forecast, alert</td><td>Limit framework</td><td>Forecast accuracy; buffer breaches</td></tr>
+<tr><td>Performance &amp; attribution</td><td>AI-generated attribution narratives</td><td>Performance officer reviews</td><td>Compute, narrate</td><td>GIPS-conformant policies</td><td>Reporting cycle time; restatements</td></tr>
+</tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- TABLE 04 — OPERATING MODEL -->
+<div class="expandable" id="tbl-operating">
+  <button class="exp-trigger" aria-expanded="false" aria-controls="tbl-operating-body" data-target="tbl-operating-body">
+    <div class="exp-left">
+      <div class="exp-num">04</div>
+      <div class="exp-meta">
+        <div class="exp-kicker">Reference Table · Operating Model</div>
+        <div class="exp-title">Investment operating model shift</div>
+        <div class="exp-sub">17 rows · 5 columns · Click to expand</div>
+      </div>
+    </div>
+    <div class="exp-right">
+      <span class="exp-pill">Closed</span>
+      <svg class="exp-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="6 8 10 12 14 8"/>
+      </svg>
+    </div>
+  </button>
+  <div class="exp-body" id="tbl-operating-body" role="region" aria-hidden="true">
+    <p class="exp-lede">Seventeen dimensions of the investment operating model, contrasting the traditional state with the AI-enabled state and the governance shift each requires.</p>
+    <div class="exp-table-wrap">
+      <table class="exp-table">
+        <thead><tr><th>Dimension</th><th>Traditional state</th><th>AI-enabled state</th><th>Governance shift</th><th>Owner</th></tr></thead>
+        <tbody>
+<tr><td>Research process</td><td>Manual sourcing &amp; synthesis</td><td>AI sourcing/synthesis; analyst judgment</td><td>Source citation; analyst certification</td><td>Heads of Research</td></tr>
+<tr><td>Analyst role</td><td>Extraction-heavy</td><td>Judgment-heavy</td><td>Reskilling; new career path</td><td>CIO / HR</td></tr>
+<tr><td>Investment committee</td><td>Narrative memos</td><td>Standardized evidence packs + challenge</td><td>Traceability of recommendations</td><td>CIO / IC</td></tr>
+<tr><td>Idea pipeline</td><td>Narrow, bandwidth-bound</td><td>Broad, continuously screened</td><td>Crowding &amp; quality monitoring</td><td>Heads of Research</td></tr>
+<tr><td>Portfolio construction</td><td>Spreadsheet-driven</td><td>AI scenario &amp; optimization support</td><td>Explainability; override logs</td><td>PMs / CIO</td></tr>
+<tr><td>Trading desk</td><td>Manual algo selection</td><td>AI execution analytics</td><td>Algorithm inventory; kill-switch</td><td>Head of Trading</td></tr>
+<tr><td>Operations</td><td>Processing-centric</td><td>Exception-management-centric</td><td>Approval gates on client items</td><td>COO</td></tr>
+<tr><td>Risk management</td><td>Periodic reporting</td><td>Continuous AI monitoring</td><td>Model validation; SR 11-7-style</td><td>CRO</td></tr>
+<tr><td>Compliance</td><td>End-of-process review</td><td>Embedded pre-clearance gates</td><td>Automated Marketing-Rule checks</td><td>CCO</td></tr>
+<tr><td>Advisor support</td><td>Manual prep &amp; research</td><td>Copilot with RAG corpus</td><td>Supervision logging; Reg BI</td><td>Head of Wealth</td></tr>
+<tr><td>Client reporting</td><td>Manual drafting</td><td>AI-generated commentary</td><td>GIPS; Marketing-Rule review</td><td>Performance / Marketing</td></tr>
+<tr><td>Manager DD</td><td>Document silos</td><td>Knowledge graph</td><td>Linkage validation</td><td>Manager Research</td></tr>
+<tr><td>Data layer</td><td>Fragmented</td><td>Curated investment data products</td><td>Lineage &amp; quality controls</td><td>CDO</td></tr>
+<tr><td>Technology</td><td>Legacy systems</td><td>Enterprise AI platform + RAG</td><td>Vendor concentration management</td><td>CTO</td></tr>
+<tr><td>Vendor strategy</td><td>Point solutions</td><td>Platform + model portfolio</td><td>Concentration &amp; contingency</td><td>CTO / Procurement</td></tr>
+<tr><td>Decision record</td><td>Sparse</td><td>Thesis-evidence-challenge-decision log</td><td>Auditable fiduciary trail</td><td>CIO / CCO</td></tr>
+<tr><td>Talent model</td><td>Pyramid of juniors</td><td>Fewer juniors; specialist roles</td><td>Judgment-development design</td><td>CIO / HR</td></tr>
+</tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- TABLE 05 — ROLES (FEATURED, OPEN) -->
+<div class="expandable open featured" id="tbl-roles">
+  <button class="exp-trigger" aria-expanded="true" aria-controls="tbl-roles-body" data-target="tbl-roles-body">
+    <div class="exp-left">
+      <div class="exp-num">05</div>
+      <div class="exp-meta">
+        <div class="exp-kicker">Reference Table · Roles &middot; <span style="color: var(--topaz-darker); font-weight: 700;">Featured &mdash; open by default</span></div>
+        <div class="exp-title">Jobs &amp; skills architecture redesign</div>
+        <div class="exp-sub">11 rows · 6 columns · How AI augments each investment role</div>
+      </div>
+    </div>
+    <div class="exp-right">
+      <span class="exp-pill">Closed</span>
+      <svg class="exp-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="6 8 10 12 14 8"/>
+      </svg>
+    </div>
+  </button>
+  <div class="exp-body" id="tbl-roles-body" role="region" aria-hidden="false">
+    <p class="exp-lede">Eleven investment roles mapped from today's profile to the AI-augmented profile, with the tasks AI absorbs, the judgment that stays human, the new skills required, and the open question for each role.</p>
+    <div class="exp-table-wrap">
+      <table class="exp-table">
+        <thead><tr><th>Role</th><th>AI absorbs</th><th>Stays human</th><th>New skills</th><th>Net direction</th><th>Open question</th></tr></thead>
+        <tbody>
+<tr><td>Research analyst</td><td>Extraction, summarization, first-draft models</td><td>Thesis, judgment, conviction</td><td>Prompting, source verification, structured challenge</td><td>Fewer juniors; higher judgment bar</td><td>Where does junior judgment develop?</td></tr>
+<tr><td>Portfolio manager</td><td>Scenario modeling, candidate ranking</td><td>Allocation decisions, conviction sizing</td><td>Model literacy, override discipline</td><td>Augmented, not replaced</td><td>Does AI commoditize edge?</td></tr>
+<tr><td>Quant researcher</td><td>Signal search, backtesting scaffolds</td><td>Hypothesis design, OOS validation</td><td>LLM tooling, causal discipline</td><td>Higher leverage</td><td>Crowding into shared signals?</td></tr>
+<tr><td>Trader</td><td>TCA, routing, monitoring</td><td>Strategy choice, market judgment</td><td>Algo governance, exception handling</td><td>Oversight-centric</td><td>Correlation risk under stress?</td></tr>
+<tr><td>Investment-operations analyst</td><td>Matching, reconciliation, triage</td><td>Exception resolution, client-impact calls</td><td>Exception management, AI QA</td><td>Processing &rarr; exceptions</td><td>Auto-correction limits?</td></tr>
+<tr><td>Financial advisor</td><td>Meeting prep, notes, retrieval</td><td>Relationship, suitability judgment</td><td>Copilot fluency, supervision awareness</td><td>Capacity expansion</td><td>Best-interest accountability?</td></tr>
+<tr><td>Manager-research analyst</td><td>Document linkage, recall</td><td>Diligence conclusions</td><td>Knowledge-graph use</td><td>Broader coverage</td><td>Stale-linkage risk?</td></tr>
+<tr><td>Risk officer</td><td>Anomaly detection, reporting</td><td>Risk-appetite judgment</td><td>Model risk management</td><td>Continuous oversight</td><td>How to validate opaque models?</td></tr>
+<tr><td>Compliance officer</td><td>Surveillance, pre-clearance checks</td><td>Conduct judgment, escalation</td><td>AI governance, model inventory</td><td>Embedded upstream</td><td>Automated-compliance false comfort?</td></tr>
+<tr><td>Client-reporting specialist</td><td>Commentary drafting, formatting</td><td>Accuracy &amp; messaging judgment</td><td>Marketing-Rule literacy</td><td>Faster cycles</td><td>GIPS &amp; disclosure controls?</td></tr>
+<tr><td>New: Investment AI product owner</td><td>&mdash;</td><td>Workflow design, control ownership</td><td>Product, governance, investment domain</td><td>Net-new role</td><td>Where does it report?</td></tr>
+</tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- TABLE 06 — MODEL RISK & BIAS -->
+<div class="expandable" id="tbl-bias">
+  <button class="exp-trigger" aria-expanded="false" aria-controls="tbl-bias-body" data-target="tbl-bias-body">
+    <div class="exp-left">
+      <div class="exp-num">06</div>
+      <div class="exp-meta">
+        <div class="exp-kicker">Reference Table · Model Risk &amp; Bias</div>
+        <div class="exp-title">Model risk, bias &amp; decision-risk matrix</div>
+        <div class="exp-sub">12 rows · 7 columns · Click to expand</div>
+      </div>
+    </div>
+    <div class="exp-right">
+      <span class="exp-pill">Closed</span>
+      <svg class="exp-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="6 8 10 12 14 8"/>
+      </svg>
+    </div>
+  </button>
+  <div class="exp-body" id="tbl-bias-body" role="region" aria-hidden="true">
+    <p class="exp-lede">Twelve model-risk and bias failure modes specific to investment management, with where they bite, who owns them, and the control that contains them. Anchored to NIST AI RMF and SR 11-7-style model governance.</p>
+    <div class="exp-table-wrap">
+      <table class="exp-table">
+        <thead><tr><th>Risk</th><th>Where it bites</th><th>Mechanism</th><th>Consequence</th><th>Control</th><th>Owner</th><th>Reference</th></tr></thead>
+        <tbody>
+<tr><td>Backtest overfitting</td><td>Quant research</td><td>Mining noise as signal</td><td>OOS underperformance</td><td>OOS &amp; regime testing; holdout discipline</td><td>Head of Quant</td><td>Lopez de Prado; Gu/Kelly/Xiu</td></tr>
+<tr><td>Regime shift</td><td>Models trained on one regime</td><td>Distribution change</td><td>Sudden drawdown</td><td>Regime monitoring; circuit breakers</td><td>CRO / PM</td><td>Renaissance ~20% loss 2020</td></tr>
+<tr><td>Hallucination</td><td>Research, reporting</td><td>Fabricated facts/cites</td><td>Wrong decisions; misstatement</td><td>Source-citation; analyst review</td><td>Heads of Research</td><td>NIST AI 600-1</td></tr>
+<tr><td>Crowding / correlation</td><td>Shared models &amp; data</td><td>Homogeneous behavior</td><td>Systemic stress amplification</td><td>Model diversity; stress testing</td><td>CRO</td><td>FSB Nov 2024</td></tr>
+<tr><td>Proxy discrimination</td><td>Client segmentation</td><td>Proxies for protected class</td><td>Unfair treatment; legal</td><td>Bias audit; fair-treatment checks</td><td>CCO</td><td>Bartlett et al. (JFE 2022)</td></tr>
+<tr><td>Data leakage</td><td>Signal research</td><td>Look-ahead in features</td><td>Illusory performance</td><td>Point-in-time data; lineage</td><td>CDO / Quant</td><td>Standard ML practice</td></tr>
+<tr><td>Model drift</td><td>Production models</td><td>Silent degradation</td><td>Decaying quality</td><td>Drift thresholds; recertification</td><td>Model-risk partner</td><td>SR 11-7</td></tr>
+<tr><td>Opacity</td><td>Risk &amp; selection</td><td>Unexplainable outputs</td><td>Cannot justify to fiduciary standard</td><td>Explainability; documented basis</td><td>CRO / CIO</td><td>SR 11-7; Advisers Act §206</td></tr>
+<tr><td>Automation bias</td><td>Analysts, advisors</td><td>Over-trust in AI</td><td>Unchallenged errors</td><td>Mandatory challenge; training</td><td>CIO</td><td>Human-factors literature</td></tr>
+<tr><td>Vendor / model concentration</td><td>Enterprise</td><td>Few base models</td><td>Single point of failure</td><td>Portfolio of models; contingency</td><td>CTO</td><td>FSB Nov 2024</td></tr>
+<tr><td>Conflicts in client tools</td><td>Next-best-action</td><td>Optimizing firm interest</td><td>Fiduciary breach</td><td>Conflict elimination/neutralization</td><td>CCO / GC</td><td>SEC PDA concerns</td></tr>
+<tr><td>Deepfake / social engineering</td><td>Approvals, payments</td><td>AI-impersonated audio/video</td><td>Fraudulent transfers</td><td>Call-back; multi-party verification</td><td>CISO / COO</td><td>Arup (FT/CNN 2024)</td></tr>
+</tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- TABLE 07 — LEGAL -->
+<div class="expandable" id="tbl-legal">
+  <button class="exp-trigger" aria-expanded="false" aria-controls="tbl-legal-body" data-target="tbl-legal-body">
+    <div class="exp-left">
+      <div class="exp-num">07</div>
+      <div class="exp-meta">
+        <div class="exp-kicker">Reference Table · Legal</div>
+        <div class="exp-title">Legal, regulatory, fiduciary &amp; compliance implications</div>
+        <div class="exp-sub">14 rows · 6 columns · Click to expand</div>
+      </div>
+    </div>
+    <div class="exp-right">
+      <span class="exp-pill">Closed</span>
+      <svg class="exp-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="6 8 10 12 14 8"/>
+      </svg>
+    </div>
+  </button>
+  <div class="exp-body" id="tbl-legal-body" role="region" aria-hidden="true">
+    <p class="exp-lede">Fourteen regulations and standards mapped to their investment-management implication, the high-risk use cases, required controls, and owner. The posture is technology-neutral: existing rules already apply to AI.</p>
+    <div class="exp-table-wrap">
+      <table class="exp-table">
+        <thead><tr><th>Regulation / standard</th><th>Implication</th><th>High-risk use cases</th><th>Required controls</th><th>Owner</th><th>Source</th></tr></thead>
+        <tbody>
+<tr><td>Advisers Act §206 fiduciary duty</td><td>Duty of care + loyalty applies to AI-influenced advice</td><td>AI advice without review; NBA optimizing for firm</td><td>Documented basis; conflicts addressed</td><td>CCO / GC</td><td>Advisers Act; SEC IA-5248</td></tr>
+<tr><td>Reg Best Interest</td><td>Best-interest standard covers AI-generated recommendations</td><td>Advisor copilot recommendations without analysis</td><td>Conflict ID; mitigation; disclosure</td><td>CCO / Supervision</td><td>SEC Reg BI</td></tr>
+<tr><td>SEC Marketing Rule 206(4)-1</td><td>Applies to AI-generated commentary &amp; advertising</td><td>AI client commentary; AI RFP responses</td><td>Pre-publication review; substantiation</td><td>CCO / Marketing</td><td>Delphia / Global Predictions 2024</td></tr>
+<tr><td>FINRA RN 24-09</td><td>All FINRA rules apply to AI/GenAI/LLMs</td><td>Communications, supervision, MNPI, cyber</td><td>Apply existing supervision &amp; recordkeeping</td><td>CCO / CTO</td><td>FINRA RN 24-09 (Jun 2024)</td></tr>
+<tr><td>SEC PDA proposal (withdrawn)</td><td>Withdrawn but concerns endure under existing rules</td><td>NBA engines; gamification; nudges</td><td>Conflict elimination/neutralization</td><td>CCO / GC</td><td>SEC 33-11377 (Jun 2025)</td></tr>
+<tr><td>FINRA suitability + Reg BI</td><td>AI recommendations must remain suitable</td><td>AI-classified risk tolerance</td><td>Documented suitability; client input</td><td>CCO / Supervision</td><td>FINRA Rules; Reg BI</td></tr>
+<tr><td>GIPS Standards</td><td>AI performance commentary must conform</td><td>AI commentary implying composite performance</td><td>GIPS-conformant policies</td><td>Performance Officer</td><td>CFA Institute GIPS</td></tr>
+<tr><td>CFA Code &amp; Standards</td><td>I(C), V(A), V(B), III(C) implicated</td><td>Uncertified AI research; no diligence</td><td>Analyst certification; documented diligence</td><td>CIO / Research</td><td>CFA Institute (eff. Jan 2024)</td></tr>
+<tr><td>EU AI Act (2024/1689)</td><td>Risk-tiered; some financial use cases high-risk</td><td>Creditworthiness; certain client-facing AI</td><td>High-risk obligations; documentation</td><td>GC / CCO (EU)</td><td>Reg (EU) 2024/1689</td></tr>
+<tr><td>ESMA AI statement</td><td>MiFID II conduct &amp; best-interest apply</td><td>AI in retail investment services</td><td>Suitability; organisational controls</td><td>CCO (EU)</td><td>ESMA (May 2024)</td></tr>
+<tr><td>NIST AI RMF + 600-1</td><td>Governance scaffold for model risk</td><td>All production AI</td><td>Map-measure-manage; GenAI profile</td><td>CRO / CTO</td><td>NIST (2023 / 2024)</td></tr>
+<tr><td>SR 11-7 (by analogy)</td><td>Model-risk lifecycle standard</td><td>Models influencing decisions</td><td>Validation; inventory; recertification</td><td>Model-risk partner</td><td>Fed / OCC (2011)</td></tr>
+<tr><td>FCA Consumer Duty</td><td>Outcomes-focused conduct (UK)</td><td>AI-driven retail investment services</td><td>Demonstrate good outcomes</td><td>CCO (UK)</td><td>FCA PS22/9</td></tr>
+<tr><td>NYDFS Part 500</td><td>Cybersecurity requirements</td><td>AI systems handling client data</td><td>Cyber controls; incident reporting</td><td>CISO</td><td>23 NYCRR 500</td></tr>
+</tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- TABLE 08 — RED LINES -->
+<div class="expandable" id="tbl-redlines">
+  <button class="exp-trigger" aria-expanded="false" aria-controls="tbl-redlines-body" data-target="tbl-redlines-body">
+    <div class="exp-left">
+      <div class="exp-num">08</div>
+      <div class="exp-meta">
+        <div class="exp-kicker">Reference Table · Red Lines</div>
+        <div class="exp-title">Investment AI red lines — prohibited &amp; restricted use</div>
+        <div class="exp-sub">15 rows · 6 columns · Click to expand</div>
+      </div>
+    </div>
+    <div class="exp-right">
+      <span class="exp-pill">Closed</span>
+      <svg class="exp-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="6 8 10 12 14 8"/>
+      </svg>
+    </div>
+  </button>
+  <div class="exp-body" id="tbl-redlines-body" role="region" aria-hidden="true">
+    <p class="exp-lede">Fifteen use cases by tier — prohibited, high-restriction, enhanced-control — with the rationale, the minimum control if permitted at all, and the owner. These are where regulators have penalized firms and where fiduciary damage concentrates.</p>
+    <div class="exp-table-wrap">
+      <table class="exp-table">
+        <thead><tr><th>Use case</th><th>Tier</th><th>Rationale</th><th>Minimum control (if permitted)</th><th>Owner</th><th>Reference</th></tr></thead>
+        <tbody>
+<tr><td>MNPI / client PII in public LLMs</td><td>Prohibited</td><td>Confidentiality, MNPI, privacy breach</td><td>Block; enterprise tools only</td><td>CISO / CCO</td><td>FINRA RN 24-09</td></tr>
+<tr><td>Autonomous portfolio recommendations</td><td>Prohibited</td><td>Fiduciary accountability</td><td>Human sign-off required</td><td>CIO / CCO</td><td>Advisers Act §206</td></tr>
+<tr><td>Autonomous trading agents</td><td>Prohibited</td><td>Market &amp; correlation risk</td><td>Algorithm inventory + kill-switch</td><td>Head of Trading</td><td>FSB Nov 2024</td></tr>
+<tr><td>Fabricated / synthetic testimonials</td><td>Prohibited</td><td>False/misleading communications. (Genuine testimonials are permitted under the Marketing Rule's disclosure, oversight &amp; disqualification conditions — AI assistance per se is not banned.)</td><td>No fabrication; genuine testimonials only with disclosures + oversight</td><td>CCO / Marketing</td><td>Rule 206(4)-1</td></tr>
+<tr><td>AI risk-profiling without client input</td><td>High restriction</td><td>Suitability; best interest</td><td>Explicit client input required</td><td>CCO / Supervision</td><td>Reg BI; FINRA</td></tr>
+<tr><td>Client comms bypassing review</td><td>High restriction</td><td>Marketing Rule; supervision</td><td>Pre-publication review queue</td><td>CCO / Marketing</td><td>Rule 206(4)-1</td></tr>
+<tr><td>Next-best-action for firm benefit</td><td>High restriction</td><td>Firm-vs-client conflict</td><td>Conflict elimination/neutralization</td><td>CCO / GC</td><td>SEC PDA concerns</td></tr>
+<tr><td>Hypothetical performance via AI</td><td>High restriction</td><td>Marketing Rule conditions</td><td>Strict Marketing-Rule controls</td><td>CCO</td><td>Rule 206(4)-1</td></tr>
+<tr><td>Uncertified AI research publication</td><td>Enhanced control</td><td>Diligence; misrepresentation</td><td>Analyst certification</td><td>Heads of Research</td><td>CFA Code; Advisers Act</td></tr>
+<tr><td>AI-drafted RFP/DDQ without check</td><td>Enhanced control</td><td>Unsubstantiated claims</td><td>Substantiation; version control</td><td>Distribution / CCO</td><td>Rule 206(4)-1</td></tr>
+<tr><td>Auto-correcting client-impacting ops</td><td>Enhanced control</td><td>Error propagation</td><td>Human approval gate</td><td>COO</td><td>Internal controls</td></tr>
+<tr><td>Opaque models in selection/risk</td><td>Enhanced control</td><td>Cannot justify to fiduciary standard</td><td>Explainability; documented basis</td><td>CRO / CIO</td><td>SR 11-7</td></tr>
+<tr><td>Single-vendor model dependence</td><td>Enhanced control</td><td>Concentration risk</td><td>Model portfolio; contingency</td><td>CTO</td><td>FSB Nov 2024</td></tr>
+<tr><td>Unlogged AI in supervised comms</td><td>Enhanced control</td><td>Recordkeeping; supervision</td><td>Logging; surveillance coverage</td><td>CCO / Supervision</td><td>FINRA RN 24-09</td></tr>
+<tr><td>Executive payment approvals over video</td><td>Enhanced control</td><td>Deepfake fraud</td><td>Call-back; multi-party verification</td><td>CISO / COO</td><td>Arup (FT/CNN 2024)</td></tr>
+</tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- TABLE 09 — CASES -->
+<div class="expandable" id="tbl-cases">
+  <button class="exp-trigger" aria-expanded="false" aria-controls="tbl-cases-body" data-target="tbl-cases-body">
+    <div class="exp-left">
+      <div class="exp-num">09</div>
+      <div class="exp-meta">
+        <div class="exp-kicker">Reference Table · Cases</div>
+        <div class="exp-title">Enterprise case comparison</div>
+        <div class="exp-sub">12 rows · 7 columns · Click to expand</div>
+      </div>
+    </div>
+    <div class="exp-right">
+      <span class="exp-pill">Closed</span>
+      <svg class="exp-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="6 8 10 12 14 8"/>
+      </svg>
+    </div>
+  </button>
+  <div class="exp-body" id="tbl-cases-body" role="region" aria-hidden="true">
+    <p class="exp-lede">Twelve enterprise cases — ten deployments and two cautionary — with the application, reported metric, maturity level, and the critical caveat. All metrics are company- or vendor-reported and not independently audited.</p>
+    <div class="exp-table-wrap">
+      <table class="exp-table">
+        <thead><tr><th>Firm</th><th>Segment</th><th>Application</th><th>Reported metric</th><th>Maturity</th><th>Stance</th><th>Caveat</th></tr></thead>
+        <tbody>
+<tr><td>Morgan Stanley</td><td>Wealth</td><td>AI@MS Assistant &amp; Debrief (OpenAI)</td><td>~98% advisor adoption; 20&rarr;80% doc access</td><td>Level 3</td><td>Positive</td><td>Company-reported; productivity, not governance</td></tr>
+<tr><td>JPMorgan</td><td>Bank / AM</td><td>LLM Suite enterprise-wide</td><td>~200K users (well-supported); $1.5–2.0B annual AI value (investor-day)</td><td>Level 3</td><td>Positive</td><td>200K solid; value range is company commentary, not audited</td></tr>
+<tr><td>BlackRock</td><td>Asset mgmt</td><td>Aladdin Copilot, eFront Copilot, Asimov</td><td>~$2T AUM growth attributed (CEO)</td><td>Level 3&ndash;4</td><td>Positive</td><td>CEO attribution; not isolable to AI</td></tr>
+<tr><td>UBS</td><td>Wealth / bank</td><td>M365 Copilot + proprietary "Red"</td><td>~50K Copilot; ~30K Red (by Q1 2025)</td><td>Level 3</td><td>Positive</td><td>Vendor-supported customer story</td></tr>
+<tr><td>Schroders Capital</td><td>Private markets</td><td>GAiiA + IC challenger agent</td><td>40+ deal evaluations</td><td>Level 4</td><td>Positive</td><td>Decisions still made solely by professionals</td></tr>
+<tr><td>Vanguard</td><td>Wealth / AM</td><td>Personalized indexing</td><td>Marketing: "up to 1–2%" after-tax alpha; Vanguard Research: 0.47–1.27% TLH alpha</td><td>Level 3</td><td>Positive</td><td>"Up to 1–2%" is a marketing ceiling; research figure is lower and must be scaled by taxable-equity share</td></tr>
+<tr><td>Schwab</td><td>Wealth</td><td>Personalized indexing</td><td>Lowered minimums; broad access</td><td>Level 3</td><td>Positive</td><td>Democratization claim</td></tr>
+<tr><td>Two Sigma</td><td>Quant</td><td>Deep ML + LLM research/execution</td><td>Not disclosed</td><td>Level 4</td><td>Neutral</td><td>Limited primary sourcing</td></tr>
+<tr><td>State Street</td><td>Asset servicing</td><td>State Street Alpha; anomaly detection</td><td>100% of true exceptions caught; ~87% fewer flagged items = 25x productivity gain</td><td>Level 3</td><td>Positive</td><td>Vendor-stated; single use case (market-value data validation)</td></tr>
+<tr><td>Goldman Sachs</td><td>Bank / AM</td><td>AI in risk &amp; execution</td><td>Not quantified publicly</td><td>Level 3</td><td>Neutral</td><td>Limited disclosure</td></tr>
+<tr><td>Delphia / Global Predictions</td><td>RIA</td><td>AI-washing in marketing</td><td>$225K + $175K penalties</td><td>&mdash;</td><td>Cautionary</td><td>SEC enforcement (2024-36)</td></tr>
+<tr><td>Arup</td><td>Cross-industry</td><td>Deepfake video-conference fraud</td><td>~$25.6M lost (Jan 2024)</td><td>&mdash;</td><td>Cautionary</td><td>FT/CNN/Fortune; CIO confirmed</td></tr>
+</tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- TABLE 10 — GOVERNANCE -->
+<div class="expandable" id="tbl-governance">
+  <button class="exp-trigger" aria-expanded="false" aria-controls="tbl-governance-body" data-target="tbl-governance-body">
+    <div class="exp-left">
+      <div class="exp-num">10</div>
+      <div class="exp-meta">
+        <div class="exp-kicker">Reference Table · Governance</div>
+        <div class="exp-title">Investment AI governance &amp; control checklist</div>
+        <div class="exp-sub">17 rows · 6 columns · Click to expand</div>
+      </div>
+    </div>
+    <div class="exp-right">
+      <span class="exp-pill">Closed</span>
+      <svg class="exp-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="6 8 10 12 14 8"/>
+      </svg>
+    </div>
+  </button>
+  <div class="exp-body" id="tbl-governance-body" role="region" aria-hidden="true">
+    <p class="exp-lede">Seventeen governance controls across the AI lifecycle, with the control objective, the artifact that evidences it, the owner, and the cadence. Together these form a fiduciary-grade control model anchored to NIST AI RMF and SR 11-7-style model governance.</p>
+    <div class="exp-table-wrap">
+      <table class="exp-table">
+        <thead><tr><th>Control area</th><th>Control objective</th><th>Evidence artifact</th><th>Owner</th><th>Cadence</th><th>Reference</th></tr></thead>
+        <tbody>
+<tr><td>Policy</td><td>Investment-specific AI acceptable-use policy</td><td>Published AUP</td><td>CIO / CCO</td><td>Annual review</td><td>Internal</td></tr>
+<tr><td>Governance body</td><td>CIO-chaired AI committee</td><td>Charter; minutes</td><td>CIO</td><td>Monthly</td><td>Internal</td></tr>
+<tr><td>Use-case inventory</td><td>All use cases catalogued &amp; risk-tiered</td><td>Inventory register</td><td>AI product owner</td><td>Quarterly</td><td>NIST AI RMF</td></tr>
+<tr><td>Approved tools</td><td>Sanctioned tool list; public LLMs blocked</td><td>Tool register; controls</td><td>CTO / CISO</td><td>Quarterly</td><td>FINRA RN 24-09</td></tr>
+<tr><td>Model inventory</td><td>Every decision-influencing model logged</td><td>Model register</td><td>Model-risk partner</td><td>Continuous</td><td>SR 11-7</td></tr>
+<tr><td>Model validation</td><td>Independent validation before production</td><td>Validation report</td><td>CRO</td><td>Pre-deployment</td><td>SR 11-7</td></tr>
+<tr><td>Bias &amp; fairness</td><td>Testing on protected proxies</td><td>Bias-audit results</td><td>CCO</td><td>Quarterly</td><td>NIST; Bartlett et al.</td></tr>
+<tr><td>Hallucination testing</td><td>Thresholds &amp; remediation triggers</td><td>Test logs</td><td>AI product owner</td><td>Continuous</td><td>NIST AI 600-1</td></tr>
+<tr><td>Drift monitoring</td><td>Detect silent degradation</td><td>Drift dashboards</td><td>Model-risk partner</td><td>Continuous</td><td>SR 11-7</td></tr>
+<tr><td>Source citation</td><td>No unsourced AI claims in research</td><td>Citation logs</td><td>Heads of Research</td><td>Per output</td><td>CFA Code</td></tr>
+<tr><td>Analyst certification</td><td>Human certifies published research</td><td>Certification record</td><td>Analysts</td><td>Per publication</td><td>CFA Code</td></tr>
+<tr><td>Marketing-Rule review</td><td>Pre-publication review of client content</td><td>Review queue logs</td><td>CCO / Marketing</td><td>Per item</td><td>Rule 206(4)-1</td></tr>
+<tr><td>Supervision logging</td><td>Advisor copilot output supervised</td><td>Supervision dashboards</td><td>Supervision</td><td>Continuous</td><td>FINRA; Reg BI</td></tr>
+<tr><td>Decision record</td><td>Thesis-evidence-challenge-decision log</td><td>Decision-intelligence log</td><td>CIO / IC</td><td>Per decision</td><td>Advisers Act §206</td></tr>
+<tr><td>Vendor concentration</td><td>Model portfolio &amp; contingency</td><td>Concentration analysis</td><td>CTO</td><td>Semi-annual</td><td>FSB Nov 2024</td></tr>
+<tr><td>Recertification</td><td>Annual sign-off on production use cases</td><td>Recertification record</td><td>CIO / CCO / CRO</td><td>Annual</td><td>SR 11-7</td></tr>
+<tr><td>Board reporting</td><td>Posture, controls, disclosures, concentration</td><td>Board pack</td><td>CIO</td><td>Annual</td><td>Internal</td></tr>
+</tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+      </section>
+
+    <!-- FINAL / SO WHAT -->
+    <section class="final" id="sowhat">
+      <div class="final-gem"><svg><use href="#bars-big"/></svg></div>
+      <div class="final-inner">
+        <div class="final-eyebrow">09 &middot; So What</div>
+        <h2 class="final-title">What CIOs should do <em>differently</em> now.</h2>
+        <p>
+          Stop benchmarking your AI adoption by tool count. Start benchmarking by the question every regulator, professional body, and consulting firm in the bibliography is converging on: <strong>how much of your investment workflow has been redesigned around AI, and is every material recommendation supported by a traceable, challenged, fiduciary-grade decision record?</strong>
+        </p>
+        <p>
+          By 2027, the difference between investment functions that thrived through the AI transition and those that did not will not be access to models &mdash; every CIO will have access to the same frontier models, the same platforms, and many of the same vendors.
+        </p>
+        <p>
+          The difference will be (1) how aggressively the research workflow, investment committee, and operating model were redesigned; (2) how rigorously fiduciary duty, conduct, model risk, and conflicts were embedded upstream rather than bolted on downstream; and (3) whether the CIO treated AI productivity figures as <strong>company commentary to be verified, not audited fact to be repeated</strong>.
+        </p>
+        <p>
+          The CIOs who will lead enterprise AI transformation are the ones who treat AI not as a productivity story to tell the board, but as the most important investment-governance decision their firm will make this decade.
+        </p>
+        <div class="final-sig">
+          <div class="final-sig-left">End of briefing &middot; The CIO's AI Decision &middot; v1</div>
+          <div class="final-sig-brand">
+            <div class="brand-mark">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <div class="final-sig-left" style="opacity: 0.9;">Your future is our focus.&trade;</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script>
+  // Reveal on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('in');
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Animate funnel bars
+  const funnelObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.querySelectorAll('.funnel-bar').forEach((bar, i) => {
+          const w = bar.style.width;
+          bar.style.width = '0%';
+          setTimeout(() => { bar.style.width = w; }, 100 + i * 120);
+        });
+        funnelObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.3 });
+  document.querySelectorAll('.chart-block').forEach(el => funnelObserver.observe(el));
+
+  // Expandable tables
+  function toggleExpandable(trigger) {
+    const target = document.getElementById(trigger.dataset.target);
+    const container = trigger.closest('.expandable');
+    const isOpen = container.classList.toggle('open');
+    trigger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    target.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+  }
+
+  document.querySelectorAll('.exp-trigger').forEach(btn => {
+    btn.addEventListener('click', () => toggleExpandable(btn));
+  });
+
+  document.getElementById('expand-all').addEventListener('click', () => {
+    document.querySelectorAll('.expandable').forEach(e => {
+      if (!e.classList.contains('open')) {
+        e.querySelector('.exp-trigger').click();
+      }
+    });
+  });
+
+  document.getElementById('collapse-all').addEventListener('click', () => {
+    document.querySelectorAll('.expandable').forEach(e => {
+      if (e.classList.contains('open')) {
+        e.querySelector('.exp-trigger').click();
+      }
+    });
+  });
+
+  // Hash navigation: if URL has #tbl-... open that table on load
+  function openFromHash() {
+    if (location.hash) {
+      const el = document.querySelector(location.hash);
+      if (el && el.classList.contains('expandable') && !el.classList.contains('open')) {
+        el.querySelector('.exp-trigger').click();
+      }
+    }
+  }
+  window.addEventListener('load', openFromHash);
+  window.addEventListener('hashchange', openFromHash);
+
+  // Pill/sidebar table links should auto-open the table they jump to
+  document.querySelectorAll('a[href^="#tbl-"]').forEach(a => {
+    a.addEventListener('click', (e) => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target && !target.classList.contains('open')) {
+        setTimeout(() => target.querySelector('.exp-trigger').click(), 100);
+      }
+    });
+  });
+</script>
+</body>
+</html>

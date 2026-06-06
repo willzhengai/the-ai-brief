@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Issue #14 — AI &amp; Org, Curated</title>
+  <meta name="description" content="The Token-Price Reckoning: why the cheap-AI era is ending, why physics is the reason, and what to do in the window that's still open — plus an interactive executive briefing on Enterprise Investment Management AI Transformation.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .source-list {
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+      margin-top: 0.75rem;
+      padding-top: 0.75rem;
+      border-top: 1px dashed var(--color-border);
+    }
+    .source-list strong { color: var(--color-text); }
+
+    .dashboard-embed {
+      position: relative;
+      width: 100%;
+      height: 900px;
+      margin: 2rem 0;
+      border-radius: 12px;
+      border: 1px solid var(--color-border);
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+    .dashboard-embed iframe { width: 100%; height: 100%; border: 0; }
+    .dashboard-link {
+      display: flex; justify-content: space-between; align-items: center;
+      gap: 0.75rem; flex-wrap: wrap;
+      font-size: 0.85rem; color: var(--color-text-muted);
+      margin-top: 0.5rem; margin-bottom: 1.5rem;
+    }
+    .dashboard-link a { font-weight: 600; color: var(--color-accent); }
+    @media (max-width: 700px) { .dashboard-embed { height: 1200px; } }
+
+    .tldr-block {
+      background: var(--color-bg-alt);
+      border-left: 4px solid var(--color-accent-org);
+      border-radius: 8px;
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
+    }
+    .tldr-block p { font-size: 0.95rem; margin-bottom: 0.75rem; }
+    .tldr-block p:last-child { margin-bottom: 0; }
+
+    /* Long-form essay treatment for the single feature story */
+    .feature-essay .essay-dek {
+      font-size: 1.05rem;
+      font-style: italic;
+      color: var(--color-text-muted);
+      margin-bottom: 1.5rem;
+    }
+    .feature-essay h4 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--color-accent);
+      margin: 2rem 0 0.6rem;
+    }
+    .feature-essay p { margin-bottom: 1rem; line-height: 1.7; }
+    .feature-essay sup { font-size: 0.7rem; color: var(--color-accent); font-weight: 600; }
+
+    .pullquote {
+      border-left: 4px solid var(--color-accent);
+      background: var(--color-bg-alt);
+      padding: 1rem 1.4rem;
+      margin: 1.5rem 0;
+      font-size: 1.05rem;
+      font-style: italic;
+      color: var(--color-text);
+    }
+
+    .bottom-line-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      font-size: 0.9rem;
+    }
+    .bottom-line-table th {
+      text-align: left;
+      background: var(--color-text);
+      color: #fff;
+      padding: 0.7rem 0.9rem;
+      font-size: 0.78rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .bottom-line-table td {
+      padding: 0.7rem 0.9rem;
+      border-bottom: 1px solid var(--color-border);
+      vertical-align: top;
+      line-height: 1.55;
+    }
+    .bottom-line-table td:first-child {
+      font-weight: 700;
+      color: var(--color-accent);
+      white-space: nowrap;
+      width: 190px;
+    }
+    @media (max-width: 600px) {
+      .bottom-line-table td:first-child { width: auto; white-space: normal; }
+    }
+
+    .ref-list {
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+      padding-left: 0;
+      list-style: none;
+      margin-top: 0.5rem;
+    }
+    .ref-list li { margin-bottom: 0.35rem; }
+    .ref-list a { word-break: break-word; }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="../index.html" class="site-logo">
+        <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="28" height="28" rx="6" fill="#2563eb"/>
+          <rect x="14" width="14" height="28" rx="0 6 6 0" fill="#0d9488"/>
+          <path d="M7 8h14M7 14h10M7 20h12" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+        AI &amp; Org, Curated
+      </a>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <path d="M3 6h18M3 12h18M3 18h18"/>
+        </svg>
+      </button>
+      <nav class="site-nav">
+        <a href="../index.html">Issues</a>
+        <a href="../about.html">About</a>
+        <a href="../feed.xml">RSS</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <div class="issue-header">
+      <div class="issue-meta">
+        <span class="issue-number">Issue #14</span>
+        <span>June 6, 2026</span>
+      </div>
+      <h1>The Token-Price Reckoning — and the Enterprise Investment Management AI Transformation</h1>
+    </div>
+
+    <section class="editorial">
+      <h2>Editor's Take</h2>
+      <p><strong>One story this week, because it's the one that reprices everything else.</strong> The cheap-AI era is ending — not because the models got worse, but because the subsidy underneath them is running out and the physical grid that would let supply meet demand can't be built fast enough. The feature below traces three seemingly unrelated headlines back to the same gauge, and lays out what to do in the window that's still open.</p>
+      <p>Then the Org section goes deep on a sector where these economics land hardest: an interactive executive briefing on <em>Enterprise Investment Management AI Transformation</em> — the CIO's AI decision, with ten reference tables behind it.</p>
+    </section>
+
+    <section class="curated-links">
+      <h2>This Week's Story</h2>
+
+      <article class="link-item feature-essay">
+        <div class="link-item-header">
+          <h3>The Token-Price Reckoning</h3>
+          <span class="source-badge">GitHub / Microsoft / OpenAI / DeepSeek / Sequoia / FSB</span>
+          <span class="category-tag industry">Industry</span>
+        </div>
+        <p class="essay-dek">Why the cheap-AI era is ending, why physics is the reason, and what to do in the window that's still open.</p>
+
+        <p>In a single week, three stories that look unrelated told the same story. GitHub moved 4.7 million paid Copilot subscribers off flat-rate plans and onto pay-per-token billing.<sup>[1]</sup> Reporting surfaced that Microsoft was canceling most of its internal Claude Code licenses — not because the tool failed, but because engineers adopted it so heavily that token bills outran the budget.<sup>[2]</sup> And reporting documented that a large share of the AI data-center capacity America promised for 2026–2027 hasn't broken ground, throttled by a power grid that takes years to build.<sup>[3]</sup> Read together, these aren't three news items. They are three readings off the same gauge — and the needle is moving in one direction.</p>
+
+        <p>The price you pay per token has been a marketing number, not an economic one. That gap is now closing.</p>
+
+        <h4>What actually happened — the billing model flipped, industry-wide</h4>
+        <p>On June 1, GitHub retired flat-rate Copilot subscriptions and switched its paid base to consumption pricing, where credits are drawn down against the input, output, and cached tokens of every interaction. Base seat prices didn't change — Pro at $10, Business at $19, Enterprise at $39 per user — but those numbers now describe an allowance, not a ceiling.<sup>[1,4]</sup> This wasn't a GitHub idiosyncrasy. OpenAI converted Codex from per-seat licensing to pay-as-you-go in April;<sup>[5]</sup> Anthropic has long metered Claude by the token. The pattern is the tell: when every major vendor abandons the same pricing model inside a single quarter, the model wasn't a choice. It was a subsidy they could no longer afford.</p>
+
+        <h4>The Microsoft signal</h4>
+        <p>The most instructive data point came from inside Microsoft. Its Experiences and Devices division — the org behind Windows, Office, Teams, and Surface — introduced Claude Code to engineers in December and began winding most licenses down by June 30.<sup>[2]</sup> Adoption had hit 84–95% monthly usage, with per-engineer API costs running $500 to $2,000 a month, and engineers reportedly preferred Anthropic's tool over their employer's own.<sup>[2]</sup> The decision was management's, and the reason was financial, not technical: under token billing, the more value the tool delivered, the faster the budget vanished. Uber reportedly burned its full-year 2026 AI budget in four months.<sup>[6]</sup> That is the structural trap of consumption pricing for genuinely useful agents — productivity and cost are the same curve.</p>
+
+        <h4>The physical ceiling</h4>
+        <p>Then the supply side. The four largest U.S. hyperscalers still intend to spend more than $650 billion on AI infrastructure in 2026 — and they physically cannot deploy it on schedule.<sup>[3,7]</sup> Of roughly 12 GW of U.S. data-center capacity announced for 2026, only about 5 GW is under construction; the rest is canceled or stalled.<sup>[3]</sup> The bottleneck has moved downstream of the chips entirely. Nvidia is shipping. What isn't shipping is the grid: high-voltage transformers that ran 24–30 month lead times before 2020 now stretch to five years.<sup>[8]</sup> Interconnection queues run three to five years in the densest markets.<sup>[9]</sup> Gartner projects power shortages will constrain 40% of AI data centers by 2027.<sup>[10]</sup> Electrical equipment is under 10% of a data center's cost and, right now, 100% of the bottleneck.<sup>[8]</sup></p>
+
+        <h4>The argument: demand compounds, supply is bolted to physics</h4>
+        <p>Put the two halves together and the thesis writes itself. Demand for tokens is compounding — agentic workflows multiply the token count of every human interaction, and the tools that drive that consumption are the ones people actually want to use. Supply is gated by the slowest-moving inputs in the industrial economy: grid interconnection, transformer manufacturing, transmission permitting, water, and the rare-earth and copper supply chains underneath all of it. Compute scales on a monthly cadence. Substations scale on a decade. When demand is exponential and the binding constraint is a transformer with a five-year lead time, price is the only variable left to do the clearing.</p>
+
+        <h4>The part most coverage misses: today's prices were never real</h4>
+        <p>Here is the load-bearing fact. Independent analyses through early 2026 converge on the same uncomfortable conclusion — the frontier labs have been pricing inference below cost, deliberately, to capture share. One widely circulated audit estimated that current AI tools are subsidized by something like 90–98% of their true cost to serve.<sup>[11]</sup> OpenAI is reported to be losing well over a dollar for every dollar of inference revenue.<sup>[12]</sup> Sequoia's now-familiar framing said it plainly: the spend-to-revenue ratios don't close without dramatic price increases, dramatic cost reductions, or both.<sup>[13]</sup> The seat-based, all-you-can-eat plans of 2024–2025 were the free-sample phase. The move to metered billing is the moment the sample table gets cleared.</p>
+
+        <div class="pullquote">This is Uber in 2014, priced for a market that didn't exist yet. The subsidized fare was always going to end; the only question was when the venture capital decided it had bought enough habit.</div>
+
+        <p>That analogy is the right mental model — with one critical asterisk. Ride-sharing's costs were labor and fuel, which don't hit a hard physical wall. AI's marginal cost is electricity and silicon flowing through infrastructure that does. So the normalization here isn't just "investors want margin now." It's that even if the labs wanted to keep prices low, the grid won't let them serve the demand at scale without bidding up the scarce input. Multiple forecasters now flag a 30–50% upward repricing of frontier API rates within 12–24 months as capital discipline returns.<sup>[14]</sup> The honest range is that wide because two forces are fighting.</p>
+
+        <h4>The honest counter-current: deflation — and a grid that doesn't share our ceiling</h4>
+        <p>A complete picture has to name the force pushing the other way, because it's genuinely powerful. Inference is getting radically more efficient — sparse-attention architectures cutting long-context compute 40–60%, new caching techniques, hardware pairings claiming 5x throughput over prior GPU baselines.<sup>[15]</sup> And the open-weight and low-cost providers are pricing aggressively: DeepSeek's V4 Flash sits around $0.14 / $0.28 per million tokens, an order of magnitude or two below the frontier models from the largest U.S. labs,<sup>[16]</sup> and it made a 75% price cut permanent — framed not as a promotion but as an efficiency gain passed through.<sup>[17]</sup> Pinterest reportedly hit frontier-class quality at a 90% cost reduction by post-training an open model on its own data.<sup>[18]</sup></p>
+
+        <p>And there is a deeper, structural reason the cheapest tier sits where it does — one that doubles back on this entire thesis. The supply bottleneck I've described is a U.S. bottleneck. One provider pricing well below the largest U.S. labs, DeepSeek, operates on the other side of that asymmetry. China added 543 gigawatts of power capacity in 2024 alone — more than the United States has added in its entire history<sup>[21]</sup> — and in 2025 added over 430 gigawatts of wind and solar, more than half the world's new renewable capacity, much of it wired directly into its data-center strategy.<sup>[22]</sup> Where U.S. power demand was flat for two decades and left utilities flatfooted, China's grew roughly 8% a year on the back of continuous grid investment.<sup>[23]</sup> Goldman Sachs projects China will hold around 400 gigawatts of reserve power by 2030, more than triple the entire global data-center fleet's expected demand, while the U.S. reserve margin slips toward the threshold where grid reliability itself comes into question.<sup>[24]</sup> It is a point that U.S. AI executives themselves have publicly acknowledged.<sup>[22]</sup></p>
+
+        <p>Be precise about what this does and doesn't mean. It is not a claim about which country is "winning" — the two systems have different strengths, and chip access, model quality, and data-center footprint cut the other way. It is a narrower, structural observation: on the one input this thesis identifies as the binding constraint — electricity and the grid to move it — the providers feeding the cheap tier are not bound by the same ceiling that's about to push frontier prices up in the U.S. That is why the low-cost floor is so durable. It also sets up the real decision for a buyer, which is not about geography at all but about where your data and your regulators sit — the subject of the third recommendation below.</p>
+
+        <p>So which wins — the physical ceiling pushing prices up, or efficiency and competition pushing them down? The resolution is the one worth internalizing: the floor for the cheap, commoditized tier keeps falling, while the ceiling for frontier, always-on, agentic capacity keeps rising and gets harder to guarantee. The market is bifurcating. Routine tokens get cheaper; the high-stakes, high-availability tokens you'll actually want for the workloads that matter get more expensive and more rationed. Planning for an average price misses the whole point — the variance is the strategy problem.</p>
+
+        <h4>What this means for you</h4>
+        <p><strong>1. Move fast on experimentation — the window is closing, not opening.</strong> The cheapest, most permissive access to frontier capability you will ever get is probably the access you have right now. Subsidized pricing is a learning subsidy: someone else is paying for your organization to figure out where AI creates real value. Treat that as a clock, not a constant. The teams that run aggressive, structured experiments this year will have mapped their high-value use cases before repricing hits; the teams that wait for "mature" pricing will be learning the expensive way, on the expensive bill.</p>
+
+        <p><strong>2. Build provider optionality before you need it — especially on the low-cost tier.</strong> A single-vendor frontier strategy is now a cost-concentration risk. The right architecture routes work by stakes: reserve premium frontier models for genuinely hard reasoning, and push classification, summarization, drafting, and routine generation to efficient low-cost providers — Writer and other enterprise-grade options among them. The eye-watering price gaps (frontier models can run 35–100x the cost of the cheapest serious alternatives at equivalent context<sup>[19]</sup>) only matter if you've built the plumbing to exploit them.</p>
+
+        <p><strong>3. Match the provider to the data — cheap isn't cheap if it creates exposure you can't accept.</strong> Some of the lowest sticker prices in the market come from providers hosted outside your own regulatory jurisdiction, and the discount is real. The relevant cost, though, isn't just per-token — it includes where data is processed and retained, which laws govern it, what contractual and audit protections exist, whether the model can be self-hosted, and what uptime or latency commitments come with it.<sup>[16,20]</sup> This is a data-residency and concentration question, not a flag-waving one: a U.S. enterprise has to weigh routing sensitive data to a China-hosted API, a European one weighs U.S. providers against GDPR and data-sovereignty rules, and any firm should think twice before concentrating critical workloads on a single vendor in any jurisdiction. The disciplined move is to map each use case to a provider whose jurisdiction and terms fit the sensitivity of the data — favoring options that can be self-hosted or contractually fenced for anything regulated, and reserving the cheapest external APIs for non-sensitive, low-stakes work. (One caveat to note rather than weaponize: some low-cost models face unresolved, unproven allegations about how they were trained; treat that as a due-diligence item, not a verdict.)</p>
+
+        <h4>And one habit to build into everything</h4>
+        <p>The deeper shift is in how you evaluate any AI use case. For two years the question was "does it work?" The new question, attached to it permanently, is "what does it cost to run at scale — in tokens?" A workflow that's a clear win at subsidized rates can quietly become a budget hole once it's metered and once it scales, and agentic designs are the most exposed because they multiply token consumption per task. Context windows stuffed beyond need, premium models used where a cheap one would do, multi-step chains that re-process the same material — each compounds. Make downstream token economics a first-class evaluation criterion, not an afterthought. Measure outcomes, not tokens — but never stop counting the tokens.</p>
+
+        <h4>The bottom line</h4>
+        <table class="bottom-line-table">
+          <thead>
+            <tr><th>The force</th><th>What it does to your bill</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Subsidy ending</td><td>Below-cost pricing normalizes upward; flat seats give way to metered tokens. Expect 30–50% frontier repricing over 12–24 months.</td></tr>
+            <tr><td>Physical bottleneck</td><td>Grid, transformers, and permitting cap how fast supply can meet demand. Five-year transformer lead times set the floor under premium capacity.</td></tr>
+            <tr><td>Efficiency + competition</td><td>Pushes the commodity tier cheaper. The market bifurcates: routine tokens fall, frontier/agentic tokens rise and get rationed.</td></tr>
+            <tr><td>Your move</td><td>Experiment now, build provider optionality, price every use case in tokens, and match each provider to the sensitivity of the data it handles.</td></tr>
+          </tbody>
+        </table>
+
+        <div class="source-list">
+          <strong>Sources</strong>
+          <ol class="ref-list">
+            <li>[1] GitHub Blog, "GitHub Copilot is moving to usage-based billing," Apr. 27, 2026. <a href="https://github.blog/news-insights/company-news/github-copilot-is-moving-to-usage-based-billing/" target="_blank" rel="noopener">github.blog</a></li>
+            <li>[2] Dapta, "Microsoft Drops Claude Code Over Runaway AI Token Costs," May 2026. <a href="https://dapta.ai/blog-posts/ai-news-microsoft-claude-code/" target="_blank" rel="noopener">dapta.ai</a></li>
+            <li>[3] TechSpot, "Nearly half of US data centers planned for 2026 are facing delays or cancellation," Apr. 4, 2026 (citing Sightline Climate). <a href="https://www.techspot.com/news/111947-nearly-half-us-data-centers-planned-2026-facing.html" target="_blank" rel="noopener">techspot.com</a></li>
+            <li>[4] Notebookcheck, "GitHub Copilot drops flat-rate billing and developers are not pleased," Jun. 2, 2026. <a href="https://www.notebookcheck.net/GitHub-Copilot-drops-flat-rate-billing-and-developers-are-not-pleased.1313272.0.html" target="_blank" rel="noopener">notebookcheck.net</a></li>
+            <li>[5] Beri.net, "Flat-Fee AI Dies: Your $99/Month Just Became $900/Month," Apr. 2026. <a href="https://beri.net/article/ai-pricing-flat-fee-era-over-enterprise-2026" target="_blank" rel="noopener">beri.net</a></li>
+            <li>[6] Cybernews, "Microsoft drops Claude Code after budget burned," May 2026. <a href="https://cybernews.com/ai-news/microsoft-claude-code-burn-yearly-ai-budget/" target="_blank" rel="noopener">cybernews.com</a></li>
+            <li>[7] Tech-Insider, "U.S. AI Data Center Delays: 7 GW Capacity Crisis," May 2026. <a href="https://tech-insider.org/us-ai-data-center-delays-cancellations-7gw-capacity-crisis-2026/" target="_blank" rel="noopener">tech-insider.org</a></li>
+            <li>[8] Tech Fund (techinvestments.io), "Power Bottlenecks &amp; The AI Data Center," Apr. 2026. <a href="https://techinvestments.io/p/power-bottlenecks-and-the-ai-data" target="_blank" rel="noopener">techinvestments.io</a></li>
+            <li>[9] DataPowerSupply, "AI Data Center Power Bottleneck: 40% Face Shutdown by 2027," May 2026; PJM interconnection data via Data Center Knowledge, Jun. 2026. <a href="https://www.datacenterknowledge.com/energy-power-supply/why-ai-data-center-projects-face-years-of-delays-after-approval" target="_blank" rel="noopener">datacenterknowledge.com</a></li>
+            <li>[10] Enki AI, "AI Data Center Grid Strain: Power Halts Growth in 2026" (citing Gartner), Apr. 8, 2026. <a href="https://enkiai.com/data-center/ai-data-center-grid-strain-power-halts-growth-in-2026/" target="_blank" rel="noopener">enkiai.com</a></li>
+            <li>[11] "State of AI 2026: The $600B inference subsidy, energy bottlenecks, and labor," discussion on Hacker News, Mar. 10, 2026. <a href="https://news.ycombinator.com/item?id=47330295" target="_blank" rel="noopener">news.ycombinator.com</a></li>
+            <li>[12] AI Insights, "OpenAI Is Losing $14 Billion in 2026 — And Your AI Bill May Be Next," Mar. 13, 2026. <a href="https://aiinsightsnews.net/openai-14-billion-loss-ai-costs/" target="_blank" rel="noopener">aiinsightsnews.net</a></li>
+            <li>[13] MindStudio, "The Free Sample Phase: Why AI Tools Are Underpriced and What Comes Next" (citing Sequoia analysis), 2026. <a href="https://mindstudio.ai/blog/ai-free-sample-phase-pricing-strategy-what-comes-next" target="_blank" rel="noopener">mindstudio.ai</a></li>
+            <li>[14] Oplexa, "AI Inference Cost Crisis 2026: Why Your AI Bill Is Exploding," Mar. 31, 2026. <a href="https://oplexa.com/ai-inference-cost-crisis-2026/" target="_blank" rel="noopener">oplexa.com</a></li>
+            <li>[15] AI Automation Global, "AI Inference Cost Crisis 2026: Why OpenAI Loses $1.35 Per Dollar Earned," Mar. 16, 2026. <a href="https://aiautomationglobal.com/blog/ai-inference-cost-crisis-openai-economics-2026" target="_blank" rel="noopener">aiautomationglobal.com</a></li>
+            <li>[16] CloudZero, "DeepSeek pricing 2026: V4, R1, API costs, and how to optimize," Jun. 2026. <a href="https://www.cloudzero.com/blog/deepseek-pricing/" target="_blank" rel="noopener">cloudzero.com</a></li>
+            <li>[17] The Next Web, "DeepSeek made its 75% discount permanent. The AI price war just escalated," May 2026. <a href="https://thenextweb.com/news/deepseek-v4-pro-75-percent-price-cut-permanent" target="_blank" rel="noopener">thenextweb.com</a></li>
+            <li>[18] VentureBeat, "How DeepSeek's radical architecture is shattering Silicon Valley's token moat," May 2026. <a href="https://venturebeat.com/infrastructure/how-deepseeks-radical-architecture-is-shattering-silicon-valleys-token-moat" target="_blank" rel="noopener">venturebeat.com</a></li>
+            <li>[19] TechJack Solutions, "DeepSeek Pricing 2026: The Cheapest AI API Costs Revealed," May 2026. <a href="https://techjacksolutions.com/ai-tools/deepseek/deepseek-pricing/" target="_blank" rel="noopener">techjacksolutions.com</a></li>
+            <li>[20] InfoWorld / Computerworld, "DeepSeek's steep V4-Pro price cut escalates AI pricing war," May 2026. <a href="https://www.infoworld.com/article/4176709/deepseeks-steep-v4-pro-price-cut-escalates-ai-pricing-war.html" target="_blank" rel="noopener">infoworld.com</a></li>
+            <li>[21] IEEE ComSoc Technology Blog, "China vs. U.S.: Race to Generate Power for AI Data Centers as Electricity Demand Soars," Feb. 16, 2026. <a href="https://techblog.comsoc.org/2026/02/16/china-vs-u-s-generating-power-for-ai-data-centers-as-demand-soars/" target="_blank" rel="noopener">techblog.comsoc.org</a></li>
+            <li>[22] Al Jazeera, "China's secret weapon in AI race with US? Lots of cheap energy," May 28, 2026 (citing IEA and Data Center Watch). <a href="https://www.aljazeera.com/economy/2026/5/28/chinas-secret-weapon-in-ai-race-with-us-lots-of-cheap-energy" target="_blank" rel="noopener">aljazeera.com</a></li>
+            <li>[23] Wood Mackenzie, "Powering China's data centres," Jul. 2025. <a href="https://www.woodmac.com/blogs/the-edge/powering-chinas-data-centres/" target="_blank" rel="noopener">woodmac.com</a></li>
+            <li>[24] Goldman Sachs research summary via Tiger Brokers, "Power Supply Emerges as Key Variable in AI Infrastructure; China's Abundant Electricity Gives Competitive Edge Over US," 2026. <a href="https://www.itiger.com/news/1167102155" target="_blank" rel="noopener">itiger.com</a></li>
+          </ol>
+        </div>
+      </article>
+
+    </section>
+
+    <!-- ================================ -->
+    <!-- ORG DESIGN & CHANGES, CURATED    -->
+    <!-- ================================ -->
+
+    <div class="section-divider">
+      <span class="section-label org">Org Design &amp; Changes, Curated</span>
+    </div>
+
+    <section class="org-editorial">
+      <h2>This Week's Briefing</h2>
+      <h3 style="font-family: var(--font-sans); font-size: 1.15rem; font-weight: 700; color: var(--color-accent-org); margin-bottom: 0.6rem;">Enterprise Investment Management AI Transformation: The CIO's AI Decision</h3>
+      <p style="font-style: italic; color: var(--color-text-muted); margin-bottom: 1rem;">An executive briefing for the CIO, Investment Committee, CEO, CCO, and CRO — from productivity pilots to fiduciary-grade transformation.</p>
+
+      <div class="reading-rec" style="background: var(--color-bg-alt); border: 1px solid var(--color-border); border-radius: 8px; padding: 0.85rem 1.1rem; margin: 1.25rem 0; font-size: 0.85rem; color: var(--color-text-muted);">
+        <strong style="color: var(--color-text);">Heads-up:</strong> A short TL;DR, then the interactive briefing dashboard embedded below — nine argument sections plus <strong>ten expandable reference tables</strong> (value chain, research workflow, portfolio &amp; trading, operating model, roles, model risk, legal, red lines, cases, governance). The dashboard is the main deliverable this week.
+      </div>
+
+      <div class="reading-rec" style="background: #fef3c7; border: 1px solid #fcd34d; color: #78350f; border-radius: 8px; padding: 0.85rem 1.1rem; margin: 1.25rem 0; font-size: 0.85rem; font-style: italic;">
+        <strong style="font-style: normal;">Disclaimer:</strong> All opinions in this briefing are my own. They do not represent the company's position. This is meant as an academic discussion of investment-management AI transformation. All firm-reported figures are company or vendor commentary, not independently audited fact.
+      </div>
+    </section>
+
+    <section class="org-article">
+
+      <h3>TL;DR</h3>
+
+      <div class="tldr-block">
+        <p><strong>Investment management has reached AI ubiquity in pilots, but not AI value in decisions.</strong> 47% of the top-500 asset managers report active AI investment, yet 78% allocate less than 10% of their tech budget to it, and only ~11% of agentic AI workloads are in production. The differentiator between adopters and winners is <em>workflow and governance redesign</em> — not tool count, and not headcount cuts. Most firms have scaled productivity tools (Level 3) while leaving investment governance at Level 1–2.</p>
+
+        <p><strong>Productivity ROI is real but commoditizing.</strong> Morgan Stanley's reported ~98% advisor adoption and JPMorgan's cited AI value become table stakes on the same vendor stacks within 24 months. The durable advantage is what firms <em>build</em> into the investment process — research-workflow redesign, IC evidence packs, and fiduciary-grade model governance — not the cost they remove.</p>
+
+        <p><strong>The regulatory floor is rising faster than most policies were written for.</strong> SEC AI-washing enforcement (Delphia / Global Predictions), FINRA RN 24-09, ESMA's MiFID II statement, and the EU AI Act have redrawn the red lines. The SEC's withdrawal of the predictive-data-analytics proposal is not deregulation — existing fiduciary, conduct, and Marketing-Rule obligations still apply. And the cautionary cases (Klarna-style overreach; the Arup deepfake fraud) all point the same way: AI works as augmentation; pure substitution fails.</p>
+      </div>
+
+      <h3>Interactive Briefing</h3>
+
+      <p>The dashboard below — <em>The CIO's AI Decision</em> — is the full evidence layer: the thesis, the adoption-vs-value paradox, four levels of workflow redesign, enterprise case studies, a five-level maturity model, the four-tier AI red-lines framework, the regulatory timeline, and a 12–24 month CIO action plan — with ten expandable reference tables underneath. The Roles &amp; skills table is open by default. Open it in a new tab if it loads slowly.</p>
+
+      <div class="dashboard-embed">
+        <iframe src="../dashboards/cio-ai-decision-dashboard.html"
+                title="The CIO's AI Decision — Executive Briefing"
+                loading="lazy"></iframe>
+      </div>
+      <div class="dashboard-link">
+        <span>Dashboard loading slowly?</span>
+        <a href="../dashboards/cio-ai-decision-dashboard.html" target="_blank" rel="noopener">Open the dashboard in a new tab &rarr;</a>
+      </div>
+
+      <div class="callout">
+        Stop benchmarking AI adoption by tool count. Start benchmarking by the question every regulator, professional body, and consulting firm is converging on: how much of your investment workflow has been redesigned around AI, and is every material recommendation supported by a traceable, challenged, fiduciary-grade decision record? By 2027, every CIO will have access to the same frontier models. The difference will be workflow-redesign depth, upstream governance, and whether the CIO treated AI productivity figures as company commentary to be verified — not audited fact to be repeated.
+      </div>
+
+    </section>
+
+    <!-- Issue Navigation -->
+    <nav class="issue-nav">
+      <a href="2026-05-30.html">&larr; Previous Issue</a>
+      <span></span>
+    </nav>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      &copy; 2026 AI &amp; Org, Curated. All rights reserved.
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>
