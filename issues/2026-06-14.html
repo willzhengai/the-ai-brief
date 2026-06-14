@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Issue #15 — AI &amp; Org, Curated</title>
+  <meta name="description" content="Why Codex deserves a second look (especially for non-developers), what your AI is and isn't learning from you, and the U.S. government's shutdown of Claude Fable 5 &amp; Mythos 5 — plus an AI-adoption strategy and an interactive briefing on AI for Enterprise Legal, Risk &amp; Compliance.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .source-list {
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+      margin-top: 0.75rem;
+      padding-top: 0.75rem;
+      border-top: 1px dashed var(--color-border);
+    }
+    .source-list strong { color: var(--color-text); }
+    .source-list a { margin-right: 0.5rem; }
+
+    .dashboard-embed {
+      position: relative;
+      width: 100%;
+      height: 900px;
+      margin: 2rem 0;
+      border-radius: 12px;
+      border: 1px solid var(--color-border);
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+    .dashboard-embed iframe { width: 100%; height: 100%; border: 0; }
+    .dashboard-link {
+      display: flex; justify-content: space-between; align-items: center;
+      gap: 0.75rem; flex-wrap: wrap;
+      font-size: 0.85rem; color: var(--color-text-muted);
+      margin-top: 0.5rem; margin-bottom: 1.5rem;
+    }
+    .dashboard-link a { font-weight: 600; color: var(--color-accent); }
+    @media (max-width: 700px) { .dashboard-embed { height: 1200px; } }
+
+    .tldr-block {
+      background: var(--color-bg-alt);
+      border-left: 4px solid var(--color-accent-org);
+      border-radius: 8px;
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
+    }
+    .tldr-block p { font-size: 0.95rem; margin-bottom: 0.75rem; }
+    .tldr-block p:last-child { margin-bottom: 0; }
+
+    .feature-essay .essay-dek {
+      font-size: 1.05rem;
+      font-style: italic;
+      color: var(--color-text-muted);
+      margin-bottom: 1.5rem;
+    }
+    .feature-essay h4 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--color-accent);
+      margin: 2rem 0 0.6rem;
+    }
+    .feature-essay p { margin-bottom: 1rem; line-height: 1.7; }
+
+    .pullquote {
+      border-left: 4px solid var(--color-accent);
+      background: var(--color-bg-alt);
+      padding: 1rem 1.4rem;
+      margin: 1.5rem 0;
+      font-size: 1.05rem;
+      font-style: italic;
+      color: var(--color-text);
+    }
+
+    .adopt-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      font-size: 0.9rem;
+    }
+    .adopt-table th {
+      text-align: left;
+      background: var(--color-accent-org);
+      color: #fff;
+      padding: 0.7rem 0.9rem;
+      font-size: 0.78rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .adopt-table td {
+      padding: 0.8rem 0.9rem;
+      border-bottom: 1px solid var(--color-border);
+      vertical-align: top;
+      line-height: 1.55;
+    }
+    .adopt-table td:first-child {
+      font-weight: 800;
+      color: var(--color-accent-org);
+      width: 28px;
+      font-size: 1.1rem;
+    }
+    .adopt-table .insight strong, .adopt-table .strategy strong { color: var(--color-text); }
+    .adopt-table .success { color: var(--color-text-muted); }
+    .adopt-table .success strong { color: var(--color-accent-org); }
+    @media (max-width: 700px) {
+      .adopt-table, .adopt-table thead, .adopt-table tbody, .adopt-table tr, .adopt-table td, .adopt-table th { display: block; }
+      .adopt-table thead { display: none; }
+      .adopt-table tr { border: 1px solid var(--color-border); border-radius: 8px; margin-bottom: 1rem; padding: 0.5rem; }
+      .adopt-table td { border: none; }
+      .adopt-table td:first-child { width: auto; }
+    }
+
+    .news-brief {
+      background: var(--color-bg-alt);
+      border: 1px solid var(--color-border);
+      border-left: 4px solid #b45309;
+      border-radius: 8px;
+      padding: 1.25rem 1.5rem;
+      margin: 1rem 0;
+    }
+    .news-brief p { line-height: 1.65; }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="../index.html" class="site-logo">
+        <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="28" height="28" rx="6" fill="#2563eb"/>
+          <rect x="14" width="14" height="28" rx="0 6 6 0" fill="#0d9488"/>
+          <path d="M7 8h14M7 14h10M7 20h12" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+        AI &amp; Org, Curated
+      </a>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <path d="M3 6h18M3 12h18M3 18h18"/>
+        </svg>
+      </button>
+      <nav class="site-nav">
+        <a href="../index.html">Issues</a>
+        <a href="../about.html">About</a>
+        <a href="../feed.xml">RSS</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <div class="issue-header">
+      <div class="issue-meta">
+        <span class="issue-number">Issue #15</span>
+        <span>June 14, 2026</span>
+      </div>
+      <h1>A Second Look at Codex, What Your AI Is (and Isn't) Learning From You — and a Frontier Model Forced Offline</h1>
+    </div>
+
+    <section class="editorial">
+      <h2>Editor's Take</h2>
+      <p><strong>A note on timing.</strong> This issue is a day late, and the reason is itself the week's biggest story: on Friday evening the U.S. government forced Anthropic to take its two most capable models — Claude Fable 5 and Mythos 5 — offline worldwide, and the shutdown ran into Saturday. The disruption rippled through the tooling some of this brief is assembled with. We've covered it briefly below; the full regulatory-precedent implications are worth watching.</p>
+      <p>The two substantive AI pieces this week are quieter but more durable. First, why Codex deserves a second look — especially if you, or the team you're rolling tools out to, aren't professional developers. Second, the question I now get almost weekly: does your AI actually learn from you? (Short answer: the model doesn't; the notebook around it does.) Then the Org section runs two stories: a tight, practical AI-adoption strategy, and a deep interactive briefing on AI for Enterprise Legal, Risk &amp; Compliance.</p>
+    </section>
+
+    <section class="curated-links">
+      <h2>This Week's Stories</h2>
+
+      <!-- 1. Codex second look -->
+      <article class="link-item feature-essay">
+        <div class="link-item-header">
+          <h3>Why It's Worth Giving Codex a Second Look — Especially If You're Not a Developer</h3>
+          <span class="source-badge">OpenAI / Axios / Constellation Research</span>
+          <span class="category-tag industry">Industry</span>
+        </div>
+        <p class="essay-dek">For Claude Code users who joined for the coding and stayed for everything else.</p>
+
+        <p>If you adopted Claude Code, you probably did it for a reason that still holds: it produces excellent code, reasons well over long context, and keeps you in the loop. Most experienced builders who've tested both still rate Claude Code's output cleaner in blind reviews. None of that has changed.</p>
+
+        <p>But the more interesting story in 2026 isn't which tool writes better code. It's that the two products have been quietly evolving along different philosophies — and OpenAI's bet is starting to pay off for a group Claude Code wasn't originally designed to serve: people who aren't professional developers.</p>
+
+        <p>The numbers make the shift hard to ignore. In its June 2, 2026 report <em>The Next Era of Knowledge Work</em>, OpenAI disclosed that Codex had passed 5 million weekly active users — more than 6x its level when the desktop app launched in February. More telling than the headline number: knowledge workers now make up roughly 20% of those users and are adopting Codex <strong>more than three times as fast as developers</strong> (figure vendor-disclosed and confirmed by Axios). Among that cohort, the fastest-growing tasks week-over-week are data analysis (+110%), research (+37%), and the creation of knowledge artifacts — reports, memos, PDFs, spreadsheets — at +36%, with PDF and spreadsheet work specifically up more than 50%.</p>
+
+        <p>A caveat worth stating plainly: these are week-over-week growth rates from a report OpenAI released partly to reclaim narrative momentum against Claude Cowork ahead of both companies' IPOs, so treat them as directional. And "3x faster" is a <em>growth rate</em>, not absolute volume — the majority of those 5 million users are still developers. But the direction is unambiguous, and it points at a question worth asking: if you're a non-developer, is the tool you picked still the right fit?</p>
+
+        <h4>The architectural fork</h4>
+        <p>The two tools made opposite bets, and the bet is the whole story. <strong>Claude Code is terminal-native and local-first.</strong> It lives in your shell, reads your codebase, shows its reasoning as it works, and asks before doing anything risky — supervised pair programming. For developers, that transparency is a genuine strength.</p>
+        <p><strong>Codex bet the other direction:</strong> a cloud-based agent that runs autonomously in an isolated sandbox, accessed through a unified app (web, desktop, CLI, IDE). You hand it a task; it spins up an environment, does the work, and hands you the result — delegation rather than pairing. For a developer, Claude Code's visibility is a feature. For a non-developer, it's friction: reading shell output and interpreting error traces requires background most knowledge workers don't have and shouldn't need. Codex abstracts that layer away. That single design difference is why the experience gap is so large for non-technical users, even though both tools are highly capable.</p>
+
+        <h4>What changed: Codex stopped being just a coding tool</h4>
+        <p>OpenAI has spent 2026 pushing Codex well past code. The April desktop update turned it into something closer to a general-purpose work agent: <strong>computer use and a built-in browser</strong> (it can control the machine and operate live web environments); <strong>built-in image generation</strong> (GPT Image 2, released April 21, 2026, in the pipeline); <strong>rich file handling</strong> (files open in a sidebar with previews for PDFs, spreadsheets, slides, and documents); and <strong>a proactive mode</strong> that pulls in Google Docs comments, Slack threads, and Notion pages to suggest where to start the day. Put together, this is a different value proposition than "AI that writes code." It's an agent that makes things a knowledge worker actually ships — a slide, a spreadsheet model, a one-page HTML site, an image, a document — and increasingly, the ability to hand those outputs to a coworker directly.</p>
+
+        <div class="pullquote">Claude Code treats <em>the code</em> as the product. Codex increasingly treats <em>the output</em> as the product. For most non-developers, the output is all they ever wanted.</div>
+
+        <h4>Where Codex is catching up — and where it isn't</h4>
+        <p>Codex is closing the gap on the office-document work knowledge workers live in: spreadsheets, financial models, decks, and Word-style documents are increasingly first-class, with native previews and image generation in the same surface. What hasn't changed: on pure code quality and long-context reasoning, Claude Code still tends to win blind reviews. The honest framing is that these tools are moving <em>toward</em> each other, but their foundations stay put — one built around your local environment, one around cloud isolation and a unified app. Six months from now the feature lists may look similar; the philosophies won't.</p>
+
+        <h4>The bottom line for non-developers</h4>
+        <p>If you're a developer who wants control and the best code quality, Claude Code remains a strong default. But if you're a non-technical builder — or you're standardizing tools for a team that's mostly non-technical — the calculus has shifted. Codex now abstracts away the parts that made agentic tools intimidating, while adding the image, document, slide, and sharing capabilities that map to how non-developers actually work. It's worth a second look. Not because it replaces Claude Code, but because for a meaningful slice of users, it may simply fit the way they work better.</p>
+
+        <div class="source-list">
+          <strong>Sources:</strong> OpenAI, "The Next Era of Knowledge Work" (June 2, 2026); Axios; Constellation Research; Help Net Security. Growth figures are week-over-week and vendor-disclosed — directional, and released amid competitive positioning against Claude Cowork ahead of both companies' IPOs. The "3x faster than developers" figure refers to adoption growth rate, not absolute user volume.
+        </div>
+      </article>
+
+      <!-- 2. Does your AI learn from you -->
+      <article class="link-item feature-essay">
+        <div class="link-item-header">
+          <h3>Does Your AI Actually Learn From You?</h3>
+          <span class="source-badge">OpenAI / Anthropic / academic research</span>
+          <span class="category-tag opinion">Analysis</span>
+        </div>
+        <p class="essay-dek">The model doesn't learn from you. The system wrapped around it increasingly does. Holding both at once is the whole point.</p>
+
+        <p>A colleague stopped me in the hallway last week with a question I now get almost weekly: "How do I get ChatGPT to remember how I work? How do I train it on my habits so it gets better the more I use it?" It is the most natural assumption in the world. You spend hours with a tool; it should grow into the job the way a new analyst does. The honest answer is in two parts, and they pull in opposite directions.</p>
+
+        <h4>The hard truth first: the model doesn't learn</h4>
+        <p>A large language model does not learn from working with you. It cannot. The model you are typing to was trained once, at enormous expense, and then frozen. When you ask it something, it is not reflecting on your past conversations or reinforcing what worked last time — it is predicting the next likely word based on patterns baked in during that original training. Your thousand conversations do not accumulate into a smarter model. The experience of using these tools feels like a relationship; it is not. Every session, the underlying model wakes up with the same fixed knowledge it had the day it shipped.</p>
+
+        <h4>The softer truth: the system remembers</h4>
+        <p>Here is the other half. Most leading AI products now bolt a <em>memory</em> onto that frozen model. ChatGPT, Claude, and others keep a running file on you, drawn from your chat history, and quietly slip the relevant bits back into the conversation before the model answers — your role, your industry, that you prefer prose over bullet points, that you write for executives. None of that lives in the model. It lives in a side file handed to the model each time, like a briefing note passed to a consultant before a meeting.</p>
+        <p>This is why ChatGPT can feel like it knows you, and why it's so hard to leave. The switching cost isn't the model, which is roughly comparable across vendors. It's the accumulated context — walking to a competitor means starting over as a stranger. The drawback is that this memory is mechanical: it records your stated preferences and retrieves them. It does not develop judgment about you. It is a filing cabinet, not a seasoned colleague.</p>
+
+        <h4>The notebook and the expertise</h4>
+        <p>The cleanest way to hold this distinction is to separate a notebook from expertise. When a new analyst joins, they keep a notebook — your preferences, the format you like, the clients to never cc. Useful, external, portable — and not the same thing as the analyst getting <em>better</em>. The deeper change you actually want is expertise: judgment baked into the person through repetition until it is no longer something they look up but something they simply are. Today's AI memory is the notebook. The model's knowledge is the expertise, and it was finalized before you ever met it. <strong>Most companies buying "AI that learns" are buying a very good notebook and being told it is expertise.</strong></p>
+
+        <h4>Enter "dreaming"</h4>
+        <p>The frontier is the attempt to close that gap, and in the last month both major labs shipped features they literally call <em>dreaming</em> — borrowed from the way a brain replays the day during sleep. The name papers over the fact that the two companies built quite different things.</p>
+        <p><strong>OpenAI's dreaming</strong> is a smarter notebook. An early version arrived in April 2025; what rolled out in early June is a rebuilt, far more capable memory architecture, reaching paying U.S. users first and free accounts over following weeks. It synthesizes your memory across many conversations without you asking, and keeps it current — revising "I'm traveling to Singapore in July" into "I went to Singapore in July 2026" once the trip is over. It could finally reach the free tier because OpenAI cut the compute to run it roughly fivefold. The accuracy gains are striking but worth caution — they're OpenAI's own internal evaluations. And a quieter finding for anyone in a regulated shop: an outside study of ChatGPT memory entries found the overwhelming majority were created by the system on its own initiative, not at the user's explicit instruction. The notebook writes itself, and you may not always know what's in it.</p>
+        <p><strong>Anthropic's dreaming</strong>, shipped a month earlier for its agent platform, aims higher. It's a scheduled process that reviews an agent's <em>past work sessions</em>, spots recurring mistakes and the workflows it keeps converging on, and rewrites its own memory to be sharper next time. In one early pilot, a legal-AI company reported task-completion rates climbing several-fold once agents could carry concrete lessons between sessions — down to specific file-format quirks and tool workarounds. This is closer to the notebook learning to take <em>better notes</em>. But — and this matters — neither one changes the model's weights. Both are still notebooks, however clever. Dreaming is the notebook getting organized, not the analyst getting wiser.</p>
+
+        <h4>Where it is actually heading</h4>
+        <p>The genuinely interesting work tries to turn experience into expertise — to write lessons back into the model itself rather than a side file. The literature even names the wall current approaches hit: "context collapse," where a notebook gets so stuffed with accumulated experience it stops being useful. The proposed escape is to <em>internalize</em> experience into the model's parameters. This is no longer fringe: Yuandong Tian, who spent a decade leading reasoning research at Meta, recently left to co-found Recursive Superintelligence, which emerged from stealth at a reported multi-billion-dollar valuation to pursue exactly this. Whether that's two years away or ten is genuinely contested. The direction of travel is not.</p>
+
+        <h4>What to actually do with this</h4>
+        <p><strong>First, stop waiting for the tools to learn your business by osmosis.</strong> They will not. Capturing institutional knowledge has to be a deliberate act — writing the notebook on purpose, not hoping the model absorbs it. <strong>Second, treat memory as the sticky asset it is.</strong> The vendor that holds the richest context on your people is the one hardest to leave; decide on purpose whether that lock-in is one you want. <strong>Third, when a vendor sells you "self-improving AI," ask the only question that matters: is this changing the model, or just the notebook?</strong> Today, almost always, it's the notebook. That's not a reason to dismiss it — a well-kept notebook is worth a great deal. It's a reason not to mistake it for the thing it's dressed up to be.</p>
+
+        <div class="source-list">
+          <strong>Sources:</strong> OpenAI and Anthropic product announcements (memory / "dreaming" features, April 2025–June 2026); independent study of ChatGPT memory-entry provenance; academic literature on "context collapse" and parameter-internalized experience; reporting on Recursive Superintelligence (Yuandong Tian). Accuracy/adoption figures are vendor-reported internal evaluations — directional.
+        </div>
+      </article>
+
+      <!-- 3. Fable / Mythos shutdown brief -->
+      <article class="link-item">
+        <div class="link-item-header">
+          <h3>Brief: U.S. Government Forces Shutdown of Claude Fable 5 &amp; Mythos 5</h3>
+          <span class="source-badge">Anthropic / Bloomberg / TIME / Semafor</span>
+          <span class="category-tag policy">Policy</span>
+        </div>
+        <p class="link-summary">On the evening of Friday, June 12, Anthropic abruptly disabled its two most powerful models — <strong>Claude Fable 5 and Claude Mythos 5</strong> — for all customers worldwide, with the shutdown carrying into early Saturday. It appears to be the first time the U.S. government has forced a publicly deployed frontier AI model offline — and it's the disruption that delayed this issue.</p>
+
+        <div class="news-brief">
+          <p><strong>What happened.</strong> Anthropic says it received an export-control directive at 5:21pm ET Friday, citing national-security authorities; a U.S. official confirmed the Commerce Department sent the letter. The order prohibits access to both models by any foreign national — inside or outside the U.S., including Anthropic's own foreign-national employees. Unable to reliably distinguish foreign nationals from domestic users in real time, the only compliant option was to shut both models off for everyone. AWS revoked access on Amazon Bedrock the same day. Both models had launched just three days earlier, on June 9; Fable 5 was Anthropic's first general release of a Mythos-class model (a tier it positions above Opus), making the takedown an abrupt reversal of a major launch.</p>
+          <p><strong>The dispute.</strong> The government's stated concern is a reported method of "jailbreaking" Fable 5. Anthropic says the directive arrived without specific technical detail and largely verbally; it reviewed a demonstration and characterized the findings as a small number of previously known, minor issues — not a novel or serious vulnerability. White House AI adviser David Sacks said the administration issued the export control reluctantly after Anthropic allegedly declined to patch the jailbreak first, and that the restriction should lift once it's fixed — "the ball is in Anthropic's court." Reporting (Semafor) indicates Amazon flagged the jailbreak, with CEO Andy Jassy in contact with the administration. Anthropic is complying but pushed back hard publicly, arguing a narrow potential jailbreak shouldn't recall a commercial model deployed to hundreds of millions, and that applying this standard industry-wide would "essentially halt all new model deployments for all frontier model providers."</p>
+          <p><strong>What's unaffected.</strong> All other Claude models — including <strong>Claude Opus 4.8</strong> — remain fully available. (Fable 5 and Mythos 5 already carried a mandatory 30-day data-retention designation as Covered Models, a control predating the shutdown.)</p>
+          <p><strong>Why it matters for us.</strong> This is a regulatory-precedent story more than a product story: frontier-model access can be revoked by executive action on short notice with limited technical disclosure — a real planning variable for any enterprise standardizing on a single frontier model or vendor. It reinforces the case for buy-vs-build optionality and vendor-resilience thinking. For now, our day-to-day tooling is unaffected; Opus 4.8 and the rest of the lineup remain available.</p>
+        </div>
+
+        <div class="source-list">
+          <strong>Sources:</strong> Anthropic official statement ("Statement on the US government directive to suspend access to Fable 5 and Mythos 5"); Bloomberg; TIME; Engadget; The Next Web; The New Stack; TechCrunch; Tom's Hardware (David Sacks remarks); Semafor; AWS Bedrock status notice. Reporting as of June 13, 2026; situation developing.
+        </div>
+      </article>
+
+    </section>
+
+    <!-- ================================ -->
+    <!-- ORG DESIGN & CHANGES, CURATED    -->
+    <!-- ================================ -->
+
+    <div class="section-divider">
+      <span class="section-label org">Org Design &amp; Changes, Curated</span>
+    </div>
+
+    <section class="org-editorial">
+      <h2>This Week's Briefings</h2>
+      <p style="font-style: italic; color: var(--color-text-muted); margin-bottom: 1rem;">Two Org stories this week: a tight, practical AI-adoption strategy, then a deep interactive briefing on AI for Enterprise Legal, Risk &amp; Compliance.</p>
+
+      <div class="reading-rec" style="background: #fef3c7; border: 1px solid #fcd34d; color: #78350f; border-radius: 8px; padding: 0.85rem 1.1rem; margin: 1.25rem 0; font-size: 0.85rem; font-style: italic;">
+        <strong style="font-style: normal;">Disclaimer:</strong> All opinions in these briefings are my own and do not represent any company's position. This is meant as an academic discussion. Firm-reported figures are company or vendor commentary, not independently audited fact.
+      </div>
+    </section>
+
+    <section class="org-article">
+
+      <h3>1 &middot; AI Adoption Strategy: Three Insights That Actually Move Usage</h3>
+      <p>The fastest way to waste an AI rollout is to treat adoption as a licensing problem. Usage moves on three things: removing the basic-skills blocker, harnessing peer-to-peer learning, and making wins visible, relevant, and bite-sized. The table below is the whole playbook — insight, the strategy it implies, and what success actually looks like in the numbers.</p>
+
+      <table class="adopt-table">
+        <thead>
+          <tr><th>#</th><th>Insight</th><th>Strategy</th><th>Success looks like</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td class="insight"><strong>The basics are the blocker.</strong> Many people don't know how to even find Copilot — and not knowing how to prompt stops them from using it at all.</td>
+            <td class="strategy"><strong>Cover the ground with bought training.</strong> AI literacy firm-wide, Copilot training, executive education, and vendor-delivered functional training — credible external content, deployed fast, so the basics are never the reason someone isn't using AI.</td>
+            <td class="success"><strong>Everyone is in the game.</strong> Foundational literacy completed firm-wide; Copilot active users grow from 1,914 (71%) to 2,156 (80%) of licensed users.</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td class="insight"><strong>Peer-to-peer is the most effective adoption mechanism.</strong> Microsoft's own research found most employees skip formal onboarding material and learn AI socially, from colleagues — not from courses or mandates.</td>
+            <td class="strategy"><strong>Identify, build, and grow AI Frontiers &amp; Champions.</strong> Give them deeper AI knowledge and tools, self-paced learning, power gather-togethers (AI Frontiers Weekly), and the role mandate and time to spread it.</td>
+            <td class="success"><strong>Usage deepens, not just spreads.</strong> Champion coverage across every major function (~50); usage intensity rises from 726 to 1,000 users active every week of the month.</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td class="insight"><strong>Adoption compounds when wins are visible, relevant, and bite-sized.</strong> A 1-minute peer demo in your own role's workflow converts more skeptics than any mandate or hour-long course.</td>
+            <td class="strategy"><strong>Viva Engage as the amplification platform — and the home of built training.</strong> 1-minute videos, real role-based use-case sharing, and function-specific training built by AI Frontiers in each function's own workflows and language.</td>
+            <td class="success"><strong>The flywheel turns.</strong> Copilot-assisted hours grow from 7,156 to 10,000/month; &ge;25 use cases logged, the best progressing into embedded practice.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout">
+        The throughline: literacy removes the excuse, champions create the social proof, and a low-friction amplification channel turns isolated wins into a flywheel. None of the three works alone — bought training without peer amplification stalls at "everyone took the course, nobody uses it," and champions without a platform stay invisible.
+      </div>
+
+      <h3 style="margin-top: 2.75rem;">2 &middot; AI for Enterprise Legal, Risk &amp; Compliance: The Dual Mandate</h3>
+      <p style="font-style: italic; color: var(--color-text-muted); margin-bottom: 1rem;">An executive briefing for the GC, CRO, CCO, CPO, Chief Audit Executive, CISO, and the board.</p>
+
+      <div class="reading-rec" style="background: var(--color-bg-alt); border: 1px solid var(--color-border); border-radius: 8px; padding: 0.85rem 1.1rem; margin: 1.25rem 0; font-size: 0.85rem; color: var(--color-text-muted);">
+        <strong style="color: var(--color-text);">Heads-up:</strong> A short TL;DR, then the interactive briefing dashboard embedded below — nine argument sections plus <strong>twelve expandable reference tables</strong>. The dashboard is the main deliverable.
+      </div>
+
+      <h4 style="font-family: var(--font-sans); font-size: 1.05rem; font-weight:700; color: var(--color-accent-org); margin-bottom:0.5rem;">TL;DR</h4>
+      <div class="tldr-block">
+        <p><strong>Legal, Risk, and Compliance carry a tension no other function does: they both adopt AI and must police everyone else's.</strong> The winners treat that dual mandate as the design principle — the same discipline that makes them effective adopters (inventory, validation, audit trails, human-in-the-loop) is exactly what the enterprise needs from them as AI's control authority. In UK financial services, 75% of firms already use AI, but only 34% claim "complete understanding" of it and just 2% run any use case fully autonomously. Adoption has outrun explanation.</p>
+
+        <p><strong>The model-risk ground shifted in April 2026.</strong> The interagency Revised Guidance (OCC 2026-13; Fed SR 26-2; FDIC FIL-15-2026) superseded SR 11-7 and SR 21-8 — and <em>expressly placed generative and agentic AI outside its scope</em>. The tools LRC worries about most now sit in a governance gap the function must close with its own frameworks, pending a forthcoming interagency RFI.</p>
+
+        <p><strong>The professional-responsibility and disclosure floor is rising fast.</strong> ABA Opinion 512, a court record of 1,547 decisions on AI-hallucinated content (more than double the 712 reported just six months earlier), and SEC AI-washing enforcement scoped to registrants and RIAs have redrawn the red lines. Verification, privilege preservation, and disclosure-committee review are now non-negotiable — and the cautionary cases (the Arup deepfake-CFO fraud; the Delphia/Global Predictions enforcement) point the same way: AI works as augmentation; ungoverned autonomy fails.</p>
+      </div>
+
+      <h4 style="font-family: var(--font-sans); font-size: 1.05rem; font-weight:700; color: var(--color-accent-org); margin: 1.5rem 0 0.5rem;">Interactive Briefing</h4>
+      <p>The dashboard below — <em>The Dual Mandate: Using AI &amp; Governing It</em> — is the full evidence layer: the thesis, the adoption-vs-understanding paradox, four levels of workflow redesign, enterprise cases, a five-level maturity model, the four-tier AI red-lines framework, the 2024–2026 regulatory timeline, and a 12–24 month plan — with twelve expandable reference tables underneath (including one with no analog in a finance dashboard: governing enterprise AI). Open it in a new tab if it loads slowly.</p>
+
+      <div class="dashboard-embed">
+        <iframe src="../dashboards/lrc-ai-mandate-dashboard.html"
+                title="The Dual Mandate — AI for Enterprise Legal, Risk &amp; Compliance"
+                loading="lazy"></iframe>
+      </div>
+      <div class="dashboard-link">
+        <span>Dashboard loading slowly?</span>
+        <a href="../dashboards/lrc-ai-mandate-dashboard.html" target="_blank" rel="noopener">Open the dashboard in a new tab &rarr;</a>
+      </div>
+
+      <div class="callout">
+        Stop measuring AI maturity by how many tools the function has adopted. Start measuring it by the question that defines the dual mandate: can you produce, on demand, a complete inventory of the enterprise's AI — including the generative and agentic systems your regulator just placed outside the model-risk perimeter — and the evidence that each is governed? By 2027, every function will have the same frontier tools. The difference will be defensibility. Using AI well and policing it well are not two jobs. They are one.
+      </div>
+
+    </section>
+
+    <!-- Issue Navigation -->
+    <nav class="issue-nav">
+      <a href="2026-06-06.html">&larr; Previous Issue</a>
+      <span></span>
+    </nav>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      &copy; 2026 AI &amp; Org, Curated. All rights reserved.
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

@@ -5,8 +5,16 @@
     <link>https://willzhengai.github.io/the-ai-brief/</link>
     <description>A curated weekly digest on AI and organizational design — where invention meets innovation meets real impact.</description>
     <language>en-us</language>
-    <lastBuildDate>Sat, 06 Jun 2026 12:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 14 Jun 2026 12:00:00 +0000</lastBuildDate>
     <atom:link href="https://willzhengai.github.io/the-ai-brief/feed.xml" rel="self" type="application/rss+xml"/>
+
+    <item>
+      <title>Issue #15: A Second Look at Codex, What Your AI Is (and Isn't) Learning From You — and a Frontier Model Forced Offline</title>
+      <link>https://willzhengai.github.io/the-ai-brief/issues/2026-06-14.html</link>
+      <guid>https://willzhengai.github.io/the-ai-brief/issues/2026-06-14.html</guid>
+      <pubDate>Sun, 14 Jun 2026 12:00:00 +0000</pubDate>
+      <description>Why Codex deserves a second look (especially if you're not a developer), what your AI is and isn't actually learning from you, and a brief on the U.S. government forcing Claude Fable 5 &amp; Mythos 5 offline — the disruption that delayed this issue. Plus two Org stories: a practical AI-adoption strategy and an interactive briefing on AI for Enterprise Legal, Risk &amp; Compliance.</description>
+    </item>
 
     <item>
       <title>Issue #14: The Token-Price Reckoning — and the Enterprise Investment Management AI Transformation</title>
