@@ -1,0 +1,1279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The CTO's AI Decision — IT in Financial Services · Executive Briefing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Open+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --topaz: #61ABBF;
+    --topaz-dark: #4A8B9F;
+    --topaz-darker: #3A6B7B;
+    --aqua: #C1E7E8;
+    --sapphire: #5F8189;
+    --sapphire-dark: #475F65;
+    --slate: #485961;
+    --onyx: #2D2D2D;
+    --diamond: #F5F5F7;
+    --stone: #E0E0E0;
+    --paper-2: #ECEDEF;
+    --paper-3: #DFE1E4;
+    --peridot: #A8D0AA;
+    --peridot-dark: #7CA67F;
+    --citrine: #FCEBA2;
+    --citrine-dark: #C9B560;
+    --amethyst: #5C5C87;
+    --amethyst-dark: #44446A;
+    --ink: var(--onyx);
+    --paper: var(--diamond);
+    --rule: #D4D6DA;
+    --rule-dim: #C5C8CD;
+    --muted: var(--slate);
+    --muted-2: #6E7A82;
+    --accent: var(--topaz-dark);
+    --accent-soft: var(--aqua);
+    --serif: 'Poppins', -apple-system, sans-serif;
+    --sans: 'Open Sans', -apple-system, sans-serif;
+    --mono: 'JetBrains Mono', 'Courier New', monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans);
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.55;
+    font-size: 15px;
+    -webkit-font-smoothing: antialiased;
+    background-image:
+      radial-gradient(circle at 15% 0%, rgba(97, 171, 191, 0.07) 0%, transparent 45%),
+      radial-gradient(circle at 85% 90%, rgba(72, 89, 97, 0.04) 0%, transparent 50%);
+    min-height: 100vh;
+  }
+  .layout { display: grid; grid-template-columns: 300px 1fr; min-height: 100vh; position: relative; z-index: 2; }
+
+  .sidebar {
+    background: var(--onyx); color: var(--diamond); padding: 36px 28px;
+    position: sticky; top: 0; height: 100vh; overflow-y: auto;
+    border-right: 1px solid #404040;
+    background-image: radial-gradient(circle at 50% 0%, rgba(97, 171, 191, 0.10) 0%, transparent 60%);
+  }
+  .sidebar::-webkit-scrollbar { width: 4px; }
+  .sidebar::-webkit-scrollbar-thumb { background: rgba(245, 245, 247, 0.15); }
+  .brand { display: flex; align-items: center; gap: 12px; padding-bottom: 22px; border-bottom: 1px solid rgba(245, 245, 247, 0.08); }
+  .brand-mark { display: flex; gap: 3px; align-items: center; }
+  .brand-mark span { display: block; width: 7px; height: 14px; }
+  .brand-mark span:nth-child(1) { background: var(--topaz); }
+  .brand-mark span:nth-child(2) { background: var(--peridot); height: 22px; }
+  .brand-mark span:nth-child(3) { background: var(--amethyst); height: 18px; }
+  .brand-text { display: flex; flex-direction: column; gap: 2px; }
+  .brand-name { font-family: var(--serif); font-weight: 600; font-size: 13px; letter-spacing: 0.02em; color: var(--diamond); line-height: 1; text-transform: uppercase; }
+  .brand-tag { font-family: var(--mono); font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--aqua); opacity: 0.7; }
+  .briefing-meta { margin: 26px 0 30px; }
+  .briefing-title-label { font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--aqua); opacity: 0.75; margin-bottom: 10px; }
+  .briefing-title { font-family: var(--serif); font-weight: 500; font-size: 20px; line-height: 1.18; color: var(--diamond); letter-spacing: -0.01em; }
+  .briefing-title em { font-style: italic; color: var(--topaz); font-weight: 500; }
+  .nav-label { font-family: var(--mono); font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: #B0B2B5; opacity: 0.55; margin: 24px 0 10px; padding-bottom: 8px; border-bottom: 1px solid rgba(245, 245, 247, 0.08); font-weight: 600; }
+  .nav-label.tables-label { color: var(--topaz); opacity: 0.95; display: flex; align-items: center; gap: 8px; }
+  .nav-label.tables-label::before { content: ''; width: 8px; height: 8px; background: var(--topaz); border-radius: 1px; display: inline-block; }
+  .nav-list { list-style: none; display: flex; flex-direction: column; gap: 1px; }
+  .nav-list a { display: flex; align-items: center; gap: 12px; padding: 6.5px 0; color: #DDDDE0; text-decoration: none; font-size: 13.5px; line-height: 1.3; transition: color 0.2s, transform 0.2s; opacity: 0.78; }
+  .nav-list a:hover { color: var(--aqua); opacity: 1; transform: translateX(3px); }
+  .nav-num { font-family: var(--mono); font-size: 10px; color: #888; min-width: 18px; letter-spacing: 0.05em; font-weight: 600; }
+  .nav-list.tables-nav a { padding: 6px 0; }
+  .nav-list.tables-nav .nav-num { color: var(--topaz); opacity: 0.9; }
+  .sidebar-footer { margin-top: 36px; padding-top: 20px; border-top: 1px solid rgba(245, 245, 247, 0.08); font-family: var(--mono); font-size: 9.5px; color: #999; opacity: 0.6; line-height: 1.7; letter-spacing: 0.06em; }
+
+  .main { padding: 0; max-width: 100%; overflow-x: hidden; }
+  .container { max-width: 1100px; padding: 0 56px; margin: 0 auto; }
+
+  .hero { padding: 88px 0 56px; border-bottom: 1px solid var(--rule); position: relative; }
+  .hero-watermark { position: absolute; top: 80px; right: -20px; width: 280px; height: 280px; opacity: 0.10; pointer-events: none; }
+  .hero-watermark svg { width: 100%; height: 100%; }
+  .hero-meta { display: flex; align-items: center; gap: 16px; margin-bottom: 32px; font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); position: relative; font-weight: 500; }
+  .hero-meta .pill { background: var(--onyx); color: var(--diamond); padding: 5px 11px; letter-spacing: 0.14em; font-weight: 600; }
+  .hero-meta .pill.accent { background: var(--topaz-dark); color: var(--diamond); }
+  .hero-title { font-family: var(--serif); font-weight: 600; font-size: clamp(40px, 5.0vw, 64px); line-height: 1.05; letter-spacing: -0.025em; margin-bottom: 28px; color: var(--onyx); position: relative; }
+  .hero-title em { font-style: italic; font-weight: 400; color: var(--topaz-darker); }
+  .hero-deck { font-family: var(--sans); font-weight: 400; font-size: 19px; line-height: 1.55; color: var(--slate); max-width: 740px; margin-bottom: 48px; position: relative; }
+  .hero-deck em { font-style: italic; color: var(--sapphire-dark); font-weight: 500; }
+  .hero-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; margin-top: 48px; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); position: relative; }
+  .hero-stat { padding: 28px 24px 28px 0; border-right: 1px solid var(--rule); position: relative; }
+  .hero-stat:last-child { border-right: none; padding-right: 0; }
+  .hero-stat:not(:first-child) { padding-left: 24px; }
+  .hero-stat::before { content: ''; position: absolute; top: 28px; left: 0; width: 3px; height: 18px; }
+  .hero-stat:nth-child(1)::before { background: var(--topaz); left: 0; }
+  .hero-stat:nth-child(2)::before { background: var(--sapphire); left: 24px; }
+  .hero-stat:nth-child(3)::before { background: var(--peridot-dark); left: 24px; }
+  .hero-stat:nth-child(4)::before { background: var(--amethyst); left: 24px; }
+  .hero-stat-num { font-family: var(--serif); font-weight: 600; font-size: 52px; line-height: 1; letter-spacing: -0.028em; color: var(--onyx); margin-bottom: 8px; margin-left: 14px; }
+  .hero-stat-num .unit { font-size: 24px; font-weight: 500; color: var(--topaz-dark); margin-left: 2px; }
+  .hero-stat-label { font-family: var(--sans); font-size: 12px; line-height: 1.45; color: var(--muted); font-weight: 500; margin-left: 14px; }
+
+  .table-callout { margin: 56px 0 16px; padding: 22px 26px; background: linear-gradient(135deg, rgba(97, 171, 191, 0.08) 0%, rgba(168, 208, 170, 0.06) 100%); border: 1px solid var(--rule); border-left: 4px solid var(--topaz-dark); display: flex; align-items: center; gap: 22px; flex-wrap: wrap; }
+  .table-callout-icon { width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; background: var(--onyx); color: var(--aqua); flex-shrink: 0; }
+  .table-callout-icon svg { width: 22px; height: 22px; }
+  .table-callout-text { flex: 1; min-width: 240px; }
+  .table-callout-title { font-family: var(--serif); font-weight: 600; font-size: 16px; color: var(--onyx); margin-bottom: 4px; letter-spacing: -0.005em; }
+  .table-callout-desc { font-size: 13px; line-height: 1.5; color: var(--muted); }
+  .table-callout-desc strong { color: var(--topaz-darker); font-weight: 600; }
+
+  .pill-nav { display: flex; flex-wrap: wrap; gap: 8px; margin: 24px 0 0; }
+  .pill-nav-item { display: inline-flex; align-items: center; gap: 8px; padding: 7px 12px 7px 8px; background: var(--paper); border: 1px solid var(--rule); border-radius: 999px; text-decoration: none; color: var(--onyx); font-family: var(--sans); font-size: 12.5px; font-weight: 500; transition: all 0.2s; }
+  .pill-nav-item:hover { border-color: var(--topaz-dark); background: var(--aqua); color: var(--topaz-darker); transform: translateY(-1px); }
+  .pill-num { background: var(--onyx); color: var(--diamond); font-family: var(--mono); font-size: 10px; padding: 3px 6px; font-weight: 600; letter-spacing: 0.05em; }
+  .pill-nav-item:hover .pill-num { background: var(--topaz-dark); }
+  .pill-text { letter-spacing: -0.005em; }
+
+  .section { padding: 72px 0; border-bottom: 1px solid var(--rule); position: relative; }
+  .section-eyebrow { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; }
+  .section-num { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; color: var(--topaz-dark); font-weight: 600; }
+  .section-divider { width: 28px; height: 1px; background: var(--topaz-dark); }
+  .section-kicker { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+  .section-title { font-family: var(--serif); font-weight: 600; font-size: 36px; line-height: 1.15; letter-spacing: -0.022em; margin-bottom: 18px; max-width: 800px; color: var(--onyx); }
+  .section-title em { font-style: italic; font-weight: 500; color: var(--topaz-darker); }
+  .section-lede { font-family: var(--sans); font-size: 17px; line-height: 1.55; color: var(--muted); max-width: 720px; margin-bottom: 44px; font-weight: 400; }
+
+  .takeaways { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--rule); border: 1px solid var(--rule); }
+  .takeaway { background: var(--paper); padding: 32px 28px; position: relative; }
+  .takeaway::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; }
+  .takeaway:nth-child(1)::before { background: var(--topaz); }
+  .takeaway:nth-child(2)::before { background: var(--sapphire); }
+  .takeaway:nth-child(3)::before { background: var(--peridot-dark); }
+  .takeaway:nth-child(4)::before { background: var(--amethyst); }
+  .takeaway-num { font-family: var(--serif); font-weight: 600; font-size: 48px; line-height: 0.85; color: var(--topaz-dark); margin-bottom: 18px; letter-spacing: -0.04em; font-style: italic; }
+  .takeaway h3 { font-family: var(--serif); font-weight: 600; font-size: 18px; line-height: 1.3; margin-bottom: 12px; letter-spacing: -0.008em; color: var(--onyx); }
+  .takeaway p { font-size: 14px; line-height: 1.6; color: var(--muted); }
+
+  .chart-block { margin: 32px 0; }
+  .chart-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 28px; padding-bottom: 18px; border-bottom: 1px solid var(--rule); }
+  .chart-title { font-family: var(--serif); font-weight: 600; font-size: 20px; letter-spacing: -0.01em; color: var(--onyx); }
+  .chart-source { font-family: var(--mono); font-size: 10.5px; color: var(--muted-2); letter-spacing: 0.08em; }
+  .funnel { display: flex; flex-direction: column; gap: 14px; }
+  .funnel-row { display: grid; grid-template-columns: 240px 1fr 100px; gap: 24px; align-items: center; }
+  .funnel-label { font-family: var(--sans); font-size: 14px; font-weight: 600; color: var(--onyx); }
+  .funnel-label small { display: block; font-weight: 400; color: var(--muted); font-size: 12px; margin-top: 3px; }
+  .funnel-bar-wrap { height: 40px; background: var(--paper-2); border: 1px solid var(--rule); position: relative; overflow: hidden; }
+  .funnel-bar { height: 100%; background: var(--slate); transform-origin: left; transition: width 1s cubic-bezier(0.16, 1, 0.3, 1); }
+  .funnel-bar.accent { background: var(--topaz-dark); }
+  .funnel-bar.dim { background: var(--muted-2); opacity: 0.5; }
+  .funnel-value { font-family: var(--serif); font-weight: 600; font-size: 20px; color: var(--onyx); text-align: right; letter-spacing: -0.022em; }
+
+  .split-numbers { display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin: 44px 0; background: var(--onyx); color: var(--diamond); position: relative; }
+  .split-numbers::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--topaz) 0%, var(--topaz) 20%, var(--sapphire) 20%, var(--sapphire) 40%, var(--peridot) 40%, var(--peridot) 60%, var(--citrine) 60%, var(--citrine) 80%, var(--amethyst) 80%, var(--amethyst) 100%); }
+  .split-num { padding: 52px 36px; position: relative; }
+  .split-num:first-child { border-right: 1px solid #404040; }
+  .split-num-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--aqua); opacity: 0.8; margin-bottom: 18px; font-weight: 600; }
+  .split-num-value { font-family: var(--serif); font-weight: 500; font-size: 88px; line-height: 0.9; letter-spacing: -0.04em; margin-bottom: 16px; color: var(--diamond); }
+  .split-num-value .pct { color: var(--aqua); font-size: 56px; }
+  .split-num-desc { font-family: var(--sans); font-size: 15.5px; line-height: 1.55; color: #DDDDE0; font-weight: 400; max-width: 380px; }
+  .split-num-desc em { color: var(--aqua); font-style: italic; }
+
+  .maturity { margin: 32px 0; }
+  .maturity-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border: 1px solid var(--rule); }
+  .maturity-step { padding: 28px 22px; border-right: 1px solid var(--rule); position: relative; background: var(--paper); min-height: 256px; display: flex; flex-direction: column; }
+  .maturity-step:last-child { border-right: none; }
+  .maturity-step::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--rule-dim); }
+  .maturity-step:nth-child(1)::before { background: var(--amethyst); }
+  .maturity-step:nth-child(2)::before { background: var(--topaz-dark); height: 3px; }
+  .maturity-step:nth-child(3)::before { background: var(--peridot-dark); }
+  .maturity-step:nth-child(4)::before { background: var(--citrine-dark); }
+  .maturity-step .level { font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; color: var(--muted); margin-bottom: 10px; font-weight: 600; }
+  .maturity-step .level-num { font-family: var(--serif); font-weight: 500; font-size: 40px; line-height: 0.9; color: var(--onyx); margin-bottom: 16px; letter-spacing: -0.04em; font-style: italic; }
+  .maturity-step.current .level-num { color: var(--topaz-dark); }
+  .maturity-step .level-title { font-family: var(--serif); font-weight: 600; font-size: 15px; line-height: 1.3; margin-bottom: 10px; color: var(--onyx); }
+  .maturity-step .level-desc { font-size: 12.5px; line-height: 1.55; color: var(--muted); flex-grow: 1; }
+  .maturity-caption { margin-top: 24px; padding: 20px 24px; background: var(--paper-2); border-left: 3px solid var(--topaz-dark); font-size: 13.5px; line-height: 1.6; color: var(--onyx); }
+  .maturity-caption strong { color: var(--onyx); font-weight: 700; }
+
+  .cases { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--rule); border: 1px solid var(--rule); margin: 32px 0; }
+  .case { background: var(--paper); padding: 32px 28px; transition: background 0.2s; position: relative; }
+  .case::before { content: ''; position: absolute; top: 0; left: 0; width: 32px; height: 2px; }
+  .case:nth-child(1)::before { background: var(--sapphire); }
+  .case:nth-child(2)::before { background: var(--amethyst); }
+  .case:nth-child(3)::before { background: var(--topaz-dark); }
+  .case:nth-child(4)::before { background: var(--peridot-dark); }
+  .case:hover { background: var(--paper-2); }
+  .case-header { display: flex; justify-content: space-between; align-items: baseline; padding-bottom: 16px; border-bottom: 1px dashed var(--rule); margin-bottom: 22px; }
+  .case-name { font-family: var(--serif); font-weight: 700; font-size: 24px; letter-spacing: -0.018em; color: var(--onyx); }
+  .case-industry { font-family: var(--mono); font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); background: var(--paper-2); padding: 4px 9px; border: 1px solid var(--rule); font-weight: 600; }
+  .case-app { font-size: 13px; color: var(--muted); margin-bottom: 22px; line-height: 1.55; }
+  .case-metrics { display: flex; flex-direction: column; gap: 12px; margin-bottom: 20px; }
+  .case-metric { display: flex; align-items: baseline; gap: 14px; padding: 9px 0; border-bottom: 1px dotted var(--rule); }
+  .case-metric:last-child { border-bottom: none; }
+  .case-metric-val { font-family: var(--serif); font-weight: 600; font-size: 22px; color: var(--topaz-dark); letter-spacing: -0.022em; min-width: 95px; flex-shrink: 0; }
+  .case-metric-desc { font-size: 12.5px; line-height: 1.5; color: var(--onyx); }
+
+  .redlines { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--rule); border: 1px solid var(--rule); margin: 32px 0; }
+  .redline { background: var(--paper); padding: 26px 22px; min-height: 160px; display: flex; flex-direction: column; }
+  .redline.prohibited { background: var(--onyx); color: var(--diamond); }
+  .redline.legal { background: var(--paper-3); }
+  .redline.enhanced { background: var(--paper-2); }
+  .redline-tier { font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid currentColor; opacity: 0.7; font-weight: 600; }
+  .redline.prohibited .redline-tier { color: var(--aqua); opacity: 1; border-color: var(--topaz); }
+  .redline-tier .tier-num { color: var(--topaz-dark); margin-right: 6px; font-weight: 700; }
+  .redline.prohibited .tier-num { color: var(--aqua); }
+  .redline h4 { font-family: var(--serif); font-weight: 600; font-size: 16px; line-height: 1.3; margin-bottom: 12px; color: var(--onyx); }
+  .redline.prohibited h4 { color: var(--diamond); }
+  .redline ul { list-style: none; font-size: 12.5px; line-height: 1.6; color: var(--muted); flex-grow: 1; }
+  .redline.prohibited ul { color: #DDDDE0; }
+  .redline li { padding: 3px 0; padding-left: 14px; position: relative; }
+  .redline li::before { content: '—'; position: absolute; left: 0; color: var(--topaz-dark); font-weight: 600; }
+  .redline.prohibited li::before { color: var(--aqua); }
+
+  .reg-timeline, .reg-list { margin: 32px 0; position: relative; }
+  .reg-item { display: grid; grid-template-columns: 120px 1fr; gap: 40px; padding: 22px 0; position: relative; }
+  .reg-date { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.1em; color: var(--muted); text-align: right; padding-top: 4px; font-weight: 500; }
+  .reg-date strong { display: block; font-family: var(--serif); font-weight: 600; font-size: 18px; color: var(--onyx); letter-spacing: -0.01em; margin-bottom: 4px; }
+  .reg-content { position: relative; padding-left: 28px; border-left: 1px solid var(--rule); }
+  .reg-content::before { content: ''; position: absolute; left: -5px; top: 6px; width: 9px; height: 9px; background: var(--topaz-dark); border-radius: 50%; border: 2px solid var(--paper); }
+  .reg-authority { display: inline-block; font-family: var(--mono); font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--topaz-darker); margin-bottom: 8px; font-weight: 700; }
+  .reg-title { font-family: var(--serif); font-weight: 600; font-size: 17px; line-height: 1.3; margin-bottom: 8px; color: var(--onyx); }
+  .reg-desc { font-size: 13px; color: var(--muted); line-height: 1.55; }
+  .reg-desc strong { color: var(--onyx); font-weight: 700; }
+
+  .roadmap { margin: 32px 0; }
+  .roadmap-phase { display: grid; grid-template-columns: 220px 1fr; gap: 48px; padding: 36px 0; border-top: 1px solid var(--rule); position: relative; }
+  .roadmap-phase:last-child { border-bottom: 1px solid var(--rule); }
+  .roadmap-phase::before { content: ''; position: absolute; top: -1px; left: 0; width: 60px; height: 2px; background: var(--topaz-dark); }
+  .roadmap-phase:nth-child(2)::before { background: var(--sapphire); }
+  .roadmap-phase:nth-child(3)::before { background: var(--peridot-dark); }
+  .roadmap-phase:nth-child(4)::before { background: var(--amethyst); }
+  .phase-meta { position: sticky; top: 24px; }
+  .phase-window { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; color: var(--topaz-dark); margin-bottom: 8px; font-weight: 700; }
+  .phase-name { font-family: var(--serif); font-weight: 500; font-style: italic; font-size: 28px; line-height: 1.05; letter-spacing: -0.018em; color: var(--onyx); }
+  .phase-actions { display: flex; flex-direction: column; gap: 16px; }
+  .action { display: grid; grid-template-columns: 36px 1fr; gap: 16px; align-items: start; }
+  .action-num { font-family: var(--serif); font-weight: 600; font-size: 18px; color: var(--topaz-dark); line-height: 1.3; padding-top: 1px; font-style: italic; }
+  .action-text strong { display: block; font-family: var(--serif); font-weight: 700; font-size: 15.5px; color: var(--onyx); margin-bottom: 4px; letter-spacing: -0.005em; }
+  .action-text { font-size: 13.5px; line-height: 1.6; color: var(--muted); }
+
+  .tables-master-section { padding: 72px 0; border-bottom: 1px solid var(--rule); background: linear-gradient(180deg, var(--paper) 0%, rgba(97, 171, 191, 0.025) 100%); }
+  .tables-master-header { margin-bottom: 36px; text-align: center; }
+  .tables-master-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--topaz-dark); margin-bottom: 16px; font-weight: 600; }
+  .tables-master-title { font-family: var(--serif); font-weight: 600; font-size: 36px; line-height: 1.15; letter-spacing: -0.022em; color: var(--onyx); margin-bottom: 14px; }
+  .tables-master-title em { font-style: italic; color: var(--topaz-darker); font-weight: 500; }
+  .tables-master-lede { font-family: var(--sans); font-size: 16px; line-height: 1.55; color: var(--muted); max-width: 620px; margin: 0 auto; }
+  .tables-actions { display: flex; justify-content: center; gap: 12px; margin: 28px 0 44px; flex-wrap: wrap; }
+  .tables-action-btn { font-family: var(--sans); font-size: 12.5px; font-weight: 600; padding: 9px 16px; background: var(--onyx); color: var(--diamond); border: none; cursor: pointer; letter-spacing: 0.02em; transition: all 0.2s; display: inline-flex; align-items: center; gap: 8px; }
+  .tables-action-btn:hover { background: var(--topaz-dark); transform: translateY(-1px); }
+  .tables-action-btn.secondary { background: var(--paper); color: var(--onyx); border: 1px solid var(--rule); }
+  .tables-action-btn.secondary:hover { background: var(--aqua); border-color: var(--topaz-dark); color: var(--topaz-darker); }
+  .tables-action-btn svg { width: 14px; height: 14px; }
+
+  .expandable { margin-bottom: 12px; background: var(--paper); border: 1px solid var(--rule); transition: border-color 0.2s, box-shadow 0.2s; overflow: hidden; }
+  .expandable:hover { border-color: var(--topaz-dark); }
+  .expandable.open { border-color: var(--topaz-dark); box-shadow: 0 4px 24px rgba(45, 45, 45, 0.08); }
+  .expandable.featured { border-color: var(--topaz-dark); border-width: 2px; background: linear-gradient(180deg, rgba(193, 231, 232, 0.12) 0%, var(--paper) 60%); }
+  .exp-trigger { width: 100%; padding: 20px 24px; background: transparent; border: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 20px; text-align: left; font-family: inherit; transition: background 0.2s; position: relative; }
+  .exp-trigger::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--topaz-dark); transform: scaleY(0); transform-origin: center; transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
+  .expandable.open .exp-trigger::before { transform: scaleY(1); }
+  .exp-trigger:hover { background: rgba(97, 171, 191, 0.05); }
+  .exp-left { display: flex; align-items: center; gap: 20px; flex: 1; min-width: 0; }
+  .exp-num { font-family: var(--serif); font-weight: 500; font-style: italic; font-size: 28px; color: var(--topaz-dark); line-height: 1; letter-spacing: -0.02em; flex-shrink: 0; width: 44px; }
+  .exp-meta { flex: 1; min-width: 0; }
+  .exp-kicker { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted-2); margin-bottom: 4px; font-weight: 600; }
+  .exp-title { font-family: var(--serif); font-weight: 600; font-size: 18px; line-height: 1.3; color: var(--onyx); letter-spacing: -0.01em; margin-bottom: 4px; }
+  .exp-sub { font-family: var(--mono); font-size: 11px; color: var(--muted); letter-spacing: 0.04em; }
+  .exp-right { display: flex; align-items: center; gap: 14px; flex-shrink: 0; }
+  .exp-pill { font-family: var(--mono); font-size: 10px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; padding: 4px 9px; background: var(--paper-2); color: var(--muted); border: 1px solid var(--rule); transition: all 0.2s; }
+  .expandable.open .exp-pill { background: var(--topaz-dark); color: var(--diamond); border-color: var(--topaz-dark); }
+  .exp-chevron { color: var(--muted); transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s; }
+  .expandable.open .exp-chevron { transform: rotate(180deg); color: var(--topaz-dark); }
+  .exp-body { max-height: 0; overflow: hidden; transition: max-height 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
+  .expandable.open .exp-body { max-height: 6000px; }
+  .exp-lede { font-family: var(--sans); font-size: 14px; line-height: 1.6; color: var(--muted); padding: 0 24px 20px; border-bottom: 1px solid var(--rule); margin: 0; }
+  .exp-table-wrap { overflow-x: auto; max-width: 100%; }
+  .exp-table-wrap::-webkit-scrollbar { height: 8px; }
+  .exp-table-wrap::-webkit-scrollbar-thumb { background: var(--rule-dim); }
+  .exp-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .exp-table thead { background: var(--onyx); color: var(--diamond); position: sticky; top: 0; }
+  .exp-table th { font-family: var(--serif); font-weight: 600; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; padding: 14px 16px; text-align: left; border-right: 1px solid #404040; white-space: nowrap; vertical-align: bottom; }
+  .exp-table th:last-child { border-right: none; }
+  .exp-table td { padding: 14px 16px; border-bottom: 1px solid var(--rule); border-right: 1px solid var(--rule); vertical-align: top; line-height: 1.5; color: var(--onyx); min-width: 140px; }
+  .exp-table td:last-child { border-right: none; }
+  .exp-table td:first-child { font-weight: 600; color: var(--onyx); background: rgba(193, 231, 232, 0.15); min-width: 160px; }
+  .exp-table tbody tr:hover td { background: rgba(97, 171, 191, 0.05); }
+  .exp-table .cite { font-family: var(--mono); font-size: 9px; color: var(--topaz-dark); }
+
+  .final { padding: 88px 0 96px; background: var(--onyx); color: var(--diamond); margin: 0 -56px; padding-left: 56px; padding-right: 56px; position: relative; overflow: hidden; }
+  .final::before { content: ''; position: absolute; inset: 0; background-image: radial-gradient(circle at 75% 30%, rgba(97, 171, 191, 0.18) 0%, transparent 50%), radial-gradient(circle at 20% 70%, rgba(168, 208, 170, 0.10) 0%, transparent 50%); pointer-events: none; }
+  .final-gem { position: absolute; top: 80px; right: -60px; width: 280px; height: 280px; opacity: 0.10; pointer-events: none; }
+  .final-gem svg { width: 100%; height: 100%; }
+  .final-inner { max-width: 820px; margin: 0 auto; position: relative; }
+  .final-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--aqua); margin-bottom: 28px; padding-bottom: 18px; border-bottom: 1px solid rgba(245, 245, 247, 0.15); font-weight: 600; }
+  .final-title { font-family: var(--serif); font-weight: 500; font-size: 42px; line-height: 1.12; letter-spacing: -0.022em; margin-bottom: 36px; color: var(--diamond); }
+  .final-title em { font-style: italic; color: var(--aqua); font-weight: 500; }
+  .final p { font-family: var(--sans); font-weight: 400; font-size: 18px; line-height: 1.65; color: #DDDDE0; margin-bottom: 22px; }
+  .final p strong { color: var(--diamond); font-weight: 700; }
+  .final-sig { margin-top: 52px; padding-top: 28px; border-top: 1px solid rgba(245, 245, 247, 0.15); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+  .final-sig-left { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.18em; text-transform: uppercase; color: #999; opacity: 0.7; font-weight: 500; }
+  .final-sig-brand { display: flex; align-items: center; gap: 12px; }
+  .final-sig-brand .brand-mark span { background: rgba(193, 231, 232, 0.8); }
+  .final-sig-brand .brand-mark span:nth-child(2) { background: var(--peridot); }
+  .final-sig-brand .brand-mark span:nth-child(3) { background: var(--amethyst); }
+
+  @media (max-width: 1100px) {
+    .layout { grid-template-columns: 1fr; }
+    .sidebar { position: relative; height: auto; padding: 28px 32px; }
+    .container { padding: 0 36px; }
+    .takeaways, .cases, .redlines, .maturity-grid { grid-template-columns: 1fr 1fr; }
+    .hero-stats { grid-template-columns: 1fr 1fr; }
+    .hero-stat { border-right: none; border-bottom: 1px solid var(--rule); padding: 24px 0; }
+    .hero-stat:nth-child(odd) { padding-right: 20px; border-right: 1px solid var(--rule); padding-left: 0; }
+    .hero-stat:nth-child(odd)::before { left: 0 !important; }
+    .hero-stat:nth-child(even) { padding-left: 20px; }
+    .hero-stat:nth-child(even)::before { left: 20px !important; }
+    .roadmap-phase { grid-template-columns: 1fr; gap: 16px; }
+    .phase-meta { position: relative; }
+    .final { margin: 0 -36px; padding-left: 36px; padding-right: 36px; }
+    .hero-watermark { display: none; }
+    .exp-num { font-size: 22px; width: 36px; }
+    .exp-title { font-size: 16px; }
+  }
+  @media (max-width: 680px) {
+    .container { padding: 0 20px; }
+    .takeaways, .cases, .redlines, .maturity-grid { grid-template-columns: 1fr; }
+    .hero-stats { grid-template-columns: 1fr; }
+    .hero-stat { border-right: none !important; padding: 20px 0 !important; }
+    .hero-stat::before { left: 0 !important; }
+    .hero-stat-num, .hero-stat-label { margin-left: 14px; }
+    .funnel-row { grid-template-columns: 1fr; gap: 8px; }
+    .funnel-value { text-align: left; }
+    .section-title { font-size: 28px; }
+    .final-title { font-size: 28px; }
+    .final { margin: 0 -20px; padding-left: 20px; padding-right: 20px; }
+    .split-numbers { grid-template-columns: 1fr; }
+    .split-num { padding: 36px 24px; }
+    .split-num-value { font-size: 60px; }
+    .exp-trigger { padding: 16px; }
+    .exp-left { gap: 14px; }
+    .exp-right { gap: 8px; }
+    .exp-pill { display: none; }
+    .tables-master-title { font-size: 28px; }
+    .reg-item { grid-template-columns: 1fr; gap: 8px; }
+    .reg-date { text-align: left; }
+  }
+  .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+
+  .advisor-fig { margin: 30px 0 8px; padding: 26px 28px 20px; background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; box-shadow: 0 1px 3px rgba(45,45,45,0.04); }
+  .advisor-fig-cap { font-family: var(--serif); font-weight: 600; font-size: 16px; color: var(--onyx); margin-bottom: 18px; padding-bottom: 12px; border-bottom: 1px solid var(--rule); }
+  .advisor-fig svg { width: 100%; height: auto; display: block; }
+  .advisor-fig-src { font-family: var(--sans); font-size: 12.5px; color: var(--muted-2); line-height: 1.5; margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--rule); }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="bars-big" viewBox="0 0 320 320">
+      <g>
+        <rect x="30" y="160" width="40" height="100" fill="#61ABBF"/>
+        <rect x="80" y="110" width="40" height="150" fill="#A8D0AA"/>
+        <rect x="130" y="60" width="40" height="200" fill="#5C5C87"/>
+        <rect x="180" y="100" width="40" height="160" fill="#5F8189"/>
+        <rect x="230" y="140" width="40" height="120" fill="#485961"/>
+      </g>
+    </symbol>
+  </defs>
+</svg>
+
+<div class="layout">
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-mark"><span></span><span></span><span></span></div>
+      <div class="brand-text">
+        <div class="brand-name">Insights</div>
+        <div class="brand-tag">Vol. III · 2026</div>
+      </div>
+    </div>
+    <div class="briefing-meta">
+      <div class="briefing-title-label">Executive Briefing</div>
+      <div class="briefing-title">The CTO's AI Decision: <em>IT in Financial Services</em></div>
+    </div>
+    <div class="nav-label">The Argument</div>
+    <ul class="nav-list">
+      <li><a href="#thesis"><span class="nav-num">01</span><span>The thesis</span></a></li>
+      <li><a href="#context"><span class="nav-num">02</span><span>Adoption &amp; context</span></a></li>
+      <li><a href="#operating"><span class="nav-num">03</span><span>Operating model</span></a></li>
+      <li><a href="#data-ai"><span class="nav-num">04</span><span>Data &amp; AI function</span></a></li>
+    </ul>
+    <div class="nav-label">The Function</div>
+    <ul class="nav-list">
+      <li><a href="#io"><span class="nav-num">05</span><span>Infrastructure &amp; Ops</span></a></li>
+      <li><a href="#cyber"><span class="nav-num">06</span><span>Cybersecurity</span></a></li>
+      <li><a href="#wealthtech"><span class="nav-num">07</span><span>WealthTech &amp; capacity</span></a></li>
+    </ul>
+    <div class="nav-label">The Risks &amp; Decision</div>
+    <ul class="nav-list">
+      <li><a href="#redlines"><span class="nav-num">08</span><span>AI red lines</span></a></li>
+      <li><a href="#regulatory"><span class="nav-num">09</span><span>Regulatory floor</span></a></li>
+      <li><a href="#maturity"><span class="nav-num">10</span><span>Maturity model</span></a></li>
+      <li><a href="#roadmap"><span class="nav-num">11</span><span>12–24 month plan</span></a></li>
+      <li><a href="#sowhat"><span class="nav-num">12</span><span>So what</span></a></li>
+    </ul>
+    <div class="nav-label tables-label">Reference Tables</div>
+    <ul class="nav-list tables-nav">
+      <li><a href="#tbl-usecases"><span class="nav-num">01</span><span>Use-Case Map</span></a></li>
+      <li><a href="#tbl-operating"><span class="nav-num">02</span><span>Operating Model</span></a></li>
+      <li><a href="#tbl-data"><span class="nav-num">03</span><span>Data Function</span></a></li>
+      <li><a href="#tbl-aifunc"><span class="nav-num">04</span><span>AI Operating Model</span></a></li>
+      <li><a href="#tbl-io"><span class="nav-num">05</span><span>I&amp;O Workflows</span></a></li>
+      <li><a href="#tbl-vendor"><span class="nav-num">06</span><span>Vendor Risk</span></a></li>
+      <li><a href="#tbl-cyber"><span class="nav-num">07</span><span>Cyber Controls</span></a></li>
+      <li><a href="#tbl-wealthtech"><span class="nav-num">08</span><span>WealthTech</span></a></li>
+      <li><a href="#tbl-corp"><span class="nav-num">09</span><span>Corp Systems &amp; Martech</span></a></li>
+      <li><a href="#tbl-legal"><span class="nav-num">10</span><span>Regulatory</span></a></li>
+      <li><a href="#tbl-redlines"><span class="nav-num">11</span><span>Red Lines</span></a></li>
+      <li><a href="#tbl-cases"><span class="nav-num">12</span><span>Case Studies</span></a></li>
+      <li><a href="#tbl-governance"><span class="nav-num">13</span><span>Governance</span></a></li>
+      <li><a href="#tbl-vendors"><span class="nav-num">14</span><span>Advisor Desktops</span></a></li>
+    </ul>
+  </aside>
+
+  <main class="main">
+    <div class="container">
+      <section class="hero">
+        <div class="hero-watermark"><svg><use href="#bars-big"/></svg></div>
+        <div class="hero-meta">
+          <span class="pill accent">2026 Outlook</span>
+          <span>AI Transformation of the IT Function in Financial Services</span>
+        </div>
+        <h1 class="hero-title">From productivity tools<br>to <em>operating-model</em><br>reinvention.</h1>
+        <p class="hero-deck">
+          Generative and agentic AI now sit on top of an IT function that regulators already supervise tightly. The question is no longer whether AI can accelerate a developer or summarize a ticket, but whether IT can redesign its workflows, operating model, and controls — and serve as the safe backbone for the <em>whole enterprise's</em> AI adoption. The evidence from 2024–2026 is that a minority of firms are achieving genuine redesign while most remain in a productivity-tool phase.
+        </p>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <div class="hero-stat-num">26<span class="unit">%</span></div>
+            <div class="hero-stat-label">of FS firms run AI in full production today; 65% expect to within 12 months (KPMG, 2026)</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num">27<span class="unit">–36%</span></div>
+            <div class="hero-stat-label">IT had the largest jump in AI use of any function in six months (McKinsey)</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num">~100<span class="unit">k</span></div>
+            <div class="hero-stat-label">U.S. advisor shortfall by 2034 — the capacity driver behind WealthTech AI (McKinsey)</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num">230</div>
+            <div class="hero-stat-label">control objectives in the new Treasury/CRI Financial Services AI RMF (Feb 2026)</div>
+          </div>
+        </div>
+        <div class="table-callout">
+          <div class="table-callout-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="1"/>
+              <line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/>
+              <line x1="9" y1="3" x2="9" y2="21"/><line x1="15" y1="3" x2="15" y2="21"/>
+            </svg>
+          </div>
+          <div class="table-callout-text">
+            <div class="table-callout-title">14 reference tables · expandable below</div>
+            <div class="table-callout-desc">
+              Every analytical table from the underlying research report is available below as a <strong>click-to-expand</strong> data view. The <strong>AI use-case map opens by default</strong>; the rest are closed to keep the briefing scannable. Use <strong>Expand all</strong> to open everything at once.
+            </div>
+          </div>
+        </div>
+        <div class="pill-nav">
+          <a href="#tbl-usecases" class="pill-nav-item"><span class="pill-num">01</span><span class="pill-text">Use-Case Map</span></a>
+          <a href="#tbl-operating" class="pill-nav-item"><span class="pill-num">02</span><span class="pill-text">Operating Model</span></a>
+          <a href="#tbl-data" class="pill-nav-item"><span class="pill-num">03</span><span class="pill-text">Data Function</span></a>
+          <a href="#tbl-aifunc" class="pill-nav-item"><span class="pill-num">04</span><span class="pill-text">AI Operating Model</span></a>
+          <a href="#tbl-io" class="pill-nav-item"><span class="pill-num">05</span><span class="pill-text">I&amp;O Workflows</span></a>
+          <a href="#tbl-vendor" class="pill-nav-item"><span class="pill-num">06</span><span class="pill-text">Vendor Risk</span></a>
+          <a href="#tbl-cyber" class="pill-nav-item"><span class="pill-num">07</span><span class="pill-text">Cyber Controls</span></a>
+          <a href="#tbl-wealthtech" class="pill-nav-item"><span class="pill-num">08</span><span class="pill-text">WealthTech</span></a>
+          <a href="#tbl-corp" class="pill-nav-item"><span class="pill-num">09</span><span class="pill-text">Corp &amp; Martech</span></a>
+          <a href="#tbl-legal" class="pill-nav-item"><span class="pill-num">10</span><span class="pill-text">Regulatory</span></a>
+          <a href="#tbl-redlines" class="pill-nav-item"><span class="pill-num">11</span><span class="pill-text">Red Lines</span></a>
+          <a href="#tbl-cases" class="pill-nav-item"><span class="pill-num">12</span><span class="pill-text">Case Studies</span></a>
+          <a href="#tbl-governance" class="pill-nav-item"><span class="pill-num">13</span><span class="pill-text">Governance</span></a>
+          <a href="#tbl-vendors" class="pill-nav-item"><span class="pill-num">14</span><span class="pill-text">Advisor Desktops</span></a>
+        </div>
+      </section>
+
+      <section class="section" id="thesis">
+        <div class="section-eyebrow"><span class="section-num">01</span><span class="section-divider"></span><span class="section-kicker">The Thesis</span></div>
+        <h2 class="section-title">Three positions this report defends.</h2>
+        <p class="section-lede">IT functions treating AI as a productivity overlay capture some cost benefit but no durable advantage. The functions pulling ahead redesign the work — and in financial services the regulatory floor is rising fast, with a sector-specific control framework now in force.</p>
+        <div class="takeaways reveal">
+          <div class="takeaway">
+            <div class="takeaway-num">i.</div>
+            <h3>IT plays two roles at once.</h3>
+            <p>It is both an <em>adopter</em> of AI inside its own work and the <em>backbone</em> that lets every other function adopt AI safely — supplying the data platforms, identity, model governance, and security controls. A firm whose IT house is not in order cannot govern AI elsewhere.</p>
+          </div>
+          <div class="takeaway">
+            <div class="takeaway-num">ii.</div>
+            <h3>Reshape, don't replace.</h3>
+            <p>The strongest results — JPMorgan's LLM Suite, Morgan Stanley's AI@MS Assistant, Bank of America's Erica, Citi's developer rollout, Goldman's coding platform — frame AI as augmentation. Klarna's customer-service reversal is the cautionary counter-example.</p>
+          </div>
+          <div class="takeaway">
+            <div class="takeaway-num">iii.</div>
+            <h3>The regulatory floor moved in 2025–26.</h3>
+            <p>The Treasury/CRI Financial Services AI RMF (230 controls), the NYDFS third-party-provider letter, amended Reg S-P, and SR 11-7 applied to LLMs have redrawn the lines. Most firms have not yet updated their controls to match.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="context">
+        <div class="section-eyebrow"><span class="section-num">02</span><span class="section-divider"></span><span class="section-kicker">Adoption &amp; Context</span></div>
+        <h2 class="section-title">A vanguard, a middle, and a long tail.</h2>
+        <p class="section-lede">Adoption is stratified. A small vanguard of global banks and asset managers has moved beyond pilots to enterprise scale; an expanding middle tier is hardening governance and data; a long tail consumes AI through vendors. The binding constraint everywhere is data quality, not models.</p>
+        <div class="chart-block reveal">
+          <div class="chart-header">
+            <div class="chart-title">Where the production maturity is</div>
+            <div class="chart-source">Report §2.5 · highest-maturity IT use cases</div>
+          </div>
+          <div class="funnel">
+            <div class="funnel-row"><div class="funnel-label">Software engineering &amp; developer productivity<small>Goldman ~20% productivity, 15% fewer bugs; BofA, Citi comparable</small></div><div class="funnel-bar-wrap"><div class="funnel-bar accent" style="width:92%"></div></div><div class="funnel-value">Scaled</div></div>
+            <div class="funnel-row"><div class="funnel-label">Service desk &amp; IT operations<small>Tier-0 self-service, triage, knowledge generation</small></div><div class="funnel-bar-wrap"><div class="funnel-bar" style="width:84%"></div></div><div class="funnel-value">Scaled</div></div>
+            <div class="funnel-row"><div class="funnel-label">Cybersecurity SOC &amp; fraud<small>AI-assisted triage, anomaly detection</small></div><div class="funnel-bar-wrap"><div class="funnel-bar" style="width:78%"></div></div><div class="funnel-value">Scaled</div></div>
+            <div class="funnel-row"><div class="funnel-label">Document &amp; knowledge work<small>copilots, meeting summaries, contract review</small></div><div class="funnel-bar-wrap"><div class="funnel-bar dim" style="width:70%"></div></div><div class="funnel-value">Scaling</div></div>
+            <div class="funnel-row"><div class="funnel-label">Agentic / autonomous operations<small>controlled pilots; new governance required</small></div><div class="funnel-bar-wrap"><div class="funnel-bar dim" style="width:30%"></div></div><div class="funnel-value">Emerging</div></div>
+          </div>
+        </div>
+        <p class="section-lede" style="margin-top:28px">Global institutions with dedicated AI teams and enterprise data infrastructure — JPMorgan, Goldman, Morgan Stanley, BlackRock, Bank of America, Citi — operate in a different category from mid-market firms, which navigate the same transformation with limited governance bandwidth and greater dependence on WealthTech and SaaS vendors. For PE-backed consolidators the integration challenge compounds the adoption challenge: each acquired firm brings different data standards, and AI applied to inconsistent data introduces model risk.</p>
+      </section>
+
+      <section class="section" id="operating">
+        <div class="section-eyebrow"><span class="section-num">03</span><span class="section-divider"></span><span class="section-kicker">Operating Model</span></div>
+        <h2 class="section-title">Centrally-led, federated delivery.</h2>
+        <p class="section-lede">The resolution most large institutions are converging on is a centrally-led hub-and-spoke: a central platform and governance core paired with federated delivery inside the lines of business. The center owns the AI platform, foundation-model contracts, the evaluation harness, retrieval and prompt patterns, the model inventory, and the standards; the spokes own use-case selection and business integration.</p>
+        <div class="takeaways reveal">
+          <div class="takeaway"><div class="takeaway-num">01</div><h3>Fit the model to scale.</h3><p>For a global bank, a centrally-led platform with federated business AI and an "AI control tower." For a super-regional, a centralized center of excellence. For an RIA or PE-backed consolidator, a lean central AI lead standardizing on a small portfolio of vendor AI, backed by an enterprise acceptable-use policy and an AI inventory.</p></div>
+          <div class="takeaway"><div class="takeaway-num">02</div><h3>Shadow AI is an operating-model choice.</h3><p>Prevention is not merely a policy: the approved-tool pathway has to be genuinely easier to use than the unapproved one, or employees route around it.</p></div>
+          <div class="takeaway"><div class="takeaway-num">03</div><h3>Protect the skills that matter.</h3><p>Let AI absorb basic troubleshooting, password resets, and routine documentation — but actively protect root-cause analysis, compliance interpretation, and knowledge curation from atrophy. 32% of CTOs already report overdependence on AI for decision-making.</p></div>
+        </div>
+      </section>
+
+      <section class="section" id="data-ai">
+        <div class="section-eyebrow"><span class="section-num">04</span><span class="section-divider"></span><span class="section-kicker">Data &amp; AI Function</span></div>
+        <h2 class="section-title">Data is the binding constraint.</h2>
+        <p class="section-lede">The structural change is the move from centralized reporting teams to federated data-product squads on a shared platform. Each squad owns a domain — client, portfolio, advisor, custodian, CRM, planning, market, HR, finance, vendor, or operational data — accountable for data contracts, service levels, quality metrics, and lineage. AI multiplies data quality rather than substituting for it: poor data produces confident, well-documented, poorly grounded output at scale.</p>
+        <div class="split-numbers reveal">
+          <div class="split-num">
+            <div class="split-num-label">What governance frameworks cannot fix</div>
+            <div class="split-num-value">3</div>
+            <div class="split-num-desc">Failure modes survive even a fully populated control matrix: ungoverned data; the human-in-the-loop illusion (a reviewer with neither time nor information to overrule the model); and measuring whether controls <em>exist</em> rather than whether AI delivers value. Frameworks are necessary, not sufficient.</div>
+          </div>
+          <div class="split-num">
+            <div class="split-num-label">New attack surface</div>
+            <div class="split-num-value">RAG</div>
+            <div class="split-num-desc">Vector and embedding pipelines create new attack surfaces that traditional controls miss (OWASP LLM08) — a reason the AI function and security must co-own retrieval governance, entitlement-aware retrieval, and embedding-store integrity.</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="io">
+        <div class="section-eyebrow"><span class="section-num">05</span><span class="section-divider"></span><span class="section-kicker">Infrastructure &amp; Operations</span></div>
+        <h2 class="section-title">Bounded autonomy, audited everywhere.</h2>
+        <p class="section-lede">AI's operational value is most concrete in I&amp;O — anomaly detection, capacity forecasting, root-cause analysis, remediation drafting, cloud-cost optimization — and its autonomy risk most acute. The governing principle for autonomous action is <em>blast radius</em>: reversible, low-impact actions are reasonable to automate with logging; anything touching production data, security controls, or customer-facing services requires human approval through documented change management.</p>
+        <div class="cases reveal">
+          <div class="case">
+            <div class="case-header"><div class="case-name">Service desk</div><div class="case-industry">Scaled</div></div>
+            <p class="case-app">Tier-0 self-service · ticket triage · knowledge-article generation. ServiceNow's Now Assist requires a documented reason when a human overrides an AI recommendation — an audit trail supporting regulatory review.</p>
+            <div class="case-metrics">
+              <div class="case-metric"><div class="case-metric-val">~50%</div><div class="case-metric-desc">service-desk call reduction at Bank of America via Erica for Employees</div></div>
+              <div class="case-metric"><div class="case-metric-val">&gt;90%</div><div class="case-metric-desc">of BofA teammates use Erica for Employees</div></div>
+            </div>
+          </div>
+          <div class="case">
+            <div class="case-header"><div class="case-name">Vendor &amp; third-party risk</div><div class="case-industry">Hardening</div></div>
+            <p class="case-app">The NYDFS October 2025 third-party-service-provider letter names cloud, AI, and FinTech vendors explicitly: lifecycle due diligence, contractual protections, monitoring, and non-delegation of Part 500 compliance. Consuming vendor-embedded AI concentrates risk rather than transferring it.</p>
+            <div class="case-metrics">
+              <div class="case-metric"><div class="case-metric-val">~300</div><div class="case-metric-desc">banks briefly offline in the C-Edge vendor-incident cascade — the fourth-party risk example</div></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="cyber">
+        <div class="section-eyebrow"><span class="section-num">06</span><span class="section-divider"></span><span class="section-kicker">Cybersecurity</span></div>
+        <h2 class="section-title">AI versus AI.</h2>
+        <p class="section-lede">AI strengthens SOC triage, anomaly detection, and phishing analysis — while attackers weaponize the same tools for deepfakes and business-email compromise. The OWASP LLM Top 10 (prompt injection, excessive agency, training-data and embedding poisoning) defines the new control surface, and NYDFS warns that some multifactor methods are vulnerable to deepfakes, recommending liveness detection and out-of-band verification for payments and approvals.</p>
+        <div class="takeaways reveal">
+          <div class="takeaway"><div class="takeaway-num">—</div><h3>Human-in-the-loop on suppression.</h3><p>Automation bias is the risk in SOC triage: a model that suppresses a novel attack is more dangerous than one that floods the queue. Sample and review suppressed alerts.</p></div>
+          <div class="takeaway"><div class="takeaway-num">—</div><h3>Out-of-band for money movement.</h3><p>Deepfake voice and video impersonation of executives is now a live fraud vector; payment and approval flows need verification that does not depend on the channel being spoofed.</p></div>
+          <div class="takeaway"><div class="takeaway-num">—</div><h3>Govern non-human identity.</h3><p>Agents acquire credentials and act. Least privilege, action logging, and approval gates for agentic actions (LLM06 excessive agency) move from nice-to-have to baseline.</p></div>
+        </div>
+      </section>
+
+      <section class="section" id="wealthtech">
+        <div class="section-eyebrow"><span class="section-num">07</span><span class="section-divider"></span><span class="section-kicker">WealthTech &amp; Capacity</span></div>
+        <h2 class="section-title">From productivity to <em>capacity</em>.</h2>
+        <p class="section-lede">The most important reframing for a wealth-management CTO is to stop optimizing advisor <em>productivity</em> and start increasing advisor <em>capacity</em> — the number of clients an advisor can serve well — because the binding constraint is demographic, not technological. AI's value in wealth is not a cost-optimization story but a capacity story: it decouples revenue growth from advisor headcount.</p>
+        <div class="split-numbers reveal">
+          <div class="split-num">
+            <div class="split-num-label">Advisor shortfall by 2034</div>
+            <div class="split-num-value">~100<span class="pct">k</span></div>
+            <div class="split-num-desc">McKinsey estimates a 90,000–110,000 advisor shortage (30–37% of current headcount) at today's productivity. About 110,000 advisors — 38% of the total, 42% of industry assets — are expected to retire within the decade, against a workforce that grew only ~0.3%/year over the prior ten.</div>
+          </div>
+          <div class="split-num">
+            <div class="split-num-label">Hybrid engagement by 2029</div>
+            <div class="split-num-value">90<span class="pct">%</span></div>
+            <div class="split-num-desc">Gartner predicts 90% of wealth-management firms will have deployed some form of hybrid human-and-digital engagement platform, up from under a third in 2025 <em>(Gartner prediction)</em>. The same capacity math applies: hybrid models let a stable advisor base serve more clients.</div>
+          </div>
+        </div>
+        <div class="cases reveal">
+          <div class="case">
+            <div class="case-header"><div class="case-name">Morgan Stanley</div><div class="case-industry">Global wealth</div></div>
+            <p class="case-app">AI@MS Assistant · Debrief (meeting summaries with consent, written back to CRM) · AskResearchGPT.</p>
+            <div class="case-metrics">
+              <div class="case-metric"><div class="case-metric-val">&gt;98%</div><div class="case-metric-desc">of advisor teams use the AI@MS Assistant</div></div>
+              <div class="case-metric"><div class="case-metric-val">20–80%</div><div class="case-metric-desc">document-retrieval coverage shift</div></div>
+            </div>
+          </div>
+          <div class="case">
+            <div class="case-header"><div class="case-name">JPMorgan</div><div class="case-industry">Megabank</div></div>
+            <p class="case-app">LLM Suite · Connect Coach · "Ask David" multiagent investment research (supervisor agent orchestrating structured-data, RAG, and analytics sub-agents, with human-in-the-loop).</p>
+            <div class="case-metrics">
+              <div class="case-metric"><div class="case-metric-val">200k+</div><div class="case-metric-desc">employees reached by LLM Suite; ~4 hrs/week saved (150k+ daily users)</div></div>
+              <div class="case-metric"><div class="case-metric-val">$1–2B</div><div class="case-metric-desc">annual AI value cited by Daniel Pinto (mid-2024 estimate later raised toward $2B)</div></div>
+            </div>
+          </div>
+          <div class="case">
+            <div class="case-header"><div class="case-name">UBS</div><div class="case-industry">Global wealth</div></div>
+            <p class="case-app">UBS Red — two Azure-based domain-specific advisor assistants. Illustrates the shift toward domain-specific language models (DSLMs); Gartner predicts ~50% of WM GenAI models will be domain-specific by end-2027 <em>(Gartner prediction)</em>.</p>
+            <div class="case-metrics">
+              <div class="case-metric"><div class="case-metric-val">~30k</div><div class="case-metric-desc">client advisors reached</div></div>
+              <div class="case-metric"><div class="case-metric-val">60k+</div><div class="case-metric-desc">investment/product documents in the queryable base</div></div>
+            </div>
+          </div>
+        </div>
+        <p class="section-lede" style="margin-top:28px">The architectural destination is the <strong>all-in-one advisor desktop</strong> — CRM, onboarding, 360-degree view, planning, portfolio management, order generation, and client communication unified behind one experience. Gartner counts 50+ vendors (Table 14) and predicts 70%+ adoption by 2029 <em>(Gartner prediction)</em>. For a CTO the platform choice increasingly determines which AI features advisors get and on whose release cadence — so the vendor's AI roadmap becomes a governance input, and the firm's leverage lies in the integration layer and the data it controls.</p>
+
+        <figure class="advisor-fig reveal">
+          <figcaption class="advisor-fig-cap">All-in-one advisor desktop platform capabilities</figcaption>
+          <svg viewBox="0 0 1000 760" role="img" aria-label="All-in-one advisor desktop platform capabilities" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <style>
+                .fig-band-label{font-family:'Poppins',sans-serif;font-weight:600;font-size:19px;fill:#2D2D2D;}
+                .fig-label{font-family:'Open Sans',sans-serif;font-size:15px;fill:#485961;}
+                .fig-span{font-family:'Open Sans',sans-serif;font-size:15px;fill:#6E7A82;}
+                .fig-api{font-family:'JetBrains Mono',monospace;font-size:13px;fill:#6E7A82;letter-spacing:0.04em;}
+                .ic{fill:none;stroke:#4A8B9F;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;}
+                .ic-f{fill:#4A8B9F;}
+              </style>
+            </defs>
+            <rect x="60" y="40" width="700" height="150" rx="4" fill="none" stroke="#4A8B9F" stroke-width="2"/>
+            <rect x="60" y="40" width="700" height="34" rx="4" fill="#ECEDEF"/>
+            <rect x="60" y="58" width="700" height="16" fill="#ECEDEF"/>
+            <text x="78" y="63" class="fig-band-label">Multichannel</text>
+            <g transform="translate(135,96)"><rect class="ic" x="0" y="0" width="34" height="46" rx="4"/><circle class="ic-f" cx="17" cy="38" r="2"/></g>
+            <text x="152" y="172" text-anchor="middle" class="fig-label">Tablet</text>
+            <g transform="translate(283,96)"><rect class="ic" x="0" y="0" width="26" height="46" rx="4"/><circle class="ic-f" cx="13" cy="38" r="2"/></g>
+            <text x="296" y="172" text-anchor="middle" class="fig-label">Mobile</text>
+            <g transform="translate(418,100)"><rect class="ic" x="2" y="10" width="40" height="30" rx="6"/><line class="ic" x1="22" y1="0" x2="22" y2="10"/><circle class="ic-f" cx="22" cy="2" r="3"/><circle class="ic-f" cx="14" cy="25" r="3"/><circle class="ic-f" cx="30" cy="25" r="3"/></g>
+            <text x="440" y="172" text-anchor="middle" class="fig-label">Chat bot</text>
+            <g transform="translate(596,100)"><rect class="ic" x="0" y="4" width="40" height="34" rx="5"/><circle class="ic" cx="13" cy="18" r="6"/><path class="ic" d="M5 36c0-6 16-6 16 0"/><line class="ic" x1="27" y1="14" x2="35" y2="14"/><line class="ic" x1="27" y1="22" x2="35" y2="22"/></g>
+            <text x="616" y="172" text-anchor="middle" class="fig-label">Hybrid adviser</text>
+            <rect x="60" y="210" width="700" height="320" rx="4" fill="none" stroke="#2D2D2D" stroke-width="2"/>
+            <rect x="60" y="210" width="700" height="34" rx="4" fill="#ECEDEF"/>
+            <rect x="60" y="228" width="700" height="16" fill="#ECEDEF"/>
+            <text x="78" y="233" class="fig-band-label">Advisor desktop platform</text>
+            <text x="410" y="272" text-anchor="middle" class="fig-span">Risk and compliance</text>
+            <line x1="250" y1="284" x2="570" y2="284" stroke="#C5C8CD" stroke-width="1.5"/>
+            <path d="M250 284l8 -5v10z" fill="#C5C8CD"/>
+            <path d="M570 284l-8 -5v10z" fill="#C5C8CD"/>
+            <g transform="translate(92,300)"><path class="ic" d="M2 14a12 9 0 1 1 24 0a12 9 0 0 1 -20 6"/><path class="ic-f" d="M6 22l-4 3 1 -6z"/></g>
+            <text x="106" y="356" text-anchor="middle" class="fig-label">CRM</text>
+            <g transform="translate(170,300)"><circle class="ic" cx="9" cy="9" r="6"/><path class="ic" d="M2 26c0-7 14-7 14 0"/><path class="ic" d="M24 6l5 5l-5 5"/><line class="ic" x1="18" y1="11" x2="29" y2="11"/></g>
+            <text x="186" y="356" text-anchor="middle" class="fig-label">Client</text>
+            <text x="186" y="373" text-anchor="middle" class="fig-label">onboarding</text>
+            <g transform="translate(262,300)"><path class="ic" d="M26 14a13 13 0 1 1 -5 -10"/><path class="ic-f" d="M21 0l4 6l-7 1z"/></g>
+            <text x="278" y="356" text-anchor="middle" class="fig-label">360</text>
+            <text x="278" y="373" text-anchor="middle" class="fig-label">degree view</text>
+            <g transform="translate(350,300)"><rect class="ic" x="0" y="10" width="34" height="20" rx="3"/><path class="ic" d="M0 16h34"/><circle class="ic-f" cx="25" cy="23" r="3"/><path class="ic" d="M8 10c0-6 18-6 18 0"/></g>
+            <text x="368" y="356" text-anchor="middle" class="fig-label">Financial</text>
+            <text x="368" y="373" text-anchor="middle" class="fig-label">planning</text>
+            <g transform="translate(452,298)"><path class="ic" d="M13 0a11 11 0 0 1 7 19c-1 1-2 2-2 4h-10c0-2-1-3-2-4a11 11 0 0 1 7-19z"/><line class="ic" x1="8" y1="27" x2="18" y2="27"/><line class="ic" x1="10" y1="31" x2="16" y2="31"/></g>
+            <text x="465" y="356" text-anchor="middle" class="fig-label">Investment</text>
+            <text x="465" y="373" text-anchor="middle" class="fig-label">strategies</text>
+            <g transform="translate(548,300)"><line class="ic" x1="14" y1="2" x2="14" y2="30"/><line class="ic" x1="2" y1="8" x2="26" y2="8"/><path class="ic" d="M2 8l-5 10h10z"/><path class="ic" d="M26 8l-5 10h10z"/><line class="ic" x1="6" y1="30" x2="22" y2="30"/></g>
+            <text x="570" y="356" text-anchor="middle" class="fig-label">Model</text>
+            <text x="570" y="373" text-anchor="middle" class="fig-label">rebalancing</text>
+            <g transform="translate(660,300)"><circle class="ic" cx="15" cy="15" r="6"/><g stroke="#4A8B9F" stroke-width="2.2" stroke-linecap="round"><line x1="15" y1="1" x2="15" y2="6"/><line x1="15" y1="24" x2="15" y2="29"/><line x1="1" y1="15" x2="6" y2="15"/><line x1="24" y1="15" x2="29" y2="15"/><line x1="5" y1="5" x2="9" y2="9"/><line x1="21" y1="21" x2="25" y2="25"/><line x1="25" y1="5" x2="21" y2="9"/><line x1="9" y1="21" x2="5" y2="25"/></g></g>
+            <text x="678" y="356" text-anchor="middle" class="fig-label">Order</text>
+            <text x="678" y="373" text-anchor="middle" class="fig-label">generation</text>
+            <g transform="translate(262,418)"><rect class="ic" x="0" y="0" width="32" height="26" rx="3"/><line x1="7" y1="20" x2="7" y2="13" stroke="#4A8B9F" stroke-width="3" stroke-linecap="round"/><line x1="14" y1="20" x2="14" y2="9" stroke="#4A8B9F" stroke-width="3" stroke-linecap="round"/><line x1="21" y1="20" x2="21" y2="15" stroke="#4A8B9F" stroke-width="3" stroke-linecap="round"/></g>
+            <text x="278" y="466" text-anchor="middle" class="fig-label">Dashboard</text>
+            <g transform="translate(548,414)"><rect class="ic" x="0" y="0" width="28" height="34" rx="3"/><polyline class="ic" points="6,10 11,15 22,6"/><line class="ic" x1="6" y1="22" x2="22" y2="22"/><line class="ic" x1="6" y1="28" x2="18" y2="28"/></g>
+            <text x="570" y="476" text-anchor="middle" class="fig-label">Client communication</text>
+            <text x="570" y="493" text-anchor="middle" class="fig-label">reporting</text>
+            <text x="800" y="350" text-anchor="middle" class="fig-api">FIX/API</text>
+            <line x1="760" y1="370" x2="852" y2="370" stroke="#485961" stroke-width="1.6"/>
+            <path d="M852 370l-9 -5v10z" fill="#485961"/>
+            <path d="M760 370l9 -5v10z" fill="#485961"/>
+            <g transform="translate(872,346)"><polygon class="ic" points="20,0 40,12 0,12"/><line class="ic" x1="5" y1="12" x2="5" y2="34"/><line class="ic" x1="15" y1="12" x2="15" y2="34"/><line class="ic" x1="25" y1="12" x2="25" y2="34"/><line class="ic" x1="35" y1="12" x2="35" y2="34"/><line class="ic" x1="-2" y1="34" x2="42" y2="34"/></g>
+            <text x="892" y="400" text-anchor="middle" class="fig-label">Internal and</text>
+            <text x="892" y="417" text-anchor="middle" class="fig-label">external</text>
+            <text x="892" y="434" text-anchor="middle" class="fig-label">counterparties</text>
+            <rect x="60" y="560" width="700" height="56" rx="4" fill="none" stroke="#61ABBF" stroke-width="2"/>
+            <g transform="translate(330,576)"><circle class="ic" cx="8" cy="8" r="5" stroke="#61ABBF"/><circle class="ic" cx="20" cy="16" r="5" stroke="#61ABBF"/><circle class="ic" cx="22" cy="4" r="3.5" stroke="#61ABBF"/></g>
+            <text x="375" y="594" class="fig-label" style="fill:#485961">ETL ESB/APIs</text>
+            <g stroke="#485961" stroke-width="1.6">
+              <line x1="252" y1="624" x2="252" y2="664"/><line x1="402" y1="624" x2="402" y2="664"/><line x1="552" y1="624" x2="552" y2="664"/>
+            </g>
+            <g fill="#485961">
+              <path d="M252 624l-5 9h10z"/><path d="M252 664l-5 -9h10z"/>
+              <path d="M402 624l-5 9h10z"/><path d="M402 664l-5 -9h10z"/>
+              <path d="M552 624l-5 9h10z"/><path d="M552 664l-5 -9h10z"/>
+            </g>
+            <g transform="translate(236,672)"><rect class="ic" x="0" y="2" width="30" height="34" stroke="#485961"/><g fill="#485961"><rect x="5" y="8" width="5" height="5"/><rect x="13" y="8" width="5" height="5"/><rect x="21" y="8" width="4" height="5"/><rect x="5" y="17" width="5" height="5"/><rect x="13" y="17" width="5" height="5"/><rect x="21" y="17" width="4" height="5"/><rect x="11" y="27" width="8" height="9"/></g></g>
+            <text x="252" y="726" text-anchor="middle" class="fig-label">Back office 1</text>
+            <g transform="translate(386,672)"><rect class="ic" x="0" y="2" width="30" height="34" stroke="#485961"/><g fill="#485961"><rect x="5" y="8" width="5" height="5"/><rect x="13" y="8" width="5" height="5"/><rect x="21" y="8" width="4" height="5"/><rect x="5" y="17" width="5" height="5"/><rect x="13" y="17" width="5" height="5"/><rect x="21" y="17" width="4" height="5"/><rect x="11" y="27" width="8" height="9"/></g></g>
+            <text x="402" y="726" text-anchor="middle" class="fig-label">Back office 2</text>
+            <g transform="translate(536,672)"><rect class="ic" x="0" y="2" width="30" height="34" stroke="#485961"/><g fill="#485961"><rect x="5" y="8" width="5" height="5"/><rect x="13" y="8" width="5" height="5"/><rect x="21" y="8" width="4" height="5"/><rect x="5" y="17" width="5" height="5"/><rect x="13" y="17" width="5" height="5"/><rect x="21" y="17" width="4" height="5"/><rect x="11" y="27" width="8" height="9"/></g></g>
+            <text x="552" y="726" text-anchor="middle" class="fig-label">Back office 3</text>
+          </svg>
+          <div class="advisor-fig-src">Figure: All-in-one advisor desktop platform capabilities — multichannel front end over an integrated advisor workflow, governed by risk and compliance, connected via FIX/API to counterparties and via an ETL/ESB bus to back-office systems. Adapted from Gartner.</div>
+        </figure>
+      </section>
+
+      <section class="section" id="redlines">
+        <div class="section-eyebrow"><span class="section-num">08</span><span class="section-divider"></span><span class="section-kicker">AI Red Lines</span></div>
+        <h2 class="section-title">Four tiers of AI permission.</h2>
+        <p class="section-lede">A defensible financial-services IT AI policy distinguishes prohibited, senior-approval, enhanced-review, and normal-review use. The full mapping — with the controlling framework for each — is in Table 11 below.</p>
+        <div class="redlines reveal">
+          <div class="redline prohibited">
+            <div class="redline-tier"><span class="tier-num">01</span>Prohibited — no exception</div>
+            <h4>Never permitted</h4>
+            <ul>
+              <li>Concealing material AI use from auditors, regulators, risk, or compliance</li>
+              <li>Training external models on confidential or source-code data without an executed prohibition</li>
+              <li>Agents changing firewall, identity, network, or permission config without approved change management</li>
+              <li>Deepfake / synthetic-identity tools in access, approvals, payments, or client instructions</li>
+              <li>AI making final credit, employment, investment, or client-treatment decisions without human sign-off</li>
+            </ul>
+          </div>
+          <div class="redline legal">
+            <div class="redline-tier"><span class="tier-num">02</span>Senior approval</div>
+            <h4>CTO / CISO / CDO / CCO / legal / risk</h4>
+            <ul>
+              <li>Agents provisioning privileged access</li>
+              <li>AI-generated code to production without secure review, dependency scanning, and testing</li>
+              <li>AI-generated audit evidence, exam responses, or policy attestations</li>
+              <li>AI changing client-facing content without compliance review</li>
+              <li>AI-generated vendor-risk conclusions used as a final assessment</li>
+            </ul>
+          </div>
+          <div class="redline enhanced">
+            <div class="redline-tier"><span class="tier-num">03</span>Enhanced review</div>
+            <h4>Technology / security review</h4>
+            <ul>
+              <li>RAG over sensitive client, portfolio, cyber, HR, or source-code data</li>
+              <li>Agentic workflows touching production data or external APIs</li>
+              <li>Customer data in evaluations or fine-tuning</li>
+              <li>Unapproved public AI tools (default prohibited; approved enterprise tooling required)</li>
+            </ul>
+          </div>
+          <div class="redline">
+            <div class="redline-tier"><span class="tier-num">04</span>Normal review</div>
+            <h4>Allowed with standard QA</h4>
+            <ul>
+              <li>Productivity copilots within approved data domains</li>
+              <li>Code completion in approved IDEs with secure review enforced</li>
+              <li>Knowledge retrieval over approved internal bases</li>
+              <li>Meeting summarization with client consent and CRM logging (the Morgan Stanley pattern)</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="regulatory">
+        <div class="section-eyebrow"><span class="section-num">09</span><span class="section-divider"></span><span class="section-kicker">Regulatory Floor</span></div>
+        <h2 class="section-title">The floor rose in 2025–26.</h2>
+        <p class="section-lede">No single "AI law" governs financial-services IT; instead a stack of existing and new authorities applies. The full mapping to IT implications is in Table 10. The headline shift is a sector-specific control framework and a sharpened third-party-risk posture.</p>
+        <div class="reg-list reveal">
+          <div class="reg-item"><div class="reg-date"><strong>Feb 2026</strong>Treasury/CRI</div><div class="reg-content"><div class="reg-authority">U.S. Treasury &amp; Cyber Risk Institute</div><div class="reg-title">Financial Services AI Risk Management Framework</div><div class="reg-desc">NIST-aligned, 230 control objectives mapped to AI-adoption stage, developed with 100+ institutions. Voluntary but examination-relevant — the most significant FS-specific AI-governance development in the period.</div></div></div>
+          <div class="reg-item"><div class="reg-date"><strong>Oct 2025</strong>NYDFS</div><div class="reg-content"><div class="reg-authority">NY Dept. of Financial Services</div><div class="reg-title">Third-party service-provider letter (23 NYCRR 500)</div><div class="reg-desc">Lifecycle third-party risk explicitly naming cloud, AI, and FinTech providers; senior-officer accountability; Part 500 compliance cannot be delegated to a vendor.</div></div></div>
+          <div class="reg-item"><div class="reg-date"><strong>2024–26</strong>SEC/FINRA</div><div class="reg-content"><div class="reg-authority">SEC &amp; FINRA</div><div class="reg-title">Amended Reg S-P · FINRA 2025/26 reports · RN 24-09</div><div class="reg-desc">Service-provider oversight, incident response, and 30-day breach notification; GenAI/agentic AI supervised under existing rules with sharpened third-party focus.</div></div></div>
+          <div class="reg-item"><div class="reg-date"><strong>2011/now</strong>Fed/OCC</div><div class="reg-content"><div class="reg-authority">Federal Reserve / OCC</div><div class="reg-title">SR 11-7 model-risk discipline applied to AI/LLMs</div><div class="reg-desc">Validation, inventory, and ongoing monitoring expectations extend to ML, AI, and large language models used in credit, AML, and investment contexts.</div></div></div>
+          <div class="reg-item"><div class="reg-date"><strong>Aug 2024</strong>EU</div><div class="reg-content"><div class="reg-authority">European Union</div><div class="reg-title">EU AI Act — high-risk obligations</div><div class="reg-desc">Credit scoring, insurance pricing, and employment AI are high-risk. Annex III dates were deferred under the May 2026 Digital Omnibus political agreement — pending final adoption, so re-verify before circulation.</div></div></div>
+        </div>
+      </section>
+
+      <section class="section" id="maturity">
+        <div class="section-eyebrow"><span class="section-num">10</span><span class="section-divider"></span><span class="section-kicker">Maturity Model</span></div>
+        <h2 class="section-title">Five levels. Most firms sit at 2–3.</h2>
+        <p class="section-lede">The diagnostic companion to the use-case map. The leaders profiled in the case studies operate at Level 4; only the largest approach Level 5 in selected domains.</p>
+        <div class="maturity reveal">
+          <div class="maturity-grid">
+            <div class="maturity-step"><div class="level">Level 01</div><div class="level-num">01</div><div class="level-title">Ad-hoc experimentation</div><div class="level-desc">Employees use public GenAI tools with no inventory or policy. Typical of small RIAs and early-stage fintechs.</div></div>
+            <div class="maturity-step current"><div class="level">Level 02–03 · Most firms</div><div class="level-num">2–3</div><div class="level-title">Functional pilots — scaled use cases</div><div class="level-desc">An AUP and AI inventory begun; then an internal LLM platform, SDLC and service-desk copilots, event intelligence, a vendor-AI inventory, and model-risk integration. Mid-size to super-regional.</div></div>
+            <div class="maturity-step"><div class="level">Level 04 · Leaders</div><div class="level-num">04</div><div class="level-title">Workflow &amp; operating-model redesign</div><div class="level-desc">Product/platform operating model, data products, advisor copilots, agentic workflows with controls, an AI control tower, explicit red lines, eval-driven release. Top-20 banks, global asset managers, large wealth platforms.</div></div>
+            <div class="maturity-step"><div class="level">Level 05 · Largest only</div><div class="level-num">05</div><div class="level-title">AI-native, resilient, product-platform IT</div><div class="level-desc">Agents augment most workflows; non-human identity governance, continuous control monitoring, resilience-by-design, full SR 11-7 / NIST / EU AI Act alignment. Selected domains only.</div></div>
+          </div>
+          <div class="maturity-caption"><strong>Self-diagnostic:</strong> if you cannot point to a workflow structurally rebuilt around AI — not just augmented — and to new roles created in the past 18 months, you are at Level 2–3 regardless of tool count. Progress has come from adding capability, not subtracting people.</div>
+        </div>
+      </section>
+
+      <section class="section" id="roadmap">
+        <div class="section-eyebrow"><span class="section-num">11</span><span class="section-divider"></span><span class="section-kicker">CTO Action Agenda</span></div>
+        <h2 class="section-title">A 12-to-24-month plan.</h2>
+        <p class="section-lede">Four phases from foundation to operating-model and resilience — sequenced so governance and data precede agentic scale.</p>
+        <div class="roadmap reveal">
+          <div class="roadmap-phase">
+            <div class="phase-meta"><div class="phase-window">Months 0–3</div><div class="phase-name">Foundation</div></div>
+            <div class="phase-actions">
+              <div class="action"><div class="action-num">01</div><div class="action-text"><strong>Stand up the AI Governance Office and AI Control Tower.</strong> Confirm three-lines roles.</div></div>
+              <div class="action"><div class="action-num">02</div><div class="action-text"><strong>Inventory all AI in use</strong> — in-house and vendor-embedded — and merge with the model inventory; issue an AUP aligned with the FS-ISAC framework.</div></div>
+              <div class="action"><div class="action-num">03</div><div class="action-text"><strong>Block unapproved external GenAI at egress</strong> and provide an approved alternative that is genuinely easier to use.</div></div>
+              <div class="action"><div class="action-num">04</div><div class="action-text"><strong>Map the regulatory perimeter</strong> (FFIEC AIO, SR 11-7, Reg S-P, FINRA, NYDFS, FS AI RMF, EU AI Act) and assign owners.</div></div>
+            </div>
+          </div>
+          <div class="roadmap-phase">
+            <div class="phase-meta"><div class="phase-window">Months 3–9</div><div class="phase-name">Platform &amp; risk hardening</div></div>
+            <div class="phase-actions">
+              <div class="action"><div class="action-num">05</div><div class="action-text"><strong>Launch or consolidate an internal LLM platform</strong> with an evaluation harness, prompt and retrieval patterns, and audit logging.</div></div>
+              <div class="action"><div class="action-num">06</div><div class="action-text"><strong>Productize the top three to five IT use cases</strong> (SDLC copilot, service-desk copilot, event intelligence, vendor-management AI, knowledge management).</div></div>
+              <div class="action"><div class="action-num">07</div><div class="action-text"><strong>Implement OWASP LLM Top 10 controls and LLM red teaming;</strong> begin shifting two or three priority data domains to data products.</div></div>
+              <div class="action"><div class="action-num">08</div><div class="action-text"><strong>Renegotiate the top-20 vendor contracts</strong> on data use, training, audit rights, exit, and sub-processors; enforce the red lines technically.</div></div>
+            </div>
+          </div>
+          <div class="roadmap-phase">
+            <div class="phase-meta"><div class="phase-window">Months 9–18</div><div class="phase-name">Workflow redesign</div></div>
+            <div class="phase-actions">
+              <div class="action"><div class="action-num">09</div><div class="action-text"><strong>Move priority workflows from pilot to scaled production:</strong> advisor desktop, software engineering, service desk, SOC, vendor management, PMO.</div></div>
+              <div class="action"><div class="action-num">10</div><div class="action-text"><strong>Establish a recurring vendor-AI evaluation cadence</strong> across Workday, ServiceNow, SAP, Salesforce, Aladdin, Orion, Addepar, Envestnet, and surveillance tooling.</div></div>
+              <div class="action"><div class="action-num">11</div><div class="action-text"><strong>Pilot agentic workflows with strict bounded autonomy,</strong> rollback, and human approval thresholds; keep agents out of production change management without governance.</div></div>
+              <div class="action"><div class="action-num">12</div><div class="action-text"><strong>Mature model-risk management to cover generative AI;</strong> extend SR 11-7 validation.</div></div>
+            </div>
+          </div>
+          <div class="roadmap-phase">
+            <div class="phase-meta"><div class="phase-window">Months 18–24</div><div class="phase-name">Operating model &amp; resilience</div></div>
+            <div class="phase-actions">
+              <div class="action"><div class="action-num">13</div><div class="action-text"><strong>Transition IT to a product and platform operating model</strong> with embedded controls and continuous control monitoring.</div></div>
+              <div class="action"><div class="action-num">14</div><div class="action-text"><strong>Address EU AI Act high-risk obligations</strong> (credit scoring, insurance pricing, employment AI) ahead of the deferred date, re-verifying the timeline.</div></div>
+              <div class="action"><div class="action-num">15</div><div class="action-text"><strong>Run a skill-shift program</strong> — AI fluency for engineers, data-product management, AI-risk roles — and deliberately protect the junior-talent pipeline.</div></div>
+              <div class="action"><div class="action-num">16</div><div class="action-text"><strong>Hold an annual board AI-strategy review</strong> using control-tower metrics.</div></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="final" id="sowhat">
+        <div class="final-gem"><svg><use href="#bars-big"/></svg></div>
+        <div class="final-inner">
+          <div class="final-eyebrow">12 &middot; So What</div>
+          <h2 class="final-title">What CTOs should do <em>differently</em> now.</h2>
+          <p>Stop benchmarking AI adoption by tool count or pilot count. Start benchmarking by the question the evidence converges on: <strong>how much of the IT function's work has been redesigned around AI, and can the firm show — to an examiner — who or what made each consequential change and on what authority?</strong></p>
+          <p>By 2027, the difference between IT functions that thrived through the AI transition and those that did not will not be model access — every firm will have the same frontier models, the same clouds, and many of the same vendors.</p>
+          <p>The difference will be (1) how decisively the operating model moved to product-and-platform with centrally-led governance and federated delivery; (2) whether data quality, model risk, vendor risk, and the red lines were built in upstream rather than bolted on; and (3) whether IT became — or refused to become — <strong>the safe backbone for the enterprise's AI adoption</strong>, not merely an adopter of its own tools.</p>
+          <p>In wealth specifically, the winning CTOs treat AI not as a cost-optimization story for the CFO but as a <strong>capacity</strong> story: the way a stable or shrinking advisor base serves more clients well, against a ~100,000-advisor shortfall that technology alone cannot close.</p>
+          <div class="final-sig">
+            <div class="final-sig-left">End of briefing &middot; The CTO's AI Decision &middot; IT in Financial Services</div>
+            <div class="final-sig-brand">
+              <div class="brand-mark"><span></span><span></span><span></span></div>
+              <div class="final-sig-left" style="opacity: 0.9;">Your future is our focus.&trade;</div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="container">
+      <section class="tables-master-section" id="reference-tables">
+        <div class="tables-master-header">
+          <div class="tables-master-eyebrow">14 Reference Tables &middot; Expandable</div>
+          <h2 class="tables-master-title">The <em>full evidence</em>, on demand.</h2>
+          <p class="tables-master-lede">Every analytical table from the underlying research is below as a click-to-expand data view. The <strong>AI use-case map</strong> is open by default — it is the single most useful artifact for prioritization. The other thirteen are closed to keep the briefing scannable; open one, several, or all at once.</p>
+        </div>
+        <div class="tables-actions">
+          <button class="tables-action-btn" id="expand-all">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            Expand all tables
+          </button>
+          <button class="tables-action-btn secondary" id="collapse-all">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+            Collapse all
+          </button>
+        </div>
+
+<div class="expandable open" id="tbl-usecases">
+  <button class="exp-trigger" aria-expanded="true" aria-controls="tbl-usecases-body" data-target="tbl-usecases-body">
+    <div class="exp-left"><div class="exp-num">01</div><div class="exp-meta"><div class="exp-kicker">Reference · Value Chain</div><div class="exp-title">AI use-case map across the IT function</div><div class="exp-sub">16 rows &middot; 9 columns &middot; Click to collapse</div></div></div>
+    <div class="exp-right"><span class="exp-pill">Open</span><svg class="exp-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 8 10 12 14 8"/></svg></div>
+  </button>
+  <div class="exp-body" id="tbl-usecases-body" role="region" aria-hidden="false">
+    <p class="exp-lede">The single most useful artifact for prioritization: each use case by AI type, workflow impact, maturity, value, risk, and the controlling requirement.</p>
+    <div class="exp-table-wrap">
+      <table class="exp-table">
+        <thead><tr><th>IT domain</th><th>Use case</th><th>AI type</th><th>Workflow impact</th><th>Maturity</th><th>Value</th><th>Risk</th><th>Control requirement</th><th>Evidence</th></tr></thead>
+        <tbody><tr><td>Software engineering</td><td>Code generation &amp; PR review</td><td>Generative</td><td>High developer leverage</td><td>Scaled</td><td>High</td><td>Med</td><td>Secure code review; dependency scan</td><td>BofA 8-K <sup class="cite">[31]</sup>; Citi <sup class="cite">[32,33]</sup>; Goldman <sup class="cite">[65]</sup></td></tr>
+<tr><td>Service desk</td><td>Tier-0 self-service; agent assist</td><td>Generative + automation</td><td>Deflects routine tickets</td><td>Scaled</td><td>Med-High</td><td>Med</td><td>Override logging; escalation</td><td>BofA Erica for Employees <sup class="cite">[31]</sup>; ServiceNow <sup class="cite">[40]</sup></td></tr>
+<tr><td>I&amp;O</td><td>Event intelligence; anomaly detection</td><td>Predictive + analytics</td><td>Faster detection/RCA</td><td>Scaled</td><td>High</td><td>Med</td><td>Approval thresholds; rollback</td><td>Gartner EIS <sup class="cite">[35]</sup>; AIOps cases <sup class="cite">[36]</sup></td></tr>
+<tr><td>I&amp;O</td><td>Autonomous remediation</td><td>Agentic</td><td>Self-healing (bounded)</td><td>Pilot</td><td>Med</td><td>High</td><td>Bounded autonomy; change mgmt</td><td>FFIEC AIO <sup class="cite">[1]</sup></td></tr>
+<tr><td>Cybersecurity</td><td>SOC triage; fraud models</td><td>Predictive + generative</td><td>Less alert overload</td><td>Scaled</td><td>High</td><td>Med-High</td><td>Human-in-loop; OWASP controls</td><td>OWASP LLM Top 10 <sup class="cite">[20]</sup>; BofA fraud models <sup class="cite">[31]</sup></td></tr>
+<tr><td>Cybersecurity</td><td>Deepfake / BEC defense</td><td>Predictive</td><td>Fraud prevention</td><td>Emerging</td><td>High</td><td>High</td><td>Out-of-band verification</td><td>NYDFS AI letter <sup class="cite">[15]</sup>; FS-ISAC <sup class="cite">[23]</sup></td></tr>
+<tr><td>Data</td><td>Quality &amp; lineage automation</td><td>Analytics + ML</td><td>AI-ready data</td><td>Functional</td><td>High</td><td>Med</td><td>Data contracts; SR 11-7 quality</td><td>Deloitte data survey <sup class="cite">[6]</sup>; Treasury <sup class="cite">[10]</sup></td></tr>
+<tr><td>Data</td><td>RAG over enterprise data</td><td>Generative</td><td>Knowledge access</td><td>Scaled</td><td>High</td><td>Med-High</td><td>Entitlement-aware retrieval; LLM08</td><td>OWASP LLM08 <sup class="cite">[20]</sup></td></tr>
+<tr><td>AI function</td><td>Model inventory &amp; eval</td><td>Governance</td><td>Risk control</td><td>Functional</td><td>High</td><td>Med</td><td>SR 11-7; NIST AI 600-1; FS AI RMF</td><td>NIST AI 600-1 <sup class="cite">[9]</sup>; SR 11-7 <sup class="cite">[18]</sup>; FS AI RMF <sup class="cite">[59]</sup></td></tr>
+<tr><td>Vendor mgmt</td><td>Contract &amp; SOC summarization</td><td>Generative</td><td>Faster due diligence</td><td>Functional</td><td>Med</td><td>Med</td><td>Human validation; NYDFS TPSP</td><td>FINRA <sup class="cite">[12]</sup>; NYDFS TPSP <sup class="cite">[60]</sup></td></tr>
+<tr><td>Digital workplace</td><td>Copilots; meeting summaries</td><td>Generative</td><td>Productivity; face-time</td><td>Scaled</td><td>High</td><td>Med</td><td>Entitlements; consent; archiving</td><td>JPMorgan LLM Suite <sup class="cite">[27]</sup>; Morgan Stanley <sup class="cite">[29]</sup>; BofA <sup class="cite">[31]</sup></td></tr>
+<tr><td>PMO</td><td>Status synthesis; risk detection</td><td>Generative + analytics</td><td>Less admin; earlier risk</td><td>Functional</td><td>Med-High</td><td>Low-Med</td><td>Human sign-off; evidence integrity</td><td>FFIEC AIO <sup class="cite">[1]</sup></td></tr>
+<tr><td>WealthTech</td><td>Advisor copilot; proposals</td><td>Generative</td><td>Advisor leverage</td><td>Scaled</td><td>High</td><td>Med-High</td><td>Compliance review; suitability</td><td>Morgan Stanley <sup class="cite">[29]</sup>; Orion <sup class="cite">[45]</sup>; Addepar <sup class="cite">[46]</sup></td></tr>
+<tr><td>WealthTech</td><td>Client-facing agents</td><td>Agentic</td><td>Self-service</td><td>Emerging</td><td>Med</td><td>High</td><td>Guardrails; escalation</td><td>Schwab <sup class="cite">[47]</sup></td></tr>
+<tr><td>Corporate systems</td><td>HR/finance agents in SaaS</td><td>Generative + agentic</td><td>Workflow automation</td><td>Functional</td><td>Med-High</td><td>Med-High</td><td>Entitlements; EU AI Act (HR)</td><td>EU AI Act <sup class="cite">[25]</sup>; Workday <sup class="cite">[41]</sup>; SAP <sup class="cite">[42]</sup></td></tr>
+<tr><td>Martech</td><td>Content &amp; segmentation</td><td>Generative + analytics</td><td>Faster campaigns</td><td>Functional</td><td>Med</td><td>Med-High</td><td>Pre-publication compliance review</td><td>FINRA 2210 <sup class="cite">[14]</sup>; Smarsh <sup class="cite">[43]</sup></td></tr></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<div class="expandable" id="tbl-operating">
+  <button class="exp-trigger" aria-expanded="false" aria-controls="tbl-operating-body" data-target="tbl-operating-body">
+    <div class="exp-left"><div class="exp-num">02</div><div class="exp-meta"><div class="exp-kicker">Reference · Operating Model</div><div class="exp-title">IT operating-model shift, component by component</div><div class="exp-sub">11 rows &middot; 5 columns &middot; Click to expand</div></div></div>
+    <div class="exp-right"><span class="exp-pill">Closed</span><svg class="exp-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 8 10 12 14 8"/></svg></div>
+  </button>
+  <div class="exp-body" id="tbl-operating-body" role="region" aria-hidden="true">
+    <p class="exp-lede">Each traditional IT component, its AI-era equivalent, what changes, the capabilities required, and the regulatory or control implication.</p>
+    <div class="exp-table-wrap">
+      <table class="exp-table">
+        <thead><tr><th>Traditional component</th><th>AI-era equivalent</th><th>What changes</th><th>Capabilities required</th><th>Regulatory / control implication</th></tr></thead>
+        <tbody><tr><td>CTO office</td><td>AI-enabled CTO office + AI Transformation Office</td><td>Portfolio reorganized around data, AI, and cloud products; value tracked via a control tower</td><td>AI ROI measurement, board reporting, outcome metrics</td><td>FFIEC AIO governance; SR 11-7 board oversight <sup class="cite">[18]</sup></td></tr>
+<tr><td>Infrastructure &amp; Operations</td><td>Platform engineering + FinOps + Event Intelligence</td><td>Domain-agnostic event intelligence; agent-assisted incident response; autonomy bounded by blast radius</td><td>SRE, observability, cost engineering</td><td>Audit evidence for AI-initiated actions; resilience testing under FINRA 4370</td></tr>
+<tr><td>Service desk</td><td>AI-orchestrated service operations</td><td>Tier-0 self-service and Tier-1 agent assist; humans retained for complex and emotional cases</td><td>RAG/knowledge product management, NLP ops</td><td>Klarna lesson <sup class="cite">[38]</sup>; FINRA supervision; SOC 2</td></tr>
+<tr><td>Cybersecurity</td><td>AI-augmented SOC + AI-risk team</td><td>AI-versus-AI defense; deepfake controls; LLM-specific controls</td><td>LLM red teaming, non-human identity governance</td><td>NYDFS AI guidance; NIST CSF 2.0; OWASP LLM Top 10 <sup class="cite">[20,54]</sup></td></tr>
+<tr><td>Data team</td><td>Data-product squads + governance council + observability</td><td>Data delivered as governed products with contracts; AI-ready data; semantic layer</td><td>Data mesh/fabric, RAG pipelines, lineage automation</td><td>Reg S-P; GLBA; SR 11-7 data-quality expectations</td></tr>
+<tr><td>Application development</td><td>AI-assisted SDLC + secure code review</td><td>Copilots embedded; pull-request review automated; security by default</td><td>DevSecOps, IaC, embedding/vector security</td><td>OWASP LLM Top 10 <sup class="cite">[20]</sup>; SR 11-7</td></tr>
+<tr><td>Vendor management</td><td>Technology vendor-risk office + AI vendor inventory</td><td>Continuous monitoring; AI-specific clauses; fourth-party mapping</td><td>AI questionnaires, clause libraries, concentration analysis</td><td>FFIEC third-party; FINRA; Reg S-P; NYDFS TPSP <sup class="cite">[60]</sup></td></tr>
+<tr><td>PMO</td><td>Value-realization office</td><td>Status synthesis and risk detection automated; humans own decisions and sign-off</td><td>Product-portfolio management, hybrid delivery</td><td>SOX ITGC; regulatory-remediation evidence integrity</td></tr>
+<tr><td>Corporate systems support</td><td>Platform product teams</td><td>AI features in Workday/ServiceNow/SAP governed centrally</td><td>Vendor AI roadmap evaluation</td><td>SR 11-7 where AI informs HR/finance decisions <sup class="cite">[41]</sup></td></tr>
+<tr><td>Martech support</td><td>Compliance-embedded Martech operations</td><td>AI content reviewed before publication; archiving integrated</td><td>Surveillance tooling, content supply-chain control</td><td>SEC Marketing Rule; FINRA 2210</td></tr>
+<tr><td>WealthTech support</td><td>WealthTech product team</td><td>Advisor copilots; integrated portfolio, CRM, and planning</td><td>Productized advisor workflows</td><td>Reg BI; SEC Marketing Rule; FINRA suitability</td></tr></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<div class="expandable" id="tbl-data">
+  <button class="exp-trigger" aria-expanded="false" aria-controls="tbl-data-body" data-target="tbl-data-body">
+    <div class="exp-left"><div class="exp-num">03</div><div class="exp-meta"><div class="exp-kicker">Reference · Data</div><div class="exp-title">Data-function redesign</div><div class="exp-sub">7 rows &middot; 6 columns &middot; Click to expand</div></div></div>
+    <div class="exp-right"><span class="exp-pill">Closed</span><svg class="exp-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 8 10 12 14 8"/></svg></div>
+  </button>
+  <div class="exp-body" id="tbl-data-body" role="region" aria-hidden="true">
+    <p class="exp-lede">From current-state pain points to an AI-ready future state, with ownership, governance requirement, and metric for each data capability.</p>
+    <div class="exp-table-wrap">
+      <table class="exp-table">
+        <thead><tr><th>Data capability</th><th>Current-state pain point</th><th>AI-enabled future state</th><th>Ownership model</th><th>Governance requirement</th><th>Metric</th></tr></thead>
+        <tbody><tr><td>Data quality</td><td>Unavailable or slow data; 81% cite quality</td><td>Continuous quality and freshness monitoring feeding AI pipelines</td><td>Data-product squad + observability</td><td>Quality SLAs in data contracts; SR 11-7 data-quality expectations</td><td>% records passing quality gates; freshness lag</td></tr>
+<tr><td>Lineage &amp; provenance</td><td>Undocumented transformations; supply-chain opacity</td><td>Automated lineage; mapped data supply chain</td><td>Platform team + governance council</td><td>Treasury data-supply-chain mapping</td><td>% datasets with full lineage</td></tr>
+<tr><td>Access control</td><td>Coarse, role-based; over-entitlement</td><td>Entitlements propagate into RAG and copilots</td><td>Privacy/security function</td><td>RBAC/ABAC; Reg S-P; least privilege</td><td>% AI queries entitlement-checked</td></tr>
+<tr><td>Unstructured data</td><td>Largest, least governed corpus</td><td>Curated, classified corpora for retrieval</td><td>Data-product squads</td><td>Classification before ingestion</td><td>% unstructured corpus classified</td></tr>
+<tr><td>Vector/embedding stores</td><td>New, often ungoverned</td><td>Governed vector stores with poisoning and inversion controls</td><td>AI/ML engineering + security</td><td>OWASP LLM08 controls</td><td>Embedding-store access reviews</td></tr>
+<tr><td>Master/metadata</td><td>Fragmented across systems</td><td>Unified catalog and semantic layer</td><td>Platform team</td><td>Stewardship and ownership defined</td><td>% critical data elements stewarded</td></tr>
+<tr><td>Privacy &amp; retention</td><td>Manual, inconsistent</td><td>Policy-driven retention; AI prompt/output retention</td><td>Privacy/security function</td><td>GLBA, GDPR, FINRA/SEC books and records</td><td>Retention-policy coverage</td></tr></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<div class="expandable" id="tbl-aifunc">
+  <button class="exp-trigger" aria-expanded="false" aria-controls="tbl-aifunc-body" data-target="tbl-aifunc-body">
+    <div class="exp-left"><div class="exp-num">04</div><div class="exp-meta"><div class="exp-kicker">Reference · AI Function</div><div class="exp-title">AI-function operating model</div><div class="exp-sub">6 rows &middot; 6 columns &middot; Click to expand</div></div></div>
+    <div class="exp-right"><span class="exp-pill">Closed</span><svg class="exp-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 8 10 12 14 8"/></svg></div>
+  </button>
+  <div class="exp-body" id="tbl-aifunc-body" role="region" aria-hidden="true">
+    <p class="exp-lede">Centralized vs. federated vs. hub-and-spoke across platform contracts, model inventory, intake, red teaming, enablement, and vendor governance.</p>
+    <div class="exp-table-wrap">
+      <table class="exp-table">
+        <thead><tr><th>AI capability</th><th>Centralized model</th><th>Federated model</th><th>Hub-and-spoke model</th><th>Required controls</th><th>Best-fit context</th></tr></thead>
+        <tbody><tr><td>Platform &amp; foundation-model contracts</td><td>Owned centrally; one vendor strategy</td><td>Each LOB contracts separately</td><td>Center owns contracts; LOBs consume</td><td>Concentration analysis; exit terms</td><td>Hub-and-spoke for most banks</td></tr>
+<tr><td>Model inventory &amp; MRM</td><td>Single inventory; independent validation</td><td>Fragmented inventories</td><td>Central inventory; LOB submits</td><td>SR 11-7 validation; NIST AI 600-1</td><td>Centralized for regulated decisions</td></tr>
+<tr><td>Use-case intake</td><td>Central queue can bottleneck</td><td>Fast but uncoordinated</td><td>Standards central; intake federated</td><td>ROI gates; risk tiering</td><td>Hub-and-spoke</td></tr>
+<tr><td>Red teaming &amp; eval</td><td>Central red team</td><td>Inconsistent coverage</td><td>Central harness; LOB executes</td><td>OWASP LLM Top 10; MITRE ATLAS</td><td>Centralized harness</td></tr>
+<tr><td>Adoption &amp; enablement</td><td>Central training</td><td>Local champions</td><td>Central curriculum; local champions</td><td>Training records</td><td>Hub-and-spoke</td></tr>
+<tr><td>Vendor AI governance</td><td>Central review board</td><td>Each owner reviews</td><td>Central standards; owners execute</td><td>AI clauses; continuous monitoring</td><td>Centralized for small firms</td></tr></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<div class="expandable" id="tbl-io">
+  <button class="exp-trigger" aria-expanded="false" aria-controls="tbl-io-body" data-target="tbl-io-body">
+    <div class="exp-left"><div class="exp-num">05</div><div class="exp-meta"><div class="exp-kicker">Reference · I&amp;O</div><div class="exp-title">I&amp;O workflow redesign matrix</div><div class="exp-sub">6 rows &middot; 7 columns &middot; Click to expand</div></div></div>
+    <div class="exp-right"><span class="exp-pill">Closed</span><svg class="exp-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 8 10 12 14 8"/></svg></div>
+  </button>
+  <div class="exp-body" id="tbl-io-body" role="region" aria-hidden="true">
+    <p class="exp-lede">For each I&amp;O workflow, the human role, the AI role, the new controls, and the audit evidence the redesign must leave behind.</p>
+    <div class="exp-table-wrap">
+      <table class="exp-table">
+        <thead><tr><th>I&amp;O workflow</th><th>Current-state pain point</th><th>AI-enabled redesign</th><th>Human role</th><th>AI role</th><th>New controls</th><th>Audit evidence</th></tr></thead>
+        <tbody><tr><td>Incident detection</td><td>Alert overload; slow detection</td><td>Correlation and anomaly detection</td><td>Triage decisions; approve fixes</td><td>Surface and rank incidents</td><td>Severity-based approval thresholds</td><td>Alert-to-action logs</td></tr>
+<tr><td>Root-cause analysis</td><td>Manual log spelunking</td><td>AI-suggested probable cause</td><td>Validate and decide</td><td>Hypothesize cause</td><td>Human confirmation required</td><td>RCA records with AI attribution</td></tr>
+<tr><td>Remediation</td><td>Manual runbooks</td><td>Bounded self-healing for reversible actions</td><td>Approve high-impact actions</td><td>Execute low-blast-radius fixes</td><td>Rollback plans; change management</td><td>Change tickets; rollback evidence</td></tr>
+<tr><td>Service desk</td><td>High Tier-1 volume</td><td>Tier-0 self-service; agent assist</td><td>Complex/emotional cases</td><td>Resolve routine tickets</td><td>Override-reason logging</td><td>Resolution + override audit trail</td></tr>
+<tr><td>Capacity &amp; cost</td><td>Reactive scaling; cost overruns</td><td>Predictive capacity; FinOps</td><td>Set policy; approve spend</td><td>Forecast and recommend</td><td>Spend approval gates</td><td>FinOps recommendation logs</td></tr>
+<tr><td>Vendor monitoring</td><td>Periodic, manual reviews</td><td>Continuous monitoring</td><td>Escalation decisions</td><td>Watch breaches and SLAs</td><td>Reg S-P notification tracking</td><td>Monitoring + notification logs</td></tr></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<div class="expandable" id="tbl-vendor">
+  <button class="exp-trigger" aria-expanded="false" aria-controls="tbl-vendor-body" data-target="tbl-vendor-body">
+    <div class="exp-left"><div class="exp-num">06</div><div class="exp-meta"><div class="exp-kicker">Reference · Vendor Risk</div><div class="exp-title">Vendor management &amp; third-party risk</div><div class="exp-sub">6 rows &middot; 7 columns &middot; Click to expand</div></div></div>
+    <div class="exp-right"><span class="exp-pill">Closed</span><svg class="exp-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 8 10 12 14 8"/></svg></div>
+  </button>
+  <div class="exp-body" id="tbl-vendor-body" role="region" aria-hidden="true">
+    <p class="exp-lede">The vendor lifecycle from intake to exit: AI-enabled opportunity, AI-created risk, due diligence, contract clauses, owner, and monitoring metric.</p>
+    <div class="exp-table-wrap">
+      <table class="exp-table">
+        <thead><tr><th>Lifecycle stage</th><th>AI-enabled opportunity</th><th>AI-created risk</th><th>Required due diligence</th><th>Contract clause to review</th><th>Owner</th><th>Monitoring metric</th></tr></thead>
+        <tbody><tr><td>Intake / selection</td><td>Auto-summarize questionnaires &amp; SOC reports</td><td>Over-reliance on AI conclusions</td><td>Validate AI summary against source</td><td>Data use; model training; sub-processors</td><td>Vendor-risk office</td><td>% AI summaries human-validated</td></tr>
+<tr><td>Due diligence</td><td>Extract risk from contracts at scale</td><td>Hallucinated clause interpretation</td><td>Human review of extracted terms</td><td>Audit rights; transparency</td><td>Vendor-risk + legal</td><td>Findings reopened on review</td></tr>
+<tr><td>Onboarding</td><td>Inventory embedded AI features</td><td>Unknown AI inside SaaS</td><td>Map AI features to data flows</td><td>AI-feature disclosure; data residency</td><td>Platform owner</td><td>% vendors with AI inventory</td></tr>
+<tr><td>Ongoing monitoring</td><td>Continuous breach/SLA monitoring</td><td>Alert fatigue / missed signals</td><td>Severity-tiered review</td><td>Incident notification (Reg S-P; NYDFS TPSP)</td><td>Vendor-risk office</td><td>SLA adherence; notification timeliness</td></tr>
+<tr><td>Concentration / 4th party</td><td>Map sub-processor and model-provider chains</td><td>Foundation-model concentration</td><td>Fourth-party mapping</td><td>Sub-processor change consent</td><td>Architecture + vendor-risk</td><td>% critical vendors with 4th-party map</td></tr>
+<tr><td>Renewal / exit</td><td>Renewal alerts; unused-license detection</td><td>Lock-in to AI-embedded platform</td><td>Exit and data-return testing</td><td>Exit terms; data return/destruction</td><td>Vendor-risk + procurement</td><td>Exit tests completed</td></tr></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<div class="expandable" id="tbl-cyber">
+  <button class="exp-trigger" aria-expanded="false" aria-controls="tbl-cyber-body" data-target="tbl-cyber-body">
+    <div class="exp-left"><div class="exp-num">07</div><div class="exp-meta"><div class="exp-kicker">Reference · Cyber</div><div class="exp-title">Cybersecurity AI risk &amp; control matrix</div><div class="exp-sub">7 rows &middot; 7 columns &middot; Click to expand</div></div></div>
+    <div class="exp-right"><span class="exp-pill">Closed</span><svg class="exp-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 8 10 12 14 8"/></svg></div>
+  </button>
+  <div class="exp-body" id="tbl-cyber-body" role="region" aria-hidden="true">
+    <p class="exp-lede">Each use case or threat paired with AI benefit, AI risk, detection method, mitigation control, owner, and monitoring metric.</p>
+    <div class="exp-table-wrap">
+      <table class="exp-table">
+        <thead><tr><th>Use case / threat</th><th>AI benefit</th><th>AI risk</th><th>Detection method</th><th>Mitigation control</th><th>Owner</th><th>Monitoring metric</th></tr></thead>
+        <tbody><tr><td>SOC alert triage</td><td>Noise reduction; faster triage</td><td>Automation bias; missed novel attacks</td><td>Human review of suppressed alerts</td><td>Severity-tiered human-in-the-loop</td><td>SOC lead</td><td>False-negative rate on sampled alerts</td></tr>
+<tr><td>Phishing / BEC</td><td>Detect AI-crafted lures</td><td>AI-generated, highly targeted phishing</td><td>Email security + anomaly detection</td><td>Training; out-of-band verification</td><td>CISO</td><td>Reported-phish + click rates</td></tr>
+<tr><td>Deepfake fraud</td><td>Liveness and anomaly detection</td><td>Voice/video impersonation of executives</td><td>Multimodal biometrics; callback</td><td>Out-of-band approval for payments</td><td>Fraud + CISO</td><td>Deepfake attempts detected/blocked</td></tr>
+<tr><td>Prompt injection</td><td>Input/output filtering</td><td>Data exfiltration via injection (LLM01)</td><td>Red teaming; output monitoring</td><td>Independent security enforcement</td><td>AI-risk team</td><td>Red-team findings closed</td></tr>
+<tr><td>Model/data poisoning</td><td>Provenance checks</td><td>Corrupted training/RAG data (LLM04/08)</td><td>Embedding-store integrity checks</td><td>Source vetting; signed datasets</td><td>AI/ML + security</td><td>Poisoning tests passed</td></tr>
+<tr><td>Agentic actions</td><td>Speed on routine ops</td><td>Excessive agency (LLM06)</td><td>Action logging; approval gates</td><td>Least privilege; bounded autonomy</td><td>CISO + platform</td><td>% agent actions within policy</td></tr>
+<tr><td>Secrets in code</td><td>Secret scanning at scale</td><td>Leaked secrets via AI code</td><td>Pre-commit + pipeline scanning</td><td>DevSecOps gates</td><td>AppSec lead</td><td>Secrets detected pre-merge</td></tr></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<div class="expandable" id="tbl-wealthtech">
+  <button class="exp-trigger" aria-expanded="false" aria-controls="tbl-wealthtech-body" data-target="tbl-wealthtech-body">
+    <div class="exp-left"><div class="exp-num">08</div><div class="exp-meta"><div class="exp-kicker">Reference · WealthTech</div><div class="exp-title">WealthTech transformation matrix</div><div class="exp-sub">6 rows &middot; 7 columns &middot; Click to expand</div></div></div>
+    <div class="exp-right"><span class="exp-pill">Closed</span><svg class="exp-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 8 10 12 14 8"/></svg></div>
+  </button>
+  <div class="exp-body" id="tbl-wealthtech-body" role="region" aria-hidden="true">
+    <p class="exp-lede">Across the advisor desktop, meeting notes, proposals, risk profiling, next-best-action, and client portal: impact, compliance risk, data and control requirements, metric.</p>
+    <div class="exp-table-wrap">
+      <table class="exp-table">
+        <thead><tr><th>WealthTech domain</th><th>AI-enabled workflow</th><th>Advisor / client impact</th><th>Compliance risk</th><th>Data requirement</th><th>Control requirement</th><th>Metric</th></tr></thead>
+        <tbody><tr><td>CRM / advisor desktop</td><td>Unified prompt over client data</td><td>Less swivel-chair; faster prep</td><td>Unsuitable or unauthorized output</td><td>Permissioned, governed client data</td><td>Entitlement-aware retrieval</td><td>Adoption; time saved</td></tr>
+<tr><td>Meeting notes</td><td>Summaries written to CRM</td><td>More client face-time</td><td>Recording consent; recordkeeping</td><td>Consent capture</td><td>Consent + archiving</td><td>% meetings with consent logged</td></tr>
+<tr><td>Proposal generation</td><td>Draft proposals and IPS</td><td>Faster turnaround</td><td>Misleading performance claims</td><td>Approved performance data</td><td>Compliance review pre-send</td><td>% proposals reviewed</td></tr>
+<tr><td>Risk profiling</td><td>Suggested risk scores</td><td>Consistency</td><td>Reg BI suitability</td><td>Validated client data</td><td>Human sign-off on recommendations</td><td>Override rate</td></tr>
+<tr><td>Next-best-action</td><td>Prioritized client actions</td><td>Proactive service</td><td>Conflicts of interest</td><td>Household data</td><td>Conflict checks</td><td>Action acceptance rate</td></tr>
+<tr><td>Client portal / chat</td><td>Client-facing agents</td><td>Self-service</td><td>Unauthorized advice</td><td>Scoped knowledge base</td><td>Guardrails; escalation to human</td><td>Containment + escalation rates</td></tr></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<div class="expandable" id="tbl-corp">
+  <button class="exp-trigger" aria-expanded="false" aria-controls="tbl-corp-body" data-target="tbl-corp-body">
+    <div class="exp-left"><div class="exp-num">09</div><div class="exp-meta"><div class="exp-kicker">Reference · Corp &amp; Martech</div><div class="exp-title">Corporate systems &amp; Martech matrix</div><div class="exp-sub">7 rows &middot; 7 columns &middot; Click to expand</div></div></div>
+    <div class="exp-right"><span class="exp-pill">Closed</span><svg class="exp-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 8 10 12 14 8"/></svg></div>
+  </button>
+  <div class="exp-body" id="tbl-corp-body" role="region" aria-hidden="true">
+    <p class="exp-lede">HRIS, ERP, ITSM, CRM, email, surveillance, and personalization: workflow impact, data/privacy risk, compliance requirement, integration dependency, owner.</p>
+    <div class="exp-table-wrap">
+      <table class="exp-table">
+        <thead><tr><th>Platform domain</th><th>AI-enabled use case</th><th>Workflow impact</th><th>Data / privacy risk</th><th>Compliance requirement</th><th>Integration dependency</th><th>Owner</th></tr></thead>
+        <tbody><tr><td>HRIS (Workday)</td><td>HR agents; review drafting</td><td>Faster HR ops</td><td>Employee data exposure</td><td>EU AI Act employment (high-risk)</td><td>Identity; payroll</td><td>HR + IT + AI governance</td></tr>
+<tr><td>Finance / ERP (SAP)</td><td>Close and cash agents</td><td>Faster close</td><td>Financial-data leakage</td><td>SOX ITGC</td><td>GL; treasury</td><td>Finance + IT</td></tr>
+<tr><td>ITSM (ServiceNow)</td><td>Case summaries; dispute agents</td><td>Faster resolution</td><td>PII in tickets</td><td>Override-reason logging</td><td>CMDB; identity</td><td>I&amp;O + AI governance</td></tr>
+<tr><td>CRM / marketing automation</td><td>Segmentation; campaign drafting</td><td>Faster campaigns</td><td>Consent; profiling</td><td>FINRA 2210; SEC Marketing Rule</td><td>CRM; archive</td><td>Marketing + compliance</td></tr>
+<tr><td>Email marketing</td><td>Content generation</td><td>Higher throughput</td><td>Unapproved claims</td><td>Pre-publication review</td><td>Archive; preference center</td><td>Marketing + compliance</td></tr>
+<tr><td>Comms surveillance</td><td>AI risk detection</td><td>Less reviewer noise</td><td>Over/under-flagging</td><td>Recordkeeping; supervision</td><td>All comms channels</td><td>Compliance</td></tr>
+<tr><td>Website / personalization</td><td>Dynamic personalization</td><td>Higher engagement</td><td>Unfair treatment</td><td>Disclosure; testing</td><td>CDP; consent</td><td>Marketing + compliance</td></tr></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<div class="expandable" id="tbl-legal">
+  <button class="exp-trigger" aria-expanded="false" aria-controls="tbl-legal-body" data-target="tbl-legal-body">
+    <div class="exp-left"><div class="exp-num">10</div><div class="exp-meta"><div class="exp-kicker">Reference · Regulatory</div><div class="exp-title">Legal, regulatory &amp; compliance implications</div><div class="exp-sub">11 rows &middot; 6 columns &middot; Click to expand</div></div></div>
+    <div class="exp-right"><span class="exp-pill">Closed</span><svg class="exp-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 8 10 12 14 8"/></svg></div>
+  </button>
+  <div class="exp-body" id="tbl-legal-body" role="region" aria-hidden="true">
+    <p class="exp-lede">Each framework — current as of mid-2026 — mapped to its IT implication, high-risk use cases, required controls, and owner.</p>
+    <div class="exp-table-wrap">
+      <table class="exp-table">
+        <thead><tr><th>Framework</th><th>Current status</th><th>IT implication</th><th>High-risk use cases</th><th>Required controls</th><th>Owner</th></tr></thead>
+        <tbody><tr><td>FFIEC IT Handbook — AIO booklet</td><td>Current (June 2021) <sup class="cite">[1]</sup></td><td>Governs architecture, infrastructure, operations incl. AI/ML/cloud</td><td>Autonomous ops; resilience</td><td>Board oversight; change mgmt; resilience testing</td><td>CTO</td></tr>
+<tr><td>SEC Regulation S-P (amended)</td><td>Compliance Dec 2025 / Jun 2026 <sup class="cite">[17]</sup></td><td>Service-provider oversight; incident response; 30-day notice</td><td>Vendor AI; data exposure</td><td>IR program; vendor oversight policies</td><td>CISO + CCO</td></tr>
+<tr><td>FINRA 2025/2026 reports; RN 24-09</td><td>Current <sup class="cite">[12,13,14]</sup></td><td>GenAI/agentic AI under existing rules</td><td>Comms; supervision; third-party</td><td>Supervision; archiving; vendor program</td><td>CCO</td></tr>
+<tr><td>NYDFS 23 NYCRR Part 500 + AI letter</td><td>Current; AI letter Oct 2024 <sup class="cite">[15]</sup></td><td>AI cyber risks; MFA deepfake caution</td><td>Deepfakes; NPI exposure</td><td>Risk assessment; access controls; training</td><td>CISO</td></tr>
+<tr><td>SR 11-7 model risk</td><td>Current (2011) <sup class="cite">[18]</sup></td><td>Applied to ML/AI/LLM models</td><td>Credit; AML; investment models</td><td>Validation; inventory; monitoring</td><td>Chief model-risk officer</td></tr>
+<tr><td>NIST AI RMF + GenAI Profile</td><td>Current <sup class="cite">[8,9]</sup></td><td>Voluntary; referenced by regulators/buyers</td><td>All GenAI</td><td>Govern/Map/Measure/Manage</td><td>CDO + AI governance</td></tr>
+<tr><td>NIST CSF 2.0</td><td>Current <sup class="cite">[54]</sup></td><td>Cyber baseline; FFIEC CAT sunset Aug 2025</td><td>All systems</td><td>Six-function coverage</td><td>CISO</td></tr>
+<tr><td>GLBA Safeguards</td><td>Current</td><td>Protects nonpublic personal information</td><td>Client data in AI</td><td>Safeguards program</td><td>CISO + CCO</td></tr>
+<tr><td>FS AI RMF (Treasury / CRI)</td><td>Issued Feb 19, 2026 <sup class="cite">[59]</sup></td><td>230 control objectives mapped to AI-adoption stage; NIST-aligned</td><td>All AI in FS</td><td>Risk &amp; Control Matrix by adoption stage</td><td>AI governance office</td></tr>
+<tr><td>NYDFS TPSP Industry Letter</td><td>Issued Oct 21, 2025 <sup class="cite">[60]</sup></td><td>Lifecycle third-party risk incl. AI/cloud/FinTech vendors</td><td>Embedded vendor AI</td><td>Due diligence; contracts; monitoring; non-delegation</td><td>CISO + vendor-risk</td></tr>
+<tr><td>EU AI Act</td><td>In force Aug 2024; Annex III deferred to Dec 2027 <sup class="cite">[25]</sup></td><td>High-risk obligations for credit/insurance/employment AI</td><td>Credit scoring; insurance; HR</td><td>Conformity; transparency; oversight</td><td>Legal + AI governance</td></tr></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<div class="expandable" id="tbl-redlines">
+  <button class="exp-trigger" aria-expanded="false" aria-controls="tbl-redlines-body" data-target="tbl-redlines-body">
+    <div class="exp-left"><div class="exp-num">11</div><div class="exp-meta"><div class="exp-kicker">Reference · Red Lines</div><div class="exp-title">AI red lines / restricted use cases</div><div class="exp-sub">8 rows &middot; 6 columns &middot; Click to expand</div></div></div>
+    <div class="exp-right"><span class="exp-pill">Closed</span><svg class="exp-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 8 10 12 14 8"/></svg></div>
+  </button>
+  <div class="exp-body" id="tbl-redlines-body" role="region" aria-hidden="true">
+    <p class="exp-lede">Each prohibited or restricted use case with risk type, rationale, applicable framework, required policy language, and exception process.</p>
+    <div class="exp-table-wrap">
+      <table class="exp-table">
+        <thead><tr><th>AI use case</th><th>Risk type</th><th>Why prohibited / restricted</th><th>Applicable framework</th><th>Required policy language</th><th>Exception process</th></tr></thead>
+        <tbody><tr><td>Concealing material AI use from regulators/auditors</td><td>Integrity / regulatory</td><td>Undermines supervision and audit reliance</td><td>FINRA <sup class="cite">[12]</sup>; SR 11-7 <sup class="cite">[18]</sup></td><td>AI involvement must be disclosed where reliance is material</td><td>None</td></tr>
+<tr><td>Training external models on confidential data</td><td>Data / IP / privacy</td><td>Irreversible data exposure; IP and privacy loss</td><td>Treasury <sup class="cite">[10]</sup>; Reg S-P <sup class="cite">[17]</sup></td><td>No training on confidential data without executed prohibition</td><td>None</td></tr>
+<tr><td>Agentic changes to security/network config</td><td>Operational / cyber</td><td>Unbounded blast radius; resilience risk</td><td>FFIEC AIO <sup class="cite">[1]</sup>; NYDFS <sup class="cite">[15]</sup></td><td>Agent production changes require approved change management</td><td>None</td></tr>
+<tr><td>Deepfake tools in payments/approvals</td><td>Fraud</td><td>Enables impersonation fraud</td><td>NYDFS AI letter <sup class="cite">[15]</sup></td><td>No synthetic-identity tools in approval/payment flows</td><td>None</td></tr>
+<tr><td>AI final decisions on credit/employment</td><td>Fairness / regulatory</td><td>Bias; lack of accountability</td><td>SR 11-7 <sup class="cite">[18]</sup>; EU AI Act <sup class="cite">[25]</sup></td><td>Human sign-off required for consequential decisions</td><td>Governance committee only</td></tr>
+<tr><td>AI-generated client/marketing content</td><td>Compliance</td><td>Misleading claims; unsupervised comms</td><td>FINRA 2210 <sup class="cite">[14]</sup>; SEC Mktg Rule <sup class="cite">[49]</sup></td><td>Compliance review before any client-facing publication</td><td>Senior approval + review</td></tr>
+<tr><td>AI-generated audit/exam evidence</td><td>Integrity</td><td>Unverified evidence to regulators</td><td>FINRA <sup class="cite">[12]</sup></td><td>Source verification and accountable human sign-off</td><td>Senior approval</td></tr>
+<tr><td>Unapproved public AI tools with firm data</td><td>Data leakage</td><td>Uncontrolled data egress</td><td>FS-ISAC AUP <sup class="cite">[21,22]</sup></td><td>Only approved enterprise AI tools permitted</td><td>Enhanced review</td></tr></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<div class="expandable" id="tbl-cases">
+  <button class="exp-trigger" aria-expanded="false" aria-controls="tbl-cases-body" data-target="tbl-cases-body">
+    <div class="exp-left"><div class="exp-num">12</div><div class="exp-meta"><div class="exp-kicker">Reference · Cases</div><div class="exp-title">Case-study comparison</div><div class="exp-sub">12 rows &middot; 7 columns &middot; Click to expand</div></div></div>
+    <div class="exp-right"><span class="exp-pill">Closed</span><svg class="exp-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 8 10 12 14 8"/></svg></div>
+  </button>
+  <div class="exp-body" id="tbl-cases-body" role="region" aria-hidden="true">
+    <p class="exp-lede">Named enterprise deployments with self-reported outcomes, controls, caveats, and source — augmentation playbook and the Klarna counter-example.</p>
+    <div class="exp-table-wrap">
+      <table class="exp-table">
+        <thead><tr><th>Firm</th><th>Type</th><th>Domain</th><th>AI application</th><th>Outcomes / controls (self-reported)</th><th>Caveats</th><th>Source</th></tr></thead>
+        <tbody><tr><td>JPMorgan Chase</td><td>Megabank</td><td>Platform, SDLC, AWM</td><td>LLM Suite; Connect Coach; PRBuddy</td><td>200,000+ users; $1–$1.5B value (mid-2024, later raised toward $2B); ~4 hrs/week saved; internal-only; banned external ChatGPT</td><td>Self-reported; value not audited</td><td>Digital Banker <sup class="cite">[27]</sup>; Evident <sup class="cite">[57]</sup>; FT memo <sup class="cite">[58]</sup></td></tr>
+<tr><td>Morgan Stanley</td><td>Global wealth/IB</td><td>WealthTech, research</td><td>AI@MS Assistant; Debrief; AskResearchGPT</td><td>&gt;98% advisor-team adoption; 20%–80% retrieval; eval-driven; consent</td><td>Vendor + company case study</td><td>OpenAI/MS case <sup class="cite">[29]</sup>; MS press <sup class="cite">[30]</sup></td></tr>
+<tr><td>Bank of America</td><td>Megabank</td><td>Workplace, cyber, SDLC</td><td>Erica; Erica for Employees; ask MERRILL; dev assistant</td><td>20M users; ~3B interactions; &gt;90% employee use; ~50% call reduction</td><td>SEC filing; self-reported</td><td>BofA 8-K <sup class="cite">[31]</sup></td></tr>
+<tr><td>Citi</td><td>Megabank</td><td>SDLC, productivity</td><td>GenAI coding; Citi Squad</td><td>30,000 devs; ~220,000 code reviews in a quarter</td><td>Media-reported company claims</td><td>Banking Dive <sup class="cite">[32]</sup>; Bank Automation News <sup class="cite">[33]</sup></td></tr>
+<tr><td>Goldman Sachs</td><td>Megabank / IB</td><td>SDLC, firm-wide platform</td><td>GS AI Platform; GS AI Assistant; Devin pilot</td><td>~20% developer-productivity gain; 15% fewer post-release bugs; &gt;50% of ~46,000 staff adopted; behind-firewall</td><td>Self-reported via named execs</td><td>Quartz/IBM <sup class="cite">[65]</sup></td></tr>
+<tr><td>BlackRock</td><td>Asset manager</td><td>Aladdin / private markets</td><td>Aladdin &amp; eFront Copilot; Preqin unification</td><td>Azure OpenAI; Entra Agent ID; whole-portfolio data</td><td>Vendor + company</td><td>Microsoft Cloud Blog <sup class="cite">[34]</sup></td></tr>
+<tr><td>Orion</td><td>WealthTech vendor</td><td>RIA platform</td><td>Denali AI; Report Assistant</td><td>Client beta Feb 2026; $5.8T AUA</td><td>Vendor announcement</td><td>Wealth Solutions Report <sup class="cite">[45]</sup></td></tr>
+<tr><td>Addepar</td><td>WealthTech vendor</td><td>Multi-asset reporting</td><td>Addison AI</td><td>1,400+ firms; ~$9T assets</td><td>Vendor announcement</td><td>WealthManagement.com <sup class="cite">[46]</sup></td></tr>
+<tr><td>Schwab</td><td>Custodian / broker</td><td>Client + advisor</td><td>Client-facing agents (June 2026)</td><td>Chat/voice agents; will charge for money-movement agents</td><td>Pre-launch plans</td><td>WealthManagement.com <sup class="cite">[47]</sup></td></tr>
+<tr><td>Jump</td><td>RIA AI vendor</td><td>Advisor meeting notes</td><td>Meeting AI; CRM integration</td><td>$80M Series B; ~90% admin-time reduction (vendor)</td><td>Vendor claims; illustrative</td><td>Jump Series B <sup class="cite">[48]</sup></td></tr>
+<tr><td>Klarna</td><td>Fintech</td><td>Customer service</td><td>AI chatbot replacing ~700 agents</td><td>Reversed May 2025; 'lower quality'; hybrid adopted</td><td>Cautionary substitution case</td><td>Entrepreneur <sup class="cite">[38]</sup>; Tech.co <sup class="cite">[39]</sup></td></tr>
+<tr><td>Smarsh</td><td>Compliance vendor</td><td>Surveillance / Martech</td><td>AI surveillance; Noise Reduction Agent</td><td>~95% false-positive reduction (vendor); NIST AI RMF aligned</td><td>Vendor marketing; illustrative</td><td>Smarsh <sup class="cite">[43]</sup></td></tr></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<div class="expandable" id="tbl-governance">
+  <button class="exp-trigger" aria-expanded="false" aria-controls="tbl-governance-body" data-target="tbl-governance-body">
+    <div class="exp-left"><div class="exp-num">13</div><div class="exp-meta"><div class="exp-kicker">Reference · Governance</div><div class="exp-title">Governance &amp; control checklist</div><div class="exp-sub">8 rows &middot; 6 columns &middot; Click to expand</div></div></div>
+    <div class="exp-right"><span class="exp-pill">Closed</span><svg class="exp-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 8 10 12 14 8"/></svg></div>
+  </button>
+  <div class="exp-body" id="tbl-governance-body" role="region" aria-hidden="true">
+    <p class="exp-lede">Each risk area with why it matters, the required control, the control owner, the evidence/regulation, and a monitoring metric.</p>
+    <div class="exp-table-wrap">
+      <table class="exp-table">
+        <thead><tr><th>Risk area</th><th>Why it matters in FS IT</th><th>Required control</th><th>Control owner</th><th>Evidence / regulation</th><th>Monitoring metric</th></tr></thead>
+        <tbody><tr><td>AI inventory</td><td>Unknown AI evades supervision</td><td>Inventory integrated with model &amp; system inventories</td><td>AI governance office</td><td>Treasury <sup class="cite">[10]</sup>; SR 11-7 <sup class="cite">[18]</sup></td><td>% AI assets inventoried</td></tr>
+<tr><td>Risk tiering</td><td>Not all AI is equal risk</td><td>Tier by data, autonomy, impact</td><td>AI governance office</td><td>NIST AI RMF <sup class="cite">[8]</sup>; 600-1 <sup class="cite">[9]</sup></td><td>% use cases tiered</td></tr>
+<tr><td>Approved tooling</td><td>Shadow AI leaks data</td><td>Approved-tool list + egress/DLP</td><td>CISO</td><td>FS-ISAC AUP <sup class="cite">[21,22]</sup></td><td>Shadow-AI detections</td></tr>
+<tr><td>Model validation</td><td>Unvalidated models cause loss</td><td>Independent validation</td><td>Chief model-risk officer</td><td>SR 11-7 <sup class="cite">[18]</sup></td><td>% models validated on schedule</td></tr>
+<tr><td>Red teaming</td><td>LLM-specific attack surface</td><td>OWASP/MITRE-aligned red team</td><td>AI-risk team</td><td>OWASP LLM Top 10 <sup class="cite">[20]</sup></td><td>Findings closed</td></tr>
+<tr><td>Vendor AI clauses</td><td>SaaS AI creates new risk</td><td>Clause library; continuous monitoring</td><td>Vendor-risk office</td><td>FINRA <sup class="cite">[12]</sup>; NYDFS TPSP <sup class="cite">[60]</sup></td><td>% contracts updated</td></tr>
+<tr><td>Incident response</td><td>AI incidents are novel</td><td>AI-specific IR plays</td><td>CISO</td><td>NYDFS <sup class="cite">[15]</sup>; Reg S-P <sup class="cite">[17]</sup></td><td>IR exercises completed</td></tr>
+<tr><td>Records retention</td><td>Books-and-records duties</td><td>Retain prompts/outputs/evals</td><td>CCO</td><td>FINRA <sup class="cite">[12]</sup>; RN 24-09 <sup class="cite">[14]</sup></td><td>Retention coverage</td></tr></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<div class="expandable" id="tbl-vendors">
+  <button class="exp-trigger" aria-expanded="false" aria-controls="tbl-vendors-body" data-target="tbl-vendors-body">
+    <div class="exp-left"><div class="exp-num">14</div><div class="exp-meta"><div class="exp-kicker">Reference · Vendors</div><div class="exp-title">Representative all-in-one advisor desktop vendors</div><div class="exp-sub">20 rows &middot; 4 columns &middot; Click to expand</div></div></div>
+    <div class="exp-right"><span class="exp-pill">Closed</span><svg class="exp-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 8 10 12 14 8"/></svg></div>
+  </button>
+  <div class="exp-body" id="tbl-vendors-body" role="region" aria-hidden="true">
+    <p class="exp-lede">Illustrative, not exhaustive — Gartner counts 50+ in this market. Vendor and product/solution name pairs.</p>
+    <div class="exp-table-wrap">
+      <table class="exp-table">
+        <thead><tr><th>Vendor</th><th>Product / solution</th><th>Vendor</th><th>Product / solution</th></tr></thead>
+        <tbody><tr><td>additiv</td><td>addWealth</td><td>InvestCloud</td><td>Advisor Experience</td></tr>
+<tr><td>AdvisorEngine</td><td>Wealth Management Platform</td><td>LSEG</td><td>Workspace for wealth advisors</td></tr>
+<tr><td>Advisor360°</td><td>Advisor360° Platform</td><td>Morningstar</td><td>Morningstar Wealth Platform</td></tr>
+<tr><td>aixigo AG</td><td>aixigo:BLOXX</td><td>TIAA (MyVest)</td><td>Strategic Portfolio System (SPS)</td></tr>
+<tr><td>Avaloq</td><td>Avaloq Core Platform</td><td>Objectway</td><td>Objectway Platform — Advisor Desktop</td></tr>
+<tr><td>Broadridge</td><td>Advisor Workstation Framework</td><td>Orion Advisor Solutions</td><td>Wealth Management</td></tr>
+<tr><td>CGI</td><td>Wealth360 Digital Wealth Platform</td><td>Privé Technologies</td><td>Prive Managers</td></tr>
+<tr><td>Chelmer</td><td>Wealth management software</td><td>Profile Software</td><td>Wealth Management Solutions</td></tr>
+<tr><td>CREALOGIX</td><td>Wealth Management</td><td>Prometeia</td><td>WealthTech Solutions</td></tr>
+<tr><td>Croesus</td><td>Croesus wealth management</td><td>QPLIX GmbH</td><td>WealthtechSolutions</td></tr>
+<tr><td>d1g1t</td><td>d1g1t Wealth Management Software</td><td>Salesforce</td><td>Financial Services Cloud</td></tr>
+<tr><td>Dorsum</td><td>Wealth Platform / Portal / Connect</td><td>SS&amp;C</td><td>Black Diamond / Global Wealth Platform</td></tr>
+<tr><td>Envestnet</td><td>Envestnet Wealth Management Platform</td><td>Tata Consultancy Services</td><td>TCS BaNCS for Wealth Management</td></tr>
+<tr><td>equisoft</td><td>Equisoft Solutions for Wealth Advisors</td><td>Temenos</td><td>Temenos Wealth Front Office</td></tr>
+<tr><td>ERI</td><td>OLYMPIC Banking System</td><td>WealthObjects</td><td>Holistic Wealth Management/Advisory</td></tr>
+<tr><td>Expersoft</td><td>Expersoft PM1</td><td>FINARTIS</td><td>Prospero Suite</td></tr>
+<tr><td>Fincite</td><td>Fincite WealthTech Software</td><td>FIS</td><td>FIS Unity — Holistic Wealth Mgmt</td></tr>
+<tr><td>FNZ Group</td><td>End-to-end wealth platform</td><td>ForwardLane</td><td>ForwardLane for Wealth Management</td></tr>
+<tr><td>GoalsMapper</td><td>GoalsMapper</td><td>Harris (NexJ Systems)</td><td>Integrated Advisor Desktop</td></tr>
+<tr><td>Intellect Design Arena</td><td>Wealth Qube</td><td></td><td></td></tr></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+      </section>
+    </div>
+  </main>
+</div>
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('in'); });
+  }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  const funnelObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.querySelectorAll('.funnel-bar').forEach((bar, i) => {
+          const w = bar.style.width;
+          bar.style.width = '0%';
+          setTimeout(() => { bar.style.width = w; }, 100 + i * 120);
+        });
+        funnelObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.3 });
+  document.querySelectorAll('.chart-block').forEach(el => funnelObserver.observe(el));
+
+  function toggleExpandable(trigger) {
+    const target = document.getElementById(trigger.dataset.target);
+    const container = trigger.closest('.expandable');
+    const isOpen = container.classList.toggle('open');
+    trigger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    target.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+  }
+  document.querySelectorAll('.exp-trigger').forEach(btn => { btn.addEventListener('click', () => toggleExpandable(btn)); });
+  document.getElementById('expand-all').addEventListener('click', () => {
+    document.querySelectorAll('.expandable').forEach(e => { if (!e.classList.contains('open')) e.querySelector('.exp-trigger').click(); });
+  });
+  document.getElementById('collapse-all').addEventListener('click', () => {
+    document.querySelectorAll('.expandable').forEach(e => { if (e.classList.contains('open')) e.querySelector('.exp-trigger').click(); });
+  });
+  function openFromHash() {
+    if (location.hash) {
+      const el = document.querySelector(location.hash);
+      if (el && el.classList.contains('expandable') && !el.classList.contains('open')) { el.querySelector('.exp-trigger').click(); }
+    }
+  }
+  window.addEventListener('load', openFromHash);
+  window.addEventListener('hashchange', openFromHash);
+  document.querySelectorAll('a[href^="#tbl-"]').forEach(a => {
+    a.addEventListener('click', () => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target && !target.classList.contains('open')) { setTimeout(() => target.querySelector('.exp-trigger').click(), 100); }
+    });
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Issue #16: OpenAI Becomes the Work Layer, AI Search Rewrites the Publisher Model, Why AI ROI Can't Be Tool-Led, What Loop Engineering Is — and AI for the Tech Function in Financial Services — AI &amp; Org, Curated</title>
+  <meta name="description" content="Three AI-news items (OpenAI as the work layer, AI search vs. the publisher model, why AI ROI can't be tool-led), an AI Demystified on loop engineering, and an Org Redesign briefing on AI for the technology function in financial services.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .source-list { font-size: 0.85rem; color: var(--color-text-muted); margin-top: 0.75rem; padding-top: 0.75rem; border-top: 1px dashed var(--color-border); }
+    .source-list strong { color: var(--color-text); }
+    .source-list a { margin-right: 0.5rem; }
+
+    .dashboard-embed { position: relative; width: 100%; height: 900px; margin: 2rem 0; border-radius: 12px; border: 1px solid var(--color-border); overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+    .dashboard-embed iframe { width: 100%; height: 100%; border: 0; }
+    .dashboard-link { display: flex; justify-content: space-between; align-items: center; gap: 0.75rem; flex-wrap: wrap; font-size: 0.85rem; color: var(--color-text-muted); margin-top: 0.5rem; margin-bottom: 1.5rem; }
+    .dashboard-link a { font-weight: 600; color: var(--color-accent); }
+    @media (max-width: 700px) { .dashboard-embed { height: 1200px; } }
+
+    .strategic-read { background: var(--color-bg-alt); border-left: 4px solid var(--color-accent); border-radius: 6px; padding: 0.75rem 1.1rem; margin: 0.75rem 0 0; font-size: 0.92rem; }
+    .strategic-read strong { color: var(--color-accent); }
+
+    .feature-essay .essay-dek { font-size: 1.05rem; font-style: italic; color: var(--color-text-muted); margin-bottom: 1.5rem; }
+    .feature-essay h4 { font-size: 1.15rem; font-weight: 700; color: var(--color-accent); margin: 2rem 0 0.6rem; }
+    .feature-essay p { margin-bottom: 1rem; line-height: 1.7; }
+    .feature-essay sup { font-size: 0.7rem; color: var(--color-accent); font-weight: 600; }
+    .pullquote { border-left: 4px solid var(--color-accent); background: var(--color-bg-alt); padding: 1rem 1.4rem; margin: 1.5rem 0; font-size: 1.05rem; font-style: italic; color: var(--color-text); }
+    .ref-list { font-size: 0.8rem; color: var(--color-text-muted); line-height: 1.6; padding-left: 0; list-style: none; margin-top: 0.5rem; }
+    .ref-list li { margin-bottom: 0.35rem; }
+    .ref-list a { word-break: break-word; }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="../index.html" class="site-logo">
+        <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="28" height="28" rx="6" fill="#2563eb"/>
+          <rect x="14" width="14" height="28" rx="0 6 6 0" fill="#0d9488"/>
+          <path d="M7 8h14M7 14h10M7 20h12" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+        AI &amp; Org, Curated
+      </a>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <path d="M3 6h18M3 12h18M3 18h18"/>
+        </svg>
+      </button>
+      <nav class="site-nav">
+        <a href="../index.html">Issues</a>
+        <a href="../about.html">About</a>
+        <a href="../feed.xml">RSS</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <div class="issue-header">
+      <div class="issue-meta">
+        <span class="issue-number">Issue #16</span>
+        <span>June 27, 2026</span>
+      </div>
+      <h1>OpenAI Becomes the Work Layer, AI Search Rewrites the Publisher Model, Why AI ROI Can't Be Tool-Led — What Loop Engineering Is, and How the Tech Function in Financial Services Is Adopting AI</h1>
+    </div>
+
+    <section class="editorial">
+      <h2>Editor's Take</h2>
+      <p>Back after a week off for a family vacation. This issue runs in three parts: three AI-news items, an <em>AI Demystified</em> on the term you're starting to hear — "loop engineering" — and an Org Redesign briefing on AI for the technology function in financial services. A through-line connects them: AI is moving inside the workflow, and the value comes from redesigning the work, not distributing the tool.</p>
+    </section>
+
+    <section class="curated-links">
+      <h2>This Week's Stories</h2>
+
+      <!-- 1. OpenAI work layer -->
+      <article class="link-item">
+        <div class="link-item-header">
+          <h3><a href="https://openai.com/index/introducing-workspace-agents-in-chatgpt/" target="_blank" rel="noopener">OpenAI Is Moving From Chatbot to Work Layer</a></h3>
+          <span class="source-badge">OpenAI / TechCrunch</span>
+          <span class="category-tag industry">Industry</span>
+        </div>
+        <p class="link-summary">OpenAI's direction is getting clearer: ChatGPT and Codex are moving from "answer my question" to "help run the work." OpenAI recently introduced <strong>workspace agents in ChatGPT</strong> — teams can create shared agents that handle complex tasks, long-running workflows, approvals, reports, CRM updates, software requests, vendor-risk reviews, and even parts of month-end close. The important point isn't that AI can write better emails; it's that AI is starting to sit <em>inside</em> the workflow — gathering context, following a process, asking for approval, and keeping work moving across tools.</p>
+        <div class="strategic-read"><strong>Strategic read:</strong> this is the next version of the "super app" idea — not one app that replaces everything, but one AI layer across many tools. The bottleneck won't just be model quality. It will be permissions, governance, review points, process ownership, and whether teams know which workflows should be redesigned.</div>
+        <div class="source-list">
+          <strong>Sources:</strong>
+          <a href="https://openai.com/index/introducing-workspace-agents-in-chatgpt/" target="_blank" rel="noopener">OpenAI: workspace agents</a> ·
+          <a href="https://techcrunch.com/2026/06/02/openai-launches-new-codex-tools-for-white-collar-work/" target="_blank" rel="noopener">TechCrunch: Codex tools for white-collar work</a>
+        </div>
+      </article>
+
+      <!-- 2. AI search publisher model (updated) -->
+      <article class="link-item">
+        <div class="link-item-header">
+          <h3>AI Search Is Rewriting the Publisher Model</h3>
+          <span class="source-badge">Google / arXiv / Axios / HubSpot / Semrush</span>
+          <span class="category-tag industry">Industry</span>
+        </div>
+        <p class="link-summary">AI search is changing the economics of the internet. Google AI Overviews and similar answer engines give users synthesized answers before they click into the original source. One 2026 study found AI Overview exposure reduced daily traffic to affected English Wikipedia articles by about <strong>15%</strong>; another found AI Overviews appeared in <strong>13.7%</strong> of trending queries overall and <strong>64.7%</strong> of question-form queries. This is not just an SEO problem — it's a business-model problem. The old bargain (publishers create content, search engines send traffic, publishers monetize the visit) breaks when the answer is consumed on the search page: the publisher may still supply the raw material but lose the click, the ad impression, and the customer relationship.</p>
+        <p class="link-summary">The answer is not to abandon SEO. Google's own guidance says foundational SEO still matters for AI search — technical accessibility, clear page structure, helpful content, product and local details, and pages eligible to be indexed and shown with snippets. But SEO is no longer enough by itself. <strong>The new playbook is SEO + AEO/GEO.</strong> SEO helps your content rank; AEO/GEO helps your brand become the answer. That means content AI systems can confidently understand, cite, and summarize: clear explainers, comparison pages, FAQs, original research, customer proof, pricing/product details, author expertise, schema markup, and content written around real buyer questions — not just keywords.</p>
+        <p class="link-summary">Measurement changes too. Ranking #1 matters less if the answer is consumed above the link. Teams should start tracking <strong>AI visibility</strong>: when the brand is mentioned, whether the answer is accurate, whether competitors are cited instead, which pages are used as sources, and whether AI-assisted traffic converts differently.</p>
+        <div class="strategic-read"><strong>Strategic read:</strong> the next fight is not just ranking. It is trust, citation, and conversion. Brands need to show up as the credible source <em>inside</em> the answer — then give the user a reason to click, subscribe, request a demo, book a meeting, or buy.</div>
+        <div class="source-list">
+          <strong>Sources:</strong>
+          <a href="https://arxiv.org/abs/2602.18455" target="_blank" rel="noopener">arXiv 2602.18455</a> ·
+          <a href="https://arxiv.org/abs/2605.14021" target="_blank" rel="noopener">arXiv 2605.14021</a> ·
+          <a href="https://developers.google.com/search/docs/fundamentals/ai-optimization-guide" target="_blank" rel="noopener">Google: AI optimization guide</a> ·
+          <a href="https://developers.google.com/search/docs/appearance/ai-features" target="_blank" rel="noopener">Google: AI features</a> ·
+          <a href="https://www.axios.com/2026/06/23/people-inc-google-ai-search-crawler" target="_blank" rel="noopener">Axios</a> ·
+          <a href="https://www.hubspot.com/products/marketing/aeo-guide" target="_blank" rel="noopener">HubSpot: AEO guide</a> ·
+          <a href="https://www.semrush.com/news/440432-2026-predictions-the-first-year-marketers-must-win-both-worldsseo-and-ai-search/" target="_blank" rel="noopener">Semrush: 2026 predictions</a>
+        </div>
+      </article>
+
+      <!-- 3. AI ROI tool-led -->
+      <article class="link-item">
+        <div class="link-item-header">
+          <h3>AI ROI Is Still Unclear — So Adoption Cannot Be Tool-Led</h3>
+          <span class="source-badge">McKinsey / BCG</span>
+          <span class="category-tag research">Research</span>
+        </div>
+        <p class="link-summary">Enterprise AI usage is up. Enterprise AI impact is still uneven. McKinsey finds AI high performers are much more likely to redesign workflows, embed AI into business processes, track KPIs, and have leaders actively drive adoption. BCG makes a similar point: AI is already woven into daily work for many employees, but real business value comes when companies go beyond tool deployment and redesign how work gets done. <strong>Giving everyone ChatGPT, Claude, or Copilot is not transformation. It is distribution.</strong> The real work is use-case discovery, workflow redesign, measurement, and behavior change — which is also where <em>AI Champions</em> matter. The best Champions aren't just power users with clever prompts; they're translators who can spot repeatable work, redesign the process, test the AI-enabled version, document the before/after, and help peers adopt it.</p>
+        <div class="strategic-read"><strong>Strategic read:</strong> tools create possibility. Workflows create ROI.</div>
+        <div class="source-list">
+          <strong>Sources:</strong>
+          <a href="https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai" target="_blank" rel="noopener">McKinsey: State of AI</a> ·
+          <a href="https://www.bcg.com/publications/2025/ai-adoption-puzzle-why-usage-up-impact-not" target="_blank" rel="noopener">BCG: the AI adoption puzzle</a> ·
+          <a href="https://www.bcg.com/press/26june2025-beyond-ai-adoption-full-potential" target="_blank" rel="noopener">BCG: beyond AI adoption</a>
+        </div>
+      </article>
+
+    </section>
+
+    <!-- ================================ -->
+    <!-- AI, DEMYSTIFIED                   -->
+    <!-- ================================ -->
+
+    <div class="section-divider">
+      <span class="section-label ai">AI, Demystified</span>
+    </div>
+
+    <section class="curated-links">
+      <article class="link-item feature-essay">
+        <div class="link-item-header">
+          <h3>What Is Loop Engineering?</h3>
+          <span class="source-badge">Steinberger / Osmani / Cherny / Claude Code &amp; Codex docs</span>
+          <span class="category-tag opinion">Explainer</span>
+        </div>
+        <p class="essay-dek">The shift from prompting an agent yourself to designing the system that prompts it for you.</p>
+
+        <p>You may have heard the phrase "loop engineering." It got its name in June 2026, when Peter Steinberger posted that you shouldn't be prompting coding agents anymore — you should be designing the loops that prompt them. Google's Addy Osmani named and structured the idea the next day, and Anthropic's Boris Cherny, who leads Claude Code, put it bluntly: "I don't prompt Claude anymore. I have loops running. My job is to write loops."<sup>[1,2,3]</sup></p>
+
+        <p>Prompt engineering is: write one good instruction. Loop engineering is: build the system so the agent finds work, acts, checks the result, and knows when to stop — without you typing the next prompt each time. The cleanest way to hold the concept is a stack, where each layer wraps the one inside it rather than replacing it:</p>
+
+        <p><strong>Prompt engineering</strong> — the words you send. <strong>Context engineering</strong> — everything the model can see when it answers. <strong>Loop engineering</strong> — the repeating cycle that drives the agent toward a goal, on a schedule or a trigger, with you out of the per-step seat.<sup>[2]</sup> A loop runs roughly: Goal → Act → Check the result → Fix or continue → Stop when a condition is met. Note where the weight sits. Most coverage draws the cycle and makes <em>Act</em> look like the hard part. It isn't.</p>
+
+        <h4>The part most coverage misses</h4>
+        <p>The hard part of a loop is not autonomy. It is the check and the stop. The most useful line in the whole discourse: <em>a loop is a task with a check; a task without a check is just hope.</em><sup>[4]</sup> An agent that acts ten times without a real verification step doesn't do ten times the work — it compounds ten times the error, faster, with less of you watching. The craft of loop engineering is making the check real and defining what proves the agent should stop. Everything else — model choice, scheduling, helper agents — is secondary.</p>
+        <p>The other reframe that carries the whole idea: <em>in the loop versus out of the loop.</em> The old way put a human inside the loop — you gave an instruction, read the answer, typed the next one. Loop engineering puts a small designed system in that seat instead. That's the actual shift. It's also why "draft this email, then review it, then give me the improved version" is not loop engineering — it's a good multi-step prompt, but you're still the one in the seat, hitting enter.<sup>[3]</sup></p>
+
+        <h4>"So what do I actually use to loop?"</h4>
+        <p>A year ago, a loop meant writing and babysitting your own pile of shell scripts. The shift in 2026 is that the pieces now ship inside the agent tools, so for most people the answer is: the same tool, with a feature you may not have turned on.<sup>[5]</sup> The two that matter today are Claude Code and OpenAI Codex. They've converged on the same primitives with different names:<sup>[6,7]</sup></p>
+        <p><strong>A scheduled or triggered run</strong> — in Claude Code, routines that run on a recurring schedule, a GitHub event, or an inbound API call (managed from the CLI with <code>/schedule</code>), plus <code>/loop</code> for re-running a prompt on an interval inside an open session; in Codex, the Automations tab. This is what makes a loop a loop instead of a one-off.<sup>[7]</sup> <strong>A goal command</strong> (<code>/goal</code> in both) — sets a completion condition and the agent keeps working across turns until that condition holds, then stops on its own. This is the stop rule, made into a feature.<sup>[6]</sup> <strong>Worktrees, skills, and connectors</strong> — isolation so parallel runs don't collide, written-down project knowledge so the agent doesn't re-guess every cycle, and MCP connectors into the tools you already use.<sup>[5]</sup></p>
+        <p>You don't have to be a developer to recognize the principle. Plenty of non-coding tools now have the same two ingredients: a trigger (a schedule, an incoming email, a new row) and a goal-shaped instruction ("don't stop until you've found three options with confirmed pricing").<sup>[8]</sup> If a tool can start itself on a trigger and check its own output against a condition you wrote, you can build a loop in it.</p>
+
+        <div class="pullquote">A model that produced the work is a poor judge of whether the work is correct — it consistently over-reports success. Separate the maker from the checker. If your loop has the agent grade its own homework, you've automated confidence, not correctness.</div>
+
+        <p>This isn't a hunch; it's baked into how the better tools are built. Claude Code's <code>/goal</code>, for instance, hands the "are we done?" decision to a separate, smaller model that only reads what the working agent wrote down — it can't run your tests itself.<sup>[6]</sup></p>
+
+        <h4>The honest counter-current</h4>
+        <p>The people who coined the term are themselves cautious, and that caution is the story, not a footnote. Osmani called himself skeptical and warned that token costs swing wildly depending on whether you're "token rich or poor."<sup>[2]</sup> The recurring failure modes practitioners name: weak verification (the agent declares done without proof), comprehension debt (output ships faster than anyone can understand it), and cognitive surrender (accepting whatever the loop returns because checking is tiring). An unattended loop is also a loop that makes mistakes unattended. This connects directly to two threads we've tracked — token economics (Issue #14's "Token-Price Reckoning") and the "AI augments, humans sign off" principle for any consequential work.</p>
+
+        <h4>What this means for you</h4>
+        <p>You're probably not writing while-loops around a coding agent. But the role shift underneath the term reaches every knowledge worker, and there are three concrete moves. <strong>First, think in cycles with checks, not one-shot outputs.</strong> Even when you're still the one prompting, design the verification step on purpose: what would tell me this is wrong? <strong>Second, treat the stop rule as the deliverable.</strong> Before you automate anything, write down what "done" looks like and what would make you pull the agent out. If you can't state the stop condition, the task isn't ready to loop. <strong>Third, keep yourself in the review path as you take yourself out of the prompt path.</strong> The leverage of a loop is that it runs without you. The risk is identical. Decide in advance which decisions still need a human signature.</p>
+        <p>The skill is no longer asking once, and it was never really asking perfectly. It is deciding what gets checked, what gets to run on its own, and who is still watching when it does.</p>
+
+        <div class="source-list">
+          <strong>Sources</strong>
+          <ol class="ref-list">
+            <li>[1] Steinberger, P., post on X, June 7, 2026 (popularized the framing).</li>
+            <li>[2] Osmani, A., "Loop Engineering," <a href="https://addyosmani.com/blog/loop-engineering/" target="_blank" rel="noopener">addyosmani.com/blog/loop-engineering</a>, June 8, 2026 (the essay that named and structured the practice; primary source for the layered stack and the skepticism on token cost). Reposted at <a href="https://www.oreilly.com/radar/loop-engineering/" target="_blank" rel="noopener">O'Reilly Radar</a>.</li>
+            <li>[3] Cherny, B., remarks at the WorkOS Acquired Unplugged event, June 2026 (the "I don't prompt Claude anymore" quote), as reported by WorkOS and multiple outlets.</li>
+            <li>[4] "Task with a check" framing synthesized from practitioner field guides; the underlying loop pattern was formalized in Yao et al., <em>ReAct</em> (2022), and extended in Shinn et al., <em>Reflexion</em> (2023).</li>
+            <li>[5] Osmani, A., "Loop Engineering" — <a href="https://addyosmani.com/blog/loop-engineering/" target="_blank" rel="noopener">addyosmani.com/blog/loop-engineering</a> (on the loop primitives shipping natively inside the products).</li>
+            <li>[6] <em>Keep Claude working toward a goal</em>, Claude Code docs — <a href="https://code.claude.com/docs/en/goal" target="_blank" rel="noopener">code.claude.com/docs/en/goal</a> (a separate small model evaluates the completion condition after each turn and cannot run commands or read files independently).</li>
+            <li>[7] <em>Automate work with routines</em>, Claude Code docs — <a href="https://code.claude.com/docs/en/routines" target="_blank" rel="noopener">code.claude.com/docs/en/routines</a>; <code>/loop</code> and in-session scheduling — <a href="https://code.claude.com/docs/en/scheduled-tasks" target="_blank" rel="noopener">code.claude.com/docs/en/scheduled-tasks</a>.</li>
+            <li>[8] Whytryai, "Don't Let 'Loop Engineering' Scare You Off Loops," June 2026 — <a href="https://www.whytryai.com/p/loop-engineering" target="_blank" rel="noopener">whytryai.com/p/loop-engineering</a> (the "regular people" version: trigger + goal-shaped instruction).</li>
+          </ol>
+        </div>
+      </article>
+    </section>
+
+    <!-- ================================ -->
+    <!-- ORG DESIGN & CHANGES, CURATED    -->
+    <!-- ================================ -->
+
+    <div class="section-divider">
+      <span class="section-label org">Org Redesign, Curated</span>
+    </div>
+
+    <section class="org-editorial">
+      <h2>This Week's Briefing</h2>
+      <h3 style="font-family: var(--font-sans); font-size: 1.15rem; font-weight: 700; color: var(--color-accent-org); margin-bottom: 0.6rem;">AI for the Technology Function in Financial Services: The CTO's AI Decision</h3>
+      <p style="font-style: italic; color: var(--color-text-muted); margin-bottom: 1rem;">An executive briefing for the CTO, CIO, CISO, CDO, and the board — from productivity tools to operating-model reinvention.</p>
+
+      <div class="reading-rec" style="background: var(--color-bg-alt); border: 1px solid var(--color-border); border-radius: 8px; padding: 0.85rem 1.1rem; margin: 1.25rem 0; font-size: 0.85rem; color: var(--color-text-muted);">
+        <strong style="color: var(--color-text);">Heads-up:</strong> A short framing, then the interactive briefing dashboard embedded below — twelve argument sections plus <strong>fourteen expandable reference tables</strong> (use-case map, operating model, data, cyber, WealthTech, regulatory, red lines, cases, governance, advisor-desktop vendors, and more). The dashboard is the main deliverable.
+      </div>
+
+      <div class="reading-rec" style="background: #fef3c7; border: 1px solid #fcd34d; color: #78350f; border-radius: 8px; padding: 0.85rem 1.1rem; margin: 1.25rem 0; font-size: 0.85rem; font-style: italic;">
+        <strong style="font-style: normal;">Disclaimer:</strong> All opinions in this briefing are my own and do not represent any company's position. This is meant as an academic discussion. Firm-reported figures are company or vendor commentary, not independently audited fact.
+      </div>
+    </section>
+
+    <section class="org-article">
+      <p>The technology function carries a tension worth naming directly: IT is both an <strong>adopter</strong> of AI inside its own work <em>and</em> the <strong>backbone</strong> that lets every other function adopt AI safely — supplying the data platforms, identity, model governance, and security controls. A firm whose IT house isn't in order cannot govern AI elsewhere. Generative and agentic AI now sit on top of a function regulators already supervise tightly, and the 2024–2026 evidence is that a minority of firms are achieving genuine workflow and operating-model redesign while most remain in a productivity-tool phase. The briefing below is the full argument and evidence layer — and it ties straight back to this week's third news item: tools create possibility, workflows create ROI.</p>
+
+      <div class="dashboard-embed">
+        <iframe src="../dashboards/cto-ai-decision-dashboard.html"
+                title="The CTO's AI Decision — AI for the Technology Function in Financial Services"
+                loading="lazy"></iframe>
+      </div>
+      <div class="dashboard-link">
+        <span>Dashboard loading slowly?</span>
+        <a href="../dashboards/cto-ai-decision-dashboard.html" target="_blank" rel="noopener">Open the dashboard in a new tab &rarr;</a>
+      </div>
+
+      <div class="callout">
+        Stop benchmarking AI adoption by tool count or pilot count. Start benchmarking by the question the evidence converges on: how much of the IT function's work has been redesigned around AI, and can the firm show — to an examiner — who or what made each consequential change and on what authority? By 2027, every firm will have the same frontier models, the same clouds, and many of the same vendors. The difference will be whether IT became the safe backbone for the enterprise's AI adoption — not merely an adopter of its own tools.
+      </div>
+    </section>
+
+    <!-- Issue Navigation -->
+    <nav class="issue-nav">
+      <a href="2026-06-14.html">&larr; Previous Issue</a>
+      <span></span>
+    </nav>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      &copy; 2026 AI &amp; Org, Curated. All rights reserved.
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

@@ -5,8 +5,16 @@
     <link>https://willzhengai.github.io/the-ai-brief/</link>
     <description>A curated weekly digest on AI and organizational design — where invention meets innovation meets real impact.</description>
     <language>en-us</language>
-    <lastBuildDate>Sun, 14 Jun 2026 12:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 27 Jun 2026 12:00:00 +0000</lastBuildDate>
     <atom:link href="https://willzhengai.github.io/the-ai-brief/feed.xml" rel="self" type="application/rss+xml"/>
+
+    <item>
+      <title>Issue #16: OpenAI Becomes the Work Layer, AI Search Rewrites the Publisher Model, Why AI ROI Can't Be Tool-Led — What Loop Engineering Is, and How the Tech Function in Financial Services Is Adopting AI</title>
+      <link>https://willzhengai.github.io/the-ai-brief/issues/2026-06-27.html</link>
+      <guid>https://willzhengai.github.io/the-ai-brief/issues/2026-06-27.html</guid>
+      <pubDate>Sat, 27 Jun 2026 12:00:00 +0000</pubDate>
+      <description>Three AI-news items (OpenAI as the work layer, AI search vs. the publisher model, why AI ROI can't be tool-led), an AI Demystified on loop engineering, and an Org Redesign briefing on AI for the technology function in financial services with a 14-table interactive dashboard.</description>
+    </item>
 
     <item>
       <title>Issue #15: Codex vs. Claude Code, What AI Is (and Isn't) Learning From You, AI Adoption Strategy at Its Core — and How Legal, Risk &amp; Compliance Are Thinking About AI Transformation</title>
