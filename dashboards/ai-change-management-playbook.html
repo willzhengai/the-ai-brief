@@ -1,0 +1,1320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Framing AI for Every Stakeholder — Executive Briefing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Open+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --topaz: #61ABBF;
+    --topaz-dark: #4A8B9F;
+    --topaz-darker: #3A6B7B;
+    --aqua: #C1E7E8;
+    --sapphire: #5F8189;
+    --sapphire-dark: #475F65;
+    --slate: #485961;
+    --onyx: #2D2D2D;
+    --diamond: #F5F5F7;
+    --stone: #E0E0E0;
+    --paper-2: #ECEDEF;
+    --paper-3: #DFE1E4;
+    --peridot: #A8D0AA;
+    --peridot-dark: #7CA67F;
+    --citrine: #FCEBA2;
+    --citrine-dark: #C9B560;
+    --amethyst: #5C5C87;
+    --amethyst-dark: #44446A;
+    --ink: var(--onyx);
+    --paper: var(--diamond);
+    --rule: #D4D6DA;
+    --rule-dim: #C5C8CD;
+    --muted: var(--slate);
+    --muted-2: #6E7A82;
+    --accent: var(--topaz-dark);
+    --accent-soft: var(--aqua);
+    --serif: 'Poppins', -apple-system, sans-serif;
+    --sans: 'Open Sans', -apple-system, sans-serif;
+    --mono: 'JetBrains Mono', 'Courier New', monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans);
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.55;
+    font-size: 15px;
+    -webkit-font-smoothing: antialiased;
+    background-image:
+      radial-gradient(circle at 15% 0%, rgba(97, 171, 191, 0.07) 0%, transparent 45%),
+      radial-gradient(circle at 85% 90%, rgba(72, 89, 97, 0.04) 0%, transparent 50%);
+    min-height: 100vh;
+  }
+  .layout { display: grid; grid-template-columns: 300px 1fr; min-height: 100vh; position: relative; z-index: 2; }
+
+  .sidebar {
+    background: var(--onyx); color: var(--diamond); padding: 36px 28px;
+    position: sticky; top: 0; height: 100vh; overflow-y: auto;
+    border-right: 1px solid #404040;
+    background-image: radial-gradient(circle at 50% 0%, rgba(97, 171, 191, 0.10) 0%, transparent 60%);
+  }
+  .sidebar::-webkit-scrollbar { width: 4px; }
+  .sidebar::-webkit-scrollbar-thumb { background: rgba(245, 245, 247, 0.15); }
+  .brand { display: flex; align-items: center; gap: 12px; padding-bottom: 22px; border-bottom: 1px solid rgba(245, 245, 247, 0.08); }
+  .brand-mark { display: flex; gap: 3px; align-items: center; }
+  .brand-mark span { display: block; width: 7px; height: 14px; }
+  .brand-mark span:nth-child(1) { background: var(--topaz); }
+  .brand-mark span:nth-child(2) { background: var(--peridot); height: 22px; }
+  .brand-mark span:nth-child(3) { background: var(--amethyst); height: 18px; }
+  .brand-text { display: flex; flex-direction: column; gap: 2px; }
+  .brand-name { font-family: var(--serif); font-weight: 600; font-size: 13px; letter-spacing: 0.02em; color: var(--diamond); line-height: 1; text-transform: uppercase; }
+  .brand-tag { font-family: var(--mono); font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--aqua); opacity: 0.7; }
+  .briefing-meta { margin: 26px 0 30px; }
+  .briefing-title-label { font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--aqua); opacity: 0.75; margin-bottom: 10px; }
+  .briefing-title { font-family: var(--serif); font-weight: 500; font-size: 20px; line-height: 1.18; color: var(--diamond); letter-spacing: -0.01em; }
+  .briefing-title em { font-style: italic; color: var(--topaz); font-weight: 500; }
+  .nav-label { font-family: var(--mono); font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: #B0B2B5; opacity: 0.55; margin: 24px 0 10px; padding-bottom: 8px; border-bottom: 1px solid rgba(245, 245, 247, 0.08); font-weight: 600; }
+  .nav-label.tables-label { color: var(--topaz); opacity: 0.95; display: flex; align-items: center; gap: 8px; }
+  .nav-label.tables-label::before { content: ''; width: 8px; height: 8px; background: var(--topaz); border-radius: 1px; display: inline-block; }
+  .nav-list { list-style: none; display: flex; flex-direction: column; gap: 1px; }
+  .nav-list a { display: flex; align-items: center; gap: 12px; padding: 6.5px 0; color: #DDDDE0; text-decoration: none; font-size: 13.5px; line-height: 1.3; transition: color 0.2s, transform 0.2s; opacity: 0.78; }
+  .nav-list a:hover { color: var(--aqua); opacity: 1; transform: translateX(3px); }
+  .nav-list a em { font-style: italic; color: var(--aqua); opacity: 0.85; }
+  .nav-num { font-family: var(--mono); font-size: 10px; color: #888; min-width: 30px; letter-spacing: 0.05em; font-weight: 600; }
+  .nav-list.tables-nav a { padding: 6px 0; }
+  .nav-list.tables-nav .nav-num { color: var(--topaz); opacity: 0.9; }
+  .sidebar-footer { margin-top: 36px; padding-top: 20px; border-top: 1px solid rgba(245, 245, 247, 0.08); font-family: var(--mono); font-size: 9.5px; color: #999; opacity: 0.6; line-height: 1.7; letter-spacing: 0.06em; }
+
+  .main { padding: 0; max-width: 100%; overflow-x: hidden; }
+  .container { max-width: 1100px; padding: 0 56px; margin: 0 auto; }
+
+  .hero { padding: 88px 0 56px; border-bottom: 1px solid var(--rule); position: relative; }
+  .hero-watermark { position: absolute; top: 80px; right: -20px; width: 280px; height: 280px; opacity: 0.10; pointer-events: none; }
+  .hero-watermark svg { width: 100%; height: 100%; }
+  .hero-meta { display: flex; align-items: center; gap: 16px; margin-bottom: 32px; font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); position: relative; font-weight: 500; }
+  .hero-meta .pill { background: var(--onyx); color: var(--diamond); padding: 5px 11px; letter-spacing: 0.14em; font-weight: 600; }
+  .hero-meta .pill.accent { background: var(--topaz-dark); color: var(--diamond); }
+  .hero-title { font-family: var(--serif); font-weight: 600; font-size: clamp(40px, 5.0vw, 60px); line-height: 1.05; letter-spacing: -0.025em; margin-bottom: 28px; color: var(--onyx); position: relative; }
+  .hero-title em { font-style: italic; font-weight: 400; color: var(--topaz-darker); }
+  .hero-deck { font-family: var(--sans); font-weight: 400; font-size: 19px; line-height: 1.55; color: var(--slate); max-width: 760px; margin-bottom: 20px; position: relative; }
+  .hero-deck strong { color: var(--onyx); font-weight: 700; }
+  .hero-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; margin-top: 48px; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); position: relative; }
+  .hero-stat { padding: 28px 24px 28px 0; border-right: 1px solid var(--rule); position: relative; }
+  .hero-stat:last-child { border-right: none; padding-right: 0; }
+  .hero-stat:not(:first-child) { padding-left: 24px; }
+  .hero-stat::before { content: ''; position: absolute; top: 28px; left: 0; width: 3px; height: 18px; }
+  .hero-stat:nth-child(1)::before { background: var(--topaz); left: 0; }
+  .hero-stat:nth-child(2)::before { background: var(--sapphire); left: 24px; }
+  .hero-stat:nth-child(3)::before { background: var(--peridot-dark); left: 24px; }
+  .hero-stat:nth-child(4)::before { background: var(--amethyst); left: 24px; }
+  .hero-stat-num { font-family: var(--serif); font-weight: 600; font-size: 44px; line-height: 1; letter-spacing: -0.028em; color: var(--onyx); margin-bottom: 8px; margin-left: 14px; }
+  .hero-stat-num .unit { font-size: 22px; font-weight: 500; color: var(--topaz-dark); margin-left: 2px; }
+  .hero-stat-label { font-family: var(--sans); font-size: 12px; line-height: 1.45; color: var(--muted); font-weight: 500; margin-left: 14px; }
+
+  .table-callout { margin: 56px 0 16px; padding: 22px 26px; background: linear-gradient(135deg, rgba(97, 171, 191, 0.08) 0%, rgba(168, 208, 170, 0.06) 100%); border: 1px solid var(--rule); border-left: 4px solid var(--topaz-dark); display: flex; align-items: center; gap: 22px; flex-wrap: wrap; }
+  .table-callout-icon { width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; background: var(--onyx); color: var(--aqua); flex-shrink: 0; }
+  .table-callout-icon svg { width: 22px; height: 22px; }
+  .table-callout-text { flex: 1; min-width: 240px; }
+  .table-callout-title { font-family: var(--serif); font-weight: 600; font-size: 16px; color: var(--onyx); margin-bottom: 4px; letter-spacing: -0.005em; }
+  .table-callout-desc { font-size: 13px; line-height: 1.5; color: var(--muted); }
+  .table-callout-desc strong { color: var(--topaz-darker); font-weight: 600; }
+  .table-callout-desc em { font-style: italic; color: var(--sapphire-dark); }
+
+  .pill-nav { display: flex; flex-wrap: wrap; gap: 8px; margin: 24px 0 0; }
+  .pill-nav-item { display: inline-flex; align-items: center; gap: 8px; padding: 7px 12px 7px 8px; background: var(--paper); border: 1px solid var(--rule); border-radius: 999px; text-decoration: none; color: var(--onyx); font-family: var(--sans); font-size: 12.5px; font-weight: 500; transition: all 0.2s; }
+  .pill-nav-item:hover { border-color: var(--topaz-dark); background: var(--aqua); color: var(--topaz-darker); transform: translateY(-1px); }
+  .pill-num { background: var(--onyx); color: var(--diamond); font-family: var(--mono); font-size: 10px; padding: 3px 6px; font-weight: 600; letter-spacing: 0.05em; }
+  .pill-nav-item:hover .pill-num { background: var(--topaz-dark); }
+  .pill-text { letter-spacing: -0.005em; }
+
+  .section { padding: 72px 0; border-bottom: 1px solid var(--rule); position: relative; }
+  .section-eyebrow { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; }
+  .section-num { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; color: var(--topaz-dark); font-weight: 600; }
+  .section-divider { width: 28px; height: 1px; background: var(--topaz-dark); }
+  .section-kicker { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+  .section-title { font-family: var(--serif); font-weight: 600; font-size: 36px; line-height: 1.15; letter-spacing: -0.022em; margin-bottom: 18px; max-width: 820px; color: var(--onyx); }
+  .section-title em { font-style: italic; font-weight: 500; color: var(--topaz-darker); }
+  .section-lede { font-family: var(--sans); font-size: 17px; line-height: 1.55; color: var(--muted); max-width: 760px; margin-bottom: 44px; font-weight: 400; }
+  .section-lede strong { color: var(--onyx); font-weight: 700; }
+
+  .takeaways { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--rule); border: 1px solid var(--rule); }
+  .takeaway { background: var(--paper); padding: 32px 28px; position: relative; }
+  .takeaway::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; }
+  .takeaway:nth-child(1)::before { background: var(--topaz); }
+  .takeaway:nth-child(2)::before { background: var(--sapphire); }
+  .takeaway:nth-child(3)::before { background: var(--peridot-dark); }
+  .takeaway:nth-child(4)::before { background: var(--amethyst); }
+  .takeaway-num { font-family: var(--serif); font-weight: 600; font-size: 40px; line-height: 0.85; color: var(--topaz-dark); margin-bottom: 18px; letter-spacing: -0.04em; font-style: italic; }
+  .takeaway h3 { font-family: var(--serif); font-weight: 600; font-size: 18px; line-height: 1.3; margin-bottom: 12px; letter-spacing: -0.008em; color: var(--onyx); }
+  .takeaway p { font-size: 14px; line-height: 1.6; color: var(--muted); }
+  .takeaway p strong { color: var(--onyx); }
+  .takeaway p em { color: var(--sapphire-dark); font-style: italic; }
+
+  .split-numbers { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; margin: 34px 0; background: #404040; border: 1px solid #404040; }
+  .split-num { padding: 30px 24px; position: relative; background: var(--onyx); color: var(--diamond); }
+  .split-num-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--aqua); opacity: 0.8; margin-bottom: 14px; font-weight: 600; }
+  .split-num-value { font-family: var(--serif); font-weight: 500; font-size: 40px; line-height: 0.95; letter-spacing: -0.03em; margin-bottom: 14px; color: var(--diamond); }
+  .split-num-value .pct { color: var(--aqua); font-size: 26px; }
+  .split-num-desc { font-family: var(--sans); font-size: 13px; line-height: 1.5; color: #DDDDE0; font-weight: 400; }
+  .split-num-desc strong { color: #fff; font-weight: 700; }
+  .split-num-desc em { color: var(--aqua); font-style: italic; }
+  @media (max-width:1100px){ .split-numbers{ grid-template-columns: repeat(2,1fr);} }
+
+  .reg-timeline { margin: 32px 0; position: relative; }
+  .reg-item { display: grid; grid-template-columns: 150px 1fr; gap: 40px; padding: 22px 0; position: relative; }
+  .reg-date { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.1em; color: var(--muted); text-align: right; padding-top: 4px; font-weight: 500; }
+  .reg-date strong { display: block; font-family: var(--serif); font-weight: 600; font-size: 16px; color: var(--onyx); letter-spacing: -0.01em; margin-bottom: 4px; }
+  .reg-content { position: relative; padding-left: 28px; border-left: 1px solid var(--rule); }
+  .reg-content::before { content: ''; position: absolute; left: -5px; top: 6px; width: 9px; height: 9px; background: var(--topaz-dark); border-radius: 50%; border: 2px solid var(--paper); }
+  .reg-authority { display: inline-block; font-family: var(--mono); font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--topaz-darker); margin-bottom: 8px; font-weight: 700; }
+  .reg-title { font-family: var(--serif); font-weight: 600; font-size: 17px; line-height: 1.3; margin-bottom: 8px; color: var(--onyx); }
+  .reg-desc { font-size: 13px; color: var(--muted); line-height: 1.55; }
+  .reg-desc strong { color: var(--onyx); font-weight: 700; }
+  .reg-desc em { color: var(--sapphire-dark); font-style: italic; }
+  @media (max-width:680px){ .reg-item{ grid-template-columns: 1fr; gap: 8px;} .reg-date{ text-align: left;} }
+
+  .redlines { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--rule); border: 1px solid var(--rule); margin: 32px 0; }
+  .redline { background: var(--paper); padding: 26px 22px; display: flex; flex-direction: column; }
+  .redline-tier { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 14px; padding-bottom: 10px; border-bottom: 1px solid var(--rule); color: var(--topaz-darker); font-weight: 700; }
+  .redline p { font-size: 13px; line-height: 1.6; color: var(--muted); }
+  .redline p em { color: var(--sapphire-dark); font-style: italic; }
+  .redline p strong { color: var(--onyx); font-weight: 700; }
+  @media (max-width:1100px){ .redlines{ grid-template-columns: 1fr;} }
+
+  .tables-master-section { padding: 72px 0; border-bottom: 1px solid var(--rule); background: linear-gradient(180deg, var(--paper) 0%, rgba(97, 171, 191, 0.025) 100%); }
+  .tables-master-header { margin-bottom: 20px; text-align: center; }
+  .tables-master-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--topaz-dark); margin-bottom: 16px; font-weight: 600; }
+  .tables-master-eyebrow em { font-style: italic; color: var(--topaz-darker); }
+  .tables-master-title { font-family: var(--serif); font-weight: 600; font-size: 34px; line-height: 1.15; letter-spacing: -0.022em; color: var(--onyx); margin-bottom: 14px; }
+  .tables-master-title em { font-style: italic; color: var(--topaz-darker); font-weight: 500; }
+  .tables-master-lede { font-family: var(--sans); font-size: 16px; line-height: 1.55; color: var(--muted); max-width: 680px; margin: 0 auto; }
+  .tables-actions { display: flex; justify-content: center; gap: 12px; margin: 20px 0 12px; flex-wrap: wrap; }
+  .tables-action-btn { font-family: var(--sans); font-size: 12.5px; font-weight: 600; padding: 9px 16px; background: var(--onyx); color: var(--diamond); border: none; cursor: pointer; letter-spacing: 0.02em; transition: all 0.2s; display: inline-flex; align-items: center; gap: 8px; }
+  .tables-action-btn:hover { background: var(--topaz-dark); transform: translateY(-1px); }
+
+  .expandable { margin-bottom: 12px; background: var(--paper); border: 1px solid var(--rule); transition: border-color 0.2s, box-shadow 0.2s; overflow: hidden; }
+  .expandable:hover { border-color: var(--topaz-dark); }
+  .expandable.open { border-color: var(--topaz-dark); box-shadow: 0 4px 24px rgba(45, 45, 45, 0.08); }
+  .exp-trigger { width: 100%; padding: 20px 24px; background: transparent; border: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 20px; text-align: left; font-family: inherit; transition: background 0.2s; position: relative; }
+  .exp-trigger::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--topaz-dark); transform: scaleY(0); transform-origin: center; transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
+  .expandable.open .exp-trigger::before { transform: scaleY(1); }
+  .exp-trigger:hover { background: rgba(97, 171, 191, 0.05); }
+  .exp-left { display: flex; align-items: center; gap: 20px; flex: 1; min-width: 0; }
+  .exp-num { font-family: var(--serif); font-weight: 500; font-style: italic; font-size: 24px; color: var(--topaz-dark); line-height: 1; letter-spacing: -0.02em; flex-shrink: 0; width: 52px; }
+  .exp-meta { flex: 1; min-width: 0; }
+  .exp-kicker { font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted-2); margin-bottom: 4px; font-weight: 600; }
+  .exp-title { font-family: var(--serif); font-weight: 600; font-size: 18px; line-height: 1.3; color: var(--onyx); letter-spacing: -0.01em; margin-bottom: 4px; }
+  .exp-sub { font-family: var(--mono); font-size: 11px; color: var(--muted); letter-spacing: 0.04em; }
+  .exp-right { display: flex; align-items: center; gap: 14px; flex-shrink: 0; }
+  .exp-pill { font-family: var(--mono); font-size: 10px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; padding: 4px 9px; background: var(--paper-2); color: var(--muted); border: 1px solid var(--rule); transition: all 0.2s; }
+  .expandable.open .exp-pill { background: var(--topaz-dark); color: #fff; border-color: var(--topaz-dark); }
+  .exp-chevron { color: var(--muted); transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s; }
+  .expandable.open .exp-chevron { transform: rotate(180deg); color: var(--topaz-dark); }
+  .exp-body { max-height: 0; overflow: hidden; transition: max-height 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
+  .expandable.open .exp-body { max-height: 3000px; }
+  .exp-lede { font-family: var(--sans); font-size: 14px; line-height: 1.6; color: var(--muted); padding: 0 24px 20px; border-bottom: 1px solid var(--rule); margin: 0; }
+  .exp-lede em { color: var(--sapphire-dark); font-style: italic; }
+
+  .exp-table-wrap { overflow-x: auto; max-width: 100%; }
+  .exp-table-wrap::-webkit-scrollbar { height: 8px; }
+  .exp-table-wrap::-webkit-scrollbar-thumb { background: var(--rule-dim); }
+  .exp-table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+  .exp-table thead { background: var(--onyx); color: var(--diamond); position: sticky; top: 0; }
+  .exp-table th { font-family: var(--serif); font-weight: 600; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; padding: 13px 15px; text-align: left; border-right: 1px solid #404040; white-space: nowrap; vertical-align: bottom; }
+  .exp-table th:last-child { border-right: none; }
+  .exp-table td { padding: 13px 15px; border-bottom: 1px solid var(--rule); border-right: 1px solid var(--rule); vertical-align: top; line-height: 1.5; color: var(--onyx); min-width: 150px; }
+  .exp-table td:last-child { border-right: none; }
+  .exp-table td:first-child { font-weight: 600; color: var(--onyx); background: rgba(193, 231, 232, 0.15); min-width: 200px; }
+  .exp-table tbody tr:hover td { background: rgba(97, 171, 191, 0.05); }
+  .exp-table tbody tr:hover td:first-child { background: rgba(193, 231, 232, 0.3); }
+  .exp-table strong { color: var(--onyx); font-weight: 700; }
+
+  .inline-table-wrap { background:#fff; border:1px solid var(--rule); border-radius:12px; padding:6px; margin-top:26px; overflow-x:auto; }
+  .exp-table td em { color:var(--muted); }
+  .said { font-style:italic; color:var(--sapphire-dark); }
+  .avoid { color:#9B4A4A; }
+  .qmark { font-family:var(--mono); font-size:10px; color:var(--citrine-dark); font-weight:600; letter-spacing:.08em; }
+
+  .final { padding: 88px 0 96px; background: var(--onyx); color: var(--diamond); margin: 0 -56px; padding-left: 56px; padding-right: 56px; position: relative; overflow: hidden; }
+  .final::before { content: ''; position: absolute; inset: 0; background-image: radial-gradient(circle at 75% 30%, rgba(97, 171, 191, 0.18) 0%, transparent 50%), radial-gradient(circle at 20% 70%, rgba(168, 208, 170, 0.10) 0%, transparent 50%); pointer-events: none; }
+  .final-gem { position: absolute; top: 80px; right: -60px; width: 280px; height: 280px; opacity: 0.10; pointer-events: none; }
+  .final-gem svg { width: 100%; height: 100%; }
+  .final-inner { max-width: 820px; margin: 0 auto; position: relative; }
+  .final-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--aqua); margin-bottom: 28px; padding-bottom: 18px; border-bottom: 1px solid rgba(245, 245, 247, 0.15); font-weight: 600; }
+  .final-title { font-family: var(--serif); font-weight: 500; font-size: 42px; line-height: 1.12; letter-spacing: -0.022em; margin-bottom: 36px; color: var(--diamond); }
+  .final-title em { font-style: italic; color: var(--aqua); font-weight: 500; }
+  .final p { font-family: var(--sans); font-weight: 400; font-size: 18px; line-height: 1.65; color: #DDDDE0; margin-bottom: 22px; }
+  .final p strong { color: var(--diamond); font-weight: 700; }
+  .final-sig { margin-top: 52px; padding-top: 28px; border-top: 1px solid rgba(245, 245, 247, 0.15); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+  .final-sig-left { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.18em; text-transform: uppercase; color: #999; opacity: 0.7; font-weight: 500; }
+  .final-sig-brand { display: flex; align-items: center; gap: 12px; }
+  .final-sig-brand .brand-mark span { background: rgba(193, 231, 232, 0.8); }
+  .final-sig-brand .brand-mark span:nth-child(2) { background: var(--peridot); }
+  .final-sig-brand .brand-mark span:nth-child(3) { background: var(--amethyst); }
+
+  @media (max-width: 1100px) {
+    .layout { grid-template-columns: 1fr; }
+    .sidebar { position: relative; height: auto; padding: 28px 32px; }
+    .container { padding: 0 36px; }
+    .takeaways { grid-template-columns: 1fr 1fr; }
+    .hero-stats { grid-template-columns: 1fr 1fr; }
+    .hero-stat { border-right: none; border-bottom: 1px solid var(--rule); padding: 24px 0; }
+    .hero-stat:nth-child(odd) { padding-right: 20px; border-right: 1px solid var(--rule); padding-left: 0; }
+    .hero-stat:nth-child(odd)::before { left: 0 !important; }
+    .hero-stat:nth-child(even) { padding-left: 20px; }
+    .hero-stat:nth-child(even)::before { left: 20px !important; }
+    .final { margin: 0 -36px; padding-left: 36px; padding-right: 36px; }
+    .hero-watermark { display: none; }
+    .exp-num { font-size: 20px; width: 44px; }
+    .exp-title { font-size: 16px; }
+    .lens-grid { grid-template-columns: repeat(2,1fr) !important; }
+  }
+  @media (max-width: 680px) {
+    .container { padding: 0 20px; }
+    .takeaways { grid-template-columns: 1fr; }
+    .hero-stats { grid-template-columns: 1fr; }
+    .hero-stat { border-right: none !important; padding: 20px 0 !important; }
+    .hero-stat::before { left: 0 !important; }
+    .hero-stat-num, .hero-stat-label { margin-left: 14px; }
+    .section-title { font-size: 28px; }
+    .final-title { font-size: 28px; }
+    .final { margin: 0 -20px; padding-left: 20px; padding-right: 20px; }
+    .exp-trigger { padding: 16px; }
+    .exp-left { gap: 12px; }
+    .exp-right { gap: 8px; }
+    .exp-pill { display: none; }
+    .tables-master-title { font-size: 26px; }
+    .lens-grid { grid-template-columns: 1fr !important; }
+  }
+  .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+
+  .lens-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin:34px 0 8px; }
+  .lens { background:#fff; border:1px solid var(--rule); border-top:3px solid var(--topaz); border-radius:10px; padding:16px 16px 14px; }
+  .lens-role { font-family:var(--serif); font-weight:700; font-size:14px; color:var(--sapphire-dark); margin-bottom:6px; }
+  .lens-hears { font-size:12.5px; color:var(--muted); line-height:1.5; }
+  .lens-hears strong { color:var(--ink); font-weight:600; }
+  .principle { display:flex; gap:16px; align-items:flex-start; background:#fff; border:1px solid var(--rule);
+    border-left:4px solid var(--topaz-dark); border-radius:10px; padding:18px 22px; margin:26px 0 6px; }
+  .principle-eyebrow { font-family:var(--mono); font-size:10.5px; letter-spacing:.2em; text-transform:uppercase;
+    color:var(--topaz-dark); font-weight:600; white-space:nowrap; padding-top:3px; }
+  .principle-text { font-family:var(--serif); font-weight:600; font-size:16.5px; color:var(--ink); line-height:1.5; }
+  .note-mono { font-family:var(--mono); font-size:11px; color:var(--muted-2); margin-top:14px; line-height:1.6; }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="bars-big" viewBox="0 0 320 320">
+      <g>
+        <rect x="30" y="160" width="40" height="100" fill="#61ABBF"/>
+        <rect x="80" y="110" width="40" height="150" fill="#A8D0AA"/>
+        <rect x="130" y="60" width="40" height="200" fill="#5C5C87"/>
+        <rect x="180" y="100" width="40" height="160" fill="#5F8189"/>
+        <rect x="230" y="140" width="40" height="120" fill="#485961"/>
+      </g>
+    </symbol>
+  </defs>
+</svg>
+
+<div class="layout">
+
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-mark"><span></span><span></span><span></span></div>
+      <div class="brand-text">
+        <div class="brand-name">Insights</div>
+        <div class="brand-tag">July 2026</div>
+      </div>
+    </div>
+
+    <div class="briefing-meta">
+      <div class="briefing-title-label">Executive Briefing</div>
+      <div class="briefing-title">Framing AI for <em>Every Stakeholder</em></div>
+    </div>
+
+    <div class="nav-label">The Argument</div>
+    <ul class="nav-list">
+      <li><a href="#discipline"><span class="nav-num">01</span><span>One strategy, many messengers</span></a></li>
+      <li><a href="#evidence"><span class="nav-num">02</span><span>The evidence</span></a></li>
+      <li><a href="#lensmap"><span class="nav-num">03</span><span>Stakeholder lens map</span></a></li>
+    </ul>
+
+    <div class="nav-label">The Playbook</div>
+    <ul class="nav-list">
+      <li><a href="#cfo-scorecard"><span class="nav-num">04</span><span>The CFO scorecard</span></a></li>
+      <li><a href="#champions"><span class="nav-num">05</span><span>Champions that work</span></a></li>
+      <li><a href="#regfloor"><span class="nav-num">06</span><span>The regulatory floor</span></a></li>
+      <li><a href="#caution"><span class="nav-num">07</span><span>The cautionary line</span></a></li>
+    </ul>
+
+    <div class="nav-label">Talking Points</div>
+    <ul class="nav-list">
+      <li><a href="#to-tables"><span class="nav-num">08</span><span>Presenting <em>to</em> each stakeholder</span></a></li>
+      <li><a href="#from-tables"><span class="nav-num">09</span><span>Delivered <em>by</em> each leader</span></a></li>
+      <li><a href="#sowhat"><span class="nav-num">10</span><span>So what</span></a></li>
+    </ul>
+
+    <div class="nav-label tables-label">Present To &middot; T01&ndash;12</div>
+    <ul class="nav-list tables-nav">
+<li><a href="#tbl-to-ceo"><span class="nav-num">T01</span><span>CEO</span></a></li>
+<li><a href="#tbl-to-board"><span class="nav-num">T02</span><span>Board</span></a></li>
+<li><a href="#tbl-to-cfo"><span class="nav-num">T03</span><span>CFO</span></a></li>
+<li><a href="#tbl-to-cio"><span class="nav-num">T04</span><span>CIO / CTO</span></a></li>
+<li><a href="#tbl-to-ciso"><span class="nav-num">T05</span><span>CISO</span></a></li>
+<li><a href="#tbl-to-comp"><span class="nav-num">T06</span><span>Compliance</span></a></li>
+<li><a href="#tbl-to-chro"><span class="nav-num">T07</span><span>CHRO</span></a></li>
+<li><a href="#tbl-to-bu"><span class="nav-num">T08</span><span>BU Leaders</span></a></li>
+<li><a href="#tbl-to-mgr"><span class="nav-num">T09</span><span>Managers</span></a></li>
+<li><a href="#tbl-to-front"><span class="nav-num">T10</span><span>Frontline</span></a></li>
+<li><a href="#tbl-to-adv"><span class="nav-num">T11</span><span>Advisors</span></a></li>
+<li><a href="#tbl-to-client"><span class="nav-num">T12</span><span>Clients</span></a></li>
+    </ul>
+
+    <div class="nav-label tables-label">Delivered By &middot; F01&ndash;12</div>
+    <ul class="nav-list tables-nav">
+<li><a href="#tbl-from-ceo"><span class="nav-num">F01</span><span>CEO &rarr; Board</span></a></li>
+<li><a href="#tbl-from-board"><span class="nav-num">F02</span><span>CEO &rarr; Employees</span></a></li>
+<li><a href="#tbl-from-cfo"><span class="nav-num">F03</span><span>CFO &rarr; Leaders</span></a></li>
+<li><a href="#tbl-from-cio"><span class="nav-num">F04</span><span>CIO &rarr; Tech</span></a></li>
+<li><a href="#tbl-from-ciso"><span class="nav-num">F05</span><span>CISO &rarr; Security</span></a></li>
+<li><a href="#tbl-from-comp"><span class="nav-num">F06</span><span>Compliance &rarr; Business</span></a></li>
+<li><a href="#tbl-from-chro"><span class="nav-num">F07</span><span>CHRO &rarr; Employees</span></a></li>
+<li><a href="#tbl-from-bu"><span class="nav-num">F08</span><span>BU Leader &rarr; Function</span></a></li>
+<li><a href="#tbl-from-mgr"><span class="nav-num">F09</span><span>Manager &rarr; Team</span></a></li>
+<li><a href="#tbl-from-front"><span class="nav-num">F10</span><span>Champion &rarr; Peers</span></a></li>
+<li><a href="#tbl-from-adv"><span class="nav-num">F11</span><span>Practice Lead &rarr; Advisors</span></a></li>
+<li><a href="#tbl-from-client"><span class="nav-num">F12</span><span>Team &rarr; Clients</span></a></li>
+    </ul>
+
+    <div class="sidebar-footer">
+      Research companion &middot; AI Change Management<br>in Financial Services<br>
+      For CSO &middot; CAIO &middot; CIO &middot; CHRO &middot; Transformation Leaders
+    </div>
+  </aside>
+
+  <main class="main">
+
+    <div class="container">
+      <section class="hero">
+        <div class="hero-watermark"><svg><use href="#bars-big"/></svg></div>
+
+        <div class="hero-meta">
+          <span class="pill accent">The Central Thesis</span>
+          <span>AI Change Management in Financial Services &middot; July 2026</span>
+        </div>
+
+        <h1 class="hero-title">One message does <em>not fit all</em> stakeholders.</h1>
+
+        <p class="hero-deck">
+          <strong>Each stakeholder group views AI through a fundamentally different risk/reward lens, and a single enterprise AI message will fail most of them.</strong>
+          Successful AI change management requires distinct, role-specific narratives &mdash; each truthful, each aligned to the enterprise strategy, but each calibrated to the specific fears, motivations, and proof requirements of its audience. This is not spin. It is organizational intelligence applied to transformation design.
+        </p>
+
+        <div class="lens-grid reveal">
+          <div class="lens"><div class="lens-role">CEO</div><div class="lens-hears">hears &ldquo;AI transformation&rdquo; as a <strong>competitive strategy and board accountability</strong> question.</div></div>
+          <div class="lens"><div class="lens-role">CFO</div><div class="lens-hears">hears a <strong>capital allocation and ROI measurement</strong> problem.</div></div>
+          <div class="lens"><div class="lens-role">CIO</div><div class="lens-hears">hears an <strong>architecture, platform, and shadow-IT governance</strong> challenge.</div></div>
+          <div class="lens"><div class="lens-role">CISO</div><div class="lens-hears">hears a <strong>data leakage, agent risk, and policy enforcement</strong> challenge.</div></div>
+          <div class="lens"><div class="lens-role">Compliance Officer</div><div class="lens-hears">hears a <strong>supervision, recordkeeping, and regulatory exposure</strong> problem.</div></div>
+          <div class="lens"><div class="lens-role">HR Leader</div><div class="lens-hears">hears a <strong>workforce disruption and culture change</strong> challenge.</div></div>
+          <div class="lens"><div class="lens-role">Middle Manager</div><div class="lens-hears">hears a <strong>threat to their team&rsquo;s perceived value</strong>.</div></div>
+          <div class="lens"><div class="lens-role">Frontline Employee</div><div class="lens-hears">hears a <strong>potential replacement notice</strong>.</div></div>
+        </div>
+
+        <div class="principle reveal">
+          <div class="principle-eyebrow">The Governing Rule</div>
+          <div class="principle-text">The framings differ by audience; the facts underneath them must be identical.</div>
+        </div>
+
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <div class="hero-stat-num">&gt;80<span class="unit">%</span></div>
+            <div class="hero-stat-label">of orgs saw no tangible enterprise EBIT impact from gen AI<br>(McKinsey, Mar 2025) [1]</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num">42<span class="unit">%</span></div>
+            <div class="hero-stat-label">now abandon most AI initiatives, up from 17%<br>(S&amp;P Global 451, 2025) [4]</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num">52<span class="unit">%</span></div>
+            <div class="hero-stat-label">of workers fear AI could replace their jobs &mdash; ~2&times; YoY<br>(KPMG, 2025) [10]</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num">15&rarr;55<span class="unit">%</span></div>
+            <div class="hero-stat-label">frontline positivity toward gen AI with strong leadership support<br>(BCG AI at Work, 2025) [5]</div>
+          </div>
+        </div>
+
+        <div class="table-callout">
+          <div class="table-callout-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="1"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="9" y1="3" x2="9" y2="21"/><line x1="15" y1="3" x2="15" y2="21"/>
+            </svg>
+          </div>
+          <div class="table-callout-text">
+            <div class="table-callout-title">24 talking-point tables &middot; expandable below</div>
+            <div class="table-callout-desc">
+              Two complete sets, closed by default. <strong>T01&ndash;T12:</strong> how to frame AI when presenting <em>to</em> each stakeholder &mdash; what lands, why, the proof to bring, and what to avoid. <strong>F01&ndash;F12:</strong> ready-to-deliver messages <em>from</em> each leader to their audience, decomposed line by line.
+            </div>
+          </div>
+        </div>
+
+        <div class="pill-nav">
+          <a href="#lensmap" class="pill-nav-item"><span class="pill-num">03</span><span class="pill-text">Lens Map</span></a>
+          <a href="#to-tables" class="pill-nav-item"><span class="pill-num">T</span><span class="pill-text">Present To &middot; 12 tables</span></a>
+          <a href="#from-tables" class="pill-nav-item"><span class="pill-num">F</span><span class="pill-text">Delivered By &middot; 12 tables</span></a>
+        </div>
+      </section>
+
+      <section class="section" id="discipline">
+        <div class="section-eyebrow"><span class="section-num">01</span><span class="section-divider"></span><span class="section-kicker">One Strategy, Many Messengers</span></div>
+        <h2 class="section-title">Three disciplines convert the thesis into practice.</h2>
+        <p class="section-lede">
+          The same sentence produces trust in one room and fear in another. Effective programs run <strong>one strategy</strong> with many messengers and many framings &mdash; governed by three disciplines that decide whether the narrative map holds or collapses.
+        </p>
+        <div class="takeaways reveal">
+          <div class="takeaway">
+            <div class="takeaway-num">i.</div>
+            <h3>Messenger fidelity.</h3>
+            <p>A message delivered by the wrong messenger fails even when the words are right. Frontline employees believe <em>peers and direct managers</em>, not corporate communications. Advisors believe respected advisors. Boards believe the CEO and CRO.</p>
+          </div>
+          <div class="takeaway">
+            <div class="takeaway-num">ii.</div>
+            <h3>Sequence.</h3>
+            <p>Managers are briefed <em>before</em> their teams. Compliance joins <em>before</em> design decisions. The board hears the governance model <em>before</em> it hears the ambition. Violating the order manufactures the resistance the program then has to manage.</p>
+          </div>
+          <div class="takeaway">
+            <div class="takeaway-num">iii.</div>
+            <h3>Consistency.</h3>
+            <p>The moment any stakeholder catches a gap &mdash; between what was said to them and to another group, or between what leadership says and what the organization does &mdash; every narrative loses credibility at once. Framings differ; <strong>facts must be identical</strong>.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="evidence">
+        <div class="section-eyebrow"><span class="section-num">02</span><span class="section-divider"></span><span class="section-kicker">The Evidence</span></div>
+        <h2 class="section-title">The verified numbers behind the framing choices.</h2>
+        <p class="section-lede">
+          Every figure below survived an independent verification pass; bracketed references resolve to the tagged bibliography in the companion report (&sect;13). They are the facts that stay identical while the framing changes.
+        </p>
+        <div class="split-numbers reveal">
+          <div class="split-num"><div class="split-num-label">Workflow redesign</div><div class="split-num-value">#1 of 25</div><div class="split-num-desc">Of 25 attributes tested, fundamental workflow redesign has the <strong>biggest effect on EBIT impact</strong> from gen AI &mdash; McKinsey, Mar 2025 [1]</div></div>
+          <div class="split-num"><div class="split-num-label">CEO oversight</div><div class="split-num-value">Most correlated</div><div class="split-num-desc">CEO oversight of AI governance is among the attributes <strong>most correlated with bottom-line impact</strong> [1]; ~&frac34; of CEOs are now their firm&rsquo;s chief AI decision-maker (BCG Radar 2026) [7]</div></div>
+          <div class="split-num"><div class="split-num-label">Shadow AI breaches</div><div class="split-num-value">1 in 5</div><div class="split-num-desc">20% of orgs had a breach involving shadow AI; high-shadow-AI orgs paid <strong>$670K more per breach</strong>; only 37% have policies to manage or detect it &mdash; IBM/Ponemon 2025 [9]</div></div>
+          <div class="split-num"><div class="split-num-label">Prohibition fails</div><div class="split-num-value">54<span class="pct">%</span></div><div class="split-num-desc">Share of employees who say they&rsquo;ll use <strong>unauthorized AI tools anyway</strong> if the firm doesn&rsquo;t provide good ones &mdash; 62% among Gen Z/Millennials (BCG) [5]</div></div>
+          <div class="split-num"><div class="split-num-label">The silicon ceiling</div><div class="split-num-value">~50% vs 78%</div><div class="split-num-desc">Frontline regular gen-AI use stalled at ~half while managers hit 78% &mdash; the gap <strong>leadership behavior closes</strong> (15%&rarr;55% positivity with strong support) [5]</div></div>
+          <div class="split-num"><div class="split-num-label">Training threshold</div><div class="split-num-value">5 hrs &rarr; 79%</div><div class="split-num-desc">&gt;5 hours of hands-on training makes 79% of employees regular users; only <strong>36% call their training adequate</strong> today [5]</div></div>
+          <div class="split-num"><div class="split-num-label">Use vs. fear</div><div class="split-num-value">87% / 52%</div><div class="split-num-desc">87% of U.S. workers use AI weekly &mdash; while 52% fear replacement, nearly double the prior year (KPMG 2025) [10]</div></div>
+          <div class="split-num"><div class="split-num-label">The augmentation anchor</div><div class="split-num-value">95% / ~60%</div><div class="split-num-desc">95% of workers see value in working with gen AI; ~60% worry about job loss, stress, burnout &mdash; the gap <strong>is</strong> the change-management workload (Accenture) [11]</div></div>
+        </div>
+        <div class="note-mono">Sources: [1] McKinsey State of AI Mar-2025 &middot; [4] S&amp;P Global 451 VotE 2025 &middot; [5] BCG AI at Work 2025 &middot; [7] BCG AI Radar 2026 &middot; [9] IBM/Ponemon CODB 2025 &middot; [10] KPMG American Worker Survey 2025 &middot; [11] Accenture (2024). Full tagged bibliography: companion report &sect;13.3.</div>
+      </section>
+
+      <section class="section" id="lensmap">
+        <div class="section-eyebrow"><span class="section-num">03</span><span class="section-divider"></span><span class="section-kicker">The Stakeholder Lens Map</span></div>
+        <h2 class="section-title">Twelve audiences, one page.</h2>
+        <p class="section-lede">
+          The distilled version of the report&rsquo;s cross-stakeholder narrative map: what each group hears when you say &ldquo;AI,&rdquo; the fear underneath it, the framing that works, and who should say it. The full nine-column map — including the framings that backfire, proof requirements, and first actions — is Table&nbsp;6 in the companion report.
+        </p>
+        <div class="inline-table-wrap"><table class="exp-table"><thead><tr><th>Stakeholder</th><th>Hears &ldquo;AI&rdquo; as&hellip;</th><th>Primary fear</th><th>Better framing</th><th>Best messenger</th></tr></thead><tbody>
+<tr><td>CEO</td><td>Competitive strategy; board accountability</td><td>Moving too slow — or a regulatory / reputational event</td><td>&ldquo;An enterprise transformation requiring CEO-level governance and investment&rdquo;</td><td>CEO + board chair</td></tr>
+<tr><td>Board</td><td>Governance &amp; fiduciary duty</td><td>Regulatory exposure; not knowing what the firm doesn&rsquo;t know</td><td>&ldquo;A standing governance topic with ongoing visibility into risk, value, accountability&rdquo;</td><td>CEO + CRO</td></tr>
+<tr><td>CFO</td><td>Capital allocation &amp; ROI measurement</td><td>Perpetual pilots; vendor hype; no P&amp;L impact</td><td>&ldquo;A portfolio with stage-gates, baselines, and both value tracks tracked&rdquo;</td><td>CEO + AI program lead</td></tr>
+<tr><td>CIO / CTO</td><td>Architecture, platform, shadow-IT governance</td><td>Shadow AI; data leakage; tool sprawl</td><td>&ldquo;A governed platform — the answer to shadow AI, not another burden&rdquo;</td><td>CIO + business sponsor</td></tr>
+<tr><td>CISO</td><td>Data leakage, agent risk, policy enforcement</td><td>Leakage via public AI; prompt injection; agent exploitation</td><td>&ldquo;New security categories: classification, DLP extension, agent permissioning, red teaming&rdquo;</td><td>CISO + CIO</td></tr>
+<tr><td>Compliance / Legal</td><td>Supervision, recordkeeping, regulatory exposure</td><td>Hallucination in client comms; recordkeeping exposure</td><td>&ldquo;Governance built before scale — compliance co-designs, not post-approves&rdquo;</td><td>CCO + General Counsel</td></tr>
+<tr><td>CHRO / HR</td><td>Workforce disruption &amp; culture change</td><td>Employee fear; surveillance concerns; reskilling failure</td><td>&ldquo;AI changes how work gets done — and we invest in every employee&rsquo;s ability to grow with it&rdquo;</td><td>CHRO + CEO</td></tr>
+<tr><td>BU leaders</td><td>Business outcomes; pain points</td><td>Disruption; unclear ownership; budget conflict</td><td>&ldquo;Two or three use cases that create the most value for your team — jointly owned&rdquo;</td><td>Business leader + AI lead</td></tr>
+<tr><td>Middle managers</td><td>Threat to their team&rsquo;s perceived value</td><td>Displacement; accountability without training</td><td>&ldquo;More done, higher quality — with playbooks to coach it well&rdquo;</td><td>Department head + champion</td></tr>
+<tr><td>Frontline</td><td>A potential replacement notice</td><td>Replacement; surveillance; blame for AI errors</td><td>&ldquo;AI handles the repetitive parts so you can focus on clients, judgment, expertise&rdquo;</td><td>Direct manager + peer champion</td></tr>
+<tr><td>Financial advisors</td><td>Risk to the client relationship</td><td>Generic output damaging trust; compliance exposure</td><td>&ldquo;It prepares, drafts, summarizes — you review, personalize, decide. The relationship is yours.&rdquo;</td><td>Practice leader + peer advisors</td></tr>
+<tr><td>Clients</td><td>Service quality &amp; privacy</td><td>Privacy breach; AI deciding without oversight; talking to a bot unknowingly</td><td>&ldquo;AI helps our team serve you better — always with a human accountable and reachable&rdquo;</td><td>Advisor / client service team</td></tr>
+</tbody></table></div>
+      </section>
+
+      <section class="section" id="cfo-scorecard">
+        <div class="section-eyebrow"><span class="section-num">04</span><span class="section-divider"></span><span class="section-kicker">The CFO Scorecard</span></div>
+        <h2 class="section-title">Name the financial metric <em>before</em> the pilot.</h2>
+        <p class="section-lede">
+          The discipline that separates funded programs from abandoned ones: every use case carries <strong>two value tracks</strong> — revenue and cost-capacity — with its metric named before launch and its baseline captured before deployment. Finance owns benefits tracking. Expectation calibration is part of the framing: efficiency gains typically become visible in ~6&ndash;18 months and measurable cost reduction in ~18&ndash;36 (Gartner guidance, so labeled), so capacity is the leading indicator that converts to dollars over quarters.
+        </p>
+        <div class="inline-table-wrap"><table class="exp-table"><thead><tr><th>Category</th><th>Metric</th><th>Target</th><th>Measurement method</th></tr></thead><tbody>
+<tr><td>Adoption</td><td>Monthly active users / total eligible users</td><td>70%+ by month 12</td><td>Platform analytics</td></tr>
+<tr><td>Productivity</td><td>Average time saved per user per week</td><td>2&ndash;4 hours</td><td>Workflow timing study + survey</td></tr>
+<tr><td>Hard savings</td><td>Quantified cost avoidance vs. baseline</td><td>Defined $ per quarter</td><td>Finance-owned P&amp;L tracking</td></tr>
+<tr><td>Revenue</td><td>Advisor capacity expansion &times; revenue per client</td><td>Defined $ per advisor</td><td>Revenue attribution model</td></tr>
+<tr><td>Risk</td><td>Compliance exception rate reduction</td><td>Defined % vs. baseline</td><td>Compliance tracking</td></tr>
+<tr><td>Tool consolidation</td><td>Eliminated vendor licenses</td><td>Defined $ per year</td><td>Procurement tracking</td></tr>
+<tr><td>Shadow AI</td><td>Sanctioned vs. estimated unsanctioned usage</td><td>Sanctioned dominant</td><td>DLP + platform telemetry</td></tr>
+</tbody></table></div>
+        <div class="note-mono">Targets are illustrative planning anchors, not benchmarks — set per firm against pre-deployment baselines and the conversion ladder (hours &rarr; capacity &rarr; financial outcome). Companion report &sect;2.3, Table 2 and &sect;9.</div>
+      </section>
+
+      <section class="section" id="champions">
+        <div class="section-eyebrow"><span class="section-num">05</span><span class="section-divider"></span><span class="section-kicker">Champions That Work</span></div>
+        <h2 class="section-title">Selection is the program design decision.</h2>
+        <p class="section-lede">
+          Champions are frequently the difference between a transformation that touches 20 percent of the organization and one that reaches 80 — and the <strong>wrong</strong> champions, demoing enthusiastically without understanding limitations or lacking peer credibility, undermine trust faster than no champions at all. Four selection criteria, then the operating rules that keep the network alive.
+        </p>
+        <div class="takeaways reveal">
+          <div class="takeaway"><div class="takeaway-num">i.</div><h3>Influence, not authority.</h3><p>People whose opinions peers respect — not necessarily the most technically proficient or the most senior.</p></div>
+          <div class="takeaway"><div class="takeaway-num">ii.</div><h3>Role diversity.</h3><p>Embedded across functions, business lines, and geographies — not concentrated in technology or innovation teams. A cohort that looks like the innovation lab will not persuade the branch network.</p></div>
+          <div class="takeaway"><div class="takeaway-num">iii.</div><h3>Intrinsic motivation.</h3><p>Genuinely curious people who see the role as professionally meaningful — not an obligation.</p></div>
+          <div class="takeaway"><div class="takeaway-num">iv.</div><h3>Practical honesty.</h3><p>Champions must explain AI&rsquo;s limitations as confidently as its capabilities; intellectual honesty is the currency of credibility.</p></div>
+        </div>
+        <div class="reg-timeline" style="margin-top:26px">
+          <div class="reg-item"><div class="reg-date"><strong>01</strong>Coverage</div><div class="reg-content"><div class="reg-title">Plan ~1 champion per 30&ndash;50 employees at launch</div><div class="reg-desc">A planning heuristic, not a sourced benchmark — scaling down as adoption matures.</div></div></div>
+          <div class="reg-item"><div class="reg-date"><strong>02</strong>Time</div><div class="reg-content"><div class="reg-title">Protect 10&ndash;20% of champion time formally</div><div class="reg-desc">Embedded in the role description, recognized by the manager. Unprotected champions default to the day job and the network dissolves — <strong>the single most common failure</strong>.</div></div></div>
+          <div class="reg-item"><div class="reg-date"><strong>03</strong>Measure</div><div class="reg-content"><div class="reg-title">Measure outcomes, not activity</div><div class="reg-desc">Colleague behavior change and adoption in their function — not office hours held.</div></div></div>
+          <div class="reg-item"><div class="reg-date"><strong>04</strong>Escalate</div><div class="reg-content"><div class="reg-title">Give every champion an escalation path</div><div class="reg-desc">To the compliance and governance team; champions facing policy questions with no answer lose credibility with colleagues.</div></div></div>
+          <div class="reg-item"><div class="reg-date"><strong>05</strong>Seed</div><div class="reg-content"><div class="reg-title">Seed from usage data — the JPMorgan pattern</div><div class="reg-desc">The firm saw stable ratios at every rollout stage (30% active users, 10% super-users), identified the super-users, and enlisted them in train-the-trainer sessions; actives rose to ~50% at scale [51].</div></div></div>
+        </div>
+      </section>
+
+      <section class="section" id="regfloor">
+        <div class="section-eyebrow"><span class="section-num">06</span><span class="section-divider"></span><span class="section-kicker">The Regulatory Floor &middot; 2026</span></div>
+        <h2 class="section-title">The rules every framing must sit on.</h2>
+        <p class="section-lede">
+          The facts that stay identical across all twelve audiences. Most financial regulators apply <strong>existing</strong> rules to AI rather than writing new ones — and the newest supervisory guidance explicitly leaves generative and agentic AI to the firm.
+        </p>
+        <div class="reg-timeline reveal">
+          <div class="reg-item">
+            <div class="reg-date"><strong>Mar 2024</strong>SEC</div>
+            <div class="reg-content">
+              <div class="reg-authority">Securities &amp; Exchange Commission</div>
+              <div class="reg-title">AI-washing enforcement opens — precisely scoped</div>
+              <div class="reg-desc">Delphia ($225K) and Global Predictions ($175K) settle over false AI claims in adviser marketing — Advisers Act &sect;206, Marketing Rule, Compliance Rule. The lesson for framing: never claim AI capabilities externally that the firm cannot evidence [17].</div>
+            </div>
+          </div>
+          <div class="reg-item">
+            <div class="reg-date"><strong>Jun 2024</strong>FINRA</div>
+            <div class="reg-content">
+              <div class="reg-authority">FINRA Regulatory Notice 24-09</div>
+              <div class="reg-title">Existing rules apply in full to AI</div>
+              <div class="reg-desc">Communications (2210), supervision (3110), and recordkeeping obligations apply to AI-assisted work unchanged — a design spec for the compliance workflow, not a gray area [18].</div>
+            </div>
+          </div>
+          <div class="reg-item">
+            <div class="reg-date"><strong>2026</strong>FINRA</div>
+            <div class="reg-content">
+              <div class="reg-authority">FINRA Annual Regulatory Oversight Report</div>
+              <div class="reg-title">Agentic AI named; enterprise-level oversight expected</div>
+              <div class="reg-desc">Calls for formal review and approval of new gen-AI use cases and flags agent-specific risks — permissioning, approval gates for consequential actions, audit trails [19].</div>
+            </div>
+          </div>
+          <div class="reg-item">
+            <div class="reg-date"><strong>Apr 17, 2026</strong>Fed &middot; OCC &middot; FDIC</div>
+            <div class="reg-content">
+              <div class="reg-authority">SR 26-2 / OCC Bulletin 2026-13</div>
+              <div class="reg-title">Model-risk guidance superseded — gen/agentic AI excluded</div>
+              <div class="reg-desc">Supersedes SR 11-7 and SR 21-8 and <strong>excludes generative and agentic AI from scope</strong> — the firm cannot borrow its gen-AI governance from supervisors. Build the internal framework, tiered by materiality, mapped to NIST AI RMF [16, 21].</div>
+            </div>
+          </div>
+          <div class="reg-item">
+            <div class="reg-date"><strong>Aug 2, 2026</strong>EU</div>
+            <div class="reg-content">
+              <div class="reg-authority">EU AI Act &mdash; Annex III high-risk obligations</div>
+              <div class="reg-title">Credit scoring; life &amp; health insurance pricing</div>
+              <div class="reg-desc">Core high-risk obligations apply as enacted to creditworthiness evaluation and life/health risk-pricing AI; the proposed Digital Omnibus deferral remains <strong>pending, not adopted</strong>, as of mid-2026 [20].</div>
+            </div>
+          </div>
+        </div>
+        <div class="note-mono">Recordkeeping anchor: SEC Exchange Act Rule 17a-4 (via FINRA Rule 4511) and Advisers Act Rule 204-2 — the off-channel sweep ($3B+ across 100+ entities) is the enforcement memory behind &ldquo;supervised channels only&rdquo; [22, 23].</div>
+      </section>
+
+      <section class="section" id="caution">
+        <div class="section-eyebrow"><span class="section-num">07</span><span class="section-divider"></span><span class="section-kicker">The Cautionary Line</span></div>
+        <h2 class="section-title">What substitution-first framing costs.</h2>
+        <p class="section-lede">
+          Three data points every stakeholder message in this briefing is designed to avoid repeating. Never lead with headcount; never announce cuts on contested efficiency metrics; label predictions as predictions.
+        </p>
+        <div class="redlines reveal">
+          <div class="redline">
+            <div class="redline-tier">Klarna &middot; 2024&ndash;25</div>
+            <p>After publicizing an assistant &ldquo;equivalent to 700 full-time agents&rdquo; alongside a ~22% workforce reduction, CEO Sebastian Siemiatkowski told Bloomberg: <em>&ldquo;Cost unfortunately seems to have been a too predominant evaluation factor&hellip; What you end up having is lower quality&rdquo;</em> — and Klarna began recruiting for human support with a commitment that a human is always reachable [44].</p>
+          </div>
+          <div class="redline">
+            <div class="redline-tier">Commonwealth Bank of Australia &middot; Aug 2025</div>
+            <p>Cut 45 service roles citing an AI voice bot; the union disputed the metric at the Fair Work Commission; CBA reversed on Aug 21, 2025, conceding its assessment <em>&ldquo;did not adequately consider all relevant business considerations and this error meant the roles were not redundant&rdquo;</em> [45].</p>
+          </div>
+          <div class="redline">
+            <div class="redline-tier">The predicted pattern &middot; Gartner</div>
+            <p>By 2027, half of companies that cut staff for AI will rehire them — the &ldquo;layoff boomerang.&rdquo; Explicitly a <strong>prediction, not a finding</strong> — but one the Klarna and CBA episodes already illustrate [46].</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="tables-master-section" id="to-tables">
+        <div class="tables-master-header">
+          <div class="tables-master-eyebrow">12 Talking-Point Tables &middot; Present <em>To</em> Each Stakeholder</div>
+          <h2 class="tables-master-title">How to frame AI <em>to</em> each audience.</h2>
+          <p class="tables-master-lede">
+            One table per stakeholder: the talking points that land, why they land through that audience&rsquo;s lens, the proof to bring into the room, and the phrases to avoid. All closed by default &mdash; open one, several, or all. Bracketed references resolve to the companion report&rsquo;s tagged bibliography (&sect;13).
+          </p>
+          <div class="tables-actions">
+            <button class="tables-action-btn" data-action="expand" data-scope="to-tables">Expand all</button>
+            <button class="tables-action-btn" data-action="collapse" data-scope="to-tables">Collapse all</button>
+          </div>
+        </div>
+        <div class="pill-nav" style="justify-content:center; margin-bottom:28px;">
+<a href="#tbl-to-ceo" class="pill-nav-item"><span class="pill-num">T01</span><span class="pill-text">CEO</span></a>
+<a href="#tbl-to-board" class="pill-nav-item"><span class="pill-num">T02</span><span class="pill-text">Board of Directors</span></a>
+<a href="#tbl-to-cfo" class="pill-nav-item"><span class="pill-num">T03</span><span class="pill-text">CFO</span></a>
+<a href="#tbl-to-cio" class="pill-nav-item"><span class="pill-num">T04</span><span class="pill-text">CIO / CTO</span></a>
+<a href="#tbl-to-ciso" class="pill-nav-item"><span class="pill-num">T05</span><span class="pill-text">CISO</span></a>
+<a href="#tbl-to-comp" class="pill-nav-item"><span class="pill-num">T06</span><span class="pill-text">Compliance / Legal</span></a>
+<a href="#tbl-to-chro" class="pill-nav-item"><span class="pill-num">T07</span><span class="pill-text">CHRO / HR</span></a>
+<a href="#tbl-to-bu" class="pill-nav-item"><span class="pill-num">T08</span><span class="pill-text">Business Unit Leaders</span></a>
+<a href="#tbl-to-mgr" class="pill-nav-item"><span class="pill-num">T09</span><span class="pill-text">Middle Managers</span></a>
+<a href="#tbl-to-front" class="pill-nav-item"><span class="pill-num">T10</span><span class="pill-text">Frontline Employees</span></a>
+<a href="#tbl-to-adv" class="pill-nav-item"><span class="pill-num">T11</span><span class="pill-text">Financial Advisors</span></a>
+<a href="#tbl-to-client" class="pill-nav-item"><span class="pill-num">T12</span><span class="pill-text">Clients</span></a>
+        </div>
+
+<div class="expandable" id="tbl-to-ceo">
+  <button class="exp-trigger" aria-expanded="false" aria-controls="tbl-to-ceo-body" data-target="tbl-to-ceo-body">
+    <div class="exp-left"><div class="exp-num">T01</div><div class="exp-meta"><div class="exp-kicker">Present To &middot; CEO</div><div class="exp-title">How to frame AI to the CEO</div><div class="exp-sub">6 rows &middot; 4 columns &middot; Click to expand</div></div></div>
+    <div class="exp-right"><span class="exp-pill">Closed</span><svg class="exp-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 8 10 12 14 8"/></svg></div>
+  </button>
+  <div class="exp-body" id="tbl-to-ceo-body" role="region" aria-hidden="true">
+    <p class="exp-lede">Competitive strategy, board accountability, and the confidence gap only the CEO can close.</p>
+    <div class="exp-table-wrap">
+      <table class="exp-table">
+        <thead><tr><th>Talking point</th><th>Why it lands (their lens)</th><th>Proof / metric to bring</th><th><span class='avoid'>Avoid</span></th></tr></thead>
+        <tbody>
+<tr><td>&ldquo;AI is an enterprise transformation that redesigns knowledge work — not a tool deployed on legacy processes.&rdquo;</td><td>Speaks to operating-model ambition and the board-accountability frame the CEO already carries.</td><td>Workflow redesign is #1 of 25 attributes for EBIT impact — McKinsey [1].</td><td><span class='avoid'>&ldquo;This is an IT initiative.&rdquo;</span></td></tr>
+<tr><td>&ldquo;Your personal oversight is the single highest-leverage governance act available.&rdquo;</td><td>CEOs want agency, not delegation theater — ~&frac34; are now the chief AI decision-maker.</td><td>CEO oversight of AI governance is among the attributes most correlated with bottom-line impact [1]; BCG Radar 2026 [7].</td><td><span class='avoid'>&ldquo;Delegate this to the CIO.&rdquo;</span></td></tr>
+<tr><td>&ldquo;Fund a stage-gated portfolio, not a thousand pilots.&rdquo;</td><td>Answers the fear of sprawl that never aggregates into enterprise value.</td><td>42% of companies now abandon most AI initiatives; 46% of PoCs scrapped before production — S&amp;P [4].</td><td><span class='avoid'>&ldquo;Let a thousand flowers bloom.&rdquo;</span></td></tr>
+<tr><td>&ldquo;Peer proof exists at institutional scale.&rdquo;</td><td>Competitive benchmarking is the CEO&rsquo;s native instinct.</td><td>JPMorgan: 450+ use cases, ~250K with access, ~half daily, opt-in rollout, company-reported ~$1.5B cumulative value [24&ndash;27].</td><td><span class='avoid'>Overpromising: &ldquo;we&rsquo;ll transform overnight.&rdquo;</span></td></tr>
+<tr><td>&ldquo;The confidence gap widens with distance from your office — closing it is a communication job you own.&rdquo;</td><td>Converts an abstract culture problem into a personal, actionable one.</td><td>Confidence falls 62%&rarr;48% with each level of &ldquo;change distance&rdquo; from the C-suite — BCG Radar 2026 [7].</td><td><span class='avoid'>&ldquo;Trust the technology.&rdquo;</span></td></tr>
+<tr><td>&ldquo;Never lead with headcount.&rdquo;</td><td>Protects the reputational asset the CEO personally embodies.</td><td>Klarna leadership admission; CBA public reversal [44, 45].</td><td><span class='avoid'>Efficiency-first framing anywhere near workforce topics.</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="expandable" id="tbl-to-board">
+  <button class="exp-trigger" aria-expanded="false" aria-controls="tbl-to-board-body" data-target="tbl-to-board-body">
+    <div class="exp-left"><div class="exp-num">T02</div><div class="exp-meta"><div class="exp-kicker">Present To &middot; Board of Directors</div><div class="exp-title">How to frame AI to the Board</div><div class="exp-sub">6 rows &middot; 4 columns &middot; Click to expand</div></div></div>
+    <div class="exp-right"><span class="exp-pill">Closed</span><svg class="exp-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 8 10 12 14 8"/></svg></div>
+  </button>
+  <div class="exp-body" id="tbl-to-board-body" role="region" aria-hidden="true">
+    <p class="exp-lede">Open with the question the board should ask first — then govern value and risk with the same visibility.</p>
+    <div class="exp-table-wrap">
+      <table class="exp-table">
+        <thead><tr><th>Talking point</th><th>Why it lands (their lens)</th><th>Proof / metric to bring</th><th><span class='avoid'>Avoid</span></th></tr></thead>
+        <tbody>
+<tr><td><strong>Anticipate the opening question: &ldquo;How may AI change our business model — and shareholder value?&rdquo;</strong> Answer with strategy, not tooling.</td><td>Elevates the session from IT update to fiduciary strategy — the frame boards are paid to hold. <span class='qmark'>Board-added question</span></td><td>Value pools by business line; moat analysis; capital plan tied to the strategic roadmap.</td><td><span class='avoid'>Tool demos and use-case tourism.</span></td></tr>
+<tr><td>&ldquo;AI is a standing governance topic — like cyber a decade ago.&rdquo;</td><td>Fiduciary comfort comes from a known oversight pattern, not novelty.</td><td>Committee ownership map; quarterly reporting cadence; the nine board questions pre-answered (report &sect;2.2).</td><td><span class='avoid'>A one-off deep-dive followed by silence.</span></td></tr>
+<tr><td>&ldquo;You will see value and risk on the same page.&rdquo;</td><td>Duty of oversight requires both sides of the ledger, always.</td><td>Dashboard: incidents, privacy events, regulatory flags, capital allocated vs. value returned.</td><td><span class='avoid'>&ldquo;We have AI under control&rdquo; without evidence.</span></td></tr>
+<tr><td>&ldquo;Supervisory model-risk guidance now excludes generative and agentic AI — so here is <em>our</em> framework.&rdquo;</td><td>Boards fear unknown unknowns; naming the gap and closing it signals competence.</td><td>SR 26-2 / OCC 2026-13 (Apr 2026) supersedes SR 11-7/21-8 and excludes gen/agentic AI; internal framework mapped to NIST AI RMF [16, 21].</td><td><span class='avoid'>Citing SR 11-7 as if it still covers this.</span></td></tr>
+<tr><td>&ldquo;AI capital runs through the same investment discipline as M&amp;A.&rdquo;</td><td>Matches the governance muscle the board already exercises.</td><td>Stage-gates; a named financial metric per use case on both value tracks; Finance-validated results.</td><td><span class='avoid'>Enthusiasm unaccompanied by gates.</span></td></tr>
+<tr><td>&ldquo;Here are the questions you should be asking us — with our answers.&rdquo;</td><td>Pre-empting oversight signals confidence and transparency; it converts scrutiny into partnership.</td><td>The &sect;2.2 question set: where AI is used (incl. shadow AI), accountability, risk framework, workforce plan, value tracking.</td><td><span class='avoid'>Defensiveness when directors probe.</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="expandable" id="tbl-to-cfo">
+  <button class="exp-trigger" aria-expanded="false" aria-controls="tbl-to-cfo-body" data-target="tbl-to-cfo-body">
+    <div class="exp-left"><div class="exp-num">T03</div><div class="exp-meta"><div class="exp-kicker">Present To &middot; CFO</div><div class="exp-title">How to frame AI to the CFO</div><div class="exp-sub">6 rows &middot; 4 columns &middot; Click to expand</div></div></div>
+    <div class="exp-right"><span class="exp-pill">Closed</span><svg class="exp-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 8 10 12 14 8"/></svg></div>
+  </button>
+  <div class="exp-body" id="tbl-to-cfo-body" role="region" aria-hidden="true">
+    <p class="exp-lede">Two value tracks, a named metric before every pilot, and Finance owning the scorecard.</p>
+    <div class="exp-table-wrap">
+      <table class="exp-table">
+        <thead><tr><th>Talking point</th><th>Why it lands (their lens)</th><th>Proof / metric to bring</th><th><span class='avoid'>Avoid</span></th></tr></thead>
+        <tbody>
+<tr><td>&ldquo;Every use case carries two tracks — revenue <em>and</em> cost-capacity — and names its financial metric before the pilot launches.&rdquo;</td><td>Capital-allocation discipline is the CFO&rsquo;s identity; this speaks it natively.</td><td>The conversion ladder: hours &rarr; capacity &rarr; financial outcome; scorecard in briefing &sect;04.</td><td><span class='avoid'>ROI hand-waving; &ldquo;trust us, it&rsquo;s transformative.&rdquo;</span></td></tr>
+<tr><td>&ldquo;Baselines are captured before deployment, and Finance owns benefits tracking.&rdquo;</td><td>Defuses the fear of vendor-inflated, self-graded ROI.</td><td>Baseline as a hard gate to pilot launch; 60/90-day Finance-validated readouts.</td><td><span class='avoid'>Vendor-reported ROI as the plan of record.</span></td></tr>
+<tr><td>&ldquo;Capacity converts to dollars over quarters — plan on 6&ndash;18 months for efficiency gains, 18&ndash;36 for measurable cost reduction.&rdquo;</td><td>An honest window prevents the premature-kill decision that strands sunk investment.</td><td>Gartner value-realization guidance (labeled as guidance); payback modeling ~14&ndash;36 months.</td><td><span class='avoid'>Promising immediate hard savings or headcount effects.</span></td></tr>
+<tr><td>&ldquo;The revenue track is real, not aspirational.&rdquo;</td><td>CFOs discount cost-only stories; upside evidence re-weights the portfolio.</td><td>JPMorgan AWM gross sales +20% YoY with AI tools credited as contributing (company-reported) [24].</td><td><span class='avoid'>Framing AI purely as an expense program.</span></td></tr>
+<tr><td>&ldquo;Shadow AI is a quantified avoided cost, not a hypothetical.&rdquo;</td><td>Hard-dollar risk framing fits the CFO&rsquo;s ledger.</td><td>Shadow-AI breaches carry a $670K premium; 1 in 5 orgs already breached through it — IBM [9].</td><td><span class='avoid'>Treating security spend as separate from the AI business case.</span></td></tr>
+<tr><td>&ldquo;Kill criteria are pre-agreed: a pilot that misses its named metric returns to redesign — it does not scale.&rdquo;</td><td>Signals discipline; separates this program from every zombie initiative the CFO has buried.</td><td>Phase-gate design (report &sect;10, Phase 3).</td><td><span class='avoid'>Sunk-cost escalation dressed as persistence.</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="expandable" id="tbl-to-cio">
+  <button class="exp-trigger" aria-expanded="false" aria-controls="tbl-to-cio-body" data-target="tbl-to-cio-body">
+    <div class="exp-left"><div class="exp-num">T04</div><div class="exp-meta"><div class="exp-kicker">Present To &middot; CIO / CTO</div><div class="exp-title">How to frame AI to the CIO / CTO</div><div class="exp-sub">6 rows &middot; 4 columns &middot; Click to expand</div></div></div>
+    <div class="exp-right"><span class="exp-pill">Closed</span><svg class="exp-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 8 10 12 14 8"/></svg></div>
+  </button>
+  <div class="exp-body" id="tbl-to-cio-body" role="region" aria-hidden="true">
+    <p class="exp-lede">The governed platform is the answer to shadow AI — and the architecture decisions are theirs to win.</p>
+    <div class="exp-table-wrap">
+      <table class="exp-table">
+        <thead><tr><th>Talking point</th><th>Why it lands (their lens)</th><th>Proof / metric to bring</th><th><span class='avoid'>Avoid</span></th></tr></thead>
+        <tbody>
+<tr><td>&ldquo;The governed enterprise platform <em>is</em> the answer to shadow AI.&rdquo;</td><td>Reframes AI from another burden into the control-restoring move IT has wanted.</td><td>54% of employees will use unauthorized tools if the firm doesn&rsquo;t provide good ones (62% Gen Z/Mill) [5]; 1-in-5 shadow-AI breaches [9].</td><td><span class='avoid'>Prohibition-first posture — it manufactures the problem.</span></td></tr>
+<tr><td>&ldquo;Model-agnostic gateway; nobody knows which model wins.&rdquo;</td><td>Speaks to lock-in fear and architecture pride simultaneously.</td><td>JPMorgan&rsquo;s aggregation rationale — &ldquo;no idea who was going to win&rdquo; — and its 8-week refresh cadence [51, 25].</td><td><span class='avoid'>A single-vendor bet framed as strategy.</span></td></tr>
+<tr><td>&ldquo;An approved-tool catalog plus rationalization review kills sprawl before it starts.&rdquo;</td><td>Tool sprawl is the CIO&rsquo;s recurring nightmare; this is the antidote with teeth.</td><td>Application-rationalization gate on every new AI tool request; consolidation savings tracked in the CFO scorecard.</td><td><span class='avoid'>Letting business units procure AI independently.</span></td></tr>
+<tr><td>&ldquo;Third-party AI is now a first-order architecture concern, not an afterthought.&rdquo;</td><td>Matches what their own risk reviews are surfacing.</td><td>A third of AI use cases are third-party implementations — roughly double 2022 — BoE/FCA [14].</td><td><span class='avoid'>Treating embedded vendor AI as out of scope.</span></td></tr>
+<tr><td>&ldquo;Data readiness decides sequencing.&rdquo;</td><td>Respects the reality of the estate instead of wishing it away.</td><td>Start on governed data — meeting notes, correspondence, research — before fragmented legacy integration.</td><td><span class='avoid'>Big-bang legacy integration as phase one.</span></td></tr>
+<tr><td>&ldquo;Agent permissioning is yours to design — supervisors explicitly left it to the firm.&rdquo;</td><td>Clarity of mandate converts anxiety into ownership.</td><td>SR 26-2 excludes gen/agentic AI from scope; internal framework mapped to NIST AI RMF; FINRA 2026 agent expectations [16, 21, 19].</td><td><span class='avoid'>Waiting for a regulator to specify the design.</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="expandable" id="tbl-to-ciso">
+  <button class="exp-trigger" aria-expanded="false" aria-controls="tbl-to-ciso-body" data-target="tbl-to-ciso-body">
+    <div class="exp-left"><div class="exp-num">T05</div><div class="exp-meta"><div class="exp-kicker">Present To &middot; CISO</div><div class="exp-title">How to frame AI to the CISO</div><div class="exp-sub">6 rows &middot; 4 columns &middot; Click to expand</div></div></div>
+    <div class="exp-right"><span class="exp-pill">Closed</span><svg class="exp-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 8 10 12 14 8"/></svg></div>
+  </button>
+  <div class="exp-body" id="tbl-to-ciso-body" role="region" aria-hidden="true">
+    <p class="exp-lede">Visibility over invisibility: enterprise AI makes the risk manageable; personal accounts make it invisible.</p>
+    <div class="exp-table-wrap">
+      <table class="exp-table">
+        <thead><tr><th>Talking point</th><th>Why it lands (their lens)</th><th>Proof / metric to bring</th><th><span class='avoid'>Avoid</span></th></tr></thead>
+        <tbody>
+<tr><td>&ldquo;Enterprise AI makes the risk visible and manageable — the alternative is employees on invisible personal accounts.&rdquo;</td><td>Visibility is the CISO&rsquo;s first principle.</td><td>97% of AI-breached orgs lacked AI access controls; 63% have no AI governance policy — IBM [9].</td><td><span class='avoid'>&ldquo;Just block it.&rdquo;</span></td></tr>
+<tr><td>&ldquo;We extend DLP to AI channels and classify data for AI use.&rdquo;</td><td>Concrete control mapping beats abstract policy.</td><td>Data-classification matrix (public &rarr; restricted) wired to prompt-level enforcement and telemetry.</td><td><span class='avoid'>Policy documents without telemetry behind them.</span></td></tr>
+<tr><td>&ldquo;Agents get identities, least privilege, and approval gates for consequential actions.&rdquo;</td><td>Shows the program is ahead of the agent-risk curve, not behind it.</td><td>FINRA 2026 agentic risk expectations; complete audit trails as a design requirement [19].</td><td><span class='avoid'>Human-only IAM thinking applied to autonomous agents.</span></td></tr>
+<tr><td>&ldquo;We red-team before scale — on a framework, not ad hoc.&rdquo;</td><td>Professional rigor speaks CISO.</td><td>NIST AI RMF + Generative AI Profile as the assessment spine [21].</td><td><span class='avoid'>Pentest-and-pray.</span></td></tr>
+<tr><td>&ldquo;The AI supply chain is the top AI attack vector — vendor reviews are in scope from day one.&rdquo;</td><td>Aligns with their threat-intelligence picture.</td><td>Compromised apps, APIs, and plug-ins are the most common AI-related vector — IBM [9].</td><td><span class='avoid'>A prompt-injection-only threat model.</span></td></tr>
+<tr><td>&ldquo;Here&rsquo;s the 30-day plan: shadow-AI audit, classification matrix, acceptable-use policy draft.&rdquo;</td><td>Action orientation earns the seat at the design table.</td><td>Browser + DLP telemetry audit; AUP draft; matrix v1 — the CISO message in F05 operationalized.</td><td><span class='avoid'>A year-long policy project before any control ships.</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="expandable" id="tbl-to-comp">
+  <button class="exp-trigger" aria-expanded="false" aria-controls="tbl-to-comp-body" data-target="tbl-to-comp-body">
+    <div class="exp-left"><div class="exp-num">T06</div><div class="exp-meta"><div class="exp-kicker">Present To &middot; Compliance / Legal</div><div class="exp-title">How to frame AI to Compliance / Legal</div><div class="exp-sub">6 rows &middot; 4 columns &middot; Click to expand</div></div></div>
+    <div class="exp-right"><span class="exp-pill">Closed</span><svg class="exp-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 8 10 12 14 8"/></svg></div>
+  </button>
+  <div class="exp-body" id="tbl-to-comp-body" role="region" aria-hidden="true">
+    <p class="exp-lede">From gatekeeper to co-designer: existing rules are the design spec, and the architecture does the recordkeeping.</p>
+    <div class="exp-table-wrap">
+      <table class="exp-table">
+        <thead><tr><th>Talking point</th><th>Why it lands (their lens)</th><th>Proof / metric to bring</th><th><span class='avoid'>Avoid</span></th></tr></thead>
+        <tbody>
+<tr><td>&ldquo;You&rsquo;re here for design, not post-hoc approval.&rdquo;</td><td>Defuses the bypass fear that makes compliance say no by default.</td><td>Standing steering-committee seat from Phase 1; use cases arrive at design stage.</td><td><span class='avoid'>Inviting compliance at deployment.</span></td></tr>
+<tr><td>&ldquo;Existing rules apply — and that&rsquo;s a design spec, not a blocker.&rdquo;</td><td>Speaks their own doctrine back to them.</td><td>FINRA 24-09: communications (2210), supervision (3110), recordkeeping apply in full [18].</td><td><span class='avoid'>&ldquo;AI is a legal gray area.&rdquo;</span></td></tr>
+<tr><td>&ldquo;Recordkeeping is solved by architecture, not by memo.&rdquo;</td><td>Enforcement memory makes this the sharpest nerve; architecture answers it.</td><td>SEC 17a-4 (via FINRA 4511) + Advisers Act 204-2 routing; the $3B+ off-channel sweep as context [22, 23].</td><td><span class='avoid'>Any send path outside supervised channels.</span></td></tr>
+<tr><td>&ldquo;The model-risk gap is ours to fill — here is the tiered framework.&rdquo;</td><td>Ambiguity aversion is answered with a concrete, materiality-tiered structure.</td><td>SR 26-2 excludes gen/agentic AI; Tier 1/2/3 treatment by materiality, NIST-mapped [16, 21].</td><td><span class='avoid'>Pretending SR 11-7 still covers generative systems.</span></td></tr>
+<tr><td>&ldquo;AI-washing scope is precise: adviser marketing and fiduciary conduct.&rdquo;</td><td>Precision builds trust; vagueness reads as spin.</td><td>SEC v. Delphia / Global Predictions — Advisers Act &sect;206, Marketing Rule, Compliance Rule [17].</td><td><span class='avoid'>Vague &ldquo;the SEC is coming for AI&rdquo; alarmism.</span></td></tr>
+<tr><td>&ldquo;Compliance benefits too.&rdquo;</td><td>Turns the function from cost center into beneficiary — and ally.</td><td>AI-assisted communications QA, surveillance triage, and regulatory-filing support in the use-case catalog.</td><td><span class='avoid'>Framing compliance purely as the brake.</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="expandable" id="tbl-to-chro">
+  <button class="exp-trigger" aria-expanded="false" aria-controls="tbl-to-chro-body" data-target="tbl-to-chro-body">
+    <div class="exp-left"><div class="exp-num">T07</div><div class="exp-meta"><div class="exp-kicker">Present To &middot; CHRO / HR</div><div class="exp-title">How to frame AI to the CHRO / HR</div><div class="exp-sub">6 rows &middot; 4 columns &middot; Click to expand</div></div></div>
+    <div class="exp-right"><span class="exp-pill">Closed</span><svg class="exp-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 8 10 12 14 8"/></svg></div>
+  </button>
+  <div class="exp-body" id="tbl-to-chro-body" role="region" aria-hidden="true">
+    <p class="exp-lede">Trust architecture: workforce principles, the anti-surveillance line, funded reskilling, managers first.</p>
+    <div class="exp-table-wrap">
+      <table class="exp-table">
+        <thead><tr><th>Talking point</th><th>Why it lands (their lens)</th><th>Proof / metric to bring</th><th><span class='avoid'>Avoid</span></th></tr></thead>
+        <tbody>
+<tr><td>&ldquo;We publish AI Workforce Principles — in writing — covering what AI will and will not be used for.&rdquo;</td><td>Gives HR the trust instrument the fear data demands.</td><td>52% of workers fear replacement — roughly double the prior year — amid 87% weekly use (KPMG) [10].</td><td><span class='avoid'>Vague reassurance that names no commitments.</span></td></tr>
+<tr><td>&ldquo;Say the monitoring line explicitly: usage telemetry is not surveillance, and AI won&rsquo;t decide evaluations or promotions.&rdquo;</td><td>Surveillance anxiety is the quiet killer of adoption; only explicitness defuses it.</td><td>The CEO all-employee message (F02) — the NOT-list is its highest-trust line.</td><td><span class='avoid'>Ambiguity about how usage data is used.</span></td></tr>
+<tr><td>&ldquo;Anchor on augmentation with honest numbers — value <em>and</em> worry.&rdquo;</td><td>Credibility survives only if both sides of the data are named.</td><td>95% of workers see value in gen AI; ~60% carry job-loss worry or burnout concern — Accenture [11].</td><td><span class='avoid'>Cherry-picked cheerleading.</span></td></tr>
+<tr><td>&ldquo;Fund reskilling visibly and update career frameworks for AI fluency.&rdquo;</td><td>Converts HR from message-bearer to capability-builder.</td><td>&gt;5 hours of training &rarr; 79% regular users; only 36% call current training adequate — BCG [5].</td><td><span class='avoid'>Training as a webinar checkbox.</span></td></tr>
+<tr><td>&ldquo;Managers are briefed before their teams — always.&rdquo;</td><td>Sequence is the cheapest trust move HR controls.</td><td>Frontline positivity jumps 15% &rarr; 55% with strong leadership support — BCG [5].</td><td><span class='avoid'>Simultaneous all-hands surprise.</span></td></tr>
+<tr><td>&ldquo;We measure trust like a KPI.&rdquo;</td><td>Makes HR the owner of a board-visible metric, not a soft sentiment.</td><td>Employee layer: AI confidence, program trust, fear-of-replacement index tracked quarterly (report &sect;9).</td><td><span class='avoid'>Treating sentiment as anecdote.</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="expandable" id="tbl-to-bu">
+  <button class="exp-trigger" aria-expanded="false" aria-controls="tbl-to-bu-body" data-target="tbl-to-bu-body">
+    <div class="exp-left"><div class="exp-num">T08</div><div class="exp-meta"><div class="exp-kicker">Present To &middot; Business Unit Leaders</div><div class="exp-title">How to frame AI to Business Unit Leaders</div><div class="exp-sub">6 rows &middot; 4 columns &middot; Click to expand</div></div></div>
+    <div class="exp-right"><span class="exp-pill">Closed</span><svg class="exp-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 8 10 12 14 8"/></svg></div>
+  </button>
+  <div class="exp-body" id="tbl-to-bu-body" role="region" aria-hidden="true">
+    <p class="exp-lede">Their pain points, their ownership, their wins — jointly accountable with technology.</p>
+    <div class="exp-table-wrap">
+      <table class="exp-table">
+        <thead><tr><th>Talking point</th><th>Why it lands (their lens)</th><th>Proof / metric to bring</th><th><span class='avoid'>Avoid</span></th></tr></thead>
+        <tbody>
+<tr><td>&ldquo;AI solves two or three named pain points in <em>your</em> function — let&rsquo;s pick them together.&rdquo;</td><td>Outcome ownership beats platform evangelism every time.</td><td>Function-specific use-case inventory with value and feasibility scoring (report &sect;2.8).</td><td><span class='avoid'>&ldquo;Adopt the platform&rdquo; as the ask.</span></td></tr>
+<tr><td>&ldquo;You own it jointly with technology — shared KPIs, two-in-a-box.&rdquo;</td><td>Control plus fairness; no IT drop-ins to absorb.</td><td>DBS reorganized into 33 platforms jointly led by business + tech with shared KPIs [32, 36].</td><td><span class='avoid'>IT-led deployments the BU is told to accept.</span></td></tr>
+<tr><td>&ldquo;Baseline first; honest results at 60 and 90 days.&rdquo;</td><td>Operational credibility is their currency; honest measurement protects it.</td><td>Pre-deployment baselines; Finance-validated readouts; report &sect;10 Phase 3 gates.</td><td><span class='avoid'>Vanity adoption metrics presented as outcomes.</span></td></tr>
+<tr><td>&ldquo;Volunteer cohort — and the leader is in cohort one.&rdquo;</td><td>Skin in the game converts skeptics faster than mandates.</td><td>The BU-leader message (F08): &ldquo;I will be in the first cohort myself.&rdquo;</td><td><span class='avoid'>Mandated usage quotas.</span></td></tr>
+<tr><td>&ldquo;The pilot comes with budget and redesign resources attached.&rdquo;</td><td>Kills the &ldquo;more work before any value&rdquo; objection at the root.</td><td>Named business owner + funded workflow redesign per use case [1].</td><td><span class='avoid'>Unfunded mandates.</span></td></tr>
+<tr><td>&ldquo;Wins get communicated — with your name on them.&rdquo;</td><td>Recognition is a legitimate motive; use it.</td><td>Wins-communication cadence (failure mode 13 corrective, report &sect;12).</td><td><span class='avoid'>The program hoarding credit.</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="expandable" id="tbl-to-mgr">
+  <button class="exp-trigger" aria-expanded="false" aria-controls="tbl-to-mgr-body" data-target="tbl-to-mgr-body">
+    <div class="exp-left"><div class="exp-num">T09</div><div class="exp-meta"><div class="exp-kicker">Present To &middot; Middle Managers</div><div class="exp-title">How to frame AI to Middle Managers</div><div class="exp-sub">6 rows &middot; 4 columns &middot; Click to expand</div></div></div>
+    <div class="exp-right"><span class="exp-pill">Closed</span><svg class="exp-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 8 10 12 14 8"/></svg></div>
+  </button>
+  <div class="exp-body" id="tbl-to-mgr-body" role="region" aria-hidden="true">
+    <p class="exp-lede">The make-or-break layer: brief them first, equip them with playbooks, and put adoption in their scorecard — with support.</p>
+    <div class="exp-table-wrap">
+      <table class="exp-table">
+        <thead><tr><th>Talking point</th><th>Why it lands (their lens)</th><th>Proof / metric to bring</th><th><span class='avoid'>Avoid</span></th></tr></thead>
+        <tbody>
+<tr><td>&ldquo;You hear this before your teams do.&rdquo;</td><td>Respect plus preparation time; managers translate strategy into local meaning.</td><td>Pre-announcement manager briefing — the highest-ROI sequencing move in the program.</td><td><span class='avoid'>Managers learning at the town hall with everyone else.</span></td></tr>
+<tr><td>&ldquo;Playbooks, not platitudes.&rdquo;</td><td>Answers accountability-without-training fear with concrete equipment.</td><td>Manager playbook: use-case guides, FAQ scripts, escalation paths, team exercises (report &sect;2.9).</td><td><span class='avoid'>&ldquo;Figure it out&rdquo; enablement.</span></td></tr>
+<tr><td>&ldquo;Coaching AI-assisted work is a named skill we will build with you.&rdquo;</td><td>Reframes quality risk as a development opportunity, not a trap.</td><td>Review-point design; team prompt libraries; monthly manager forum (report &sect;7).</td><td><span class='avoid'>Blaming managers for AI output errors.</span></td></tr>
+<tr><td>&ldquo;Team adoption is in your scorecard — with executive air cover to match.&rdquo;</td><td>Clarity of expectation plus visible support makes the ask fair.</td><td>Performance expectation + escalation channel + protected experimentation time.</td><td><span class='avoid'>Metrics without enablement.</span></td></tr>
+<tr><td>&ldquo;The silicon ceiling breaks at your layer.&rdquo;</td><td>Significance: they are the fulcrum, not a pass-through.</td><td>Managers at 78% regular use vs. ~50% frontline; leadership support moves positivity 15&rarr;55% — BCG [5].</td><td><span class='avoid'>Treating managers as a comms relay.</span></td></tr>
+<tr><td>&ldquo;AI helps your team get more done at higher quality — it is not &lsquo;fewer people needed.&rsquo;&rdquo;</td><td>Directly defuses the role-threat reading of every efficiency sentence.</td><td>The better-framing row (lens map, &sect;03); manager message F09.</td><td><span class='avoid'>Efficiency language that implies shrinking teams.</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="expandable" id="tbl-to-front">
+  <button class="exp-trigger" aria-expanded="false" aria-controls="tbl-to-front-body" data-target="tbl-to-front-body">
+    <div class="exp-left"><div class="exp-num">T10</div><div class="exp-meta"><div class="exp-kicker">Present To &middot; Frontline Employees</div><div class="exp-title">How to frame AI to Frontline Employees</div><div class="exp-sub">6 rows &middot; 4 columns &middot; Click to expand</div></div></div>
+    <div class="exp-right"><span class="exp-pill">Closed</span><svg class="exp-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 8 10 12 14 8"/></svg></div>
+  </button>
+  <div class="exp-body" id="tbl-to-front-body" role="region" aria-hidden="true">
+    <p class="exp-lede">Less drudgery, judgment stays theirs — with the six unasked questions answered out loud.</p>
+    <div class="exp-table-wrap">
+      <table class="exp-table">
+        <thead><tr><th>Talking point</th><th>Why it lands (their lens)</th><th>Proof / metric to bring</th><th><span class='avoid'>Avoid</span></th></tr></thead>
+        <tbody>
+<tr><td>&ldquo;AI handles the repetitive parts; the judgment stays yours.&rdquo;</td><td>Pain-point relevance beats vision statements at this level.</td><td>Role-specific quick wins: drafting, summarizing, retrieval — demonstrated on their actual tasks.</td><td><span class='avoid'>&ldquo;AI will transform your job.&rdquo;</span></td></tr>
+<tr><td>&ldquo;Explicitly: not used for surveillance, speed-tracking, or promotion decisions.&rdquo;</td><td>Answers the questions employees won&rsquo;t ask out loud.</td><td>The CEO NOT-list (F02); published Workforce Principles [10].</td><td><span class='avoid'>Silence on monitoring — silence reads as yes.</span></td></tr>
+<tr><td>&ldquo;Mistakes and basic questions are safe here.&rdquo;</td><td>Psychological safety is the precondition for real usage, not a perk.</td><td>Manager norms in F09: nobody penalized for using AI or asking how it works.</td><td><span class='avoid'>Punitive or gotcha rollouts.</span></td></tr>
+<tr><td>&ldquo;Real training, on your real tasks, with a peer nearby.&rdquo;</td><td>Practicality signals respect for their time.</td><td>Hands-on paths + champion office hours; 5-hour threshold &rarr; 79% regular use [5].</td><td><span class='avoid'>Generic e-learning modules.</span></td></tr>
+<tr><td>&ldquo;When AI errs, accountability was defined in advance.&rdquo;</td><td>Removes the blame lottery that makes people avoid the tool.</td><td>Human review points per workflow; error-handling protocol per use case.</td><td><span class='avoid'>Ambiguous responsibility for AI mistakes.</span></td></tr>
+<tr><td>&ldquo;Your feedback changes the tool.&rdquo;</td><td>Agency converts subjects of change into participants.</td><td>Feedback loops (framework element 9) with visible acted-on fixes.</td><td><span class='avoid'>Suggestion-box theater.</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="expandable" id="tbl-to-adv">
+  <button class="exp-trigger" aria-expanded="false" aria-controls="tbl-to-adv-body" data-target="tbl-to-adv-body">
+    <div class="exp-left"><div class="exp-num">T11</div><div class="exp-meta"><div class="exp-kicker">Present To &middot; Financial Advisors</div><div class="exp-title">How to frame AI to Financial Advisors</div><div class="exp-sub">6 rows &middot; 4 columns &middot; Click to expand</div></div></div>
+    <div class="exp-right"><span class="exp-pill">Closed</span><svg class="exp-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 8 10 12 14 8"/></svg></div>
+  </button>
+  <div class="exp-body" id="tbl-to-adv-body" role="region" aria-hidden="true">
+    <p class="exp-lede">The assistant framing: it prepares, drafts, and summarizes — the advisor reviews, personalizes, decides.</p>
+    <div class="exp-table-wrap">
+      <table class="exp-table">
+        <thead><tr><th>Talking point</th><th>Why it lands (their lens)</th><th>Proof / metric to bring</th><th><span class='avoid'>Avoid</span></th></tr></thead>
+        <tbody>
+<tr><td>&ldquo;It prepares, drafts, summarizes — you review, personalize, decide. The relationship is yours.&rdquo;</td><td>Autonomy and client-trust protection in one sentence.</td><td>The advisor better-framing row (&sect;03); compliance workflow designed in [18].</td><td><span class='avoid'>&ldquo;AI can handle client communications.&rdquo;</span></td></tr>
+<tr><td>&ldquo;Meeting prep first — hours back inside 30 days.&rdquo;</td><td>Immediate, personally felt value; zero client-facing risk.</td><td>UBS: ~10,000 advisor hours/month saved on prep; 20&ndash;30 minutes per meeting on summaries [37].</td><td><span class='avoid'>Leading with client-facing AI.</span></td></tr>
+<tr><td>&ldquo;Instant access to everything the firm knows.&rdquo;</td><td>Aspiration: &ldquo;as smart as the smartest person in the organization.&rdquo;</td><td>Morgan Stanley: 98% advisor-team adoption; document access 20% &rarr; 80% [29, 30]; JPM Coach AI: information up to 95% faster [24].</td><td><span class='avoid'>Ignoring the generic-output horror stories — address them.</span></td></tr>
+<tr><td>&ldquo;Compliance is designed in: draft &rarr; your review &rarr; supervision &rarr; send.&rdquo;</td><td>Converts exposure fear into a visible guardrail.</td><td>FINRA 24-09-aligned workflow; all outputs in supervised, archived channels [18, 22].</td><td><span class='avoid'>Anything that smells like a workaround.</span></td></tr>
+<tr><td>&ldquo;Your peers lead this, not headquarters.&rdquo;</td><td>Advisors trust advisors.</td><td>Respected-advisor pilot cohort; champion demos (F10, F11).</td><td><span class='avoid'>Corporate-mandate tone.</span></td></tr>
+<tr><td>&ldquo;Nothing reaches a client unless you choose.&rdquo;</td><td>Control is the deal-breaker; state it as an architecture fact.</td><td>Advisor-controlled visibility; no auto-send anywhere in the stack.</td><td><span class='avoid'>Auto-send &ldquo;convenience&rdquo; features.</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="expandable" id="tbl-to-client">
+  <button class="exp-trigger" aria-expanded="false" aria-controls="tbl-to-client-body" data-target="tbl-to-client-body">
+    <div class="exp-left"><div class="exp-num">T12</div><div class="exp-meta"><div class="exp-kicker">Present To &middot; Clients</div><div class="exp-title">How to frame AI to Clients</div><div class="exp-sub">6 rows &middot; 4 columns &middot; Click to expand</div></div></div>
+    <div class="exp-right"><span class="exp-pill">Closed</span><svg class="exp-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 8 10 12 14 8"/></svg></div>
+  </button>
+  <div class="exp-body" id="tbl-to-client-body" role="region" aria-hidden="true">
+    <p class="exp-lede">Service benefit with a human always accountable — disclosed, consented, and reachable.</p>
+    <div class="exp-table-wrap">
+      <table class="exp-table">
+        <thead><tr><th>Talking point</th><th>Why it lands (their lens)</th><th>Proof / metric to bring</th><th><span class='avoid'>Avoid</span></th></tr></thead>
+        <tbody>
+<tr><td>&ldquo;AI helps our team serve you better — always with a human accountable.&rdquo;</td><td>Clients accept AI that makes their advisor better; they reject AI that replaces the relationship.</td><td>Named-human review on every AI-assisted output; the client-facing message (F12).</td><td><span class='avoid'>&ldquo;Our AI is intelligent and autonomous.&rdquo;</span></td></tr>
+<tr><td>&ldquo;You&rsquo;ll know when AI is involved.&rdquo;</td><td>Transparency preserves the trust the firm sells.</td><td>Disclosure language in client communications; EU AI Act Art. 50 transparency norm as the global bar [20].</td><td><span class='avoid'>Stealth deployment discovered later.</span></td></tr>
+<tr><td>&ldquo;If we ever record a meeting to help with notes, we ask first.&rdquo;</td><td>Consent-forward design reads as respect.</td><td>The Morgan Stanley Debrief pattern: client-consent recording, advisor review before anything sends [30].</td><td><span class='avoid'>Assumed or buried consent.</span></td></tr>
+<tr><td>&ldquo;Your data stays inside our governed environment.&rdquo;</td><td>Privacy is the first client fear; answer it concretely.</td><td>Enterprise platform with data-processing agreements, retention terms, access controls [9].</td><td><span class='avoid'>Vague privacy assurances.</span></td></tr>
+<tr><td>&ldquo;A human is always reachable.&rdquo;</td><td>The escalation promise Klarna had to relearn publicly.</td><td>Human escalation paths by design; BofA&rsquo;s Erica connects to specialists and won&rsquo;t advise [44, 39].</td><td><span class='avoid'>Bot-only dead ends.</span></td></tr>
+<tr><td>&ldquo;Advice remains a human, licensed act.&rdquo;</td><td>Removes the deepest anxiety: AI deciding about their money.</td><td>Explicit advice boundary in every client-facing AI (Erica, Aladdin Copilot pattern) [39, 42].</td><td><span class='avoid'>Implying autonomous recommendations.</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+      </section>
+
+      <section class="tables-master-section" id="from-tables">
+        <div class="tables-master-header">
+          <div class="tables-master-eyebrow">12 Talking-Point Tables &middot; Delivered <em>By</em> Each Leader</div>
+          <h2 class="tables-master-title">Ready-to-deliver messages <em>from</em> each leader.</h2>
+          <p class="tables-master-lede">
+            The report&rsquo;s twelve worked messages (&sect;6.2), each shown verbatim and then decomposed line by line: what each component says, and what it defuses or signals. Swap the specifics &mdash; tools, numbers, dates &mdash; for the firm&rsquo;s own; the structure of each message should survive editing.
+          </p>
+          <div class="tables-actions">
+            <button class="tables-action-btn" data-action="expand" data-scope="from-tables">Expand all</button>
+            <button class="tables-action-btn" data-action="collapse" data-scope="from-tables">Collapse all</button>
+          </div>
+        </div>
+        <div class="pill-nav" style="justify-content:center; margin-bottom:28px;">
+<a href="#tbl-from-ceo" class="pill-nav-item"><span class="pill-num">F01</span><span class="pill-text">CEO &rarr; Board</span></a>
+<a href="#tbl-from-board" class="pill-nav-item"><span class="pill-num">F02</span><span class="pill-text">CEO &rarr; All Employees</span></a>
+<a href="#tbl-from-cfo" class="pill-nav-item"><span class="pill-num">F03</span><span class="pill-text">CFO &rarr; Finance &amp; Business Leaders</span></a>
+<a href="#tbl-from-cio" class="pill-nav-item"><span class="pill-num">F04</span><span class="pill-text">CIO &rarr; Technology Teams</span></a>
+<a href="#tbl-from-ciso" class="pill-nav-item"><span class="pill-num">F05</span><span class="pill-text">CISO &rarr; Risk &amp; Security Teams</span></a>
+<a href="#tbl-from-comp" class="pill-nav-item"><span class="pill-num">F06</span><span class="pill-text">Compliance &rarr; Business Users</span></a>
+<a href="#tbl-from-chro" class="pill-nav-item"><span class="pill-num">F07</span><span class="pill-text">CHRO &rarr; Employees</span></a>
+<a href="#tbl-from-bu" class="pill-nav-item"><span class="pill-num">F08</span><span class="pill-text">BU Leader &rarr; Their Function</span></a>
+<a href="#tbl-from-mgr" class="pill-nav-item"><span class="pill-num">F09</span><span class="pill-text">Manager &rarr; Team</span></a>
+<a href="#tbl-from-front" class="pill-nav-item"><span class="pill-num">F10</span><span class="pill-text">AI Champion &rarr; Peers</span></a>
+<a href="#tbl-from-adv" class="pill-nav-item"><span class="pill-num">F11</span><span class="pill-text">Practice Leader &rarr; Advisors</span></a>
+<a href="#tbl-from-client" class="pill-nav-item"><span class="pill-num">F12</span><span class="pill-text">Client-Facing Team &rarr; Clients</span></a>
+        </div>
+
+<div class="expandable" id="tbl-from-ceo">
+  <button class="exp-trigger" aria-expanded="false" aria-controls="tbl-from-ceo-body" data-target="tbl-from-ceo-body">
+    <div class="exp-left"><div class="exp-num">F01</div><div class="exp-meta"><div class="exp-kicker">Delivered By &middot; CEO &rarr; Board</div><div class="exp-title">The CEO&rsquo;s board update</div><div class="exp-sub">5 components &middot; 3 columns &middot; Click to expand</div></div></div>
+    <div class="exp-right"><span class="exp-pill">Closed</span><svg class="exp-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 8 10 12 14 8"/></svg></div>
+  </button>
+  <div class="exp-body" id="tbl-from-ceo-body" role="region" aria-hidden="true">
+    <p class="exp-lede">A ready-to-deliver template &mdash; swap the specifics for the firm&rsquo;s own; keep the structure. <span class="said">&ldquo;Our AI transformation is proceeding on three tracks: governance first, value second, scale third. We have established enterprise policy, a model risk framework that we extended ourselves to cover generative and agentic AI, and a steering committee with cross-functional accountability. We have a defined set of use cases in production generating measurable productivity and revenue impact, validated by Finance against pre-deployment baselines. Our risk dashboard shows zero compliance incidents attributable to AI in the past quarter. We are ready to discuss our scaling roadmap and the capital allocation required to accelerate.&rdquo;</span></p>
+    <div class="exp-table-wrap">
+      <table class="exp-table">
+        <thead><tr><th>Message component</th><th>The line</th><th>What it defuses / signals</th></tr></thead>
+        <tbody>
+<tr><td>Three tracks, in order</td><td><span class='said'>&ldquo;governance first, value second, scale third.&rdquo;</span></td><td>Signals sequencing discipline; pre-empts &ldquo;are we moving recklessly?&rdquo;</td></tr>
+<tr><td>The framework gap, closed</td><td><span class='said'>&ldquo;a model risk framework that we extended ourselves to cover generative and agentic AI&rdquo;</span></td><td>Defuses the SR 26-2 unknown-unknowns fear — the firm did not wait for supervisors [16].</td></tr>
+<tr><td>Finance-validated value</td><td><span class='said'>&ldquo;validated by Finance against pre-deployment baselines.&rdquo;</span></td><td>Kills the vendor-hype discount; both value tracks are visible and audited.</td></tr>
+<tr><td>Risk on the same page</td><td><span class='said'>&ldquo;Our risk dashboard shows zero compliance incidents attributable to AI in the past quarter.&rdquo;</span></td><td>Duty-of-oversight comfort; value and risk reported together, always.</td></tr>
+<tr><td>The capital ask, earned</td><td><span class='said'>&ldquo;ready to discuss our scaling roadmap and the capital allocation required to accelerate.&rdquo;</span></td><td>Funding framed as a governed next step, not a leap of faith.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="expandable" id="tbl-from-board">
+  <button class="exp-trigger" aria-expanded="false" aria-controls="tbl-from-board-body" data-target="tbl-from-board-body">
+    <div class="exp-left"><div class="exp-num">F02</div><div class="exp-meta"><div class="exp-kicker">Delivered By &middot; CEO &rarr; All Employees</div><div class="exp-title">The CEO&rsquo;s all-employee announcement</div><div class="exp-sub">5 components &middot; 3 columns &middot; Click to expand</div></div></div>
+    <div class="exp-right"><span class="exp-pill">Closed</span><svg class="exp-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 8 10 12 14 8"/></svg></div>
+  </button>
+  <div class="exp-body" id="tbl-from-board-body" role="region" aria-hidden="true">
+    <p class="exp-lede">A ready-to-deliver template &mdash; swap the specifics for the firm&rsquo;s own; keep the structure. <span class="said">&ldquo;Starting this month, every employee will have access to our enterprise AI platform. It is secure &mdash; your client data never leaves our environment. It is supervised &mdash; our AI team and compliance have reviewed every use case. And it is optional &mdash; we want you to explore it and find the ways it helps your specific work. What we will NOT use AI for: monitoring how fast you work, evaluating your productivity in ways you haven&rsquo;t agreed to, or deciding who gets promoted. AI is for you to use &mdash; it is not surveillance.&rdquo;</span></p>
+    <div class="exp-table-wrap">
+      <table class="exp-table">
+        <thead><tr><th>Message component</th><th>The line</th><th>What it defuses / signals</th></tr></thead>
+        <tbody>
+<tr><td>Universal access</td><td><span class='said'>&ldquo;every employee will have access&rdquo;</span></td><td>Inclusion — no privileged castes; the platform belongs to everyone.</td></tr>
+<tr><td>Security in one line</td><td><span class='said'>&ldquo;your client data never leaves our environment.&rdquo;</span></td><td>Answers the data fear in employee terms, not architecture terms.</td></tr>
+<tr><td>Supervised, reviewed</td><td><span class='said'>&ldquo;our AI team and compliance have reviewed every use case.&rdquo;</span></td><td>Governance made human-scale and reassuring rather than bureaucratic.</td></tr>
+<tr><td>Optional, exploratory</td><td><span class='said'>&ldquo;it is optional — we want you to explore it&rdquo;</span></td><td>No mandate — the verified opt-in adoption pattern at JPMorgan [26].</td></tr>
+<tr><td>The NOT-list</td><td><span class='said'>&ldquo;What we will NOT use AI for: monitoring how fast you work&hellip; or deciding who gets promoted.&rdquo;</span></td><td>The single highest-trust line in the program — surveillance fear defused explicitly, not by omission [10].</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="expandable" id="tbl-from-cfo">
+  <button class="exp-trigger" aria-expanded="false" aria-controls="tbl-from-cfo-body" data-target="tbl-from-cfo-body">
+    <div class="exp-left"><div class="exp-num">F03</div><div class="exp-meta"><div class="exp-kicker">Delivered By &middot; CFO &rarr; Finance &amp; Business Leaders</div><div class="exp-title">The CFO&rsquo;s investment doctrine</div><div class="exp-sub">3 components &middot; 3 columns &middot; Click to expand</div></div></div>
+    <div class="exp-right"><span class="exp-pill">Closed</span><svg class="exp-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 8 10 12 14 8"/></svg></div>
+  </button>
+  <div class="exp-body" id="tbl-from-cfo-body" role="region" aria-hidden="true">
+    <p class="exp-lede">A ready-to-deliver template &mdash; swap the specifics for the firm&rsquo;s own; keep the structure. <span class="said">&ldquo;Every AI investment in this firm will be tracked against a defined baseline and a defined value target &mdash; on both tracks, revenue and cost-capacity. Before we scale any use case, we need to know: what are we measuring, what is today&rsquo;s baseline, and what is our target for three months post-deployment? I will not approve additional AI investment in any function that cannot show me what it achieved with the previous investment.&rdquo;</span></p>
+    <div class="exp-table-wrap">
+      <table class="exp-table">
+        <thead><tr><th>Message component</th><th>The line</th><th>What it defuses / signals</th></tr></thead>
+        <tbody>
+<tr><td>Two tracks, always</td><td><span class='said'>&ldquo;on both tracks, revenue and cost-capacity.&rdquo;</span></td><td>Signals complete value framing — growth and efficiency, never efficiency alone.</td></tr>
+<tr><td>Three questions before scale</td><td><span class='said'>&ldquo;what are we measuring, what is today&rsquo;s baseline, and what is our target&hellip;?&rdquo;</span></td><td>Installs metric-before-pilot as house discipline, not preference.</td></tr>
+<tr><td>The enforcement line</td><td><span class='said'>&ldquo;I will not approve additional AI investment in any function that cannot show me what it achieved&hellip;&rdquo;</span></td><td>Makes measurement consequential — funding follows evidence, which makes baselines everyone&rsquo;s problem.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="expandable" id="tbl-from-cio">
+  <button class="exp-trigger" aria-expanded="false" aria-controls="tbl-from-cio-body" data-target="tbl-from-cio-body">
+    <div class="exp-left"><div class="exp-num">F04</div><div class="exp-meta"><div class="exp-kicker">Delivered By &middot; CIO &rarr; Technology Teams</div><div class="exp-title">The CIO&rsquo;s platform mandate</div><div class="exp-sub">4 components &middot; 3 columns &middot; Click to expand</div></div></div>
+    <div class="exp-right"><span class="exp-pill">Closed</span><svg class="exp-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 8 10 12 14 8"/></svg></div>
+  </button>
+  <div class="exp-body" id="tbl-from-cio-body" role="region" aria-hidden="true">
+    <p class="exp-lede">A ready-to-deliver template &mdash; swap the specifics for the firm&rsquo;s own; keep the structure. <span class="said">&ldquo;Our enterprise AI platform is this firm&rsquo;s answer to shadow AI. Employees are using public AI tools today &mdash; without our knowledge, without our DLP controls, and without our vendor agreements. Our platform gives them a better experience with the controls we need. Your job in the next 90 days: finish the access-control configuration, get DLP coverage on AI channels, and complete vendor risk reviews for the embedded AI in our product stack.&rdquo;</span></p>
+    <div class="exp-table-wrap">
+      <table class="exp-table">
+        <thead><tr><th>Message component</th><th>The line</th><th>What it defuses / signals</th></tr></thead>
+        <tbody>
+<tr><td>The reframe</td><td><span class='said'>&ldquo;this firm&rsquo;s answer to shadow AI.&rdquo;</span></td><td>Purpose, not chore — the platform restores control IT has been losing [9].</td></tr>
+<tr><td>The honest present tense</td><td><span class='said'>&ldquo;Employees are using public AI tools today&rdquo;</span></td><td>Urgency grounded in fact — 54% say they&rsquo;ll use unauthorized tools anyway [5].</td></tr>
+<tr><td>Better beats banned</td><td><span class='said'>&ldquo;a better experience with the controls we need.&rdquo;</span></td><td>The strategy in one line: superiority over prohibition.</td></tr>
+<tr><td>90-day marching orders</td><td><span class='said'>&ldquo;access-control configuration&hellip; DLP coverage&hellip; vendor risk reviews&rdquo;</span></td><td>Concrete, dated, ownable — engineering respects specificity.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="expandable" id="tbl-from-ciso">
+  <button class="exp-trigger" aria-expanded="false" aria-controls="tbl-from-ciso-body" data-target="tbl-from-ciso-body">
+    <div class="exp-left"><div class="exp-num">F05</div><div class="exp-meta"><div class="exp-kicker">Delivered By &middot; CISO &rarr; Risk &amp; Security Teams</div><div class="exp-title">The CISO&rsquo;s 30-day directive</div><div class="exp-sub">5 components &middot; 3 columns &middot; Click to expand</div></div></div>
+    <div class="exp-right"><span class="exp-pill">Closed</span><svg class="exp-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 8 10 12 14 8"/></svg></div>
+  </button>
+  <div class="exp-body" id="tbl-from-ciso-body" role="region" aria-hidden="true">
+    <p class="exp-lede">A ready-to-deliver template &mdash; swap the specifics for the firm&rsquo;s own; keep the structure. <span class="said">&ldquo;Shadow AI is our top AI risk. One in five breached organizations was hit through shadow AI last year, and nearly every organization with an AI-related breach lacked basic AI access controls. We do not yet have full visibility into what our employees are doing with personal AI tools. In the next 30 days I want: a shadow-AI audit using browser and DLP telemetry, a draft data-classification matrix for AI use, and a draft acceptable-use policy. We are not going to solve this by banning AI &mdash; that just drives it underground. We solve it by providing a governed alternative and enforcing the policy for those who choose not to use it.&rdquo;</span></p>
+    <div class="exp-table-wrap">
+      <table class="exp-table">
+        <thead><tr><th>Message component</th><th>The line</th><th>What it defuses / signals</th></tr></thead>
+        <tbody>
+<tr><td>Name the top risk</td><td><span class='said'>&ldquo;Shadow AI is our top AI risk.&rdquo;</span></td><td>Prioritization clarity — the team knows where to point.</td></tr>
+<tr><td>Evidence, not anxiety</td><td><span class='said'>&ldquo;One in five breached organizations&hellip; lacked basic AI access controls.&rdquo;</span></td><td>External data converts posture into urgency [9].</td></tr>
+<tr><td>Admit the blind spot</td><td><span class='said'>&ldquo;We do not yet have full visibility&rdquo;</span></td><td>Candor builds internal trust — and licenses the audit.</td></tr>
+<tr><td>30-day deliverables</td><td><span class='said'>&ldquo;a shadow-AI audit&hellip; a data-classification matrix&hellip; an acceptable-use policy.&rdquo;</span></td><td>Posture becomes work items with dates.</td></tr>
+<tr><td>The doctrine</td><td><span class='said'>&ldquo;We are not going to solve this by banning AI — that just drives it underground.&rdquo;</span></td><td>Governed-alternative strategy stated as policy, aligned with the CIO&rsquo;s platform message [5].</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="expandable" id="tbl-from-comp">
+  <button class="exp-trigger" aria-expanded="false" aria-controls="tbl-from-comp-body" data-target="tbl-from-comp-body">
+    <div class="exp-left"><div class="exp-num">F06</div><div class="exp-meta"><div class="exp-kicker">Delivered By &middot; Compliance &rarr; Business Users</div><div class="exp-title">The compliance leader&rsquo;s invitation</div><div class="exp-sub">4 components &middot; 3 columns &middot; Click to expand</div></div></div>
+    <div class="exp-right"><span class="exp-pill">Closed</span><svg class="exp-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 8 10 12 14 8"/></svg></div>
+  </button>
+  <div class="exp-body" id="tbl-from-comp-body" role="region" aria-hidden="true">
+    <p class="exp-lede">A ready-to-deliver template &mdash; swap the specifics for the firm&rsquo;s own; keep the structure. <span class="said">&ldquo;Compliance is not here to block AI &mdash; we are here to make AI permissible. For every use case, the question I want us to answer together is: what supervision framework makes this compliant? If the answer is human review before the output reaches a client, let&rsquo;s design that workflow. If the answer is full communication archiving, let&rsquo;s make sure the platform supports it. Come to us at the design stage, not the deployment stage.&rdquo;</span></p>
+    <div class="exp-table-wrap">
+      <table class="exp-table">
+        <thead><tr><th>Message component</th><th>The line</th><th>What it defuses / signals</th></tr></thead>
+        <tbody>
+<tr><td>The identity flip</td><td><span class='said'>&ldquo;not here to block AI — we are here to make AI permissible.&rdquo;</span></td><td>Kills the gatekeeper stereotype that drives workarounds.</td></tr>
+<tr><td>The shared question</td><td><span class='said'>&ldquo;what supervision framework makes this compliant?&rdquo;</span></td><td>Reframes every review as co-design — the &sect;5 barrier-9 fix in one sentence.</td></tr>
+<tr><td>Worked examples</td><td><span class='said'>&ldquo;If the answer is human review&hellip; let&rsquo;s design that workflow.&rdquo;</span></td><td>Shows the <em>how</em>; makes compliance a builder, not a verdict [18].</td></tr>
+<tr><td>The timing ask</td><td><span class='said'>&ldquo;Come to us at the design stage, not the deployment stage.&rdquo;</span></td><td>Sequence discipline delivered as an invitation, not a rule.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="expandable" id="tbl-from-chro">
+  <button class="exp-trigger" aria-expanded="false" aria-controls="tbl-from-chro-body" data-target="tbl-from-chro-body">
+    <div class="exp-left"><div class="exp-num">F07</div><div class="exp-meta"><div class="exp-kicker">Delivered By &middot; CHRO &rarr; Employees</div><div class="exp-title">The HR leader&rsquo;s honest commitment</div><div class="exp-sub">4 components &middot; 3 columns &middot; Click to expand</div></div></div>
+    <div class="exp-right"><span class="exp-pill">Closed</span><svg class="exp-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 8 10 12 14 8"/></svg></div>
+  </button>
+  <div class="exp-body" id="tbl-from-chro-body" role="region" aria-hidden="true">
+    <p class="exp-lede">A ready-to-deliver template &mdash; swap the specifics for the firm&rsquo;s own; keep the structure. <span class="said">&ldquo;We know AI transformation creates uncertainty. Let us be honest with you: some roles will change. The nature of some jobs will shift. But our commitment is that no employee who actively develops their AI skills and adapts their contribution will be left behind. We are funding AI training this year, updating career frameworks to recognize AI fluency, and working with every business unit to ensure productivity gains primarily go to giving employees better work &mdash; not simply fewer employees.&rdquo;</span></p>
+    <div class="exp-table-wrap">
+      <table class="exp-table">
+        <thead><tr><th>Message component</th><th>The line</th><th>What it defuses / signals</th></tr></thead>
+        <tbody>
+<tr><td>Honesty first</td><td><span class='said'>&ldquo;Let us be honest with you: some roles will change.&rdquo;</span></td><td>Credibility through candor — the anti-Klarna opening [44].</td></tr>
+<tr><td>The commitment</td><td><span class='said'>&ldquo;no employee who actively develops their AI skills&hellip; will be left behind.&rdquo;</span></td><td>A conditional, honest, deliverable promise — not a blanket guarantee that later breaks.</td></tr>
+<tr><td>Funded proof</td><td><span class='said'>&ldquo;funding AI training this year, updating career frameworks&rdquo;</span></td><td>Investment makes the words real; the 5-hour training threshold is the design target [5].</td></tr>
+<tr><td>Where gains go</td><td><span class='said'>&ldquo;better work — not simply fewer employees.&rdquo;</span></td><td>The augmentation commitment in plain words [11].</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="expandable" id="tbl-from-bu">
+  <button class="exp-trigger" aria-expanded="false" aria-controls="tbl-from-bu-body" data-target="tbl-from-bu-body">
+    <div class="exp-left"><div class="exp-num">F08</div><div class="exp-meta"><div class="exp-kicker">Delivered By &middot; BU Leader &rarr; Their Function</div><div class="exp-title">The business leader&rsquo;s pilot launch</div><div class="exp-sub">4 components &middot; 3 columns &middot; Click to expand</div></div></div>
+    <div class="exp-right"><span class="exp-pill">Closed</span><svg class="exp-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 8 10 12 14 8"/></svg></div>
+  </button>
+  <div class="exp-body" id="tbl-from-bu-body" role="region" aria-hidden="true">
+    <p class="exp-lede">A ready-to-deliver template &mdash; swap the specifics for the firm&rsquo;s own; keep the structure. <span class="said">&ldquo;Our team is going to pilot AI meeting preparation for all client-facing advisors starting next month. I want volunteers for the first cohort of 20 &mdash; and I will be in the first cohort myself. We will run this for 60 days, measure the results honestly against the baseline we captured this quarter, and share them with the full team before we decide on broader rollout. Your input matters &mdash; the tool we end up using should work for how you actually work.&rdquo;</span></p>
+    <div class="exp-table-wrap">
+      <table class="exp-table">
+        <thead><tr><th>Message component</th><th>The line</th><th>What it defuses / signals</th></tr></thead>
+        <tbody>
+<tr><td>Named pilot, named date</td><td><span class='said'>&ldquo;pilot AI meeting preparation&hellip; starting next month.&rdquo;</span></td><td>Specificity signals reality — not another someday initiative.</td></tr>
+<tr><td>Skin in the game</td><td><span class='said'>&ldquo;I will be in the first cohort myself.&rdquo;</span></td><td>Leader-first credibility converts skeptics faster than mandates.</td></tr>
+<tr><td>Honest measurement</td><td><span class='said'>&ldquo;measure the results honestly against the baseline we captured this quarter&rdquo;</span></td><td>Pre-committed honesty; baseline discipline visible to the whole team.</td></tr>
+<tr><td>Voice</td><td><span class='said'>&ldquo;should work for how you actually work.&rdquo;</span></td><td>Agency for the team — feedback is part of the design, not decoration.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="expandable" id="tbl-from-mgr">
+  <button class="exp-trigger" aria-expanded="false" aria-controls="tbl-from-mgr-body" data-target="tbl-from-mgr-body">
+    <div class="exp-left"><div class="exp-num">F09</div><div class="exp-meta"><div class="exp-kicker">Delivered By &middot; Manager &rarr; Team</div><div class="exp-title">The manager&rsquo;s team talk</div><div class="exp-sub">4 components &middot; 3 columns &middot; Click to expand</div></div></div>
+    <div class="exp-right"><span class="exp-pill">Closed</span><svg class="exp-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 8 10 12 14 8"/></svg></div>
+  </button>
+  <div class="exp-body" id="tbl-from-mgr-body" role="region" aria-hidden="true">
+    <p class="exp-lede">A ready-to-deliver template &mdash; swap the specifics for the firm&rsquo;s own; keep the structure. <span class="said">&ldquo;I want to be direct with you about AI. I have tried it. It has genuinely helped me prepare for some significant meetings this quarter, and it has saved me about an hour a day on communications drafting. I am not an expert, and I am still learning. Our team policy is simple: use it as a personal productivity tool, do not input client information without checking the classification rules first, and bring me your questions &mdash; I will find the answers. Nobody on this team will be penalized for using AI, and nobody will be penalized for asking basic questions about how it works.&rdquo;</span></p>
+    <div class="exp-table-wrap">
+      <table class="exp-table">
+        <thead><tr><th>Message component</th><th>The line</th><th>What it defuses / signals</th></tr></thead>
+        <tbody>
+<tr><td>Personal testimony</td><td><span class='said'>&ldquo;It has&hellip; saved me about an hour a day on communications drafting.&rdquo;</span></td><td>Peer-level proof beats corporate claims — the messenger-fidelity rule applied.</td></tr>
+<tr><td>Humility</td><td><span class='said'>&ldquo;I am not an expert, and I am still learning.&rdquo;</span></td><td>Permission to be imperfect — lowers the bar to trying.</td></tr>
+<tr><td>Three simple rules</td><td><span class='said'>&ldquo;personal productivity tool&hellip; check the classification rules&hellip; bring me your questions.&rdquo;</span></td><td>Policy at human scale — memorable, followable, enforceable.</td></tr>
+<tr><td>Safety, twice</td><td><span class='said'>&ldquo;Nobody&hellip; penalized for using AI, and nobody&hellip; for asking basic questions.&rdquo;</span></td><td>Psychological safety made explicit — the precondition for real usage.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="expandable" id="tbl-from-front">
+  <button class="exp-trigger" aria-expanded="false" aria-controls="tbl-from-front-body" data-target="tbl-from-front-body">
+    <div class="exp-left"><div class="exp-num">F10</div><div class="exp-meta"><div class="exp-kicker">Delivered By &middot; AI Champion &rarr; Peers</div><div class="exp-title">The champion&rsquo;s peer story</div><div class="exp-sub">5 components &middot; 3 columns &middot; Click to expand</div></div></div>
+    <div class="exp-right"><span class="exp-pill">Closed</span><svg class="exp-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 8 10 12 14 8"/></svg></div>
+  </button>
+  <div class="exp-body" id="tbl-from-front-body" role="region" aria-hidden="true">
+    <p class="exp-lede">A ready-to-deliver template &mdash; swap the specifics for the firm&rsquo;s own; keep the structure. <span class="said">&ldquo;Three months ago, I was skeptical. Here is what changed my mind: I used AI to prepare for a client review meeting I had been dreading &mdash; too many clients, not enough prep time. It gave me a concise summary of the household, recent portfolio events, and the three topics most likely to come up based on prior conversations. The meeting went better than any meeting I had last quarter. I am not saying it is magic. I am saying it solved a real problem I had every week. Let me show you how I set it up.&rdquo;</span></p>
+    <div class="exp-table-wrap">
+      <table class="exp-table">
+        <thead><tr><th>Message component</th><th>The line</th><th>What it defuses / signals</th></tr></thead>
+        <tbody>
+<tr><td>Start skeptical</td><td><span class='said'>&ldquo;Three months ago, I was skeptical.&rdquo;</span></td><td>Meets the audience where it is — skepticism acknowledged, not dismissed.</td></tr>
+<tr><td>A real problem</td><td><span class='said'>&ldquo;a client review meeting I had been dreading&rdquo;</span></td><td>Specific, recognizable pain — not a hypothetical use case.</td></tr>
+<tr><td>Concrete output</td><td><span class='said'>&ldquo;a concise summary of the household&hellip; the three topics most likely to come up&rdquo;</span></td><td>What it actually did, not what it could do.</td></tr>
+<tr><td>Calibrated claim</td><td><span class='said'>&ldquo;I am not saying it is magic&hellip; it solved a real problem I had every week.&rdquo;</span></td><td>Honest sizing — the credibility engine of every champion message.</td></tr>
+<tr><td>The offer</td><td><span class='said'>&ldquo;Let me show you how I set it up.&rdquo;</span></td><td>Peer help, zero pressure — the opt-in posture preserved.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="expandable" id="tbl-from-adv">
+  <button class="exp-trigger" aria-expanded="false" aria-controls="tbl-from-adv-body" data-target="tbl-from-adv-body">
+    <div class="exp-left"><div class="exp-num">F11</div><div class="exp-meta"><div class="exp-kicker">Delivered By &middot; Practice Leader &rarr; Advisors</div><div class="exp-title">The practice leader&rsquo;s advisor pitch</div><div class="exp-sub">4 components &middot; 3 columns &middot; Click to expand</div></div></div>
+    <div class="exp-right"><span class="exp-pill">Closed</span><svg class="exp-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 8 10 12 14 8"/></svg></div>
+  </button>
+  <div class="exp-body" id="tbl-from-adv-body" role="region" aria-hidden="true">
+    <p class="exp-lede">A ready-to-deliver template &mdash; swap the specifics for the firm&rsquo;s own; keep the structure. <span class="said">&ldquo;This prepares your meetings, summarizes your households, and drafts your follow-ups &mdash; and none of it reaches a client without you. You review, you personalize, you decide. The relationship is yours; the advice is yours; the compliance workflow is built in, not bolted on. The advisors piloting it are keeping their prep quality and getting hours back &mdash; come see their setup before you decide anything.&rdquo;</span></p>
+    <div class="exp-table-wrap">
+      <table class="exp-table">
+        <thead><tr><th>Message component</th><th>The line</th><th>What it defuses / signals</th></tr></thead>
+        <tbody>
+<tr><td>The division of labor</td><td><span class='said'>&ldquo;none of it reaches a client without you. You review, you personalize, you decide.&rdquo;</span></td><td>Control stated as architecture, not policy.</td></tr>
+<tr><td>The triple ownership</td><td><span class='said'>&ldquo;The relationship is yours; the advice is yours; the compliance workflow is built in&hellip;&rdquo;</span></td><td>Autonomy and exposure both answered in a single cadence [18].</td></tr>
+<tr><td>Peer proof</td><td><span class='said'>&ldquo;The advisors piloting it are keeping their prep quality and getting hours back&rdquo;</span></td><td>Evidence from people they trust — the UBS meeting-prep result in field terms [37].</td></tr>
+<tr><td>No-pressure close</td><td><span class='said'>&ldquo;come see their setup before you decide anything.&rdquo;</span></td><td>Opt-in posture preserved to the last word.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="expandable" id="tbl-from-client">
+  <button class="exp-trigger" aria-expanded="false" aria-controls="tbl-from-client-body" data-target="tbl-from-client-body">
+    <div class="exp-left"><div class="exp-num">F12</div><div class="exp-meta"><div class="exp-kicker">Delivered By &middot; Client-Facing Team &rarr; Clients</div><div class="exp-title">The client-facing disclosure</div><div class="exp-sub">4 components &middot; 3 columns &middot; Click to expand</div></div></div>
+    <div class="exp-right"><span class="exp-pill">Closed</span><svg class="exp-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 8 10 12 14 8"/></svg></div>
+  </button>
+  <div class="exp-body" id="tbl-from-client-body" role="region" aria-hidden="true">
+    <p class="exp-lede">A ready-to-deliver template &mdash; swap the specifics for the firm&rsquo;s own; keep the structure. <span class="said">&ldquo;We use AI to help our team prepare for your meetings and draft routine follow-ups &mdash; always reviewed by your advisor before anything reaches you. A person is accountable for every recommendation you receive, your data stays inside our governed environment, and you can always reach a human. If we ever record a meeting to help with notes, we will ask your consent first.&rdquo;</span></p>
+    <div class="exp-table-wrap">
+      <table class="exp-table">
+        <thead><tr><th>Message component</th><th>The line</th><th>What it defuses / signals</th></tr></thead>
+        <tbody>
+<tr><td>What AI does here</td><td><span class='said'>&ldquo;prepare for your meetings and draft routine follow-ups&rdquo;</span></td><td>Bounded, benign scope — no mystery about the machine&rsquo;s role.</td></tr>
+<tr><td>Human review, named</td><td><span class='said'>&ldquo;always reviewed by your advisor&hellip; A person is accountable for every recommendation&rdquo;</span></td><td>Accountability the client can hold — the acceptance condition for client-facing AI.</td></tr>
+<tr><td>Data + reachability</td><td><span class='said'>&ldquo;your data stays inside our governed environment, and you can always reach a human.&rdquo;</span></td><td>The two deepest client fears answered in one line [44].</td></tr>
+<tr><td>Consent</td><td><span class='said'>&ldquo;If we ever record a meeting&hellip; we will ask your consent first.&rdquo;</span></td><td>The consent-forward Debrief pattern as client experience [30].</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+      </section>
+
+    </div>
+
+    <section class="final" id="sowhat">
+      <div class="final-gem"><svg><use href="#bars-big"/></svg></div>
+      <div class="final-inner">
+        <div class="final-eyebrow">10 &middot; So What</div>
+        <h2 class="final-title">Run one strategy — with <em>many messengers</em>.</h2>
+        <p>
+          The transformation does not fail on model quality. It fails when the CEO&rsquo;s competitive-strategy message reaches a frontline employee unchanged and reads as a replacement notice; when compliance is invited at deployment instead of design; when a pilot scales without a named metric; when a manager learns about the program at the same town hall as their team.
+        </p>
+        <p>
+          The discipline is simple to state and hard to keep: <strong>distinct, truthful, role-specific narratives &mdash; on identical facts.</strong> Name the financial metric before the pilot, on both value tracks. Brief managers first. Make the governed platform better than the shadow alternative rather than banning it. Publish what AI will <em>not</em> be used for, and honor it. And never lead with headcount &mdash; the two firms that did have already told you, publicly, what it cost them.
+        </p>
+        <p>
+          Everything in this briefing resolves to the companion report: the twelve stakeholder analyses, the nine-column narrative map, the 12-element framework, the five-phase roadmap, and the tagged bibliography behind every bracketed reference.
+        </p>
+        <div class="final-sig">
+          <div class="final-sig-left">End of briefing &middot; AI Change Management in Financial Services &middot; July 2026</div>
+          <div class="final-sig-brand">
+            <div class="brand-mark"><span></span><span></span><span></span></div>
+            <div class="final-sig-left" style="opacity: 0.9;">Insights &middot; Research companion</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('in'); });
+  }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  function toggleExpandable(trigger) {
+    const target = document.getElementById(trigger.dataset.target);
+    const container = trigger.closest('.expandable');
+    const isOpen = container.classList.toggle('open');
+    trigger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    target.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+    const pill = trigger.querySelector('.exp-pill');
+    if (pill) pill.textContent = isOpen ? 'Open' : 'Closed';
+  }
+  document.querySelectorAll('.exp-trigger').forEach(btn => {
+    btn.addEventListener('click', () => toggleExpandable(btn));
+  });
+
+  document.querySelectorAll('.tables-action-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const scope = document.getElementById(btn.dataset.scope) || document;
+      const wantOpen = btn.dataset.action === 'expand';
+      scope.querySelectorAll('.expandable').forEach(e => {
+        if (e.classList.contains('open') !== wantOpen) e.querySelector('.exp-trigger').click();
+      });
+    });
+  });
+
+  function openFromHash() {
+    if (location.hash) {
+      const el = document.querySelector(location.hash);
+      if (el && el.classList.contains('expandable') && !el.classList.contains('open')) {
+        el.querySelector('.exp-trigger').click();
+      }
+    }
+  }
+  window.addEventListener('load', openFromHash);
+  window.addEventListener('hashchange', openFromHash);
+
+  document.querySelectorAll('a[href^="#tbl-"]').forEach(a => {
+    a.addEventListener('click', () => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target && !target.classList.contains('open')) {
+        setTimeout(() => target.querySelector('.exp-trigger').click(), 100);
+      }
+    });
+  });
+</script>
+</body>
+</html>

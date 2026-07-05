@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Issue #17: AI Infrastructure Economics, Wealth Management's Tools-to-Workflows Shift, a Car Cost Calculator to Share — and a Stakeholder Change-Management Playbook — AI &amp; Org, Curated</title>
+  <meta name="description" content="Two AI-news pieces — the power-gated supply meeting compounding demand (with the AI-spend concentration chart), and wealth management moving from AI tools to AI workflows — plus a car cost-of-ownership calculator to share and an interactive change-management playbook for framing AI to every stakeholder.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .source-list { font-size: 0.85rem; color: var(--color-text-muted); margin-top: 0.75rem; padding-top: 0.75rem; border-top: 1px dashed var(--color-border); }
+    .source-list strong { color: var(--color-text); }
+    .source-list a { margin-right: 0.5rem; }
+
+    .dashboard-embed { position: relative; width: 100%; height: 900px; margin: 2rem 0; border-radius: 12px; border: 1px solid var(--color-border); overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+    .dashboard-embed iframe { width: 100%; height: 100%; border: 0; }
+    .dashboard-link { display: flex; justify-content: space-between; align-items: center; gap: 0.75rem; flex-wrap: wrap; font-size: 0.85rem; color: var(--color-text-muted); margin-top: 0.5rem; margin-bottom: 1.5rem; }
+    .dashboard-link a { font-weight: 600; color: var(--color-accent); }
+    @media (max-width: 700px) { .dashboard-embed { height: 1200px; } }
+
+    .strategic-read { background: var(--color-bg-alt); border-left: 4px solid var(--color-accent); border-radius: 6px; padding: 0.75rem 1.1rem; margin: 0.75rem 0 0; font-size: 0.92rem; }
+    .strategic-read strong { color: var(--color-accent); }
+
+    .tldr-block { background: var(--color-bg-alt); border-left: 4px solid var(--color-accent-org); border-radius: 8px; padding: 1.25rem 1.5rem; margin: 1.5rem 0; }
+    .tldr-block p { font-size: 0.95rem; margin-bottom: 0.75rem; }
+    .tldr-block p:last-child { margin-bottom: 0; }
+
+    /* Demand chart figure */
+    .demand-fig { margin: 1.75rem 0 0.5rem; }
+    .demand-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 18px; }
+    .demand-card { background: var(--color-bg-alt); border: 1px solid var(--color-border); border-radius: 10px; padding: 14px 16px; }
+    .demand-card .lbl { font-size: 0.78rem; color: var(--color-text-muted); font-weight: 600; }
+    .demand-card .val { font-size: 1.9rem; font-weight: 800; color: var(--color-text); line-height: 1.1; margin: 2px 0; }
+    .demand-card .sub { font-size: 0.72rem; color: var(--color-text-muted); }
+    .demand-chart { width: 100%; height: auto; display: block; border: 1px solid var(--color-border); border-radius: 10px; background: #fff; padding: 8px; }
+    .demand-cap { font-size: 0.8rem; color: var(--color-text-muted); margin-top: 8px; line-height: 1.5; }
+    @media (max-width: 600px) { .demand-cards { grid-template-columns: 1fr; } .demand-card .val { font-size: 1.6rem; } }
+
+    /* Tool-to-share callout */
+    .tool-callout { background: linear-gradient(135deg, rgba(37,99,235,0.05), rgba(13,148,136,0.05)); border: 1px solid var(--color-border); border-left: 4px solid var(--color-accent); border-radius: 10px; padding: 1.25rem 1.5rem; margin: 1rem 0 0; }
+    .tool-callout h4 { font-size: 1.1rem; margin: 0 0 0.5rem; color: var(--color-text); }
+    .tool-callout p { line-height: 1.65; margin-bottom: 0.75rem; }
+    .tool-btn { display: inline-block; background: var(--color-accent); color: #fff; font-weight: 700; font-size: 0.9rem; padding: 0.6rem 1.1rem; border-radius: 8px; text-decoration: none; }
+    .tool-btn:hover { filter: brightness(0.94); }
+    .tool-disclaimer { font-size: 0.78rem; color: #78350f; background: #fef3c7; border: 1px solid #fcd34d; border-radius: 8px; padding: 0.6rem 0.9rem; margin-top: 0.9rem; font-style: italic; }
+    .tool-disclaimer strong { font-style: normal; color: #78350f; }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="../index.html" class="site-logo">
+        <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="28" height="28" rx="6" fill="#2563eb"/>
+          <rect x="14" width="14" height="28" rx="0 6 6 0" fill="#0d9488"/>
+          <path d="M7 8h14M7 14h10M7 20h12" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+        AI &amp; Org, Curated
+      </a>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <path d="M3 6h18M3 12h18M3 18h18"/>
+        </svg>
+      </button>
+      <nav class="site-nav">
+        <a href="../index.html">Issues</a>
+        <a href="../about.html">About</a>
+        <a href="../feed.xml">RSS</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <div class="issue-header">
+      <div class="issue-meta">
+        <span class="issue-number">Issue #17</span>
+        <span>July 5, 2026</span>
+      </div>
+      <h1>AI Infrastructure Economics, Wealth Management's Move From Tools to Workflows — a Car Cost Calculator to Share, and a Stakeholder Change-Management Playbook</h1>
+    </div>
+
+    <section class="editorial">
+      <h2>Editor's Take</h2>
+      <p>Two AI-news pieces this week — the supply-and-demand economics of AI compute, where a power-gated supply meets compounding demand, and how wealth management is moving from AI <em>tools</em> to AI <em>workflows</em>. Plus a car cost-of-ownership calculator worth sharing, and an Org playbook for the problem a lot of us keep hitting: the same AI fact has to be framed differently for every stakeholder to actually land.</p>
+    </section>
+
+    <section class="curated-links">
+      <h2>This Week's Stories</h2>
+
+      <!-- 1. Supply/demand economics -->
+      <article class="link-item">
+        <div class="link-item-header">
+          <h3>AI Infrastructure Economics: A Power-Gated Supply Meets Compounding Demand</h3>
+          <span class="source-badge">Ramp AI Index / CNBC / Goldman Sachs / trade press</span>
+          <span class="category-tag industry">Industry</span>
+        </div>
+        <p class="link-summary">The binding constraint on AI capacity is no longer chips — it's the electrical grid. Nearly half of the U.S. data centers planned for 2026 (about 7 GW of 12 GW announced) have been canceled or delayed; only ~5 GW is under active construction, and the shortage has shifted onto <strong>transformers, switchgear, and batteries</strong> rather than compute silicon. Power transformers now run ~128 weeks and generator step-up units ~144 weeks, with high-capacity units quoted four to five years out — versus roughly two years before 2020. The delay isn't capital: the four largest hyperscalers are expected to spend more than $650B on AI infrastructure in 2026; the money is committed, but the power to energize it is years behind, with interconnection queues in Northern Virginia, Phoenix, and Dallas now running four to seven years.</p>
+
+        <p class="link-summary">The demand side is the other half of the equation — and it's extraordinarily concentrated. Per Ramp's June 2026 AI Index (70,000+ U.S. firms):</p>
+
+        <figure class="demand-fig">
+          <div class="demand-cards">
+            <div class="demand-card"><div class="lbl">Median firm</div><div class="val">$11.38</div><div class="sub">per employee / month</div></div>
+            <div class="demand-card"><div class="lbl">Top 10%</div><div class="val">$611</div><div class="sub">per employee / month</div></div>
+            <div class="demand-card"><div class="lbl">Top 1% ("AI-pilled")</div><div class="val">$7,450</div><div class="sub">per employee / month</div></div>
+          </div>
+          <svg class="demand-chart" viewBox="0 0 900 460" role="img" xmlns="http://www.w3.org/2000/svg"
+               aria-label="AI spend per employee per month on a log scale: median firm $11.38, top 10% $611, top 1% $7,450 — the top 1% sits about 680x above the median.">
+            <!-- gridlines (log scale: $10 baseline, $100, $1000) -->
+            <g stroke="#E5E7EB" stroke-width="1">
+              <line x1="70" y1="400" x2="880" y2="400"/>
+              <line x1="70" y1="273.3" x2="880" y2="273.3"/>
+              <line x1="70" y1="146.7" x2="880" y2="146.7"/>
+            </g>
+            <g font-family="Inter, sans-serif" font-size="15" fill="#6B7280" text-anchor="end">
+              <text x="58" y="405">$10</text>
+              <text x="58" y="278.3">$100</text>
+              <text x="58" y="151.7">$1,000</text>
+            </g>
+            <!-- bars -->
+            <rect x="135" y="392.9" width="140" height="7.1" fill="#93C5FD"/>
+            <rect x="405" y="173.8" width="140" height="226.2" fill="#3B82F6"/>
+            <rect x="675" y="36.2" width="140" height="363.8" fill="#1E40AF"/>
+            <!-- x labels -->
+            <g font-family="Inter, sans-serif" font-size="16" fill="#374151" text-anchor="middle" font-weight="600">
+              <text x="205" y="428">Median firm</text>
+              <text x="475" y="428">Top 10%</text>
+              <text x="745" y="428">Top 1%</text>
+            </g>
+          </svg>
+          <figcaption class="demand-cap">Log scale. Source: Ramp AI Index, June 2026 (70,000+ U.S. firms). The top 1% sits ~680&times; above the median — and is still accelerating (top-1% spend per employee grew 14.1% in a single month). At the company level, a firm spending ~$211,409/month is in the top 5%; the middle 50% fall between $3 and $352 per employee per month. Chart rebuilt from the Ramp figures.</figcaption>
+        </figure>
+
+        <p class="link-summary">The whole thesis is the "when the rest catch up" question. Today's median is $11.38 against a top-1% of $7,450; if agentic AI keeps expanding what companies automate and token spend becomes the third major cost center after people and software, the top 1% may look like the median within a few years — a demand wave measured in orders of magnitude, landing against a supply side that can't add gigawatts on the same timescale. Falling unit costs don't relieve the pressure: token prices have dropped 90%+ since 2023, yet total corporate AI spending doubled since late 2025 — Jevons paradox in action, which is why Anthropic and others have shifted to usage-based billing. <em>The honest counterweight:</em> Goldman Sachs argues falling per-token costs drive hyperscaler margin inflection rather than scarcity pricing, and some analysts contend demand is inflated by "tokenmaxxing" vanity metrics. A defensible thesis, not a settled call.</p>
+
+        <div class="strategic-read"><strong>Strategic read:</strong> plan for a bifurcated cost curve. The commodity tier keeps getting cheaper, but the always-on, agentic capacity you'll actually want for the workloads that matter gets rationed by a grid that scales on a decade, not a quarter. Treat token spend as a first-class budget line, and build provider optionality before repricing forces the question.</div>
+
+        <div class="source-list">
+          <strong>Sources:</strong>
+          <a href="https://ramp.com/data/ai-index-june-2026" target="_blank" rel="noopener">Ramp AI Index (Jun 2026)</a> ·
+          <a href="https://tech-insider.org/us-ai-data-center-delays-cancellations-7gw-capacity-crisis-2026/" target="_blank" rel="noopener">Tech-Insider: 7 GW crisis</a> ·
+          <a href="https://www.cnbc.com/2026/04/17/ai-tokens-anthropic-openai-nvidia.html" target="_blank" rel="noopener">CNBC: usage-based pricing</a> ·
+          <a href="https://www.goldmansachs.com/insights/articles/ai-agents-forecast-to-boost-tech-cash-flow-as-usage-soars" target="_blank" rel="noopener">Goldman Sachs Research</a> ·
+          <a href="https://techcrunch.com/2026/06/10/ai-pilled-firms-spend-7500-per-employee-each-month-on-ai/" target="_blank" rel="noopener">TechCrunch: "AI-pilled" firms</a>
+        </div>
+      </article>
+
+      <!-- 2. Wealth management tools to workflows -->
+      <article class="link-item">
+        <div class="link-item-header">
+          <h3>Wealth Management's AI Shift: From Tools to Workflows</h3>
+          <span class="source-badge">Schwab / WealthTech Today / Rethinking65 / WealthManagement.com</span>
+          <span class="category-tag industry">Industry</span>
+        </div>
+        <p class="link-summary">Adoption in wealth is wide but shallow. A January 2026 Schwab study of 533 RIAs found <strong>63% are using AI in some capacity, but only about one in ten fully integrate it into business strategy</strong> — the rest run isolated experiments in notetaking, email drafting, and research. The approach that works is workflow-first, not tool-first. The clearest case study is SEIA, a $32B RIA whose technology chief argues AI should be treated as a workflow strategy, not a collection of tools — shifting the question from "What AI tool should I buy?" to "What workflow am I trying to improve?" The foundation is data unification: pool data from custodians and other sources into one vetted, harmonized environment — a single source of truth — then layer AI and operational workflows on top.</p>
+
+        <p class="link-summary">Where AI is actually delivering today: <strong>client onboarding</strong> (document processing, identity verification, KYC), <strong>research and reporting</strong> (synthesizing information and producing client-ready commentary under human oversight), and <strong>workflow orchestration</strong> (integrated platforms managing multi-step processes across systems). AI notetakers have become the strategic wedge — a year ago the T3 / Inside Information survey tracked one AI notetaker product; this year it tracks fourteen, and Jump alone claims roughly one in ten U.S. financial advisors. Agents are the 2026 theme, but bounded: Wealthspire uses single-step agents to find contracts and populate information for a human's assessment, framed as "decision support, not decision making — the difference between an apprentice and an employee."</p>
+
+        <p class="link-summary">On org design, views differ. Wescott's COO doesn't expect AI to significantly shift advisor-to-client ratios — "I don't think you're going to find 25% efficiency in our model" — characterizing AI's use as going "deeper, not wider" in client relationships. Ezra Group frames the structural choice every firm faces by 2028: either a legacy platform extending AI into systems it already owns, or an "Agentic OS" that rewrites the workflow layer above those systems — the latter requiring deliberate commitment and an operating-model redesign. The build-versus-buy split is already a recruiting differentiator, with tech-forward RIAs like Savvy Wealth citing a "build instead of buy" mentality as a draw while others pause over compliance risk.</p>
+
+        <div class="strategic-read"><strong>Strategic read:</strong> the same lesson as this week's supply/demand piece, applied to a firm: distributing tools isn't transformation. Value shows up when the question changes from "which tool" to "which workflow" — and that requires a single source of truth underneath, not another point solution bolted on.</div>
+
+        <div class="source-list">
+          <strong>Sources:</strong>
+          <a href="https://wealthtechtoday.com/2026/04/16/ai-financial-advisor-client-workflow/" target="_blank" rel="noopener">WealthTech Today (Schwab study)</a> ·
+          <a href="https://rethinking65.com/inside-the-ai-adoption-playbook-of-a-32-billion-ria/" target="_blank" rel="noopener">Rethinking65: the $32B RIA playbook</a> ·
+          <a href="https://wealthtechtoday.com/2026/05/08/ai-notetakers-financial-advisors-2026/" target="_blank" rel="noopener">WealthTech Today (Ezra Group): notetakers &amp; Agentic OS</a> ·
+          <a href="https://www.wealthmanagement.com/ria-edge/ai-won-t-alter-client-advisor-ratios-but-create-shadow-efficiencies-say-edge-100-rias" target="_blank" rel="noopener">WealthManagement.com (RIA Edge 100)</a>
+        </div>
+      </article>
+
+    </section>
+
+    <!-- Tool to share: car cost calculator -->
+    <div class="tool-callout">
+      <h4>&#128663; A Tool to Share: an AI-Built Car Cost-of-Ownership Calculator</h4>
+      <p>A quick aside from the AI-and-workflows theme. Most car cost calculators miss two things. First, they ignore the <strong>time value of money</strong> on a car loan — the interest you pay, and the opportunity cost of the cash you tie up, materially change which car is actually cheaper. Second, a lot of people still run the old rule of thumb that a two-year-old car beats a brand-new one. Since COVID, the supply/demand shift in used-car pricing has repeatedly broken that rule: in two of my own recent car purchases, a <strong>new car actually penciled out cheaper than a two-year-old CPO</strong> once financing and total cost of ownership were modeled properly.</p>
+      <p>So I built a calculator that factors those in. Sharing it in case it helps your own decision-making:</p>
+      <p style="margin-bottom:0.4rem;"><a class="tool-btn" href="https://claude-code-project-nine.vercel.app/car-cost" target="_blank" rel="noopener">Open the Car Cost Calculator &rarr;</a></p>
+      <div class="tool-disclaimer"><strong>Disclaimer:</strong> This calculator is provided for informational and educational purposes only, not financial advice. Figures are estimates and may contain errors — <strong>verify every number and assumption independently and at your own responsibility</strong> before making any purchase decision.</div>
+    </div>
+
+    <!-- ================================ -->
+    <!-- ORG DESIGN & CHANGES, CURATED    -->
+    <!-- ================================ -->
+
+    <div class="section-divider" style="margin-top:2.5rem;">
+      <span class="section-label org">Org Design &amp; Changes, Curated</span>
+    </div>
+
+    <section class="org-editorial">
+      <h2>This Week's Briefing</h2>
+      <h3 style="font-family: var(--font-sans); font-size: 1.15rem; font-weight: 700; color: var(--color-accent-org); margin-bottom: 0.6rem;">Framing AI for Every Stakeholder: A Change-Management Playbook</h3>
+      <p style="font-style: italic; color: var(--color-text-muted); margin-bottom: 1rem;">The same fact, framed for each audience — a playbook to help navigate AI change management.</p>
+
+      <div class="reading-rec" style="background: var(--color-bg-alt); border: 1px solid var(--color-border); border-radius: 8px; padding: 0.85rem 1.1rem; margin: 1.25rem 0; font-size: 0.85rem; color: var(--color-text-muted);">
+        <strong style="color: var(--color-text);">Heads-up:</strong> A short TL;DR, then the interactive playbook embedded below — a stakeholder lens map plus <strong>24 talking-point tables</strong>: how to frame AI when presenting <em>to</em> each stakeholder (T01–T12), and ready-to-deliver messages <em>from</em> each leader (F01–F12), decomposed line by line.
+      </div>
+    </section>
+
+    <section class="org-article">
+
+      <h3>TL;DR</h3>
+      <div class="tldr-block">
+        <p><strong>A recent run of conversations kept landing on the same realization: AI has many stakeholders, and each one hears "AI" through a completely different lens.</strong> The CEO hears competitive strategy and board accountability; the CFO hears capital allocation and ROI; the CISO hears data leakage and agent risk; the middle manager hears a threat to their team's value; the frontline employee hears a replacement notice. A single enterprise AI message will fail most of them.</p>
+        <p><strong>So to get an AI idea across, you frame the same fact differently for different stakeholders</strong> — each framing truthful and aligned to the strategy, but calibrated to that audience's specific fears, motivations, and proof requirements. The governing rule: the framings differ; the facts underneath them must be identical. Get caught with a gap between what you told one group and another, and every narrative loses credibility at once.</p>
+        <p>The playbook below is built to be used. Navigate the stakeholder lens map, then open the specific table for whoever you're about to present to (T01–T12) or the ready-to-deliver message for whoever's doing the talking (F01–F12). It's grounded in verified evidence — workflow redesign as the #1 driver of AI EBIT impact, the shadow-AI breach premium, the 54% who'll use unauthorized tools anyway, and the Klarna/CBA cautionary cases on leading with headcount.</p>
+      </div>
+
+      <h4 style="font-family: var(--font-sans); font-size: 1.05rem; font-weight:700; color: var(--color-accent-org); margin: 1.5rem 0 0.5rem;">Interactive Playbook</h4>
+      <p>The playbook below — <em>Framing AI for Every Stakeholder</em> — opens with the central thesis and the twelve-audience lens map, then the CFO scorecard, the champion-network rules, the 2026 regulatory floor, and the cautionary line on substitution-first framing. Underneath are the two full sets of talking-point tables. Open it in a new tab if it loads slowly.</p>
+
+      <div class="dashboard-embed">
+        <iframe src="../dashboards/ai-change-management-playbook.html"
+                title="Framing AI for Every Stakeholder — a Change-Management Playbook"
+                loading="lazy"></iframe>
+      </div>
+      <div class="dashboard-link">
+        <span>Playbook loading slowly?</span>
+        <a href="../dashboards/ai-change-management-playbook.html" target="_blank" rel="noopener">Open the playbook in a new tab &rarr;</a>
+      </div>
+
+      <div class="callout">
+        Run one strategy with many messengers. Name the financial metric before the pilot, on both value tracks. Brief managers before their teams. Make the governed platform better than the shadow alternative rather than banning it. Publish what AI will <em>not</em> be used for, and honor it. And never lead with headcount — the framings differ by audience, but the facts underneath them are identical, and the moment a stakeholder catches a gap, every narrative loses credibility at once.
+      </div>
+
+    </section>
+
+    <!-- Issue Navigation -->
+    <nav class="issue-nav">
+      <a href="2026-06-27.html">&larr; Previous Issue</a>
+      <span></span>
+    </nav>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      &copy; 2026 AI &amp; Org, Curated. All rights reserved.
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>
