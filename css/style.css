@@ -525,6 +525,30 @@ img {
   line-height: 1.7;
 }
 
+/* ===== Legal / Privacy pages ===== */
+.legal-content h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 2rem 0 0.75rem;
+}
+
+.legal-content h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin: 1.4rem 0 0.5rem;
+}
+
+.legal-content .legal-updated {
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  margin-bottom: 1.75rem;
+}
+
+.site-footer a {
+  color: inherit;
+  text-decoration: underline;
+}
+
 /* ===== Article Images (figures) ===== */
 .article-image {
   margin: 1.5rem 0;
