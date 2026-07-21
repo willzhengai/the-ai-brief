@@ -2,160 +2,160 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>AI &amp; Org, Curated</title>
-    <link>https://willzhengai.github.io/the-ai-brief/</link>
+    <link>https://purplepai.com/insights/</link>
     <description>A curated weekly digest on AI and organizational design — where invention meets innovation meets real impact.</description>
     <language>en-us</language>
     <lastBuildDate>Sat, 05 Jul 2026 12:00:00 +0000</lastBuildDate>
-    <atom:link href="https://willzhengai.github.io/the-ai-brief/feed.xml" rel="self" type="application/rss+xml"/>
+    <atom:link href="https://purplepai.com/insights/feed.xml" rel="self" type="application/rss+xml"/>
 
     <item>
       <title>Issue #17: AI Infrastructure Economics, Wealth Management's Move From Tools to Workflows — a Car Cost Calculator to Share, and a Stakeholder Change-Management Playbook</title>
-      <link>https://willzhengai.github.io/the-ai-brief/issues/2026-07-05.html</link>
-      <guid>https://willzhengai.github.io/the-ai-brief/issues/2026-07-05.html</guid>
+      <link>https://purplepai.com/insights/issues/2026-07-05.html</link>
+      <guid>https://purplepai.com/insights/issues/2026-07-05.html</guid>
       <pubDate>Sat, 05 Jul 2026 12:00:00 +0000</pubDate>
       <description>Two AI-news pieces — the power-gated supply meeting compounding demand (with the AI-spend concentration chart), and wealth management moving from AI tools to AI workflows — plus a car cost-of-ownership calculator to share and an interactive change-management playbook for framing AI to every stakeholder.</description>
     </item>
 
     <item>
       <title>Issue #16: OpenAI Becomes the Work Layer, AI Search Rewrites the Publisher Model, Why AI ROI Can't Be Tool-Led — What Loop Engineering Is, and How the Tech Function in Financial Services Is Adopting AI</title>
-      <link>https://willzhengai.github.io/the-ai-brief/issues/2026-06-27.html</link>
-      <guid>https://willzhengai.github.io/the-ai-brief/issues/2026-06-27.html</guid>
+      <link>https://purplepai.com/insights/issues/2026-06-27.html</link>
+      <guid>https://purplepai.com/insights/issues/2026-06-27.html</guid>
       <pubDate>Sat, 27 Jun 2026 12:00:00 +0000</pubDate>
       <description>Three AI-news items (OpenAI as the work layer, AI search vs. the publisher model, why AI ROI can't be tool-led), an AI Demystified on loop engineering, and an Org Redesign briefing on AI for the technology function in financial services with a 14-table interactive dashboard.</description>
     </item>
 
     <item>
       <title>Issue #15: Codex vs. Claude Code, What AI Is (and Isn't) Learning From You, AI Adoption Strategy at Its Core — and How Legal, Risk &amp; Compliance Are Thinking About AI Transformation</title>
-      <link>https://willzhengai.github.io/the-ai-brief/issues/2026-06-14.html</link>
-      <guid>https://willzhengai.github.io/the-ai-brief/issues/2026-06-14.html</guid>
+      <link>https://purplepai.com/insights/issues/2026-06-14.html</link>
+      <guid>https://purplepai.com/insights/issues/2026-06-14.html</guid>
       <pubDate>Sun, 14 Jun 2026 12:00:00 +0000</pubDate>
       <description>Why Codex deserves a second look (especially if you're not a developer), what your AI is and isn't actually learning from you, and a brief on the U.S. government forcing Claude Fable 5 &amp; Mythos 5 offline — the disruption that delayed this issue. Plus two Org stories: a practical AI-adoption strategy and an interactive briefing on AI for Enterprise Legal, Risk &amp; Compliance.</description>
     </item>
 
     <item>
       <title>Issue #14: The Token-Price Reckoning — and the Enterprise Investment Management AI Transformation</title>
-      <link>https://willzhengai.github.io/the-ai-brief/issues/2026-06-06.html</link>
-      <guid>https://willzhengai.github.io/the-ai-brief/issues/2026-06-06.html</guid>
+      <link>https://purplepai.com/insights/issues/2026-06-06.html</link>
+      <guid>https://purplepai.com/insights/issues/2026-06-06.html</guid>
       <pubDate>Sat, 06 Jun 2026 12:00:00 +0000</pubDate>
       <description>One story this week, because it reprices everything else: why the cheap-AI era is ending, why physics (the power grid, five-year transformer lead times) is the reason, and what to do in the window that's still open. Plus an interactive executive briefing on Enterprise Investment Management AI Transformation: the CIO's AI decision, with ten reference tables.</description>
     </item>
 
     <item>
       <title>Issue #13: Agents Leave the Chatbox — Claude Orchestrates Workflows, Codex Lands on Windows, Copilot Embeds in Microsoft 365</title>
-      <link>https://willzhengai.github.io/the-ai-brief/issues/2026-05-30.html</link>
-      <guid>https://willzhengai.github.io/the-ai-brief/issues/2026-05-30.html</guid>
+      <link>https://purplepai.com/insights/issues/2026-05-30.html</link>
+      <guid>https://purplepai.com/insights/issues/2026-05-30.html</guid>
       <pubDate>Sat, 30 May 2026 12:00:00 +0000</pubDate>
       <description>Agents move out of the chat window and into real work environments: Claude Opus 4.8 Dynamic Workflows and subagents, OpenAI's Codex inside local Windows, and the Microsoft 365 Copilot redesign — each with a demo. Plus an Org briefing from a closed-door "AI in the Workplace" conference of frontier researchers: five takeaways and an interactive dashboard on why the bottleneck is organizational, not technical.</description>
     </item>
 
     <item>
       <title>Issue #12: Small Business, Financial Services, the End of Flat-Rate AI — and the CMO's AI Decision</title>
-      <link>https://willzhengai.github.io/the-ai-brief/issues/2026-05-24.html</link>
-      <guid>https://willzhengai.github.io/the-ai-brief/issues/2026-05-24.html</guid>
+      <link>https://purplepai.com/insights/issues/2026-05-24.html</link>
+      <guid>https://purplepai.com/insights/issues/2026-05-24.html</guid>
       <pubDate>Sun, 24 May 2026 12:00:00 +0000</pubDate>
       <description>Trying a more concise format this week: Anthropic's Claude for Small Business plugin (with step-by-step video), a walkthrough of Claude for Financial Services, the end of all-you-can-eat AI subscriptions and why PowerPoint generation is the place you'll notice token costs first — plus an interactive executive briefing dashboard on the CMO's AI decision.</description>
     </item>
 
     <item>
       <title>Special Issue #003: The Talent Paradox in Hyper-Growth — Why You Need Outsiders to Build the System and Insiders to Keep the Soul</title>
-      <link>https://willzhengai.github.io/the-ai-brief/issues/2026-05-17.html</link>
-      <guid>https://willzhengai.github.io/the-ai-brief/issues/2026-05-17.html</guid>
+      <link>https://purplepai.com/insights/issues/2026-05-17.html</link>
+      <guid>https://purplepai.com/insights/issues/2026-05-17.html</guid>
       <pubDate>Sun, 17 May 2026 12:00:00 +0000</pubDate>
       <description>Standalone deep dive on the org-design question scaling companies most often get wrong: when to hire executives from outside, when to promote from within. A portfolio-decision framework with a stage-by-stage map of who the company actually needs next.</description>
     </item>
 
     <item>
       <title>Issue #11: Claude Starts Dreaming, Anthropic Opens the Legal Stack — and How Enterprise HR Is Quietly Redesigning the Enterprise</title>
-      <link>https://willzhengai.github.io/the-ai-brief/issues/2026-05-16.html</link>
-      <guid>https://willzhengai.github.io/the-ai-brief/issues/2026-05-16.html</guid>
+      <link>https://purplepai.com/insights/issues/2026-05-16.html</link>
+      <guid>https://purplepai.com/insights/issues/2026-05-16.html</guid>
       <pubDate>Sat, 16 May 2026 12:00:00 +0000</pubDate>
       <description>Claude Managed Agents get a between-session memory-curation feature, Anthropic open-sources the legal vertical (12 plugins, 80+ agents) two weeks after finance — plus a deep-dive essay with an interactive dashboard on how enterprise HR is redesigning HR, the operating model, and the enterprise around AI.</description>
     </item>
 
     <item>
       <title>Issue #10 (Special Issue): Anthropic Open-Sources the Wall Street Analyst — and Why You Need to Find Your Katie</title>
-      <link>https://willzhengai.github.io/the-ai-brief/issues/2026-05-11.html</link>
-      <guid>https://willzhengai.github.io/the-ai-brief/issues/2026-05-11.html</guid>
+      <link>https://purplepai.com/insights/issues/2026-05-11.html</link>
+      <guid>https://purplepai.com/insights/issues/2026-05-11.html</guid>
       <pubDate>Mon, 11 May 2026 12:00:00 +0000</pubDate>
       <description>Going deep on the single most asked-about story this week: Anthropic's financial-services agent launch — 10 end-to-end agents, 11 licensed connectors, 16,500 GitHub stars in five days. Plus the Org essay "Finding Nemo" on the throughput-literate translator AI transformation actually needs.</description>
     </item>
 
     <item>
       <title>Issue #9: Single-Vendor Risk, Microsoft's Latest Brand Reshuffle, the Founder Exodus — and Why You Should Stop Asking AI to Make Better Slides</title>
-      <link>https://willzhengai.github.io/the-ai-brief/issues/2026-05-04.html</link>
-      <guid>https://willzhengai.github.io/the-ai-brief/issues/2026-05-04.html</guid>
+      <link>https://purplepai.com/insights/issues/2026-05-04.html</link>
+      <guid>https://purplepai.com/insights/issues/2026-05-04.html</guid>
       <pubDate>Mon, 04 May 2026 12:00:00 +0000</pubDate>
       <description>Opus 4.7 hallucinations expose single-vendor supply-chain risk, Microsoft launches Agent 365 (with another rebranding tax), the Big Tech founder exodus reshapes how AI companies get started — plus an essay on why most AI adoption is still stuck on the wrong question.</description>
     </item>
 
     <item>
       <title>Issue #8: Capital Flows, Workflow Agents — and Why Behavioral Coaching Is Still the Advisor's Moat</title>
-      <link>https://willzhengai.github.io/the-ai-brief/issues/2026-04-27.html</link>
-      <guid>https://willzhengai.github.io/the-ai-brief/issues/2026-04-27.html</guid>
+      <link>https://purplepai.com/insights/issues/2026-04-27.html</link>
+      <guid>https://purplepai.com/insights/issues/2026-04-27.html</guid>
       <pubDate>Mon, 27 Apr 2026 12:00:00 +0000</pubDate>
       <description>Google's $40B Anthropic deal and the Cigna CTO Cursor data point, Claude Design + Writer finally crack slides, ChatGPT Images 2.0 questions how much real photography you need, ChatGPT agents reshape the LangChain stack — plus a long essay on AI as behavioral coach and why behavioral coaching remains the advisor's moat.</description>
     </item>
 
     <item>
       <title>Issue #7: AI's Report Card Is In, Opus 4.7 Has Mixed Reviews, and What the First Emperor Can Teach You About Standardization</title>
-      <link>https://willzhengai.github.io/the-ai-brief/issues/2026-04-20.html</link>
-      <guid>https://willzhengai.github.io/the-ai-brief/issues/2026-04-20.html</guid>
+      <link>https://purplepai.com/insights/issues/2026-04-20.html</link>
+      <guid>https://purplepai.com/insights/issues/2026-04-20.html</guid>
       <pubDate>Mon, 20 Apr 2026 12:00:00 +0000</pubDate>
       <description>Stanford AI Index drops (50-84% of K-12 students use AI for schoolwork), JP Morgan's AI economics deck, Opus 4.7 ships with hallucination concerns, human scientists trounce AI agents, a lawyer gets suspended — and why Qin Shi Huang's 2,200-year-old lesson on centralization still holds.</description>
     </item>
 
     <item>
       <title>Issue #6: AI in Your Wallet, 12 Agents Nobody Talks To, and the 2,000-Year Org Chart Problem</title>
-      <link>https://willzhengai.github.io/the-ai-brief/issues/2026-04-13.html</link>
-      <guid>https://willzhengai.github.io/the-ai-brief/issues/2026-04-13.html</guid>
+      <link>https://purplepai.com/insights/issues/2026-04-13.html</link>
+      <guid>https://purplepai.com/insights/issues/2026-04-13.html</guid>
       <pubDate>Mon, 13 Apr 2026 12:00:00 +0000</pubDate>
       <description>Perplexity moves into financial advisory, 12 agents per enterprise but 50% siloed — and the history of hierarchy from Rome to railroads, what Dorsey gets right about AI dismantling it, and what he's overstating.</description>
     </item>
 
     <item>
       <title>Issue #5: The Next Models Are Coming, Agents Are Scaling — and None of It Matters Until You Rebuild the Process</title>
-      <link>https://willzhengai.github.io/the-ai-brief/issues/2026-04-06.html</link>
-      <guid>https://willzhengai.github.io/the-ai-brief/issues/2026-04-06.html</guid>
+      <link>https://purplepai.com/insights/issues/2026-04-06.html</link>
+      <guid>https://purplepai.com/insights/issues/2026-04-06.html</guid>
       <pubDate>Mon, 06 Apr 2026 12:00:00 +0000</pubDate>
       <description>GPT-5.5 Spud and Claude Mythos 5 are in the making, AI agents cross from pilot to production at scale, Microsoft Copilot Cowork goes GA — and why AI won't unlock its true power until you redesign the factory around it.</description>
     </item>
 
     <item>
       <title>Issue #4: Shutdowns, Power Struggles, and the Two-Boss Problem</title>
-      <link>https://willzhengai.github.io/the-ai-brief/issues/2026-03-29.html</link>
-      <guid>https://willzhengai.github.io/the-ai-brief/issues/2026-03-29.html</guid>
+      <link>https://purplepai.com/insights/issues/2026-03-29.html</link>
+      <guid>https://purplepai.com/insights/issues/2026-03-29.html</guid>
       <pubDate>Sun, 29 Mar 2026 12:00:00 +0000</pubDate>
       <description>OpenAI kills Sora ($15M/day burn), Claude fights OpenClaw with remote control, the White House frames AI policy, data centers face energy backlash, token costs exceed human workers — plus: why everyone has two bosses.</description>
     </item>
 
     <item>
       <title>Issue #3: Agents, Jobs, and the Productivity Puzzle</title>
-      <link>https://willzhengai.github.io/the-ai-brief/issues/2026-03-23.html</link>
-      <guid>https://willzhengai.github.io/the-ai-brief/issues/2026-03-23.html</guid>
+      <link>https://purplepai.com/insights/issues/2026-03-23.html</link>
+      <guid>https://purplepai.com/insights/issues/2026-03-23.html</guid>
       <pubDate>Mon, 23 Mar 2026 12:00:00 +0000</pubDate>
       <description>Jensen Huang declares AI agents the new OS, Karpathy's viral job map sparks backlash, the hard evidence on GenAI productivity tells a complicated story — and why your people are too loyal to you.</description>
     </item>
 
     <item>
       <title>Issue #2: Power, Profit, and Panic — AI's Most Turbulent Week Yet</title>
-      <link>https://willzhengai.github.io/the-ai-brief/issues/2026-03-14.html</link>
-      <guid>https://willzhengai.github.io/the-ai-brief/issues/2026-03-14.html</guid>
+      <link>https://purplepai.com/insights/issues/2026-03-14.html</link>
+      <guid>https://purplepai.com/insights/issues/2026-03-14.html</guid>
       <pubDate>Fri, 14 Mar 2026 12:00:00 +0000</pubDate>
       <description>GPT-5.4 brings AI to Excel with Wall Street data feeds, Google's Nano Banana 2 hits 650M users, the Pentagon blacklists Anthropic, and the AI consciousness debate erupts.</description>
     </item>
 
     <item>
       <title>Issue #1: The Race Heats Up — GPT-5 Benchmarks, EU AI Act Enforcement Begins</title>
-      <link>https://willzhengai.github.io/the-ai-brief/issues/2026-03-07.html</link>
-      <guid>https://willzhengai.github.io/the-ai-brief/issues/2026-03-07.html</guid>
+      <link>https://purplepai.com/insights/issues/2026-03-07.html</link>
+      <guid>https://purplepai.com/insights/issues/2026-03-07.html</guid>
       <pubDate>Fri, 07 Mar 2026 12:00:00 +0000</pubDate>
       <description>OpenAI's GPT-5 benchmarks leak early, the EU AI Act enters its enforcement phase, and the open-source community rallies around a surprising new contender.</description>
     </item>
 
     <item>
       <title>Special Issue #002: AI Headlines vs. Reality — Capability ≠ Impact</title>
-      <link>https://willzhengai.github.io/the-ai-brief/issues/2026-03-01.html</link>
-      <guid>https://willzhengai.github.io/the-ai-brief/issues/2026-03-01.html</guid>
+      <link>https://purplepai.com/insights/issues/2026-03-01.html</link>
+      <guid>https://purplepai.com/insights/issues/2026-03-01.html</guid>
       <pubDate>Sun, 01 Mar 2026 12:00:00 +0000</pubDate>
       <description>Block cuts half its workforce "because of AI," a viral scenario predicts a 38% market crash — but how much is signal and how much is narrative? Three takeaways on what the evidence actually says.</description>
     </item>
