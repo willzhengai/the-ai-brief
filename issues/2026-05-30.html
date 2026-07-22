@@ -102,8 +102,11 @@
     <div class="container">
       <a href="../index.html" class="site-logo">
         <svg viewBox="0 0 34 34" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="17" cy="17" r="14" fill="none" stroke="#4E2A84" stroke-width="4"/>
-          <path d="M17,17 L17,5 A12,12 0 0,1 26.19,24.71 Z" fill="#4E2A84"/>
+          <mask id="pai-notch">
+            <rect width="34" height="34" fill="#FFFFFF"/>
+            <path d="M17,1 A16,16 0 0,1 26.18,3.89 L22.16,9.63 A9,9 0 0,0 17,8 Z" fill="#000000"/>
+          </mask>
+          <circle cx="17" cy="17" r="12.5" fill="none" stroke="#4E2A84" stroke-width="7" mask="url(#pai-notch)"/>
         </svg>
         AI &amp; Org, Curated
       </a>
