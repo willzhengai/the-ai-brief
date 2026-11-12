@@ -61,8 +61,21 @@
     <section class="curated-links">
       <h2>This Week's Top Stories</h2>
 
+      <!--
+        TOPIC TAGS: every piece (story, briefing, tool callout) gets
+          id="short-unique-slug" data-topic="TOPIC"
+        where TOPIC is one of:
+          ai-news            AI News
+          change-management  AI Change Management
+          workplace-trends   AI Trends in the Workplace
+          misc-tools         Misc. & AI Tools
+        The topic pages (topics/*.html) are rebuilt from these tags on every deploy.
+        Title = first <h3>/<h4> inside the piece; summary = first <p> after it.
+        Override either with data-title="..." / data-summary="...".
+      -->
+
       <!-- Link Item 1 -->
-      <article class="link-item">
+      <article class="link-item" id="LINK_SLUG" data-topic="TOPIC">
         <div class="link-item-header">
           <h3><a href="LINK_URL" target="_blank" rel="noopener">LINK_TITLE</a></h3>
           <span class="source-badge">SOURCE_NAME</span>
@@ -72,7 +85,7 @@
       </article>
 
       <!-- Link Item 2 -->
-      <article class="link-item">
+      <article class="link-item" id="LINK_SLUG" data-topic="TOPIC">
         <div class="link-item-header">
           <h3><a href="LINK_URL" target="_blank" rel="noopener">LINK_TITLE</a></h3>
           <span class="source-badge">SOURCE_NAME</span>

@@ -1,0 +1,8 @@
+{
+  "name": "the-ai-brief",
+  "private": true,
+  "description": "Static site. The only build step generates the browse-by-topic pages.",
+  "scripts": {
+    "build": "node scripts/build-topics.js"
+  }
+}

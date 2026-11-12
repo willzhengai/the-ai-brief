@@ -147,6 +147,43 @@ img {
   font-size: 1.1rem;
 }
 
+/* ===== Topic Tabs (By Issue / by topic) ===== */
+.topic-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0 0 1.5rem;
+}
+
+.topic-tabs a {
+  padding: 0.4rem 0.75rem;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.topic-tabs a:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+.topic-tabs a.active {
+  background: var(--color-text);
+  border-color: var(--color-text);
+  color: var(--color-bg);
+}
+
+/* Topic-page links land on a tagged piece; keep it clear of the sticky header. */
+[data-topic] {
+  scroll-margin-top: calc(var(--header-height) + 1rem);
+}
+
 /* ===== Search ===== */
 .search-bar {
   padding: 0 0 2rem;
