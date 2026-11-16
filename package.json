@@ -1,8 +1,8 @@
 {
   "name": "the-ai-brief",
   "private": true,
-  "description": "Static site. The only build step generates the browse-by-topic pages.",
+  "description": "Static site. The build generates the browse-by-topic pages, standalone article pages, SEO tags and the sitemap.",
   "scripts": {
-    "build": "node scripts/build-topics.js"
+    "build": "node scripts/build-topics.js && node scripts/build-seo.js"
   }
 }

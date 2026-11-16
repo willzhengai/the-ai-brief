@@ -5,124 +5,17 @@
 // carrying data-topic="<key>" is one piece (a story, a briefing, a tool callout).
 // Its title is data-title, else its own text if it is a heading, else the first
 // <h3>/<h4> inside it. Its summary is data-summary, else the first <p> after the
-// title. Its id becomes the anchor the topic page links to.
+// title. The topic page links to the piece's standalone article (articles/<id>.html,
+// written by build-seo.js), or to its anchor in the issue when the piece is too short
+// to stand alone.
 //
 // Runs on every Vercel deploy (npm run build), so tagging a new issue is enough.
 
 const fs = require('fs');
 const path = require('path');
+const { ROOT, TOPICS, escape, parseIssue, issueFiles } = require('./issues');
 
-const ROOT = path.join(__dirname, '..');
-const ISSUES_DIR = path.join(ROOT, 'issues');
 const OUT_DIR = path.join(ROOT, 'topics');
-
-const TOPICS = [
-  {
-    key: 'ai-news',
-    label: 'AI News',
-    blurb: 'The developments that matter — model releases, product launches, deals, and policy, curated and explained.',
-  },
-  {
-    key: 'change-management',
-    label: 'AI Change Management',
-    blurb: 'How organizations actually adopt AI — operating models, org design, stakeholder framing, and transformation playbooks.',
-  },
-  {
-    key: 'workplace-trends',
-    label: 'AI Trends in the Workplace',
-    blurb: 'What the evidence says about AI at work — productivity, jobs, adoption data, and how roles are changing.',
-  },
-  {
-    key: 'misc-tools',
-    label: 'Misc. & AI Tools',
-    blurb: 'Hands-on tool walkthroughs, AI explainers, and the occasional detour worth sharing.',
-  },
-];
-const TOPIC_KEYS = new Set(TOPICS.map((t) => t.key));
-
-const ENTITIES = { amp: '&', lt: '<', gt: '>', quot: '"', apos: "'", nbsp: ' ', ne: '≠', mdash: '—', ndash: '–', middot: '·', rarr: '→', larr: '←', hellip: '…', times: '×', rsquo: '’', lsquo: '‘', rdquo: '”', ldquo: '“' };
-
-function decode(s) {
-  return s
-    .replace(/&#x([0-9a-f]+);/gi, (_, h) => String.fromCodePoint(parseInt(h, 16)))
-    .replace(/&#(\d+);/g, (_, d) => String.fromCodePoint(parseInt(d, 10)))
-    .replace(/&([a-z]+);/gi, (m, n) => (n in ENTITIES ? ENTITIES[n] : m));
-}
-
-function escape(s) {
-  return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
-}
-
-function text(html) {
-  return decode(html.replace(/<[^>]+>/g, ' ')).replace(/\s+/g, ' ').trim();
-}
-
-function truncate(s, max) {
-  if (s.length <= max) return s;
-  const cut = s.slice(0, max);
-  return cut.slice(0, cut.lastIndexOf(' ')).replace(/[,;:—–-]$/, '') + '…';
-}
-
-function attr(attrs, name) {
-  const m = attrs.match(new RegExp('\\b' + name + '="([^"]*)"'));
-  return m ? m[1] : null;
-}
-
-function parseIssue(file) {
-  const html = fs.readFileSync(path.join(ISSUES_DIR, file), 'utf8');
-  const meta = html.match(/<div class="issue-meta">\s*<span class="issue-number">([^<]*)<\/span>\s*<span>([^<]*)<\/span>/);
-  const issue = {
-    file,
-    number: meta ? text(meta[1]) : file.replace('.html', ''),
-    date: meta ? text(meta[2]) : file.replace('.html', ''),
-  };
-
-  const pieces = [];
-  const tagRe = /<([a-z][a-z0-9]*)\b([^>]*\bdata-topic="([^"]+)"[^>]*)>/gi;
-  let m;
-  while ((m = tagRe.exec(html))) {
-    const [, tag, attrs, topic] = m;
-    const after = m.index + m[0].length;
-
-    if (!TOPIC_KEYS.has(topic)) {
-      console.warn(`warn: ${file}: unknown data-topic "${topic}" — skipped`);
-      continue;
-    }
-
-    let title = attr(attrs, 'data-title');
-    let titleEnd = after;
-    if (!title && /^h[1-6]$/i.test(tag)) {
-      const close = html.indexOf(`</${tag}>`, after);
-      title = html.slice(after, close);
-      titleEnd = close;
-    }
-    if (!title) {
-      const h = /<(h3|h4)\b[^>]*>([\s\S]*?)<\/\1>/i.exec(html.slice(after));
-      if (h) {
-        title = h[2];
-        titleEnd = after + h.index + h[0].length;
-      }
-    }
-
-    let summary = attr(attrs, 'data-summary');
-    if (!summary) {
-      const p = /<p\b[^>]*>([\s\S]*?)<\/p>/i.exec(html.slice(titleEnd));
-      summary = p ? p[1] : '';
-    }
-
-    const id = attr(attrs, 'id');
-    if (!id) console.warn(`warn: ${file}: piece "${text(title || '')}" has no id — will link to top of issue`);
-
-    pieces.push({
-      topic,
-      id,
-      title: text(title || issue.number),
-      summary: truncate(text(summary), 260),
-    });
-  }
-
-  return { issue, pieces };
-}
 
 function page(topic, entries) {
   const tabs = [
@@ -132,7 +25,7 @@ function page(topic, entries) {
 
   const items = entries
     .map(({ issue, piece }) => {
-      const href = `../issues/${issue.file}${piece.id ? '#' + piece.id : ''}`;
+      const href = piece.standalone ? `../articles/${piece.id}.html` : `../issues/${issue.file}${piece.id ? '#' + piece.id : ''}`;
       return `      <li>
         <a href="${href}" class="issue-card">
           <div class="issue-meta">
@@ -235,11 +128,7 @@ ${items}
 }
 
 function main() {
-  const files = fs
-    .readdirSync(ISSUES_DIR)
-    .filter((f) => /^\d{4}-\d{2}-\d{2}\.html$/.test(f))
-    .sort()
-    .reverse();
+  const files = issueFiles();
 
   const byTopic = Object.fromEntries(TOPICS.map((t) => [t.key, []]));
   for (const file of files) {

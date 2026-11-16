@@ -25,10 +25,11 @@ To publish a new issue:
 4. **Update `feed.xml`**
    - Add a new `<item>` entry at the top of the channel
 
-5. **Rebuild the topic pages** (optional locally; Vercel runs this on every deploy)
+5. **Rebuild the generated pages** (optional locally; Vercel runs this on every deploy)
    ```
    npm run build
    ```
+   Keep the issue's `<title>` to about 60 characters (search engines cut it off there); the full headline belongs in the `<h1>`.
 
 6. **Commit and push**
    ```
@@ -49,6 +50,17 @@ Besides the by-date issue list, Insights has four topic views generated from the
 | `misc-tools` | Misc. & AI Tools |
 
 Title comes from the first `<h3>`/`<h4>` in the piece (or the tag itself if it's a heading); summary is the first `<p>` after the title. Override either with `data-title="..."` / `data-summary="..."`.
+
+## Search and AI-engine plumbing
+
+`scripts/build-seo.js` runs after the topic build and needs no per-issue work:
+
+- **Standalone articles.** Every tagged piece of 150 words or more gets its own page at `articles/<id>.html`, with a byline, breadcrumb, and links to related pieces. Shorter link blurbs stay inside their issue. The `id` is the URL, so do not change an `id` after publishing.
+- **Head tags.** A canonical URL (always `https://purplepai.com/insights/...`), Open Graph and Twitter tags, and JSON-LD are written into every page between `<!-- seo:start -->` and `<!-- seo:end -->`.
+- **Issue pages** get a list of their standalone articles above the issue nav, between `<!-- seo:toc:start -->` and `<!-- seo:toc:end -->`.
+- **`sitemap.xml`** lists every indexable page. `robots.txt` lives in the PurplePAI-Website repo, since it has to sit at the domain root, and points here.
+
+Do not edit inside the `seo:` markers or in `articles/`; both are rewritten on every build. The author and publisher details are constants at the top of `scripts/build-seo.js`.
 
 ## Category Tags
 
